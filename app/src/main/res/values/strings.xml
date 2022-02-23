@@ -28,4 +28,8 @@
     <string name="welcome_message">¡Adiós a las complicaciones!</string>
     <string name="create_account">Crear Cuenta</string>
     <string name="welcome2">Usa el dinero a TU manera</string>
+    <string name="waiting_transaction">Espera un momento, estamos procesando tu transacción</string>
+    <string name="successful_transaction">Tu transacción ha sido finalizada</string>
+    <string name="go_back_home">Volver a Inicio</string>
+    <string name="successfulAdded_contact">Tu contacto fue agregado con éxito</string>
 </resources>
