@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">bankodemia</string>
+    <string name="hind_mail">Correo</string>
+    <string name="login">Iniciar Sesión</string>
+    <string name="mail">Escribe tu correo</string>
+    <string name="password">Escribe tu contraseña</string>
+    <string name="instructions_login">Escribe el correo y teléfono con el que te registraste, a través de estos te enviaremos el acceso</string>
+    <string name="need_help">¿Necesitas ayuda? Escríbenos a</string>
+    <string name="bankodemia_mail">bankodemia@com.mx</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="account_information">Aquí recibirás comprobantes de tus movimientos e información sobre tu cuenta</string>
+    <string name="information_privacy_notice">Al tocar continuar, aceptas nuestro</string>
+    <string name="privacy_notice">Aviso de privacidad</string>
+    <string name="continue_b">Continuar</string>
+    <string name="enter_data">Ingresa tus datos</string>
+    <string name="instructions_data">Escríbelos tal como aparecen en tu identificación oficial sin abreviaturas</string>
+    <string name="announcement_consent">Nunca la usaremos sin tu consentimiento.</string>
+    <string name="announcement_identity">Esta información es necesaria para verificar tu identidad.</string>
+    <string name="name">Nombre(s)</string>
+    <string name="last_name">Apellido(s)</string>
+    <string name="occupation">Ocupación</string>
+    <string name="birthday">Fecha de nacimiento</string>
+    <string name="instructions_telephone">Escribe tu teléfono</string>
+    <string name="hind_telephone">Tú número de celular</string>
+    <string name="instructions_telephone_textinput">Lo usarás para iniciar sesión</string>
+    <string name="instructions_send_sms">Para proteger tu cuenta, te enviaremos un código vía SMS.</string>
+    <string name="welcome_message">¡Adiós a las complicaciones!</string>
+    <string name="create_account">Crear Cuenta</string>
+    <string name="welcome2">Usa el dinero a TU manera</string>
+</resources>
