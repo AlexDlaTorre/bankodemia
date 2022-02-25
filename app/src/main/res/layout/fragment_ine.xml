@@ -4,58 +4,60 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ConfirmationFragment">
+    tools:context=".IneFragment">
 
     <ImageView
-        android:id="@+id/confirmationIvLogo"
+        android:id="@+id/ineIvLogo"
         android:layout_width="70dp"
         android:layout_height="40dp"
         android:layout_marginStart="42dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="42dp"
         android:contentDescription="@null"
-        android:src="@drawable/logo"
+        android:scaleType="centerInside"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
 
-    <ImageView
-        android:id="@+id/confirmationIvSending"
+    <Button
+        android:id="@+id/ineBtnBackToIdentityMenu"
+        style="@style/Widget.Material3.Button.TextButton.Icon"
         android:layout_width="0dp"
-        android:layout_height="162dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="24dp"
-        android:contentDescription="@null"
-        android:src="@drawable/senddata"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:fontFamily="@font/poppins"
+        android:text="@string/ine"
+        android:textSize="14sp"
+        app:icon="@drawable/ic_arrow_back"
+        app:layout_constraintBottom_toTopOf="@+id/ineTvInstructionsIne"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/confirmationIvLogo" />
+        tools:ignore="DuplicateSpeakableTextCheck" />
 
     <TextView
-        android:id="@+id/confirmationTvNotice"
+        android:id="@+id/ineTvInstructionsIne"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
+        android:layout_marginTop="80dp"
         android:layout_marginEnd="24dp"
-        android:layout_marginTop="24dp"
-        android:textAlignment="center"
         android:fontFamily="@font/poppins"
-        android:text="@string/confirmation"
+        android:text="@string/ineInstructions"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/confirmationIvSending" />
+        app:layout_constraintTop_toBottomOf="@+id/ineIvLogo" />
 
     <Button
-        android:id="@+id/confirmationBtnBackToMain"
+        android:id="@+id/ineBtnUploadInfo"
         style="@style/Widget.Material3.Button.ElevatedButton"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="39dp"
         android:fontFamily="@font/poppins"
-        android:text="@string/go_back_home"
+        android:text="@string/uploadInformation"
         android:textColor="@color/white"
         android:textSize="16sp"
         app:backgroundTint="@color/blue"
@@ -63,18 +65,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="TextContrastCheck" />
-
-    <TextView
-        android:id="@+id/confirmationTvThanks"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:fontFamily="@font/poppins"
-        android:text="@string/thanks"
-        android:textColor="@color/purple_500"
-        app:layout_constraintEnd_toEndOf="@+id/confirmationTvNotice"
-        app:layout_constraintStart_toStartOf="@+id/confirmationTvNotice"
-        app:layout_constraintTop_toBottomOf="@+id/confirmationTvNotice" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

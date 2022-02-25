@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".IdentityMenuFragment">
+
+    <ImageView
+        android:id="@+id/identityMenuIvLogo"
+        android:layout_width="70dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="42dp"
+        android:contentDescription="@null"
+        android:scaleType="centerInside"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+
+    <Button
+        android:id="@+id/identityMenuBtnBackToIdentity"
+        style="@style/Widget.Material3.Button.TextButton.Icon"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:fontFamily="@font/poppins"
+        android:text="@string/identity"
+        android:textSize="14sp"
+        app:icon="@drawable/ic_arrow_back"
+        app:layout_constraintBottom_toTopOf="@+id/identityMenuTvIdentityMenuInstructions"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="DuplicateSpeakableTextCheck" />
+
+    <TextView
+        android:id="@+id/identityMenuTvIdentityMenuInstructions"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="24dp"
+        android:textStyle="bold"
+        android:fontFamily="@font/poppins"
+        android:text="@string/identityMenuInstructions"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/identityMenuIvLogo" />
+
+    <TextView
+        android:id="@+id/identityMenuTvknown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins"
+        android:text="@string/known"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/identityMenuTvDocumentProtection"
+        app:layout_constraintHorizontal_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/identityMenuTvDocumentProtection"
+        android:layout_width="251dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginBottom="36dp"
+        android:fontFamily="@font/poppins"
+        android:text="@string/documentProtection"
+        android:textColor="@color/purple_500"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/identityMenuTvknown" />
+
+    <androidx.constraintlayout.helper.widget.Flow
+        android:id="@+id/flow2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="36dp"
+        app:constraint_referenced_ids="identityMenuTvknown,identityMenuTvDocumentProtection"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/identityMenuBtnIne"
+        style="@style/Widget.Material3.Button.TextButton.Icon"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/poppins"
+        android:text="@string/ine"
+        android:textAlignment="viewStart"
+        android:textSize="14sp"
+        app:iconGravity="end"
+        app:icon="@drawable/ic_arrow_forward"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/identityMenuTvIdentityMenuInstructions" />
+
+    <Button
+        android:id="@+id/identityMenuBtnDocument"
+        style="@style/Widget.Material3.Button.TextButton.Icon"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/poppins"
+        android:text="@string/migratoryDocument"
+        android:textAlignment="viewStart"
+        android:textSize="14sp"
+        app:icon="@drawable/ic_arrow_forward"
+        app:iconGravity="end"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/identityMenuBtnIne" />
+
+    <Button
+        android:id="@+id/identityMenuBtnPassport"
+        style="@style/Widget.Material3.Button.TextButton.Icon"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/poppins"
+        android:text="@string/passport"
+        android:textAlignment="viewStart"
+        android:textSize="14sp"
+        app:icon="@drawable/ic_arrow_forward"
+        app:iconGravity="end"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/identityMenuBtnDocument" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
