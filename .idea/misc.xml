@@ -10,8 +10,13 @@
         <entry key="..\:/Users/pablo/AndroidStudioProjects/bankodemia/app/src/main/res/layout/fragment_confirmation.xml" value="0.33" />
         <entry key="..\:/Users/pablo/AndroidStudioProjects/bankodemia/app/src/main/res/layout/fragment_contact_added.xml" value="0.1675929884566054" />
         <entry key="..\:/Users/pablo/AndroidStudioProjects/bankodemia/app/src/main/res/layout/fragment_create_account.xml" value="0.25" />
-        <entry key="..\:/Users/pablo/AndroidStudioProjects/bankodemia/app/src/main/res/layout/fragment_data.xml" value="0.13025210084033614" />
-        <entry key="..\:/Users/pablo/AndroidStudioProjects/bankodemia/app/src/main/res/layout/fragment_login.xml" value="0.1675929884566054" />
+        <entry key="..\:/Users/pablo/AndroidStudioProjects/bankodemia/app/src/main/res/layout/fragment_data.xml" value="0.25" />
+        <entry key="..\:/Users/pablo/AndroidStudioProjects/bankodemia/app/src/main/res/layout/fragment_identity.xml" value="0.1675929884566054" />
+        <entry key="..\:/Users/pablo/AndroidStudioProjects/bankodemia/app/src/main/res/layout/fragment_identity_menu.xml" value="0.33" />
+        <entry key="..\:/Users/pablo/AndroidStudioProjects/bankodemia/app/src/main/res/layout/fragment_ine.xml" value="0.10504201680672269" />
+        <entry key="..\:/Users/pablo/AndroidStudioProjects/bankodemia/app/src/main/res/layout/fragment_login.xml" value="0.25" />
+        <entry key="..\:/Users/pablo/AndroidStudioProjects/bankodemia/app/src/main/res/layout/fragment_migratory.xml" value="0.13812154696132597" />
+        <entry key="..\:/Users/pablo/AndroidStudioProjects/bankodemia/app/src/main/res/layout/fragment_passport.xml" value="0.25" />
         <entry key="..\:/Users/pablo/AndroidStudioProjects/bankodemia/app/src/main/res/layout/fragment_password.xml" value="0.25" />
         <entry key="..\:/Users/pablo/AndroidStudioProjects/bankodemia/app/src/main/res/layout/fragment_processing_transaction.xml" value="0.25" />
         <entry key="..\:/Users/pablo/AndroidStudioProjects/bankodemia/app/src/main/res/layout/fragment_sending_data.xml" value="0.1675929884566054" />

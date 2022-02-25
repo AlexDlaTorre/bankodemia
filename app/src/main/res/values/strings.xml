@@ -40,4 +40,18 @@
     <string name="create_password">Crear Contraseña</string>
     <string name="confirm_password">Confirma tu contraseña</string>
     <string name="instractions_safe_password">Crea una contraseña segura</string>
+    <string name="identity">Identidad</string>
+    <string name="identityInstructions">Deberás subir una fotografía de tu INE o pasaporte vigente y tomarte una selfie. Si eres extranjero necesitarás una fotografía de tu documento migratorio (FM3)</string>
+    <string name="identityInstructionsTitle">Ahora, vamos a verificar tu identidad para proteger tu cuenta.</string>
+    <string name="understood">Entendido</string>
+    <string name="identityMenuInstructions">Seleccionado el tipo de documento que deseas fotografiar</string>
+    <string name="known">Conoce</string>
+    <string name="documentProtection">cómo protegemos tus documentos</string>
+    <string name="ine">INE</string>
+    <string name="migratoryDocument">Documento Migratorio</string>
+    <string name="passport">Pasaporte</string>
+    <string name="ineInstructions">Dale permiso a Bankodemia para utilizar la cámara. Asegúrate de tener buena luz y enfocar bien tu documento de frente.</string>
+    <string name="uploadInformation">Subir Información</string>
+    <string name="documentMigratory">Documento Migratorio</string>
+    <string name="confirmPassword">Confirma tu contraseña</string>
 </resources>
