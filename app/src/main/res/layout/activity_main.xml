@@ -38,16 +38,14 @@
                 android:id="@+id/mainTvWelcome"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
                 android:layout_marginTop="45dp"
-                android:layout_marginEnd="24dp"
-                android:textSize="16sp"
                 android:fontFamily="@font/poppins"
                 android:text="@string/welcome_message"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/mainIvLogo"
+                app:layout_constraintStart_toStartOf="@+id/mainIvLogo"
                 app:layout_constraintTop_toBottomOf="@+id/mainIvLogo" />
 
             <Button
