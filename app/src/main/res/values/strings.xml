@@ -68,4 +68,21 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="available_money">DINERO DISPONIBLE</string>
+    <string name="available_money_amount">$ s%</string>
+    <string name="send">Enviar</string>
+    <string name="receive">Recibir</string>
+    <string name="date_and_time">FECHA Y HORA</string>
+    <string name="transaction_id">ID DE TRANSACCIÒN</string>
+    <string name="concept">CONCEPTO</string>
+    <string name="issuer_account">CUENTA EMISORA</string>
+    <string name="account_number">Nùmero de cuenta</string>
+    <string name="transaction_detail">Detalle de transacciòn</string>
+    <string name="user_information">User Information</string>
+    <string name="user_information">User Information</string>
+    <string name="send_money">Enviar Dinero</string>
+    <string name="transfer">Transferencia</string>
+    <string name="quantity">CANTIDAD</string>
+    <string name="pay_concept">CONCEPTO DE PAGO</string>
+    <string name="send_to">ENVIAR A</string>
 </resources>
