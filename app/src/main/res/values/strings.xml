@@ -85,4 +85,10 @@
     <string name="quantity">CANTIDAD</string>
     <string name="pay_concept">CONCEPTO DE PAGO</string>
     <string name="send_to">ENVIAR A</string>
+    <string name="add_contact">Agregar contacto</string>
+    <string name="digits">18 dìgitos</string>
+    <string name="card">Tarjeta</string>
+    <string name="clabe">CLABE</string>
+    <string name="institution">Institución</string>
+    <string name="notification_mail">Correo de notificación</string>
 </resources>
