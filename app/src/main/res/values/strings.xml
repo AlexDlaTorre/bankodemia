@@ -91,4 +91,23 @@
     <string name="clabe">CLABE</string>
     <string name="institution">Institución</string>
     <string name="notification_mail">Correo de notificación</string>
+    <string name="card_capital">TARJETA</string>
+    <string name="card_number">N° de Tarjeta</string>
+    <string name="validity">Vigencia</string>
+    <string name="cvv">CVV</string>
+    <string name="mastercard">MasterCard</string>
+    <string name="services">SERVICIOS</string>
+    <string name="recharge_cell">Recarga de celular</string>
+    <string name="recharge_providers">Telcel, ATT, Movistar</string>
+    <string name="mobil_plan">Plan Móvil</string>
+    <string name="mobil_providers">Telcel, ATT, Movistar</string>
+    <string name="internet_tv_telephone">Internet/TV/Teléfono</string>
+    <string name="internet_providers">Telmex, Izzi, TotalPlay</string>
+    <string name="gas">Gas</string>
+    <string name="gas_providers">Naturgy y Compañía Mexicana</string>
+    <string name="credit_cards">Tarjetas de crédito</string>
+    <string name="card_providers">BBVA, Santander, Banorte, Banamex</string>
+    <string name="stores">Tiendas departamentales</string>
+    <string name="stores_names">Liverpool, Sears, Palacio de Hierro</string>
+    <string name="zero">$ 0.00</string>
 </resources>
