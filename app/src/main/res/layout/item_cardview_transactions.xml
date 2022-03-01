@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/itemTransactionsCvTransactions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:cardElevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/itemTransactionsTvDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/creamy"
+            android:fontFamily="@font/poppins"
+            tools:ignore="TextContrastCheck"
+            tools:text="      25 DE ENERO 2022" />
+
+        <TextView
+            android:id="@+id/itemTransactionsTvConcept"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="44dp"
+            android:fontFamily="@font/poppins"
+            android:textStyle="bold"
+            tools:text="Fondeo Bienvenida" />
+
+        <TextView
+            android:id="@+id/itemTransactionsTvTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginBottom="24dp"
+            android:fontFamily="@font/poppins"
+            tools:text="7:18" />
+
+        <TextView
+            android:id="@+id/itemTransactionsTvAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|end"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="24dp"
+            android:fontFamily="@font/poppins"
+            android:textColor="@color/blue"
+            tools:ignore="TextContrastCheck"
+            tools:text="+ $ 50.00" />
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

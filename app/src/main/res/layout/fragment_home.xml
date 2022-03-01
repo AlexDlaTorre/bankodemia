@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.home.HomeFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/homeIvLogo"
+                android:layout_width="70dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="42dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="42dp"
+                android:contentDescription="@null"
+                android:scaleType="centerInside"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/logo" />
+
+            <Button
+                android:id="@+id/homeBtnToUserInfo"
+                style="@style/Widget.Material3.Button.TextButton.Icon"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginStart="24dp"
+                android:textSize="14sp"
+                app:icon="@drawable/ic_person"
+                app:layout_constraintBottom_toBottomOf="@+id/homeIvLogo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/homeIvLogo"
+                tools:ignore="DuplicateSpeakableTextCheck,SpeakableTextPresentCheck" />
+
+            <Button
+                android:id="@+id/homeBtnInfo"
+                style="@style/Widget.Material3.Button.TextButton.Icon"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginEnd="32dp"
+                app:icon="@drawable/ic_help"
+                app:iconGravity="end"
+                app:layout_constraintBottom_toBottomOf="@+id/homeIvLogo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/homeIvLogo"
+                app:layout_constraintVertical_bias="1.0"
+                tools:ignore="DuplicateSpeakableTextCheck,SpeakableTextPresentCheck" />
+
+            <TextView
+                android:id="@+id/homeTvAvailableMoney"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginBottom="24dp"
+                android:fontFamily="@font/poppins"
+                android:text="@string/available_money"
+                app:layout_constraintBottom_toTopOf="@+id/hometvAvailableMoneyAmount"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/homeBtnReceive"
+                style="@style/Widget.MaterialComponents.Button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="50dp"
+                android:fontFamily="@font/poppins"
+                android:text="@string/receive"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:backgroundTint="@color/blue"
+                app:layout_constraintEnd_toEndOf="@+id/hometvAvailableMoneyAmount"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/homeBtnSend"
+                app:layout_constraintTop_toBottomOf="@+id/hometvAvailableMoneyAmount"
+                tools:ignore="TextContrastCheck" />
+
+            <Button
+                android:id="@+id/homeBtnSend"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/poppins"
+                android:text="@string/send"
+                android:textColor="@color/blue"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toStartOf="@+id/homeBtnReceive"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/hometvAvailableMoneyAmount"
+                app:layout_constraintTop_toBottomOf="@+id/hometvAvailableMoneyAmount"
+                app:strokeColor="@color/blue"
+                app:strokeWidth="2dp"
+                tools:ignore="TextContrastCheck" />
+
+
+            <TextView
+                android:id="@+id/hometvAvailableMoneyAmount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="80dp"
+                android:layout_marginEnd="24dp"
+                android:textAlignment="center"
+                android:fontFamily="@font/poppins"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/homeIvLogo"
+                tools:text="$ s%" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/homeRvTransactions"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/homeBtnReceive" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
