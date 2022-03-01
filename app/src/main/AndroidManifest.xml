@@ -10,6 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Bankodemia">
         <activity
+            android:name=".UI.View.MainActivity"
             android:name=".HomeActivity"
             android:exported="false"
             android:label="@string/title_activity_home"
