@@ -1,4 +1,4 @@
-package com.example.bankodemia.UI.View
+package com.example.bankodemia.ui.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

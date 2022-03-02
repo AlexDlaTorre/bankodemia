@@ -11,4 +11,5 @@
     <color name="purple">#7B78EA</color>
     <color name="gray_input">#626262</color>
     <color name="creamy">#ffedee</color>
+    <color name="light_gray_inactive">#BABABA</color>
 </resources>
