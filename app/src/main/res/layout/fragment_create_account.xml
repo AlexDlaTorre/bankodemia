@@ -73,21 +73,6 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                app:errorEnabled="true"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                app:layout_constraintEnd_toEndOf="@+id/createAccountTilMail"
-                app:layout_constraintStart_toStartOf="@+id/createAccountTilMail"
-                app:layout_constraintTop_toBottomOf="@+id/createAccountTilMail">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:inputType="text"/>
-            </com.google.android.material.textfield.TextInputLayout>
-
             <TextView
                 android:id="@+id/createAccountTvInstructionsCreateAccount"
                 android:layout_width="0dp"

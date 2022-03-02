@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UI.View.LoginFragment">
+    tools:context=".ui.view.LoginFragment">
 
     <ScrollView
         android:layout_width="0dp"
@@ -54,7 +54,6 @@
                 android:layout_marginTop="45dp"
                 android:layout_marginEnd="24dp"
                 android:fontFamily="@font/poppins"
-                android:hint="@string/mail"
                 android:textColorHint="@color/gray_input"
                 app:boxStrokeColor="@color/blue"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -82,7 +81,6 @@
                 android:layout_marginTop="45dp"
                 android:layout_marginEnd="24dp"
                 android:fontFamily="@font/poppins"
-                android:hint="@string/password"
                 android:textColorHint="@color/gray_input"
                 app:boxStrokeColor="@color/blue"
                 app:endIconMode="password_toggle"
@@ -152,11 +150,12 @@
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="24dp"
                 android:layout_marginBottom="39dp"
+                android:enabled="false"
                 android:fontFamily="@font/poppins"
                 android:text="@string/login"
                 android:textColor="@color/white"
                 android:textSize="16sp"
-                app:backgroundTint="@color/blue"
+                app:backgroundTint="@color/light_gray_inactive"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
