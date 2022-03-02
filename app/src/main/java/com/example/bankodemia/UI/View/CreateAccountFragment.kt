@@ -32,12 +32,12 @@ class CreateAccountFragment : Fragment() {
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
 
             override fun afterTextChanged(editText: Editable?) {
-                val correo = binding.createAccountTietMail.text.toString()
+                val mail = binding.createAccountTietMail.text.toString()
 
-                val errorStr = if (correo.isEmpty()) {
+                val errorStr = if (mail.isEmpty()) {
                     "Campo Requerido"
-                } else if (!validateMail(correo)) {
-                    "Correo no valido"
+                } else if (!validateMail(mail)) {
+                    "mail no valido"
                 } else {
                     null
                 }
