@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginFragment">
+    tools:context=".UI.View.LoginFragment">
 
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -18,12 +18,12 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="24dp"
+                android:id="@+id/loginIvLogo"
+                android:layout_width="70dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="42dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="42dp"
                 android:contentDescription="@null"
                 android:scaleType="centerInside"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -32,7 +32,7 @@
                 app:srcCompat="@drawable/logo" />
 
             <Button
-                android:id="@+id/elevatedButtonMainActivity"
+                android:id="@+id/LoginBtnBackToMain"
                 style="@style/Widget.Material3.Button.TextButton.Icon"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -41,11 +41,12 @@
                 android:text="@string/login"
                 android:textSize="14sp"
                 app:icon="@drawable/ic_arrow_back"
-                app:layout_constraintBottom_toTopOf="@+id/textView2"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintBottom_toTopOf="@+id/loginTvLoginInstructions"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="DuplicateSpeakableTextCheck" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textFieldMail"
+                android:id="@+id/loginTfMail"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -58,20 +59,22 @@
                 app:boxStrokeColor="@color/blue"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView2">
+                app:layout_constraintTop_toBottomOf="@+id/loginTvLoginInstructions">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/passwordFragmentEditTextPassword"
+                    android:id="@+id/loginEtMail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
+                    android:hint="@string/mail"
                     android:inputType="textEmailAddress"
-                    android:textColor="@color/gray_input" />
+                    android:textColor="@color/gray_input"
+                    tools:ignore="TextContrastCheck" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textFieldPassword"
+                android:id="@+id/loginTtPassword"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -85,20 +88,22 @@
                 app:endIconMode="password_toggle"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textFieldMail">
+                app:layout_constraintTop_toBottomOf="@+id/loginTfMail">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/editTextPassword"
+                    android:id="@+id/loginEtPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
+                    android:hint="@string/password"
                     android:inputType="textPassword"
-                    android:textColor="@color/gray_input" />
+                    android:textColor="@color/gray_input"
+                    tools:ignore="TextContrastCheck" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/loginTvLoginInstructions"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
@@ -109,10 +114,10 @@
                 android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView" />
+                app:layout_constraintTop_toBottomOf="@+id/loginIvLogo" />
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/loginTvInstructionsHelp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
@@ -123,10 +128,10 @@
                 android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textFieldPassword" />
+                app:layout_constraintTop_toBottomOf="@+id/loginTtPassword" />
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/loginTvBankodemiaMail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
@@ -136,24 +141,27 @@
                 android:textColor="@color/purple_500"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView3" />
+                app:layout_constraintTop_toBottomOf="@+id/loginTvInstructionsHelp" />
 
             <Button
-                android:id="@+id/buttonLogin"
+                android:id="@+id/loginBtnLogin"
                 style="@style/Widget.Material3.Button.ElevatedButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="24dp"
+                android:layout_marginBottom="39dp"
                 android:fontFamily="@font/poppins"
                 android:text="@string/login"
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 app:backgroundTint="@color/blue"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+                app:layout_constraintTop_toBottomOf="@+id/loginTvBankodemiaMail"
+                tools:ignore="TextContrastCheck" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

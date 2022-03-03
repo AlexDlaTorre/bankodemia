@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TelephoneFragment">
+    tools:context=".UI.View.TelephoneFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -20,12 +20,12 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="24dp"
+                android:id="@+id/telephoneIvLogo"
+                android:layout_width="70dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="42dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="42dp"
                 android:contentDescription="@null"
                 android:scaleType="centerInside"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -34,7 +34,7 @@
                 app:srcCompat="@drawable/logo" />
 
             <Button
-                android:id="@+id/elevatedButtonTelephone"
+                android:id="@+id/telephoneBtnBackToData"
                 style="@style/Widget.Material3.Button.TextButton.Icon"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -43,11 +43,11 @@
                 android:text="@string/instructions_telephone"
                 android:textSize="14sp"
                 app:icon="@drawable/ic_arrow_back"
-                app:layout_constraintBottom_toTopOf="@+id/textView2"
+                app:layout_constraintBottom_toTopOf="@+id/telephoneTvInstructions"
                 app:layout_constraintStart_toStartOf="parent" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/createAccountTextFieldTelephone"
+                android:id="@+id/telephoneTfTelephone"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -60,20 +60,22 @@
                 app:boxStrokeColor="@color/blue"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView2">
+                app:layout_constraintTop_toBottomOf="@+id/telephoneTvInstructions">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/createAccountEditTextTelephone"
+                    android:id="@+id/telephoneEtTelephone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
+                    android:hint="@string/hind_telephone"
                     android:inputType="phone"
-                    android:textColor="@color/gray_input" />
+                    android:textColor="@color/gray_input"
+                    tools:ignore="TextContrastCheck" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/telephoneTvInstructions"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
@@ -84,11 +86,11 @@
                 android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView" />
+                app:layout_constraintTop_toBottomOf="@+id/telephoneIvLogo" />
 
             <TextView
-                android:id="@+id/textView3"
-                android:layout_width="wrap_content"
+                android:id="@+id/telephoneTvSms"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="240dp"
@@ -98,24 +100,27 @@
                 android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/createAccountTextFieldTelephone" />
+                app:layout_constraintTop_toBottomOf="@+id/telephoneTfTelephone" />
 
             <Button
-                android:id="@+id/buttonLogin"
+                android:id="@+id/telephoneBtnLogin"
                 style="@style/Widget.Material3.Button.ElevatedButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp"
                 android:layout_marginTop="45dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="39dp"
                 android:fontFamily="@font/poppins"
                 android:text="@string/continue_b"
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 app:backgroundTint="@color/blue"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/textView3"/>
+                app:layout_constraintTop_toBottomOf="@id/telephoneTvSms"
+                tools:ignore="TextContrastCheck" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

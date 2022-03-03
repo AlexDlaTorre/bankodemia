@@ -4,15 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ConfirmationFragment">
+    tools:context=".UI.View.ConfirmationFragment">
 
     <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="24dp"
+        android:id="@+id/confirmationIvLogo"
+        android:layout_width="70dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="42dp"
         android:contentDescription="@null"
         android:src="@drawable/logo"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,20 +20,20 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/confirmationIvSending"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="90dp"
-        android:layout_marginEnd="60dp"
+        android:layout_height="162dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="24dp"
         android:contentDescription="@null"
         android:src="@drawable/senddata"
-        app:layout_constraintEnd_toEndOf="@+id/imageView4"
-        app:layout_constraintStart_toStartOf="@+id/imageView4"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/confirmationIvLogo" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/confirmationTvNotice"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -44,10 +44,10 @@
         android:text="@string/confirmation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+        app:layout_constraintTop_toBottomOf="@+id/confirmationIvSending" />
 
     <Button
-        android:id="@+id/buttonCreateAccount"
+        android:id="@+id/confirmationBtnBackToMain"
         style="@style/Widget.Material3.Button.ElevatedButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -65,16 +65,16 @@
         tools:ignore="TextContrastCheck" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/confirmationTvThanks"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
         android:fontFamily="@font/poppins"
         android:text="@string/thanks"
         android:textColor="@color/purple_500"
-        app:layout_constraintEnd_toEndOf="@+id/textView6"
-        app:layout_constraintStart_toStartOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        app:layout_constraintEnd_toEndOf="@+id/confirmationTvNotice"
+        app:layout_constraintStart_toStartOf="@+id/confirmationTvNotice"
+        app:layout_constraintTop_toBottomOf="@+id/confirmationTvNotice" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

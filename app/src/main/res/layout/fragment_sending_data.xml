@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SendingDataFragment">
+    tools:context=".UI.View.SendingDataFragment">
 
     <ImageView
-        android:id="@+id/imageViewBigLogo"
+        android:id="@+id/sendingDataIvLogo"
         android:layout_width="match_parent"
         android:layout_marginBottom="24dp"
         android:layout_marginLeft="44dp"
@@ -16,13 +16,13 @@
         android:layout_height="wrap_content"
         android:contentDescription="@null"
         android:src="@drawable/biglogo"
-        app:layout_constraintBottom_toTopOf="@+id/textView5"
+        app:layout_constraintBottom_toTopOf="@+id/sendingDataTv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/sendingDataTv"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -31,9 +31,9 @@
         android:fontFamily="@font/poppins"
         android:text="@string/sending_data"
         android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="@+id/imageViewBigLogo"
-        app:layout_constraintStart_toStartOf="@+id/imageViewBigLogo"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewBigLogo" />
+        app:layout_constraintEnd_toEndOf="@+id/sendingDataIvLogo"
+        app:layout_constraintStart_toStartOf="@+id/sendingDataIvLogo"
+        app:layout_constraintTop_toBottomOf="@+id/sendingDataIvLogo" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

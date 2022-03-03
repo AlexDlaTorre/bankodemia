@@ -4,13 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DataFragment">
+    tools:context=".UI.View.DataFragment">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginBottom="39dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,12 +19,12 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="24dp"
+                android:id="@+id/dataIvLogo"
+                android:layout_width="70dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="42dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="42dp"
                 android:contentDescription="@null"
                 android:scaleType="centerInside"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -35,7 +33,7 @@
                 app:srcCompat="@drawable/logo" />
 
             <Button
-                android:id="@+id/elevatedButtonData"
+                android:id="@+id/dataBtnBackToCreateAccount"
                 style="@style/Widget.Material3.Button.TextButton.Icon"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -44,11 +42,11 @@
                 android:text="@string/enter_data"
                 android:textSize="14sp"
                 app:icon="@drawable/ic_arrow_back"
-                app:layout_constraintBottom_toTopOf="@+id/textView2"
+                app:layout_constraintBottom_toTopOf="@+id/dataTvDataInstructions"
                 app:layout_constraintStart_toStartOf="parent" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textFieldName"
+                android:id="@+id/dataTfName"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -61,20 +59,22 @@
                 app:boxStrokeColor="@color/blue"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView2">
+                app:layout_constraintTop_toBottomOf="@+id/dataTvDataInstructions">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/editTextName"
+                    android:id="@+id/dataEtName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
+                    android:hint="@string/name"
                     android:inputType="textPersonName"
-                    android:textColor="@color/gray_input" />
+                    android:textColor="@color/gray_input"
+                    tools:ignore="TextContrastCheck" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textFieldLastName"
+                android:id="@+id/dataTfLastName"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -88,20 +88,22 @@
                 app:endIconMode="password_toggle"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textFieldName">
+                app:layout_constraintTop_toBottomOf="@+id/dataTfName">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/editTextLastName"
+                    android:id="@+id/dataEtLastName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
+                    android:hint="@string/last_name"
                     android:inputType="textPersonName"
-                    android:textColor="@color/gray_input" />
+                    android:textColor="@color/gray_input"
+                    tools:ignore="TextContrastCheck" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textFieldOccupation"
+                android:id="@+id/dataTfOccupation"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -114,13 +116,14 @@
                 app:boxStrokeColor="@color/blue"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textFieldLastName">
+                app:layout_constraintTop_toBottomOf="@+id/dataTfLastName">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/editTextOccupation"
+                    android:id="@+id/dataEtOccupation"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
+                    android:hint="@string/occupation"
                     android:inputType="textPersonName"
                     android:textColor="@color/gray_input" />
 
@@ -128,7 +131,7 @@
 
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textFieldBirthday"
+                android:id="@+id/dataTfBirthday"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -139,23 +142,25 @@
                 android:hint="@string/birthday"
                 android:textColorHint="@color/gray_input"
                 app:boxStrokeColor="@color/blue"
-                app:layout_constraintBottom_toTopOf="@+id/textView3"
+                app:layout_constraintBottom_toTopOf="@+id/dataTvConsentInstructions"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/textView3"
-                app:layout_constraintTop_toBottomOf="@+id/textFieldOccupation">
+                app:layout_constraintStart_toStartOf="@+id/dataTvConsentInstructions"
+                app:layout_constraintTop_toBottomOf="@+id/dataTfOccupation">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/editTextBirthday"
+                    android:id="@+id/dataEtBirthday"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
+                    android:hint="@string/birthday"
                     android:inputType="date"
-                    android:textColor="@color/gray_input" />
+                    android:textColor="@color/gray_input"
+                    tools:ignore="TextContrastCheck" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/dataTvDataInstructions"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
@@ -166,10 +171,10 @@
                 android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView" />
+                app:layout_constraintTop_toBottomOf="@+id/dataIvLogo" />
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/dataTvConsentInstructions"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
@@ -180,10 +185,10 @@
                 android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textFieldLastName" />
+                app:layout_constraintTop_toBottomOf="@+id/dataTfLastName" />
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/dataTvConsentNotice"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
@@ -193,24 +198,27 @@
                 android:textColor="@color/purple_500"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView3" />
+                app:layout_constraintTop_toBottomOf="@+id/dataTvConsentInstructions" />
 
             <Button
-                android:id="@+id/buttonLogin"
+                android:id="@+id/dataBtnContinue"
                 style="@style/Widget.Material3.Button.ElevatedButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="24dp"
+                android:layout_marginBottom="39dp"
                 android:fontFamily="@font/poppins"
                 android:text="@string/continue_b"
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 app:backgroundTint="@color/blue"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+                app:layout_constraintTop_toBottomOf="@+id/dataTvConsentNotice"
+                tools:ignore="TextContrastCheck" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
