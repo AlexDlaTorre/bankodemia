@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.mainBtnCreateAccount.setOnClickListener {
-            /*val createAccountFragment  = CreateAccountFragment()
+            val createAccountFragment  = CreateAccountFragment()
             val fragment: Fragment? =
                 supportFragmentManager.findFragmentByTag(CreateAccountFragment::class.java.simpleName)
 
@@ -25,22 +25,6 @@ class MainActivity : AppCompatActivity() {
                 supportFragmentManager.beginTransaction()
                     .add(R.id.pruebaLayout,createAccountFragment,CreateAccountFragment::class.java.simpleName)
                     .commit()
-            }*/
-
-            val createAccountFragment = DataFragment()
-            val fragment: Fragment? =
-                supportFragmentManager.findFragmentByTag(DataFragment::class.java.simpleName)
-
-            if (fragment !is DataFragment) {
-                supportFragmentManager.beginTransaction()
-                    .add(
-                        R.id.pruebaLayout,
-                        createAccountFragment,
-                        DataFragment::class.java.simpleName
-                    )
-                    .commit()
-                binding.pruebaLayout.visibility = View.VISIBLE
-                binding.pruebaLayoutCerrar.visibility = View.GONE
             }
         }
 
