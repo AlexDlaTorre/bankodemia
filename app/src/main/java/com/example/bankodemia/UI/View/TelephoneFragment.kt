@@ -1,60 +1,68 @@
 package com.example.bankodemia.ui.view
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.util.Patterns
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.bankodemia.R
+import com.example.bankodemia.databinding.FragmentTelephoneBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [TelephoneFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class TelephoneFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private var _binding: FragmentTelephoneBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_telephone, container, false)
+    ): View {
+        _binding = FragmentTelephoneBinding.inflate(inflater, container, false)
+        validationInputs()
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment TelephoneFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            TelephoneFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    private fun validationInputs() {
+        binding.telephoneTietTelephone.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+
+            override fun afterTextChanged(editText: Editable?) {
+                val telephone = binding.telephoneTietTelephone.text.toString()
+
+                val errorTelephoneStr = if (telephone.isEmpty()) {
+                    "Campo Requerido"
+                } else if (!validateTelephone(telephone)) {
+                    "Telefono no valido"
+                } else {
+                    null
+                }
+                binding.telephoneTilTelephone.error = errorTelephoneStr
+                if (errorTelephoneStr == null) {
+                    binding.telephoneBtnContinueProcess.isEnabled = true
+                    //TODO : Buscar metodo que permita obtener el color desde los resources
+                    binding.telephoneBtnContinueProcess.setBackgroundColor(resources.getColor(R.color.blue))
+                } else {
+                    binding.telephoneBtnContinueProcess.isEnabled = false
+                    //TODO : Buscar metodo que permita obtener el color desde los resources
+                    binding.telephoneBtnContinueProcess.setBackgroundColor(resources.getColor(R.color.light_gray_inactive))
                 }
             }
+        })
+    }
+
+    private fun validateTelephone(telephone: String): Boolean {
+        if (!telephone.matches(".*[0-9].*".toRegex())) {
+            return false
+        }
+        return true
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

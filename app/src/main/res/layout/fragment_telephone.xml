@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UI.View.TelephoneFragment">
+    tools:context=".ui.view.TelephoneFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -47,7 +47,7 @@
                 app:layout_constraintStart_toStartOf="parent" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/telephoneTfTelephone"
+                android:id="@+id/telephoneTilTelephone"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -55,7 +55,6 @@
                 android:layout_marginTop="45dp"
                 android:layout_marginEnd="24dp"
                 android:fontFamily="@font/poppins"
-                android:hint="@string/hind_telephone"
                 android:textColorHint="@color/gray_input"
                 app:boxStrokeColor="@color/blue"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -63,12 +62,12 @@
                 app:layout_constraintTop_toBottomOf="@+id/telephoneTvInstructions">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/telephoneEtTelephone"
+                    android:id="@+id/telephoneTietTelephone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
                     android:hint="@string/hind_telephone"
-                    android:inputType="phone"
+                    android:inputType="number"
                     android:textColor="@color/gray_input"
                     tools:ignore="TextContrastCheck" />
 
@@ -100,10 +99,10 @@
                 android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/telephoneTfTelephone" />
+                app:layout_constraintTop_toBottomOf="@+id/telephoneTilTelephone" />
 
             <Button
-                android:id="@+id/telephoneBtnLogin"
+                android:id="@+id/telephoneBtnContinueProcess"
                 style="@style/Widget.Material3.Button.ElevatedButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -111,11 +110,12 @@
                 android:layout_marginTop="45dp"
                 android:layout_marginEnd="24dp"
                 android:layout_marginBottom="39dp"
+                android:enabled="false"
                 android:fontFamily="@font/poppins"
                 android:text="@string/continue_b"
                 android:textColor="@color/white"
                 android:textSize="16sp"
-                app:backgroundTint="@color/blue"
+                app:backgroundTint="@color/light_gray_inactive"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
