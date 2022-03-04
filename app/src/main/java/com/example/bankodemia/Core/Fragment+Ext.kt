@@ -34,7 +34,7 @@ fun Fragment.showSnackBarActionMessage(message: String, actionTitle: String, dur
     }
 }
 
-fun TransitionFragment(button: Button,fragmentName: Fragment,supportFragmentManager: FragmentManager) {
+fun transitionFragment(button: Button,fragmentName: Fragment,supportFragmentManager: FragmentManager) {
     val buttonName = button
     button.setOnClickListener{
         val fragment = fragmentName
