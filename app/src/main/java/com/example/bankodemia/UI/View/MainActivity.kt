@@ -4,9 +4,11 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import androidx.fragment.app.Fragment
-import com.example.bankodemia.R
 import com.example.bankodemia.databinding.ActivityMainBinding
+import androidx.fragment.app.Fragment
+import com.example.bankodemia.Core.transitionFragment
+import com.example.bankodemia.R
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
