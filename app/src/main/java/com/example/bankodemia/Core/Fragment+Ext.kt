@@ -33,16 +33,3 @@ fun Fragment.showSnackBarActionMessage(message: String, actionTitle: String, dur
         show()
     }
 }
-
-fun TransitionFragment(button: Button,fragmentName: Fragment,supportFragmentManager: FragmentManager) {
-    val buttonName = button
-    button.setOnClickListener{
-        val fragment = fragmentName
-        val fragmentManager: FragmentManager = (supportFragmentManager)
-        val transaction: FragmentTransaction = fragmentManager.beginTransaction()
-        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-        transaction.add(android.R.id.content, fragmentName)
-        transaction.addToBackStack(null)
-        transaction.commit()
-    }
-}
