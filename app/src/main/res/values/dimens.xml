@@ -29,4 +29,6 @@
     <dimen name="common_heigth_bank_card">244dp</dimen>
     <dimen name="common_width_image_paperplane">210dp</dimen>
     <dimen name="common_heigth_image_paperplane">162</dimen>
+    <dimen name="common_width_image_add_contact">240dp</dimen>
+    <dimen name="common_height_image_add_contact">160dp</dimen>
 </resources>
