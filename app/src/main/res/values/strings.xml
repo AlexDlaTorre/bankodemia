@@ -109,4 +109,13 @@
     <string name="stores">Tiendas departamentales</string>
     <string name="stores_names">Liverpool, Sears, Palacio de Hierro</string>
     <string name="zero">$ 0.00</string>
+    <string name="helper_required">Requerido</string>
+    <string name="helper_mail_no_valid">Correo invalido</string>
+    <string name="helper_password_no_valid">Contraseña Invalida</string>
+    <string name="helper_text_no_valid">Texto invalido</string>
+    <string name="helper_number_no_valid">Numero invalido</string>
+    <string name="helper_phone_no_valid">Telefono invalido</string>
+    <string name="helper_date_no_valid">Fecha invalida</string>
+    <string name="helper_fields_no_match">Los campos no coinciden</string>
+    <string name="make_transfer">Hacer Transferencia</string>
 </resources>

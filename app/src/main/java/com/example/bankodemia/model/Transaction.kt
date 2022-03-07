@@ -1,6 +1,6 @@
-package com.example.bankodemia.Model
+package com.example.bankodemia.model
 
-import com.example.bankodemia.Core.MovementType
+import com.example.bankodemia.core.MovementType
 import kotlinx.serialization.SerialName
 
 object Transaction {
