@@ -103,6 +103,18 @@
         <item name="android:textColor">@color/secondary_purple</item>
     </style>
 
+    <style name="titleTextGray" parent="titleText">
+        <item name="android:textColor">@color/principal_gray</item>
+    </style>
+
+    <style name="subtitleTextGray" parent="subtitleText">
+        <item name="android:textColor">@color/principal_gray</item>
+    </style>
+
+    <style name="contentTextGray" parent="contentText">
+        <item name="android:textColor">@color/principal_gray</item>
+    </style>
+
     <style name="titleText" parent="TextAppearance.AppCompat">
         <item name="android:textFontWeight">@integer/common_fontWeight_middle</item>
         <item name="android:fontFamily">@font/poppins</item>

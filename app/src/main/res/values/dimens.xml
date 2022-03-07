@@ -25,4 +25,6 @@
     <!-- ImageView -->
     <dimen name="common_width_logo">70dp</dimen>
     <dimen name="common_heigth_logo">40dp</dimen>
+    <dimen name="common_width_bank_card">144dp</dimen>
+    <dimen name="common_heigth_bank_card">244dp</dimen>
 </resources>

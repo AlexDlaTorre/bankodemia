@@ -1,176 +1,165 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".CardsFragment">
 
-    <ImageView
-        android:id="@+id/cardsIvLogo"
-        android:layout_width="70dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="42dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="42dp"
-        android:contentDescription="@null"
-        android:scaleType="centerInside"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
-
-    <Button
-        android:id="@+id/cardsBtnToUserInfo"
-        style="@style/Widget.Material3.Button.TextButton.Icon"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_marginStart="24dp"
-        android:textSize="14sp"
-        app:icon="@drawable/ic_person"
-        app:layout_constraintBottom_toBottomOf="@+id/cardsIvLogo"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/cardsIvLogo"
-        tools:ignore="DuplicateSpeakableTextCheck,SpeakableTextPresentCheck" />
-
-    <Button
-        android:id="@+id/cardsBtnInfo"
-        style="@style/Widget.Material3.Button.TextButton.Icon"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_marginEnd="32dp"
-        app:icon="@drawable/ic_help"
-        app:iconGravity="end"
-        app:layout_constraintBottom_toBottomOf="@+id/cardsIvLogo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/cardsIvLogo"
-        app:layout_constraintVertical_bias="1.0"
-        tools:ignore="DuplicateSpeakableTextCheck,SpeakableTextPresentCheck" />
-
-    <TextView
-        android:id="@+id/cardsTvCard"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginBottom="24dp"
-        android:fontFamily="@font/poppins"
-        android:text="@string/card_capital"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/cardsCvCard"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardsCvCard"
-        android:layout_width="144dp"
-        android:layout_height="244dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="24dp"
-        android:importantForAccessibility="no"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardsIvLogo">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/cardsIvSticker"
-            android:layout_width="wrap_content"
+            android:id="@+id/cardsIvLogo"
+            android:layout_width="@dimen/common_width_logo"
+            android:layout_height="@dimen/common_heigth_logo"
+            android:layout_marginTop="@dimen/common_size_large"
+            android:contentDescription="@null"
+            android:scaleType="centerInside"
+            app:layout_constraintEnd_toStartOf="@+id/cardsBtnInfo"
+            app:layout_constraintStart_toEndOf="@+id/cardsBtnToUserInfo"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/logo" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/cardsBtnToUserInfo"
+            style="@style/Widget.Material3.Button.TextButton.Icon"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/common_size_middle"
+            android:contentDescription="@null"
+            app:layout_constraintBottom_toBottomOf="@+id/cardsIvLogo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/cardsIvLogo"
+            app:srcCompat="@drawable/ic_person"
+            app:tint="@color/principal_gray" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/cardsBtnInfo"
+            style="@style/Widget.Material3.Button.TextButton.Icon"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/common_size_middle"
+            android:contentDescription="@null"
+            app:layout_constraintBottom_toBottomOf="@+id/cardsBtnToUserInfo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/cardsBtnToUserInfo"
+            app:srcCompat="@drawable/ic_help"
+            app:tint="@color/principal_gray" />
+
+        <TextView
+            android:id="@+id/cardsTvCard"
+            style="@style/contentText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/common_size_middle"
+            android:layout_marginTop="@dimen/common_size_large"
+            android:text="@string/card_capital"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardsBtnToUserInfo" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardsCvCard"
+            android:layout_width="@dimen/common_width_bank_card"
+            android:layout_height="@dimen/common_heigth_bank_card"
+            android:layout_marginTop="@dimen/common_size_large"
             android:importantForAccessibility="no"
-            android:src="@drawable/cardsticker" />
+            app:cardCornerRadius="10dp"
+            app:cardElevation="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardsTvCard">
 
-        <ImageView
-            android:id="@+id/cardsIvMasterCard"
+            <ImageView
+                android:id="@+id/cardsIvSticker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:importantForAccessibility="no"
+                android:src="@drawable/cardsticker" />
+
+            <ImageView
+                android:id="@+id/cardsIvMasterCard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:adjustViewBounds="false"
+                android:baselineAlignBottom="false"
+                android:contentDescription="@string/mastercard"
+                android:src="@drawable/mastercard" />
+
+            <ImageView
+                android:id="@+id/cardsIvLogoBankodemia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:importantForAccessibility="no"
+                android:src="@drawable/bancodemiacard" />
+
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/CardsTvCardText"
+            style="@style/contentText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:adjustViewBounds="false"
-            android:baselineAlignBottom="false"
-            android:contentDescription="@string/mastercard"
-            android:src="@drawable/mastercard" />
+            android:layout_marginStart="@dimen/common_size_middle"
+            android:layout_marginTop="@dimen/common_size_extra_large"
+            android:text="@string/card_number"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardsCvCard" />
 
-        <ImageView
-            android:id="@+id/cardsIvLogoBankodemia"
+        <TextView
+            android:id="@+id/cardsTvCardNumber"
+            style="@style/contentTextGray"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:importantForAccessibility="no"
-            android:src="@drawable/bancodemiacard" />
+            app:layout_constraintStart_toStartOf="@+id/CardsTvCardText"
+            app:layout_constraintTop_toBottomOf="@+id/CardsTvCardText"
+            tools:text="5439246476642003" />
 
+        <TextView
+            android:id="@+id/cardsTvValidityText"
+            style="@style/contentText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/common_size_middle"
+            android:text="@string/validity"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/cardsTvCardNumber"
+            app:layout_constraintTop_toBottomOf="@+id/cardsTvCardNumber" />
 
-    </androidx.cardview.widget.CardView>
+        <TextView
+            android:id="@+id/cardsTvValidityDate"
+            style="@style/contentTextGray"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@+id/cardsTvValidityText"
+            app:layout_constraintTop_toBottomOf="@+id/cardsTvValidityText"
+            tools:text="11/26" />
 
-    <TextView
-        android:id="@+id/CardsTvCardText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="80dp"
-        android:fontFamily="@font/poppins"
-        android:text="@string/card_number"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardsCvCard" />
+        <TextView
+            android:id="@+id/cardsTvCvvText"
+            style="@style/contentText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/cvv"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/cardsCvCard"
+            app:layout_constraintTop_toTopOf="@+id/cardsTvValidityText" />
 
-    <TextView
-        android:id="@+id/cardsTvCardNumber"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:fontFamily="@font/poppins"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CardsTvCardText"
-        tools:text="5439246476642003" />
-
-    <TextView
-        android:id="@+id/cardsTvValidityText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:fontFamily="@font/poppins"
-        android:text="@string/validity"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardsTvCardNumber" />
-
-    <TextView
-        android:id="@+id/cardsTvValidityDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/poppins"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardsTvValidityText"
-        tools:text="11/26" />
-
-    <TextView
-        android:id="@+id/cardsTvCvvText"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginStart="140dp"
-        android:fontFamily="@font/poppins"
-        android:text="@string/cvv"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/cardsTvValidityText"
-        app:layout_constraintStart_toEndOf="@+id/cardsTvValidityText"
-        app:layout_constraintTop_toTopOf="@+id/cardsTvValidityText" />
-
-    <TextView
-        android:id="@+id/cardsTvCvvNum"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/poppins"
-        app:layout_constraintBottom_toBottomOf="@+id/cardsTvValidityDate"
-        app:layout_constraintStart_toStartOf="@+id/cardsTvCvvText"
-        app:layout_constraintTop_toBottomOf="@+id/cardsTvCvvText"
-        tools:text="125" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/cardsTvCvvNum"
+            style="@style/contentTextGray"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@+id/cardsTvCvvText"
+            app:layout_constraintTop_toBottomOf="@+id/cardsTvCvvText"
+            tools:text="125" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
