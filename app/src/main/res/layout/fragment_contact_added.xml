@@ -6,62 +6,47 @@
     android:layout_height="match_parent"
     tools:context=".ui.view.ContactAddedFragment">
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginTop="24dp"
-        android:contentDescription="@null"
-        android:src="@drawable/logo"
+    <include
+        android:id="@+id/include"
+        layout="@layout/template_toplogo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView5"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="180dp"
-        android:layout_marginEnd="24dp"
+        android:layout_width="@dimen/common_width_image_add_contact"
+        android:layout_height="@dimen/common_height_image_add_contact"
         android:contentDescription="@null"
         android:src="@drawable/contacts"
-        app:layout_constraintEnd_toEndOf="@+id/imageView4"
-        app:layout_constraintStart_toStartOf="@+id/imageView4"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+        app:layout_constraintBottom_toTopOf="@+id/buttonCreateAccount"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include" />
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginTop="24dp"
-        android:textAlignment="center"
-        android:fontFamily="@font/poppins"
+        android:layout_marginHorizontal="@dimen/common_size_middle"
+        android:layout_marginTop="@dimen/common_size_default"
         android:text="@string/successfulAdded_contact"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textAlignment="center"
+        style="@style/contentText"
+        app:layout_constraintEnd_toEndOf="@+id/imageView5"
+        app:layout_constraintStart_toStartOf="@+id/imageView5"
         app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
     <Button
         android:id="@+id/buttonCreateAccount"
-        style="@style/Widget.Material3.Button.ElevatedButton"
-        android:layout_width="match_parent"
+        style="@style/fillButtonBlue"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="39dp"
-        android:fontFamily="@font/poppins"
+        android:layout_marginVertical="@dimen/common_size_large"
         android:text="@string/go_back_home"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        app:backgroundTint="@color/blue"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/textView6"
+        app:layout_constraintStart_toStartOf="@+id/textView6"
         tools:ignore="TextContrastCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
