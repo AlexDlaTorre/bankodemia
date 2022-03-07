@@ -5,6 +5,7 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.util.Base64
 
+
 fun String.isEmailValid(): Boolean {
     val expression = "^[\\w.-]+@([\\w\\-]+\\.)+[A-Z]{2,8}$"
     val pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE)
