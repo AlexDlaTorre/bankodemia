@@ -22,4 +22,7 @@
     <!-- Buttons -->
     <dimen name="common_strokewidth_min">2dp</dimen>
 
+    <!-- ImageView -->
+    <dimen name="common_width_logo">70dp</dimen>
+    <dimen name="common_heigth_logo">40dp</dimen>
 </resources>
