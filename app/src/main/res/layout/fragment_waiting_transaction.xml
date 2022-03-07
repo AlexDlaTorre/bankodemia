@@ -9,13 +9,11 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="263dp"
-        android:layout_marginEnd="44dp"
+        android:layout_width="@dimen/common_width_image_add_contact"
+        android:layout_height="@dimen/common_height_image_add_contact"
         android:contentDescription="@null"
         android:src="@drawable/biglogo"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -24,10 +22,7 @@
         android:id="@+id/textView5"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="24dp"
-        android:fontFamily="@font/poppins"
+        android:textAppearance="@style/contentText"
         android:text="@string/waiting_transaction"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="@+id/imageView3"

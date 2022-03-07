@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/itemTransactionsCvTransactions"
+        android:id="@+id/servicesCvRecharged"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        app:cardElevation="0dp"
+        android:layout_margin="@dimen/common_size_min"
+        android:importantForAccessibility="no"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -21,26 +23,26 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/itemContactTvContact"
+                android:id="@+id/servicesTvRecharged"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="start|top"
                 android:layout_marginStart="@dimen/common_size_middle"
-                android:layout_marginTop="@dimen/common_size_default"
-                android:textAppearance="@style/contentTextVariant"
-                android:textStyle="bold"
-                tools:text="Cruz Eduardo Reveles Caldera" />
+                android:layout_marginTop="@dimen/common_size_min"
+                android:text="@string/recharge_cell"
+                android:textAppearance="@style/subtitleText"
+                android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/itemContactTvContactAccount"
+                android:id="@+id/servicesTvTelcel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center|start"
+                android:layout_marginVertical="@dimen/common_size_min"
                 android:layout_marginStart="@dimen/common_size_middle"
-                android:layout_marginBottom="@dimen/common_size_min"
-                android:textAppearance="@style/contentTextVariantGray"
-                tools:text="4915 1573 8890 4376 / BANORTE" />
-
+                android:text="@string/recharge_providers"
+                android:textAppearance="@style/contentTextGray" />
         </LinearLayout>
-
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

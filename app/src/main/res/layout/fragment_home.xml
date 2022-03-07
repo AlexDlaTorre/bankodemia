@@ -68,11 +68,11 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/homeRvTransactions"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_marginTop="@dimen/common_size_large"
-            app:layout_constraintEnd_toEndOf="@+id/homeBtnReceive"
-            app:layout_constraintStart_toStartOf="@+id/homeBtnSend"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/homeBtnSend"
             tools:listitem="@layout/item_cardview_transactions" />
 

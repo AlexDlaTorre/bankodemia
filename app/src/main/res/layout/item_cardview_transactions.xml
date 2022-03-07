@@ -10,52 +10,66 @@
         android:id="@+id/itemTransactionsCvTransactions"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        app:cardElevation="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:cardElevation="0dp">
 
-        <TextView
-            android:id="@+id/itemTransactionsTvDate"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/shadow_title_creamy"
-            android:fontFamily="@font/poppins"
-            tools:ignore="TextContrastCheck"
-            tools:text="      25 DE ENERO 2022" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/itemTransactionsTvConcept"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="44dp"
-            android:fontFamily="@font/poppins"
-            android:textStyle="bold"
-            tools:text="Fondeo Bienvenida" />
+            <TextView
+                android:id="@+id/itemTransactionsTvDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/shadow_title_creamy"
+                android:paddingStart="@dimen/common_size_middle"
+                android:textAppearance="@style/contentTextVariant"
+                tools:ignore="RtlSymmetry,TextContrastCheck"
+                tools:text="25 DE ENERO 2022" />
 
-        <TextView
-            android:id="@+id/itemTransactionsTvTime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="60dp"
-            android:layout_marginBottom="24dp"
-            android:fontFamily="@font/poppins"
-            tools:text="7:18" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/common_size_min">
 
-        <TextView
-            android:id="@+id/itemTransactionsTvAmount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="top|end"
-            android:layout_marginTop="60dp"
-            android:layout_marginEnd="24dp"
-            android:fontFamily="@font/poppins"
-            android:textColor="@color/principal_blue"
-            tools:ignore="TextContrastCheck"
-            tools:text="+ $ 50.00" />
+                <TextView
+                    android:layout_marginStart="@dimen/common_size_middle"
+                    android:id="@+id/itemTransactionsTvConcept"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/contentTextVariant"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Fondeo Bienvenida" />
+
+                <TextView
+                    android:id="@+id/itemTransactionsTvAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/contentTextVariantBlue"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginEnd="@dimen/common_size_middle"
+                    tools:ignore="TextContrastCheck"
+                    tools:text="+ $ 50.00" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:layout_marginStart="@dimen/common_size_middle"
+                android:id="@+id/itemTransactionsTvTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/contentTextVariantGray"
+                android:layout_marginBottom="@dimen/common_size_min"
+                tools:text="7:18" />
+        </LinearLayout>
 
     </androidx.cardview.widget.CardView>
 

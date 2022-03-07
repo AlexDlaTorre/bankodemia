@@ -6,279 +6,35 @@
     android:layout_height="match_parent"
     tools:context=".ServicesFragment">
 
-    <ImageView
-        android:id="@+id/cardsIvLogo"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="32dp"
-        android:contentDescription="@null"
-        android:scaleType="centerInside"
+    <include
+        android:id="@+id/servicesTemplateTitleBar"
+        layout="@layout/template_titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
-
-    <Button
-        android:id="@+id/cardsBtnToUserInfo"
-        style="@style/Widget.Material3.Button.TextButton.Icon"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginStart="24dp"
-        android:textSize="14sp"
-        app:icon="@drawable/ic_person"
-        app:layout_constraintBottom_toBottomOf="@+id/cardsIvLogo"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/cardsIvLogo"
-        tools:ignore="DuplicateSpeakableTextCheck,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
-    <Button
-        android:id="@+id/cardsBtnInfo"
-        style="@style/Widget.Material3.Button.TextButton.Icon"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="32dp"
-        app:icon="@drawable/ic_help"
-        app:iconGravity="end"
-        app:layout_constraintBottom_toBottomOf="@+id/cardsIvLogo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/cardsIvLogo"
-        app:layout_constraintVertical_bias="1.0"
-        tools:ignore="DuplicateSpeakableTextCheck,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/cardsTvCard"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginBottom="24dp"
-        android:fontFamily="@font/poppins"
+        android:layout_marginStart="@dimen/common_size_middle"
+        android:layout_marginTop="@dimen/common_size_middle"
         android:text="@string/services"
+        android:textAppearance="@style/contentTextVariantGray"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/servicesCvRecharged"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/servicesTemplateTitleBar" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/servicesCvRecharged"
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="59dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="24dp"
-        android:importantForAccessibility="no"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="16dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/common_size_middle"
+        android:layout_marginTop="@dimen/common_size_default"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardsIvLogo">
-
-        <TextView
-            android:id="@+id/servicesTvRecharged"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start|top"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/poppins"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:text="@string/recharge_cell" />
-
-        <TextView
-            android:id="@+id/servicesTvTelcel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center|start"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/poppins"
-            android:text="@string/recharge_providers" />
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/servicesCvPlan"
-        android:layout_width="match_parent"
-        android:layout_height="59dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="24dp"
-        android:importantForAccessibility="no"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/servicesCvRecharged">
-
-        <TextView
-            android:id="@+id/servicesTvPlan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start|top"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/poppins"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:text="@string/mobil_plan" />
-
-        <TextView
-            android:id="@+id/servicesTvMobilProvider"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center|start"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/poppins"
-            android:text="@string/mobil_providers" />
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/servicesCvInternet"
-        android:layout_width="match_parent"
-        android:layout_height="59dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginTop="24dp"
-        android:importantForAccessibility="no"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/servicesCvPlan">
-
-        <TextView
-            android:id="@+id/servicesTvInternet"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start|top"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/poppins"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:text="@string/internet_tv_telephone" />
-
-        <TextView
-            android:id="@+id/servicesTvInternetProvider"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center|start"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/poppins"
-            android:text="@string/internet_providers" />
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/servicesCvGas"
-        android:layout_width="match_parent"
-        android:layout_height="59dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginTop="24dp"
-        android:importantForAccessibility="no"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/servicesCvInternet">
-
-        <TextView
-            android:id="@+id/servicesTvGas"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start|top"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/poppins"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:text="@string/gas" />
-
-        <TextView
-            android:id="@+id/servicesTvGasProvider"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center|start"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/poppins"
-            android:text="@string/gas_providers" />
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/servicesCvCards"
-        android:layout_width="match_parent"
-        android:layout_height="59dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginTop="24dp"
-        android:importantForAccessibility="no"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/servicesCvGas">
-
-        <TextView
-            android:id="@+id/servicesTvCards"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start|top"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/poppins"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:text="@string/credit_cards" />
-
-        <TextView
-            android:id="@+id/servicesTvCreditCards"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center|start"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/poppins"
-            android:text="@string/card_providers" />
-    </androidx.cardview.widget.CardView>
-
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/servicesCvStores"
-        android:layout_width="match_parent"
-        android:layout_height="59dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="24dp"
-        android:importantForAccessibility="no"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/servicesCvCards">
-
-        <TextView
-            android:id="@+id/servicesTvStores"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start|top"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/poppins"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:text="@string/stores" />
-
-        <TextView
-            android:id="@+id/servicesTvStoreNames"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center|start"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/poppins"
-            android:text="@string/stores_names" />
-    </androidx.cardview.widget.CardView>
+        app:layout_constraintTop_toBottomOf="@+id/cardsTvCard"
+        tools:listitem="@layout/item_cardview_services" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

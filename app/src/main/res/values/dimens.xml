@@ -12,6 +12,8 @@
     <dimen name="common_size_middle">20dp</dimen>
     <dimen name="common_size_large">32dp</dimen>
     <dimen name="common_size_extra_large">40dp</dimen>
+    <dimen name="common_size_extra_large_large">120dp</dimen>
+    <dimen name="common_size_max">240dp</dimen>
 
     <!-- Text Sizes -->
     <dimen name="common_textsize_min">14sp</dimen>
@@ -31,4 +33,5 @@
     <dimen name="common_heigth_image_paperplane">162</dimen>
     <dimen name="common_width_image_add_contact">240dp</dimen>
     <dimen name="common_height_image_add_contact">160dp</dimen>
+
 </resources>
