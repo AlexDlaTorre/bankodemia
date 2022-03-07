@@ -1,12 +1,20 @@
 package com.example.bankodemia.core
 
 import java.util.regex.Pattern
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.util.Base64
 
 fun String.isEmailValid(): Boolean {
     val expression = "^[\\w.-]+@([\\w\\-]+\\.)+[A-Z]{2,8}$"
     val pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE)
     val matcher = pattern.matcher(this)
     return matcher.matches()
+}
+
+fun String.base64ToImage(): Bitmap {
+    val imageBytes: ByteArray = Base64.decode(this, Base64.DEFAULT)
+    return BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.size)
 }
 
 fun String.isPasswordValid(): Boolean{
