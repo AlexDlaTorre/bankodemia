@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Font Weigth -->
+    <integer name="common_fontWeight_min">400</integer>
+    <integer name="common_fontWeight_default">500</integer>
+    <integer name="common_fontWeight_middle">600</integer>
+</resources>

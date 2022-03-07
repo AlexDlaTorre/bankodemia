@@ -6,75 +6,57 @@
     android:layout_height="match_parent"
     tools:context=".ui.view.ConfirmationFragment">
 
-    <ImageView
-        android:id="@+id/confirmationIvLogo"
-        android:layout_width="70dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="42dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="42dp"
-        android:contentDescription="@null"
-        android:src="@drawable/logo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <include
+        android:id="@+id/confirmationTemplateTopBarSingle"
+        layout="@layout/template_toplogo"/>
 
     <ImageView
         android:id="@+id/confirmationIvSending"
-        android:layout_width="0dp"
-        android:layout_height="162dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="24dp"
+        android:layout_width="@dimen/common_width_image_paperplane"
+        android:layout_height="@dimen/common_heigth_image_paperplane"
+        android:layout_marginTop="@dimen/common_size_extra_large"
         android:contentDescription="@null"
         android:src="@drawable/senddata"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/confirmationIvLogo" />
+        app:layout_constraintEnd_toEndOf="@+id/confirmationTemplateTopBarSingle"
+        app:layout_constraintStart_toStartOf="@+id/confirmationTemplateTopBarSingle"
+        app:layout_constraintTop_toBottomOf="@+id/confirmationTemplateTopBarSingle" />
 
     <TextView
         android:id="@+id/confirmationTvNotice"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginTop="24dp"
-        android:textAlignment="center"
-        android:fontFamily="@font/poppins"
-        android:text="@string/confirmation"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/confirmationIvSending" />
-
-    <Button
-        android:id="@+id/confirmationBtnBackToMain"
-        style="@style/Widget.Material3.Button.ElevatedButton"
+        style="@style/contentText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="39dp"
-        android:fontFamily="@font/poppins"
-        android:text="@string/go_back_home"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        app:backgroundTint="@color/blue"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="TextContrastCheck" />
+        android:layout_marginHorizontal="@dimen/common_size_middle"
+        android:layout_marginTop="@dimen/common_size_middle"
+        android:text="@string/confirmation"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@+id/confirmationIvSending"
+        app:layout_constraintStart_toStartOf="@+id/confirmationIvSending"
+        app:layout_constraintTop_toBottomOf="@+id/confirmationIvSending" />
 
     <TextView
         android:id="@+id/confirmationTvThanks"
+        style="@style/contentTextPurple"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:fontFamily="@font/poppins"
+        android:layout_marginTop="@dimen/common_size_extra_large"
         android:text="@string/thanks"
-        android:textColor="@color/purple_500"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/confirmationTvNotice"
         app:layout_constraintStart_toStartOf="@+id/confirmationTvNotice"
         app:layout_constraintTop_toBottomOf="@+id/confirmationTvNotice" />
+
+    <Button
+        android:id="@+id/confirmationBtnBackToMain"
+        style="@style/fillButtonBlue"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/common_size_middle"
+        android:text="@string/go_back_home"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/confirmationTvNotice"
+        app:layout_constraintStart_toStartOf="@+id/confirmationTvNotice"
+        tools:ignore="TextContrastCheck" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
