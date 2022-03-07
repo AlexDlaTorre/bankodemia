@@ -1,4 +1,4 @@
-package com.example.bankodemia.Model
+package com.example.bankodemia.model
 
 import android.media.MediaDrm
 

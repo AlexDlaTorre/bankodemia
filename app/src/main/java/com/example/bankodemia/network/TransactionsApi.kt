@@ -1,6 +1,6 @@
 package com.example.bankodemia.network
 
-import com.example.bankodemia.Model.Transaction
+import com.example.bankodemia.model.Transaction
 import okhttp3.RequestBody
 import retrofit2.Response
 import retrofit2.http.*

@@ -1,6 +1,6 @@
-package com.example.bankodemia.Model
+package com.example.bankodemia.model
 
-import com.example.bankodemia.Core.ErrorCodes
+import com.example.bankodemia.core.ErrorCodes
 
 data class ApiError(
     val statusCode: ErrorCodes,

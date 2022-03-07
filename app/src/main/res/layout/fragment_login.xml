@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UI.View.LoginFragment">
+    android:background="@color/white"
+    tools:context=".ui.view.LoginFragment">
 
     <ScrollView
         android:layout_width="0dp"
@@ -46,15 +47,15 @@
                 tools:ignore="DuplicateSpeakableTextCheck" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/loginTfMail"
+                android:id="@+id/loginTilMail"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:errorTextAppearance="@color/black"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="45dp"
                 android:layout_marginEnd="24dp"
                 android:fontFamily="@font/poppins"
-                android:hint="@string/mail"
                 android:textColorHint="@color/gray_input"
                 app:boxStrokeColor="@color/blue"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -62,7 +63,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/loginTvLoginInstructions">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/loginEtMail"
+                    android:id="@+id/loginTietMail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
@@ -74,7 +75,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/loginTtPassword"
+                android:id="@+id/loginTilPassword"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -82,16 +83,15 @@
                 android:layout_marginTop="45dp"
                 android:layout_marginEnd="24dp"
                 android:fontFamily="@font/poppins"
-                android:hint="@string/password"
                 android:textColorHint="@color/gray_input"
                 app:boxStrokeColor="@color/blue"
                 app:endIconMode="password_toggle"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/loginTfMail">
+                app:layout_constraintTop_toBottomOf="@+id/loginTilMail">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/loginEtPassword"
+                    android:id="@+id/loginTietPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
@@ -128,7 +128,7 @@
                 android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/loginTtPassword" />
+                app:layout_constraintTop_toBottomOf="@+id/loginTilPassword" />
 
             <TextView
                 android:id="@+id/loginTvBankodemiaMail"
@@ -145,6 +145,8 @@
 
             <Button
                 android:id="@+id/loginBtnLogin"
+                android:focusable="true"
+                android:clickable="true"
                 style="@style/Widget.Material3.Button.ElevatedButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -152,11 +154,12 @@
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="24dp"
                 android:layout_marginBottom="39dp"
+                android:enabled="false"
                 android:fontFamily="@font/poppins"
                 android:text="@string/login"
                 android:textColor="@color/white"
                 android:textSize="16sp"
-                app:backgroundTint="@color/blue"
+                app:backgroundTint="@color/light_gray_inactive"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

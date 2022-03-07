@@ -1,4 +1,4 @@
-package com.example.bankodemia.Core
+package com.example.bankodemia.core
 
 val Double.zero: Double
     get() = 0.0
