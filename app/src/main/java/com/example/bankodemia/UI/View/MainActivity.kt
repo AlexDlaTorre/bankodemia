@@ -2,7 +2,6 @@ package com.example.bankodemia.ui.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.bankodemia.AddContactFragment
 import com.example.bankodemia.databinding.ActivityMainBinding
 import com.example.bankodemia.core.transitionFragment
 
@@ -20,7 +19,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             mainBtnCreateAccount.setOnClickListener {
-                transitionFragment(fragmentClass = AddContactFragment(), supportFragmentManager)
+                transitionFragment(fragmentClass = CreateAccountFragment(), supportFragmentManager)
             }
         }
     }
