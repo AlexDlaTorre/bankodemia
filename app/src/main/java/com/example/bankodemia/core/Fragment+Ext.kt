@@ -1,4 +1,4 @@
-package com.example.bankodemia.Core
+package com.example.bankodemia.core
 
 import android.content.Context
 import android.view.View
@@ -10,7 +10,7 @@ import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.example.bankodemia.R
-import com.example.bankodemia.UI.View.LoginFragment
+import com.example.bankodemia.ui.view.LoginFragment
 import com.google.android.material.snackbar.Snackbar
 
 fun Context.toast(message: String, duration: Int) {

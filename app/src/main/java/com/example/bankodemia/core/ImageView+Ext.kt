@@ -1,4 +1,4 @@
-package com.example.bankodemia.Core
+package com.example.bankodemia.core
 
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory

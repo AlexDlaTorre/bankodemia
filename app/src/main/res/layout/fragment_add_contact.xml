@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".AddContactFragment">
 
     <ScrollView
@@ -46,7 +47,7 @@
                 app:layout_constraintStart_toStartOf="parent" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/addContactTfCardNumber"
+                android:id="@+id/addContactTilCardNumber"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -62,7 +63,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/AddContactTvCard">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/addContactEtCardNumber"
+                    android:id="@+id/addContactTietCardNumber"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
@@ -74,7 +75,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/addContactTfInstitution"
+                android:id="@+id/addContactTilInstitution"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -88,10 +89,10 @@
                 app:endIconMode="password_toggle"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/addContactTfCardNumber">
+                app:layout_constraintTop_toBottomOf="@+id/addContactTilCardNumber">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/addContactEtInstitution"
+                    android:id="@+id/addContactTietInstitution"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
@@ -103,7 +104,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/addContactTfName"
+                android:id="@+id/addContactTilName"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -116,10 +117,10 @@
                 app:boxStrokeColor="@color/principal_blue"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/addContactTfInstitution">
+                app:layout_constraintTop_toBottomOf="@+id/addContactTilInstitution">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/addContactEtName"
+                    android:id="@+id/addContactTietName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
@@ -131,7 +132,7 @@
 
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/addContactTfEmail"
+                android:id="@+id/addContactTilEmail"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -144,10 +145,10 @@
                 app:boxStrokeColor="@color/principal_blue"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/addContactTfName">
+                app:layout_constraintTop_toBottomOf="@+id/addContactTilName">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/addContactEtEmail"
+                    android:id="@+id/addContactTietEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
@@ -205,7 +206,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/addContactTfEmail"
+                app:layout_constraintTop_toBottomOf="@+id/addContactTilEmail"
                 tools:ignore="TextContrastCheck" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

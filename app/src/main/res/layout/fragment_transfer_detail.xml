@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".TransferDetailFragment">
 
     <ImageView
@@ -39,8 +40,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
         android:fontFamily="@font/poppins"
         android:textColor="@color/black"
         android:textStyle="bold"
@@ -57,10 +58,10 @@
         android:layout_marginTop="0dp"
         android:layout_marginEnd="24dp"
         android:fontFamily="@font/poppins"
-        tools:text="Renta Isabel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/transfertvTransferContact" />
+        app:layout_constraintTop_toBottomOf="@+id/transfertvTransferContact"
+        tools:text="Renta Isabel" />
 
     <TextView
         android:id="@+id/TransferTvSentTo"
@@ -81,8 +82,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
         android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
         android:fontFamily="@font/poppins"
         android:text="@string/quantity"
         android:textStyle="bold"
@@ -111,10 +112,10 @@
         android:layout_marginTop="5dp"
         android:layout_marginEnd="24dp"
         android:fontFamily="@font/poppins"
-        tools:text="Pago croquetas de gatos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/transferTvconcept" />
+        app:layout_constraintTop_toBottomOf="@+id/transferTvconcept"
+        tools:text="Pago croquetas de gatos" />
 
 
     <TextView
@@ -128,19 +129,18 @@
         android:textColor="@color/principal_blue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/transferTfAmount"
+        app:layout_constraintTop_toBottomOf="@+id/transferTilAmount"
         tools:ignore="TextContrastCheck"
         tools:text="SPEI sin costo" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/transferTfAmount"
+        android:id="@+id/transferTilAmount"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
         android:fontFamily="@font/poppins"
-        android:hint="@string/zero"
         android:textAlignment="center"
         android:textColorHint="@color/black"
         android:textStyle="bold"
@@ -149,7 +149,7 @@
         app:layout_constraintTop_toBottomOf="@+id/transferTvQuantity">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/transferEtAmount"
+            android:id="@+id/transferTietAmount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@android:color/transparent"
@@ -160,5 +160,25 @@
             android:textColorHint="@color/black"
             android:textStyle="bold" />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/transferBtnMakeTransfer"
+        style="@style/Widget.Material3.Button.ElevatedButton"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:fontFamily="@font/poppins"
+        android:text="@string/make_transfer"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:backgroundTint="@color/blue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/transferTvConcept"
+        app:layout_constraintVertical_bias="0.945"
+        tools:ignore="TextContrastCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

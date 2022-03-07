@@ -1,4 +1,4 @@
-package com.example.bankodemia.Core
+package com.example.bankodemia.core
 
 val Int.zero: Int
     get() = 0

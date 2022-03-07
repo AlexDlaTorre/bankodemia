@@ -1,15 +1,26 @@
-package com.example.bankodemia.UI.View
+package com.example.bankodemia.ui.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import com.example.bankodemia.Core.transitionFragment
-import com.example.bankodemia.R
-import kotlinx.android.synthetic.main.activity_main.*
+import com.example.bankodemia.databinding.ActivityMainBinding
+import com.example.bankodemia.core.transitionFragment
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        with(binding) {
+            mainBtnLogin.setOnClickListener {
+                transitionFragment(fragmentClass = LoginFragment(), supportFragmentManager)
+            }
+
+            mainBtnCreateAccount.setOnClickListener {
+                transitionFragment(fragmentClass = CreateAccountFragment(), supportFragmentManager)
+            }
+        }
     }
 }

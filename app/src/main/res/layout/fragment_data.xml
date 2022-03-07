@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UI.View.DataFragment">
+    android:background="@color/white"
+    tools:context=".ui.view.DataFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -46,7 +47,7 @@
                 app:layout_constraintStart_toStartOf="parent" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/dataTfName"
+                android:id="@+id/dataTilName"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -62,7 +63,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/dataTvDataInstructions">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/dataEtName"
+                    android:id="@+id/dataTietName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
@@ -74,7 +75,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/dataTfLastName"
+                android:id="@+id/dataTilLastName"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -88,10 +89,10 @@
                 app:endIconMode="password_toggle"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/dataTfName">
+                app:layout_constraintTop_toBottomOf="@+id/dataTilName">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/dataEtLastName"
+                    android:id="@+id/dataTietLastName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
@@ -103,7 +104,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/dataTfOccupation"
+                android:id="@+id/dataTilOccupation"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -116,10 +117,10 @@
                 app:boxStrokeColor="@color/principal_blue"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/dataTfLastName">
+                app:layout_constraintTop_toBottomOf="@+id/dataTilLastName">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/dataEtOccupation"
+                    android:id="@+id/dataTietOccupation"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
@@ -131,10 +132,10 @@
 
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/dataTfBirthday"
+                android:id="@+id/dataTilBirthday"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="45dp"
                 android:layout_marginEnd="24dp"
@@ -145,10 +146,10 @@
                 app:layout_constraintBottom_toTopOf="@+id/dataTvConsentInstructions"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/dataTvConsentInstructions"
-                app:layout_constraintTop_toBottomOf="@+id/dataTfOccupation">
+                app:layout_constraintTop_toBottomOf="@+id/dataTilOccupation">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/dataEtBirthday"
+                    android:id="@+id/dataTietBirthday"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
@@ -178,14 +179,14 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
-                android:layout_marginTop="230dp"
+                android:layout_marginTop="12dp"
                 android:layout_marginEnd="24dp"
                 android:fontFamily="@font/poppins"
                 android:text="@string/announcement_identity"
                 android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/dataTfLastName" />
+                app:layout_constraintTop_toBottomOf="@+id/dataTilBirthday" />
 
             <TextView
                 android:id="@+id/dataTvConsentNotice"

@@ -1,4 +1,4 @@
-package com.example.bankodemia.Core
+package com.example.bankodemia.core
 
 enum class IdentityType(val value: String) {
     INE("INE")
