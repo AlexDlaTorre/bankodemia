@@ -7,46 +7,33 @@
     android:background="@color/white"
     tools:context=".TransferDetailFragment">
 
-    <ImageView
-        android:id="@+id/transferIvLogo"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="42dp"
-        android:layout_marginTop="39dp"
-        android:layout_marginEnd="42dp"
-        android:contentDescription="@null"
-        android:scaleType="centerInside"
+    <include
+        android:id="@+id/detailTemplateTopLogoSingle"
+        layout="@layout/template_toplogo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/transferBtnBackToSend"
-        style="@style/Widget.Material3.Button.TextButton.Icon"
+        style="@style/backTextButtonIconGray"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:fontFamily="@font/poppins"
+        android:layout_marginStart="@dimen/common_size_middle"
+        android:layout_marginTop="@dimen/common_size_min"
         android:text="@string/transfer"
-        android:textSize="14sp"
-        app:icon="@drawable/ic_arrow_back"
-        app:layout_constraintBottom_toTopOf="@+id/TransferTvSentTo"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/transferIvLogo" />
+        app:layout_constraintTop_toBottomOf="@+id/detailTemplateTopLogoSingle" />
 
     <TextView
         android:id="@+id/transfertvTransferContact"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="24dp"
-        android:fontFamily="@font/poppins"
-        android:textColor="@color/black"
+        android:layout_marginTop="@dimen/common_size_min"
+        android:textAppearance="@style/contentTextVariant"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/TransferTvSentTo"
+        app:layout_constraintStart_toStartOf="@+id/TransferTvSentTo"
         app:layout_constraintTop_toBottomOf="@+id/TransferTvSentTo"
         tools:text="$ s%" />
 
@@ -54,12 +41,9 @@
         android:id="@+id/transferTvTransferAccount"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="24dp"
-        android:fontFamily="@font/poppins"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textAppearance="@style/contentTextVariantGray"
+        app:layout_constraintEnd_toEndOf="@+id/transfertvTransferContact"
+        app:layout_constraintStart_toStartOf="@+id/transfertvTransferContact"
         app:layout_constraintTop_toBottomOf="@+id/transfertvTransferContact"
         tools:text="Renta Isabel" />
 
@@ -67,118 +51,91 @@
         android:id="@+id/TransferTvSentTo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="24dp"
-        android:fontFamily="@font/poppins"
+        android:layout_marginHorizontal="@dimen/common_size_middle"
+        android:layout_marginTop="@dimen/common_size_min"
         android:text="@string/send_to"
+        android:textAppearance="@style/contentTextVariantGray"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/transferIvLogo" />
+        app:layout_constraintTop_toBottomOf="@+id/transferBtnBackToSend" />
 
     <TextView
         android:id="@+id/transferTvQuantity"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="24dp"
-        android:fontFamily="@font/poppins"
         android:text="@string/quantity"
+        android:textAppearance="@style/contentTextVariantGray"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/transferTvTransferAccount"
+        app:layout_constraintStart_toStartOf="@+id/transferTvTransferAccount"
         app:layout_constraintTop_toBottomOf="@+id/transferTvTransferAccount" />
 
     <TextView
         android:id="@+id/transferTvconcept"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:fontFamily="@font/poppins"
+        android:layout_marginTop="@dimen/common_size_default"
         android:text="@string/pay_concept"
+        android:textAppearance="@style/contentTextVariantGray"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/transferTilAmount"
+        app:layout_constraintStart_toStartOf="@+id/transferTilAmount"
         app:layout_constraintTop_toBottomOf="@+id/transferTvTransferMedio" />
+
 
     <TextView
         android:id="@+id/transferTvConcept"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="24dp"
-        android:fontFamily="@font/poppins"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textAppearance="@style/contentTextVariantGray"
+        app:layout_constraintEnd_toEndOf="@+id/transferTvconcept"
+        app:layout_constraintStart_toStartOf="@+id/transferTvconcept"
         app:layout_constraintTop_toBottomOf="@+id/transferTvconcept"
         tools:text="Pago croquetas de gatos" />
-
 
     <TextView
         android:id="@+id/transferTvTransferMedio"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="-15dp"
-        android:layout_marginEnd="24dp"
         android:textAlignment="center"
-        android:textColor="@color/principal_blue"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textAppearance="@style/contentTextVariantBlue"
+        app:layout_constraintEnd_toEndOf="@+id/transferTilAmount"
+        app:layout_constraintStart_toStartOf="@+id/transferTilAmount"
         app:layout_constraintTop_toBottomOf="@+id/transferTilAmount"
         tools:ignore="TextContrastCheck"
         tools:text="SPEI sin costo" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/transferTilAmount"
+        style="@style/outlinedTextFieldBlue"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="24dp"
-        android:fontFamily="@font/poppins"
-        android:textAlignment="center"
-        android:textColorHint="@color/black"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/transferTvQuantity"
+        app:layout_constraintStart_toStartOf="@+id/transferTvQuantity"
         app:layout_constraintTop_toBottomOf="@+id/transferTvQuantity">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/transferTietAmount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@android:color/transparent"
-            android:fontFamily="@font/poppins"
             android:hint="@string/zero"
             android:inputType="number"
-            android:textAlignment="center"
-            android:textColorHint="@color/black"
-            android:textStyle="bold" />
+            android:textAlignment="center" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/transferBtnMakeTransfer"
-        style="@style/Widget.Material3.Button.ElevatedButton"
+        style="@style/disabledButton"
         android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:fontFamily="@font/poppins"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/common_size_middle"
         android:text="@string/make_transfer"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        app:backgroundTint="@color/principal_gray"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/transferTvConcept"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/transferTvConcept"
-        app:layout_constraintVertical_bias="0.945"
+        app:layout_constraintStart_toStartOf="@+id/transferTvConcept"
         tools:ignore="TextContrastCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
