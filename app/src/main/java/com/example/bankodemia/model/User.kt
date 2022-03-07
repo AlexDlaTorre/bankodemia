@@ -1,6 +1,6 @@
-package com.example.bankodemia.Model
+package com.example.bankodemia.model
 
-import com.example.bankodemia.Core.IdentityType
+import com.example.bankodemia.core.IdentityType
 
 object User {
     init { }

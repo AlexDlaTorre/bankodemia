@@ -1,17 +1,18 @@
 package com.example.bankodemia.ui.view
 
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
-import android.util.Patterns
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.bankodemia.R
+import androidx.core.widget.addTextChangedListener
+import com.example.bankodemia.core.FieldTypeEnum
+import com.example.bankodemia.core.activateButton
+import com.example.bankodemia.core.validateField
 import com.example.bankodemia.databinding.FragmentLoginBinding
+import com.google.android.material.snackbar.Snackbar
 
-class LoginFragment : Fragment() {
+class LoginFragment : Fragment(), Fields {
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
 
@@ -20,78 +21,28 @@ class LoginFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
-        validationInputs()
+        validationFields()
         return binding.root
     }
 
-    private fun validationInputs() {
+    override fun validationFields() {
         var checkMail = false
         var checkPassword = false
 
-        binding.loginTietMail.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
-
-            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
-
-            override fun afterTextChanged(editText: Editable?) {
-                val correo = binding.loginTietMail.text.toString()
-                val errorMailStr = if (correo.isEmpty()) {
-                    checkMail = false
-                    "Campo Requerido"
-                } else if (!validateMail(correo)) {
-                    checkMail = false
-                    "Correo no valido"
-                } else {
-                    checkMail = true
-                    null
-                }
-                binding.loginTilMail.error = errorMailStr
-
-                if (checkMail && checkPassword) {
-                    binding.loginBtnLogin.isEnabled = true
-                    //TODO : Buscar metodo que permita obtener el color desde los resources
-                    binding.loginBtnLogin.setBackgroundColor(resources.getColor(R.color.blue))
-                } else {
-                    binding.loginBtnLogin.isEnabled = false
-                    //TODO : Buscar metodo que permita obtener el color desde los resources
-                    binding.loginBtnLogin.setBackgroundColor(resources.getColor(R.color.light_gray_inactive))
-                }
+        with(binding){
+            loginTietPassword.addTextChangedListener {
+                checkMail = validateField(fragment = this@LoginFragment,typeEnum = FieldTypeEnum.NO_TYPE ,loginTilPassword)
+                activateButton(fragment = this@LoginFragment, button = loginBtnLogin, checkMail, checkPassword)
             }
-        })
 
-        binding.loginTietPassword.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
-
-            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
-
-            override fun afterTextChanged(editText: Editable?) {
-                val password = binding.loginTietPassword.text.toString()
-                val errorPasswordStr = if (password.isEmpty()) {
-                    checkPassword = false
-                    "Campo Requerido"
-                } else {
-                    checkPassword = true
-                    null
-                }
-                binding.loginTilPassword.error = errorPasswordStr
-
-                if (checkMail && checkPassword) {
-                    binding.loginBtnLogin.isEnabled = true
-                    //TODO : Buscar metodo que permita obtener el color desde los resources
-                    binding.loginBtnLogin.setBackgroundColor(resources.getColor(R.color.blue))
-                } else {
-                    binding.loginBtnLogin.isEnabled = false
-                    //TODO : Buscar metodo que permita obtener el color desde los resources
-                    binding.loginBtnLogin.setBackgroundColor(resources.getColor(R.color.light_gray_inactive))
-                }
+            loginTietMail.addTextChangedListener {
+                checkPassword = validateField(fragment = this@LoginFragment,typeEnum = FieldTypeEnum.EMAIL,loginTilMail)
+                activateButton(fragment = this@LoginFragment, button = loginBtnLogin , checkMail, checkPassword)
             }
-        })
-    }
 
-    private fun validateMail(mail: String): Boolean {
-        if (!Patterns.EMAIL_ADDRESS.matcher(mail).matches()) {
-            return false
+            loginBtnLogin.setOnClickListener {
+                Snackbar.make(binding.root,"Di click",Snackbar.LENGTH_SHORT).show()
+            }
         }
-        return true
     }
 }

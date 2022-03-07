@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".ui.view.TelephoneFragment">
 
     <ScrollView
@@ -67,7 +68,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
                     android:hint="@string/hind_telephone"
-                    android:inputType="number"
+                    android:inputType="phone"
                     android:textColor="@color/gray_input"
                     tools:ignore="TextContrastCheck" />
 

@@ -1,18 +1,18 @@
 package com.example.bankodemia.ui.view
 
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
-import android.util.Patterns
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.bankodemia.R
+import androidx.core.widget.addTextChangedListener
+import com.example.bankodemia.core.FieldTypeEnum
+import com.example.bankodemia.core.activateButton
+import com.example.bankodemia.core.validateField
 import com.example.bankodemia.databinding.FragmentCreateAccountBinding
 
 
-class CreateAccountFragment : Fragment() {
+class CreateAccountFragment : Fragment(), Fields {
     private var _binding: FragmentCreateAccountBinding? = null
     private val binding get() = _binding!!
 
@@ -21,45 +21,26 @@ class CreateAccountFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentCreateAccountBinding.inflate(inflater, container, false)
-        validationInputs()
+        validationFields()
         return binding.root
     }
 
-    private fun validationInputs() {
-        binding.createAccountTietMail.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
-
-            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
-
-            override fun afterTextChanged(editText: Editable?) {
-                val mail = binding.createAccountTietMail.text.toString()
-
-                val errorStr = if (mail.isEmpty()) {
-                    "Campo Requerido"
-                } else if (!validateMail(mail)) {
-                    "mail no valido"
-                } else {
-                    null
-                }
-                binding.createAccountTilMail.error = errorStr
-                if (errorStr == null) {
-                    binding.createAccountBtnContinue.isEnabled = true
-                    //TODO : Buscar metodo que permita obtener el color desde los resources
-                    binding.createAccountBtnContinue.setBackgroundColor(resources.getColor(R.color.blue))
-                } else {
-                    binding.createAccountBtnContinue.isEnabled = false
-                    //TODO : Buscar metodo que permita obtener el color desde los resources
-                    binding.createAccountBtnContinue.setBackgroundColor(resources.getColor(R.color.light_gray_inactive))
-                }
+    override fun validationFields() {
+        var checkMail: Boolean
+        with(binding) {
+            createAccountTietMail.addTextChangedListener {
+                checkMail = validateField(
+                    fragment = this@CreateAccountFragment,
+                    typeEnum = FieldTypeEnum.EMAIL,
+                    createAccountTilMail
+                )
+                activateButton(
+                    fragment = this@CreateAccountFragment,
+                    createAccountBtnContinue,
+                    checkMail
+                )
             }
-        })
-    }
-
-    private fun validateMail(mail: String): Boolean {
-        if (!Patterns.EMAIL_ADDRESS.matcher(mail).matches()) {
-            return false
         }
-        return true
     }
 
     override fun onDestroyView() {

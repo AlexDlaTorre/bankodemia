@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".ui.view.DataFragment">
 
     <ScrollView
@@ -130,7 +131,7 @@
                 android:id="@+id/dataTilBirthday"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="45dp"
                 android:layout_marginEnd="24dp"
@@ -173,14 +174,14 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
-                android:layout_marginTop="230dp"
+                android:layout_marginTop="12dp"
                 android:layout_marginEnd="24dp"
                 android:fontFamily="@font/poppins"
                 android:text="@string/announcement_identity"
                 android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/dataTilLastName" />
+                app:layout_constraintTop_toBottomOf="@+id/dataTilBirthday" />
 
             <TextView
                 android:id="@+id/dataTvConsentNotice"

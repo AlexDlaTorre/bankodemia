@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".ui.view.LoginFragment">
 
     <ScrollView
@@ -48,6 +49,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/loginTilMail"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:errorTextAppearance="@color/black"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
@@ -143,6 +145,8 @@
 
             <Button
                 android:id="@+id/loginBtnLogin"
+                android:focusable="true"
+                android:clickable="true"
                 style="@style/Widget.Material3.Button.ElevatedButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"

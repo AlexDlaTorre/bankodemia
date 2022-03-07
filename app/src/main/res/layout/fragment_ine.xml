@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UI.View.IneFragment">
+    tools:context=".ui.view.IneFragment">
 
     <ImageView
         android:id="@+id/ineIvLogo"

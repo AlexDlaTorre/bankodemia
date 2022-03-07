@@ -1,16 +1,18 @@
 package com.example.bankodemia.ui.view
 
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.bankodemia.R
+import androidx.core.widget.addTextChangedListener
+import com.example.bankodemia.core.FieldTypeEnum
+import com.example.bankodemia.core.activateButton
+import com.example.bankodemia.core.validateField
 import com.example.bankodemia.databinding.FragmentDataBinding
 
-class DataFragment : Fragment() {
+
+class DataFragment : Fragment(), Fields {
     private var _binding: FragmentDataBinding? = null
     private val binding get() = _binding!!
 
@@ -18,119 +20,74 @@ class DataFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentDataBinding.inflate(inflater, container,false)
-        validationInputs()
+        _binding = FragmentDataBinding.inflate(inflater, container, false)
+        validationFields()
         return binding.root
     }
 
-    private fun validationInputs() {
+    override fun validationFields() {
         var checkName = false
         var checkLastName = false
         var checkOccupation = false
         var checkBirthday = false
 
-        binding.dataTietName.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
-            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
-            override fun afterTextChanged(editText: Editable?) {
-                val name = binding.dataTietName.text.toString()
-                val errorNameStr = if (name.isEmpty()) {
-                    checkName = false
-                    "Campo Requerido"
-                } else {
-                    checkName = true
-                    null
-                }
-                binding.dataTilName.error = errorNameStr
-
-                if (checkName && checkLastName && checkOccupation && checkBirthday) {
-                    binding.dataBtnContinue.isEnabled = true
-                    //TODO : Buscar metodo que permita obtener el color desde los resources
-                    binding.dataBtnContinue.setBackgroundColor(resources.getColor(R.color.blue))
-                } else {
-                    binding.dataBtnContinue.isEnabled = false
-                    //TODO : Buscar metodo que permita obtener el color desde los resources
-                    binding.dataBtnContinue.setBackgroundColor(resources.getColor(R.color.light_gray_inactive))
-                }
+        with(binding) {
+            dataTietName.addTextChangedListener {
+                checkName = validateField(
+                    fragment = this@DataFragment,
+                    typeEnum = FieldTypeEnum.TEXT,
+                    dataTilName
+                )
+                activateButton(
+                    fragment = this@DataFragment,
+                    dataBtnContinue,
+                    checkName, checkLastName, checkOccupation, checkBirthday
+                )
             }
-        })
 
-        binding.dataTietLastName.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
-            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
-            override fun afterTextChanged(editText: Editable?) {
-                val lastName = binding.dataTietLastName.text.toString()
-                val errorLastNameStr = if (lastName.isEmpty()) {
-                    checkLastName = false
-                    "Campo Requerido"
-                } else {
-                    checkLastName = true
-                    null
-                }
-                binding.dataTilLastName.error = errorLastNameStr
-
-                if (checkName && checkLastName && checkOccupation && checkBirthday) {
-                    binding.dataBtnContinue.isEnabled = true
-                    //TODO : Buscar metodo que permita obtener el color desde los resources
-                    binding.dataBtnContinue.setBackgroundColor(resources.getColor(R.color.blue))
-                } else {
-                    binding.dataBtnContinue.isEnabled = false
-                    //TODO : Buscar metodo que permita obtener el color desde los resources
-                    binding.dataBtnContinue.setBackgroundColor(resources.getColor(R.color.light_gray_inactive))
-                }
+            dataTietLastName.addTextChangedListener {
+                checkLastName = validateField(
+                    fragment = this@DataFragment,
+                    typeEnum = FieldTypeEnum.TEXT,
+                    dataTilLastName
+                )
+                activateButton(
+                    fragment = this@DataFragment,
+                    dataBtnContinue,
+                    checkName, checkLastName, checkOccupation, checkBirthday
+                )
             }
-        })
 
-        binding.dataTietOccupation.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
-            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
-            override fun afterTextChanged(editText: Editable?) {
-                val occupation = binding.dataTietOccupation.text.toString()
-                val errorOccupationStr = if (occupation.isEmpty()) {
-                    checkOccupation = false
-                    "Campo Requerido"
-                } else {
-                    checkOccupation = true
-                    null
-                }
-                binding.dataTilOccupation.error = errorOccupationStr
-
-                if (checkName && checkLastName && checkOccupation && checkBirthday) {
-                    binding.dataBtnContinue.isEnabled = true
-                    //TODO : Buscar metodo que permita obtener el color desde los resources
-                    binding.dataBtnContinue.setBackgroundColor(resources.getColor(R.color.blue))
-                } else {
-                    binding.dataBtnContinue.isEnabled = false
-                    //TODO : Buscar metodo que permita obtener el color desde los resources
-                    binding.dataBtnContinue.setBackgroundColor(resources.getColor(R.color.light_gray_inactive))
-                }
+            dataTietOccupation.addTextChangedListener {
+                checkOccupation = validateField(
+                    fragment = this@DataFragment,
+                    typeEnum = FieldTypeEnum.TEXT,
+                    dataTilOccupation
+                )
+                activateButton(
+                    fragment = this@DataFragment,
+                    dataBtnContinue,
+                    checkName, checkLastName, checkOccupation, checkBirthday
+                )
             }
-        })
 
-        binding.dataTietBirthday.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
-            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
-            override fun afterTextChanged(editText: Editable?) {
-                val birthday = binding.dataTietBirthday.text.toString()
-                val errorBirthdayStr = if (birthday.isEmpty()) {
-                    checkBirthday = false
-                    "Campo Requerido"
-                } else {
-                    checkBirthday = true
-                    null
-                }
-                binding.dataTilBirthday.error = errorBirthdayStr
-
-                if (checkName && checkLastName && checkOccupation && checkBirthday) {
-                    binding.dataBtnContinue.isEnabled = true
-                    //TODO : Buscar metodo que permita obtener el color desde los resources
-                    binding.dataBtnContinue.setBackgroundColor(resources.getColor(R.color.blue))
-                } else {
-                    binding.dataBtnContinue.isEnabled = false
-                    //TODO : Buscar metodo que permita obtener el color desde los resources
-                    binding.dataBtnContinue.setBackgroundColor(resources.getColor(R.color.light_gray_inactive))
-                }
+            dataTietBirthday.addTextChangedListener {
+                checkBirthday = validateField(
+                    fragment = this@DataFragment,
+                    typeEnum = FieldTypeEnum.DATE,
+                    dataTilBirthday
+                )
+                activateButton(
+                    fragment = this@DataFragment,
+                    dataBtnContinue,
+                    checkName, checkLastName, checkOccupation, checkBirthday
+                )
             }
-        })
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
