@@ -6,13 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".ui.view.ContactAddedFragment">
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="@dimen/common_width_logo"
-        android:layout_height="@dimen/common_heigth_logo"
-        android:layout_marginTop="@dimen/common_size_large"
-        android:contentDescription="@null"
-        android:src="@drawable/logo"
+    <include
+        android:id="@+id/include"
+        layout="@layout/template_toplogo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -23,10 +19,10 @@
         android:layout_height="@dimen/common_height_image_add_contact"
         android:contentDescription="@null"
         android:src="@drawable/contacts"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/buttonCreateAccount"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/include" />
 
     <TextView
         android:id="@+id/textView6"

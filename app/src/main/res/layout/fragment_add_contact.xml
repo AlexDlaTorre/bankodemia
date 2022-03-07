@@ -11,28 +11,23 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/addContactIvLogo"
-            android:layout_width="@dimen/common_width_logo"
-            android:layout_height="@dimen/common_heigth_logo"
-            android:layout_marginTop="@dimen/common_size_large"
-            android:contentDescription="@null"
-            android:scaleType="centerInside"
+        <include
+            android:id="@+id/addContactTemplateTopBarSingle"
+            layout="@layout/template_toplogo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/logo" />
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <Button
             android:id="@+id/addContactBtnBackToSend"
             style="@style/backTextButtonIconGray"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/common_size_middle"
             android:layout_marginTop="@dimen/common_size_min"
+            android:layout_marginStart="@dimen/common_size_middle"
             android:text="@string/add_contact"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/addContactIvLogo" />
+            app:layout_constraintTop_toBottomOf="@+id/addContactTemplateTopBarSingle" />
 
         <TextView
             android:id="@+id/addContactTvClabe"

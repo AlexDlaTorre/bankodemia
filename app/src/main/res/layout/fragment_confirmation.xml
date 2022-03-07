@@ -6,16 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".ui.view.ConfirmationFragment">
 
-    <ImageView
-        android:id="@+id/confirmationIvLogo"
-        android:layout_width="@dimen/common_width_logo"
-        android:layout_height="@dimen/common_heigth_logo"
-        android:layout_marginTop="@dimen/common_size_large"
-        android:contentDescription="@null"
-        android:src="@drawable/logo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <include
+        android:id="@+id/confirmationTemplateTopBarSingle"
+        layout="@layout/template_toplogo"/>
 
     <ImageView
         android:id="@+id/confirmationIvSending"
@@ -24,9 +17,9 @@
         android:layout_marginTop="@dimen/common_size_extra_large"
         android:contentDescription="@null"
         android:src="@drawable/senddata"
-        app:layout_constraintEnd_toEndOf="@+id/confirmationIvLogo"
-        app:layout_constraintStart_toStartOf="@+id/confirmationIvLogo"
-        app:layout_constraintTop_toBottomOf="@+id/confirmationIvLogo" />
+        app:layout_constraintEnd_toEndOf="@+id/confirmationTemplateTopBarSingle"
+        app:layout_constraintStart_toStartOf="@+id/confirmationTemplateTopBarSingle"
+        app:layout_constraintTop_toBottomOf="@+id/confirmationTemplateTopBarSingle" />
 
     <TextView
         android:id="@+id/confirmationTvNotice"
