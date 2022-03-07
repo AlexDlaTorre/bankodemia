@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,221 +7,156 @@
     android:background="@color/white"
     tools:context=".ui.view.DataFragment">
 
-    <ScrollView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="wrap_content">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <include
+            android:id="@+id/dataTemplateTopBarSingle"
+            layout="@layout/template_toplogo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/dataBtnBackToCreateAccount"
+            style="@style/backTextButtonIconGray"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/common_size_middle"
+            android:layout_marginTop="@dimen/common_size_min"
+            android:text="@string/enter_data"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/dataTemplateTopBarSingle" />
+
+        <TextView
+            android:id="@+id/dataTvDataInstructions"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/common_size_middle"
+            android:layout_marginTop="@dimen/common_size_min"
+            android:text="@string/instructions_data"
+            android:textAppearance="@style/contentText"
+            app:layout_constraintEnd_toEndOf="@+id/dataBtnBackToCreateAccount"
+            app:layout_constraintStart_toStartOf="@+id/dataBtnBackToCreateAccount"
+            app:layout_constraintTop_toBottomOf="@+id/dataBtnBackToCreateAccount" />
 
-            <ImageView
-                android:id="@+id/dataIvLogo"
-                android:layout_width="70dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="42dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="42dp"
-                android:contentDescription="@null"
-                android:scaleType="centerInside"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/logo" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/dataTilName"
+            style="@style/outlinedTextFieldBlue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/common_size_middle"
+            android:layout_marginTop="@dimen/common_size_large"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dataTvDataInstructions">
 
-            <Button
-                android:id="@+id/dataBtnBackToCreateAccount"
-                style="@style/Widget.Material3.Button.TextButton.Icon"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
-                android:fontFamily="@font/poppins"
-                android:text="@string/enter_data"
-                android:textSize="14sp"
-                app:icon="@drawable/ic_arrow_back"
-                app:layout_constraintBottom_toTopOf="@+id/dataTvDataInstructions"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/dataTilName"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/dataTietName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="45dp"
-                android:layout_marginEnd="24dp"
-                android:fontFamily="@font/poppins"
                 android:hint="@string/name"
-                android:textColorHint="@color/input_gray"
-                app:boxStrokeColor="@color/principal_blue"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/dataTvDataInstructions">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/dataTietName"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins"
-                    android:hint="@string/name"
-                    android:inputType="textPersonName"
-                    android:textColor="@color/input_gray"
-                    tools:ignore="TextContrastCheck" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/dataTilLastName"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="45dp"
-                android:layout_marginEnd="24dp"
-                android:fontFamily="@font/poppins"
-                android:hint="@string/last_name"
-                android:textColorHint="@color/input_gray"
-                app:boxStrokeColor="@color/principal_blue"
-                app:endIconMode="password_toggle"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/dataTilName">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/dataTietLastName"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins"
-                    android:hint="@string/last_name"
-                    android:inputType="textPersonName"
-                    android:textColor="@color/input_gray"
-                    tools:ignore="TextContrastCheck" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/dataTilOccupation"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="45dp"
-                android:layout_marginEnd="24dp"
-                android:fontFamily="@font/poppins"
-                android:hint="@string/occupation"
-                android:textColorHint="@color/input_gray"
-                app:boxStrokeColor="@color/principal_blue"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/dataTilLastName">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/dataTietOccupation"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins"
-                    android:hint="@string/occupation"
-                    android:inputType="textPersonName"
-                    android:textColor="@color/input_gray" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/dataTilBirthday"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="45dp"
-                android:layout_marginEnd="24dp"
-                android:fontFamily="@font/poppins"
-                android:hint="@string/birthday"
-                android:textColorHint="@color/input_gray"
-                app:boxStrokeColor="@color/principal_blue"
-                app:layout_constraintBottom_toTopOf="@+id/dataTvConsentInstructions"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/dataTvConsentInstructions"
-                app:layout_constraintTop_toBottomOf="@+id/dataTilOccupation">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/dataTietBirthday"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins"
-                    android:hint="@string/birthday"
-                    android:inputType="date"
-                    android:textColor="@color/input_gray"
-                    tools:ignore="TextContrastCheck" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <TextView
-                android:id="@+id/dataTvDataInstructions"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="80dp"
-                android:layout_marginEnd="24dp"
-                android:fontFamily="@font/poppins"
-                android:text="@string/instructions_data"
-                android:textColor="@color/black"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/dataIvLogo" />
-
-            <TextView
-                android:id="@+id/dataTvConsentInstructions"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="24dp"
-                android:fontFamily="@font/poppins"
-                android:text="@string/announcement_identity"
-                android:textColor="@color/black"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/dataTilBirthday" />
-
-            <TextView
-                android:id="@+id/dataTvConsentNotice"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp"
-                android:fontFamily="@font/poppins"
-                android:text="@string/announcement_consent"
-                android:textColor="@color/purple_500"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/dataTvConsentInstructions" />
-
-            <Button
-                android:id="@+id/dataBtnContinue"
-                style="@style/Widget.Material3.Button.ElevatedButton"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="24dp"
-                android:layout_marginBottom="39dp"
-                android:fontFamily="@font/poppins"
-                android:text="@string/continue_b"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                app:backgroundTint="@color/principal_blue"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/dataTvConsentNotice"
+                android:inputType="textPersonName"
                 tools:ignore="TextContrastCheck" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+        </com.google.android.material.textfield.TextInputLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/dataTilLastName"
+            style="@style/outlinedTextFieldBlue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/common_size_large"
+            app:layout_constraintEnd_toEndOf="@+id/dataTilName"
+            app:layout_constraintStart_toStartOf="@+id/dataTilName"
+            app:layout_constraintTop_toBottomOf="@+id/dataTilName">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/dataTietLastName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/last_name"
+                android:inputType="textPersonName"
+                tools:ignore="TextContrastCheck" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/dataTilOccupation"
+            style="@style/outlinedTextFieldBlue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/common_size_large"
+            app:layout_constraintEnd_toEndOf="@+id/dataTilLastName"
+            app:layout_constraintStart_toStartOf="@+id/dataTilLastName"
+            app:layout_constraintTop_toBottomOf="@+id/dataTilLastName">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/dataTietOccupation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/occupation"
+                android:inputType="textPersonName" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/dataTilBirthday"
+            style="@style/outlinedTextFieldBlue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/common_size_large"
+            app:layout_constraintBottom_toTopOf="@+id/dataTvConsentInstructions"
+            app:layout_constraintEnd_toEndOf="@+id/dataTilOccupation"
+            app:layout_constraintStart_toStartOf="@+id/dataTilOccupation"
+            app:layout_constraintTop_toBottomOf="@+id/dataTilOccupation">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/dataTietBirthday"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/birthday"
+                android:inputType="date"
+                tools:ignore="TextContrastCheck" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/dataTvConsentInstructions"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/common_size_extra_large"
+            android:text="@string/announcement_identity"
+            android:textAppearance="@style/contentText"
+            app:layout_constraintEnd_toEndOf="@+id/dataTilBirthday"
+            app:layout_constraintStart_toStartOf="@+id/dataTilBirthday"
+            app:layout_constraintTop_toBottomOf="@+id/dataTilBirthday" />
+
+        <TextView
+            android:id="@+id/dataTvConsentNotice"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/common_size_min"
+            android:text="@string/announcement_consent"
+            android:textAppearance="@style/contentTextPurple"
+            app:layout_constraintEnd_toEndOf="@+id/dataTvConsentInstructions"
+            app:layout_constraintStart_toStartOf="@+id/dataTvConsentInstructions"
+            app:layout_constraintTop_toBottomOf="@+id/dataTvConsentInstructions" />
+
+        <Button
+            android:id="@+id/dataBtnContinue"
+            style="@style/disabledButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/common_size_extra_large"
+            android:text="@string/continue_b"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/dataTilBirthday"
+            app:layout_constraintStart_toStartOf="@+id/dataTilBirthday"
+            app:layout_constraintTop_toBottomOf="@+id/dataTvConsentNotice"
+            tools:ignore="TextContrastCheck" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

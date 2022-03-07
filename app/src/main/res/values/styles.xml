@@ -38,6 +38,7 @@
     </style>
 
     <style name="disabledButton" parent="Widget.Material3.Button.ElevatedButton">
+        <item name="android:enabled">false</item>
         <item name="android:backgroundTint">@color/principal_gray</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textAppearance">@style/buttonText</item>
@@ -51,17 +52,18 @@
         <item name="icon">@drawable/ic_arrow_back</item>
     </style>
 
-    <style name="outlinedTextFieldBlue" parent="ThemeOverlay.Material3.TextInputEditText.OutlinedBox">
+    <style name="outlinedTextFieldBlue" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="android:backgroundTint">@android:color/transparent</item>
-        <item name="android:textColorHint">@color/principal_gray</item>
+        <item name="hintTextColor">@color/principal_blue</item>
         <item name="boxStrokeColor">@color/principal_blue</item>
+        <item name="android:textColorHint">@color/principal_gray</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:textAppearance">@style/contentText</item>
     </style>
 
-    <style name="outlinedTextFieldPurple" parent="ThemeOverlay.Material3.TextInputEditText.OutlinedBox">
+    <style name="outlinedTextFieldPurple" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="android:backgroundTint">@android:color/transparent</item>
-        <item name="android:textColorHint">@color/principal_gray</item>
+        <item name="android:textColorHint">@color/secondary_purple</item>
         <item name="boxStrokeColor">@color/secondary_purple</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:textAppearance">@style/contentText</item>
@@ -79,6 +81,11 @@
         <item name="android:textColor">@color/white</item>
     </style>
 
+    <style name="contentTextVariantWhite" parent="contentTextVariant">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+
     <style name="titleTextBlue" parent="titleText">
         <item name="android:textColor">@color/principal_blue</item>
     </style>
@@ -90,6 +97,11 @@
     <style name="contentTextBlue" parent="contentText">
         <item name="android:textColor">@color/principal_blue</item>
     </style>
+
+    <style name="contentTextVariantBlue" parent="contentTextVariant">
+        <item name="android:textColor">@color/principal_blue</item>
+    </style>
+
 
     <style name="titleTextPurple" parent="titleText">
         <item name="android:textColor">@color/secondary_purple</item>
@@ -103,6 +115,11 @@
         <item name="android:textColor">@color/secondary_purple</item>
     </style>
 
+    <style name="contentTextVariantPurple" parent="contentTextVariant">
+        <item name="android:textColor">@color/secondary_purple</item>
+    </style>
+
+
     <style name="titleTextGray" parent="titleText">
         <item name="android:textColor">@color/principal_gray</item>
     </style>
@@ -112,6 +129,10 @@
     </style>
 
     <style name="contentTextGray" parent="contentText">
+        <item name="android:textColor">@color/principal_gray</item>
+    </style>
+
+    <style name="contentTextVariantGray" parent="contentTextVariant">
         <item name="android:textColor">@color/principal_gray</item>
     </style>
 
@@ -143,6 +164,12 @@
 
     <style name="contentText" parent="TextAppearance.AppCompat">
         <item name="android:textSize">@dimen/common_textsize_default</item>
+        <item name="android:textFontWeight">@integer/common_fontWeight_min</item>
+        <item name="android:fontFamily">@font/poppins</item>
+    </style>
+
+    <style name="contentTextVariant" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/common_textsize_min</item>
         <item name="android:textFontWeight">@integer/common_fontWeight_min</item>
         <item name="android:fontFamily">@font/poppins</item>
     </style>
