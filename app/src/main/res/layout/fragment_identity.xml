@@ -6,79 +6,57 @@
     android:layout_height="match_parent"
     tools:context=".ui.view.IdentityFragment">
 
-    <ImageView
-        android:id="@+id/identityIvLogo"
-        android:layout_width="70dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="42dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="42dp"
-        android:contentDescription="@null"
-        android:scaleType="centerInside"
+    <include
+        android:id="@+id/identityTemplateTopLogoSingle"
+        layout="@layout/template_toplogo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/identityBtnBackToTelephone"
-        style="@style/Widget.Material3.Button.TextButton.Icon"
+        style="@style/backTextButtonIconGray"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="24dp"
-        android:fontFamily="@font/poppins"
+        android:layout_marginStart="@dimen/common_size_middle"
+        android:layout_marginTop="@dimen/common_size_min"
         android:text="@string/identity"
-        android:textSize="14sp"
-        app:icon="@drawable/ic_arrow_back"
-        app:layout_constraintBottom_toTopOf="@+id/identityTvIdentityInstructionsTitle"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/identityTemplateTopLogoSingle"
         tools:ignore="DuplicateSpeakableTextCheck" />
 
     <TextView
         android:id="@+id/identityTvIdentityInstructions"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="24dp"
-        android:fontFamily="@font/poppins"
+        android:layout_marginTop="@dimen/common_size_min"
         android:text="@string/identityInstructions"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textAppearance="@style/contentTextVariantGray"
+        app:layout_constraintEnd_toEndOf="@+id/identityTvIdentityInstructionsTitle"
+        app:layout_constraintStart_toStartOf="@+id/identityTvIdentityInstructionsTitle"
         app:layout_constraintTop_toBottomOf="@+id/identityTvIdentityInstructionsTitle" />
 
     <TextView
         android:id="@+id/identityTvIdentityInstructionsTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="24dp"
-        android:fontFamily="@font/poppins"
+        android:layout_marginHorizontal="@dimen/common_size_middle"
+        android:layout_marginTop="@dimen/common_size_default"
         android:text="@string/identityInstructionsTitle"
-        android:textColor="@color/black"
+        android:textAppearance="@style/contentText"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/identityIvLogo" />
+        app:layout_constraintTop_toBottomOf="@+id/identityBtnBackToTelephone" />
 
     <Button
         android:id="@+id/identityBtnUnderstood"
-        style="@style/Widget.Material3.Button.ElevatedButton"
+        style="@style/fillButtonBlue"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="39dp"
-        android:fontFamily="@font/poppins"
+        android:layout_marginHorizontal="@dimen/common_size_middle"
+        android:layout_marginBottom="@dimen/common_size_large"
         android:text="@string/understood"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        app:backgroundTint="@color/principal_blue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

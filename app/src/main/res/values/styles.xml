@@ -52,6 +52,14 @@
         <item name="icon">@drawable/ic_arrow_back</item>
     </style>
 
+    <style name="forwardTextButtonIconGray" parent="Widget.Material3.Button.TextButton.Icon">
+        <item name="android:textColor">@color/principal_gray</item>
+        <item name="android:textAppearance">@style/secondaryButtonText</item>
+        <item name="icon">@drawable/ic_arrow_forward</item>
+        <item name="android:textAlignment">viewStart</item>
+        <item name="iconGravity">end</item>
+    </style>
+
     <style name="outlinedTextFieldBlue" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="android:backgroundTint">@android:color/transparent</item>
         <item name="hintTextColor">@color/principal_blue</item>
