@@ -10,43 +10,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/cardsIvLogo"
-            android:layout_width="@dimen/common_width_logo"
-            android:layout_height="@dimen/common_heigth_logo"
-            android:layout_marginTop="@dimen/common_size_large"
-            android:contentDescription="@null"
-            android:scaleType="centerInside"
-            app:layout_constraintEnd_toStartOf="@+id/cardsBtnInfo"
-            app:layout_constraintStart_toEndOf="@+id/cardsBtnToUserInfo"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/logo" />
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/cardsBtnToUserInfo"
-            style="@style/Widget.Material3.Button.TextButton.Icon"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/common_size_middle"
-            android:contentDescription="@null"
-            app:layout_constraintBottom_toBottomOf="@+id/cardsIvLogo"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/cardsIvLogo"
-            app:srcCompat="@drawable/ic_person"
-            app:tint="@color/principal_gray" />
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/cardsBtnInfo"
-            style="@style/Widget.Material3.Button.TextButton.Icon"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/common_size_middle"
-            android:contentDescription="@null"
-            app:layout_constraintBottom_toBottomOf="@+id/cardsBtnToUserInfo"
+        <include
+            android:id="@+id/include"
+            layout="@layout/template_titlebar"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/cardsBtnToUserInfo"
-            app:srcCompat="@drawable/ic_help"
-            app:tint="@color/principal_gray" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/cardsTvCard"
@@ -54,10 +23,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/common_size_middle"
-            android:layout_marginTop="@dimen/common_size_large"
+            android:layout_marginTop="@dimen/common_size_middle"
             android:text="@string/card_capital"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardsBtnToUserInfo" />
+            app:layout_constraintTop_toBottomOf="@+id/include" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardsCvCard"
@@ -150,6 +119,7 @@
             android:layout_height="wrap_content"
             android:text="@string/cvv"
             android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/cardsTvValidityText"
             app:layout_constraintEnd_toEndOf="@+id/cardsCvCard"
             app:layout_constraintTop_toTopOf="@+id/cardsTvValidityText" />
 
