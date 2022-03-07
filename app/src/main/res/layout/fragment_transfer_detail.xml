@@ -172,7 +172,7 @@
         android:text="@string/make_transfer"
         android:textColor="@color/white"
         android:textSize="16sp"
-        app:backgroundTint="@color/blue"
+        app:backgroundTint="@color/principal_gray"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/common_size_middle"
         android:layout_marginTop="@dimen/common_size_min"
-        android:text="@string/mail"
+        android:text="@string/go_back_home"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/templateTopBarSingle"
         tools:ignore="DuplicateSpeakableTextCheck" />
@@ -45,14 +45,12 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/common_size_middle"
-        android:hint="@string/mail"
         app:layout_constraintEnd_toEndOf="@+id/createAccountTvInstructionsCreateAccount"
         app:layout_constraintStart_toStartOf="@+id/createAccountTvInstructionsCreateAccount"
         app:layout_constraintTop_toBottomOf="@+id/createAccountTvInstructionsCreateAccount">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/createAccountTietMail"
-            style="@style/contentTextGray"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/mail"
@@ -83,7 +81,7 @@
 
     <Button
         android:id="@+id/createAccountBtnContinue"
-        style="@style/fillButtonBlue"
+        style="@style/disabledButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/common_size_middle"

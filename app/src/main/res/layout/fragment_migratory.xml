@@ -6,64 +6,48 @@
     android:layout_height="match_parent"
     tools:context=".ui.view.MigratoryFragment">
 
-    <ImageView
-        android:id="@+id/migratoryIvLogo"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginStart="42dp"
-        android:layout_marginEnd="42dp"
-        android:contentDescription="@null"
-        android:scaleType="centerInside"
+    <include
+        android:id="@+id/migratoryTemplateTopLogoSingle"
+        layout="@layout/template_toplogo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/migratoryBtnBackToIne"
-        style="@style/Widget.Material3.Button.TextButton.Icon"
-        app:icon="@drawable/ic_arrow_back"
-        app:layout_constraintBottom_toTopOf="@+id/ineTvInstructionsIne"
-        app:layout_constraintStart_toStartOf="parent"
+        style="@style/backTextButtonIconGray"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:fontFamily="@font/poppins"
+        android:layout_marginStart="@dimen/common_size_middle"
+        android:layout_marginTop="@dimen/common_size_min"
         android:text="@string/documentMigratory"
-        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/migratoryTemplateTopLogoSingle"
         tools:ignore="DuplicateSpeakableTextCheck" />
 
     <TextView
         android:id="@+id/ineTvInstructionsIne"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/migratoryIvLogo"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="24dp"
-        android:fontFamily="@font/poppins"
+        android:layout_marginHorizontal="@dimen/common_size_middle"
+        android:layout_marginTop="@dimen/common_size_default"
         android:text="@string/ineInstructions"
-        android:textColor="@color/black" />
+        android:textAppearance="@style/contentText"
+        app:layout_constraintEnd_toEndOf="@+id/migratoryBtnBackToIne"
+        app:layout_constraintStart_toStartOf="@+id/migratoryBtnBackToIne"
+        app:layout_constraintTop_toBottomOf="@+id/migratoryBtnBackToIne" />
 
     <Button
         android:id="@+id/migratoryBtnUploadInfo"
-        style="@style/Widget.Material3.Button.ElevatedButton"
-        app:backgroundTint="@color/principal_blue"
+        style="@style/disabledButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/common_size_middle"
+        android:layout_marginBottom="@dimen/common_size_large"
+        android:text="@string/uploadInformation"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="39dp"
-        android:fontFamily="@font/poppins"
-        android:text="@string/uploadInformation"
-        android:textColor="@color/white"
-        android:textSize="16sp"
         tools:ignore="TextContrastCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
