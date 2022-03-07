@@ -5,10 +5,21 @@
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
+
+    <!-- Paleta de colores bankodemia -->
+    <!-- Principal -->
+    <color name="principal_gray">#7F7F7F</color>
+    <color name="principal_blue">#00CCCC</color>
+    <color name="principal_variant_blue">#00BCD4</color>
+
+    <!-- Secondary -->
+    <color name="secondary_purple">#7B78EA</color>
+
+    <!-- Components -->
+    <color name="input_gray">#626262</color>
+    <color name="shadow_title_creamy">#ffedee</color>
+
+    <!-- Generals -->
     <color name="black">#161616</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="blue">#00CCCC</color>
-    <color name="purple">#7B78EA</color>
-    <color name="gray_input">#626262</color>
-    <color name="creamy">#ffedee</color>
 </resources>

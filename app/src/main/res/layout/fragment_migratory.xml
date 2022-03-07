@@ -51,7 +51,7 @@
     <Button
         android:id="@+id/migratoryBtnUploadInfo"
         style="@style/Widget.Material3.Button.ElevatedButton"
-        app:backgroundTint="@color/blue"
+        app:backgroundTint="@color/principal_blue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -1,78 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="fillButtonBlue" parent="Widget.Material3.Button.ElevatedButton">
-        <item name="android:textColor">#FFFFFF</item>
-        <item name="android:backgroundTint">#00CCCC</item>
-        <item name="android:textSize">18dp</item>
-        <item name="android:fontWeight">500</item>
-        <item name="android:fontFamily">@font/poppins</item>
-    </style>
 
-    <style name="disabledButton" parent="Widget.Material3.Button.ElevatedButton">
-        <item name="android:textColor">#FFFFFF</item>
-        <item name="android:backgroundTint">#7F7F7F</item>
-        <item name="android:textSize">18dp</item>
-        <item name="android:fontWeight">500</item>
-        <item name="android:fontFamily">@font/poppins</item>
+    <style name="fillButtonBlue" parent="Widget.Material3.Button.ElevatedButton">
+        <item name="android:backgroundTint">@color/principal_blue</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textAppearance">@style/buttonText</item>
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerRadius">@dimen/common_size_min</item>
     </style>
 
     <style name="outlinedButtonBlue" parent="Widget.Material3.Button.OutlinedButton">
-        <item name="android:textColor">#00CCCC</item>
         <item name="android:backgroundTint">@android:color/transparent</item>
-        <item name="android:textSize">18dp</item>
-        <item name="android:fontWeight">500</item>
-        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textColor">@color/principal_blue</item>
+        <item name="android:textAppearance">@style/buttonText</item>
+        <item name="strokeColor">@color/principal_blue</item>
+        <item name="strokeWidth">@dimen/common_strokewidth_min</item>
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerRadius">@dimen/common_size_min</item>
     </style>
 
     <style name="fillButtonPurple" parent="Widget.Material3.Button.ElevatedButton">
-        <item name="android:textColor">#FFFFFF</item>
-        <item name="android:backgroundTint">#7B78EA</item>
-        <item name="android:textSize">18dp</item>
-        <item name="android:fontWeight">500</item>
-        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:backgroundTint">@color/secondary_purple</item>
+        <item name="android:textSize">@dimen/common_textsize_middle</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textAppearance">@style/buttonText</item>
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerRadius">@dimen/common_size_min</item>
     </style>
 
     <style name="outlinedButtonPurple" parent="Widget.Material3.Button.OutlinedButton">
-        <item name="android:textColor">#7B78EA</item>
         <item name="android:backgroundTint">@android:color/transparent</item>
-        <item name="android:textSize">18dp</item>
-        <item name="android:fontWeight">500</item>
-        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textColor">@color/secondary_purple</item>
+        <item name="android:textAppearance">@style/buttonText</item>
+        <item name="strokeColor">@color/secondary_purple</item>
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerRadius">@dimen/common_size_min</item>
     </style>
 
-    <style name="mainTextField" parent="ThemeOverlay.Material3.TextInputEditText.OutlinedBox">
-        <item name="android:textColor">#000000</item>
+    <style name="disabledButton" parent="Widget.Material3.Button.ElevatedButton">
+        <item name="android:backgroundTint">@color/principal_gray</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textAppearance">@style/buttonText</item>
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerRadius">@dimen/common_size_min</item>
+    </style>
+
+    <style name="outlinedTextFieldBlue" parent="ThemeOverlay.Material3.TextInputEditText.OutlinedBox">
         <item name="android:backgroundTint">@android:color/transparent</item>
-        <item name="android:textColorHint">#7F7F7F</item>
-        <item name="android:textSize">18dp</item>
-        <item name="boxStrokeColor">#00CCCC</item>
-        <item name="android:fontWeight">500</item>
+        <item name="android:textColorHint">@color/principal_gray</item>
+        <item name="boxStrokeColor">@color/principal_blue</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textAppearance">@style/contentText</item>
+    </style>
+
+    <style name="outlinedTextFieldPurple" parent="ThemeOverlay.Material3.TextInputEditText.OutlinedBox">
+        <item name="android:backgroundTint">@android:color/transparent</item>
+        <item name="android:textColorHint">@color/principal_gray</item>
+        <item name="boxStrokeColor">@color/secondary_purple</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textAppearance">@style/contentText</item>
+    </style>
+
+    <style name="titleTextWhite" parent="titleText">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="subtitleTextWhite" parent="subtitleText">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="contentTextWhite" parent="contentText">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="titleTextBlue" parent="titleText">
+        <item name="android:textColor">@color/principal_blue</item>
+    </style>
+
+    <style name="subtitleTextBlue" parent="subtitleText">
+        <item name="android:textColor">@color/principal_blue</item>
+    </style>
+
+    <style name="contentTextBlue" parent="contentText">
+        <item name="android:textColor">@color/principal_blue</item>
+    </style>
+
+    <style name="titleTextPurple" parent="titleText">
+        <item name="android:textColor">@color/secondary_purple</item>
+    </style>
+
+    <style name="subtitleTextPurple" parent="subtitleText">
+        <item name="android:textColor">@color/secondary_purple</item>
+    </style>
+
+    <style name="contentTextPurple" parent="contentText">
+        <item name="android:textColor">@color/secondary_purple</item>
+    </style>
+
+    <style name="titleText" parent="TextAppearance.AppCompat">
+        <item name="android:textFontWeight">@integer/common_fontWeight_middle</item>
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textSize">@dimen/common_textsize_large</item>
+    </style>
+
+    <style name="subtitleText" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/common_textsize_middle</item>
+        <item name="android:textFontWeight">@integer/common_fontWeight_middle</item>
         <item name="android:fontFamily">@font/poppins</item>
     </style>
 
-    <style name="purpleText" parent="Widget.MaterialComponents.TextView">
-        <item name="android:textColor">#7B78EA</item>
-        <item name="android:textSize">14dp</item>
-        <item name="android:fontWeight">500</item>
+    <style name="buttonText" parent="TextAppearance.AppCompat">
+        <item name="fontWeight">@integer/common_fontWeight_default</item>
+        <item name="android:textSize">@dimen/common_textsize_middle</item>
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textFontWeight">@integer/common_fontWeight_default</item>
+    </style>
+
+    <style name="contentText" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/common_textsize_default</item>
+        <item name="android:textFontWeight">@integer/common_fontWeight_min</item>
         <item name="android:fontFamily">@font/poppins</item>
     </style>
 
-    <style name="blueText" parent="Widget.MaterialComponents.TextView">
-        <item name="android:textColor">#00CCCC</item>
-        <item name="android:fontWeight">500</item>
-        <item name="android:fontFamily">@font/poppins</item>
-    </style>
-
-    <style name="boldText" parent="Widget.MaterialComponents.TextView">
-        <item name="android:textColor">#000000</item>
-        <item name="android:fontWeight">600</item>
-        <item name="android:fontFamily">@font/poppins</item>
-    </style>
-
-    <style name="mainText" parent="Widget.MaterialComponents.TextView">
-        <item name="android:textColor">#7F7F7F</item>
-        <item name="android:textSize">16dp</item>
-        <item name="android:fontWeight">400</item>
-        <item name="android:fontFamily">@font/poppins</item>
-    </style>
 </resources>
