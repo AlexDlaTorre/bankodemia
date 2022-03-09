@@ -3,8 +3,7 @@ package com.example.bankodemia.model
 import com.example.bankodemia.core.MovementType
 import kotlinx.serialization.SerialName
 
-object Transaction {
-    init{}
+class Transaction {
     data class PostResponse(
         val success: Boolean,
         val data: PostTransactionData,

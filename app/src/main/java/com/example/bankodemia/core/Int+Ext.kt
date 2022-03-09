@@ -1,10 +1,10 @@
 package com.example.bankodemia.core
 
-val Int.zero: Int
+val Int.Companion.zero: Int
     get() = 0
 
-val Int.once: Int
+val Int.Companion.once: Int
     get() = 1
 
-val Int.twice: Int
+val Int.Companion.twice: Int
     get() = 2
