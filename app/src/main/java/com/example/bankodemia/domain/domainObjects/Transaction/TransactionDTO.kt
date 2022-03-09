@@ -1,7 +1,10 @@
 package com.example.bankodemia.domain.domainObjects.Transaction
 
+import com.example.bankodemia.core.zero
 import com.example.bankodemia.domain.domainObjects.User.UserDTO
 import com.example.bankodemia.model.Transaction
+import java.text.NumberFormat
+import java.util.*
 
 data class TransactionDTO(val response: Transaction.Transaction){
     val amount: Double
@@ -11,6 +14,14 @@ data class TransactionDTO(val response: Transaction.Transaction){
     val issuer: UserDTO
     val destinationUser: UserDTO
     val isIncome: Boolean
+
+    val formattedAmount: String
+    get() {
+        val numberFormat = NumberFormat.getCurrencyInstance()
+        numberFormat.maximumFractionDigits = Int.zero
+        numberFormat.currency = Currency.getInstance("es_MX")
+        return "$ ${numberFormat.format(amount)}"
+    }
 
     init {
         amount = response.amount
