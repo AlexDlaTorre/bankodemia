@@ -1,7 +1,6 @@
 package com.example.bankodemia.model
 
 import com.example.bankodemia.core.MovementType
-import kotlinx.serialization.SerialName
 
 class Transaction {
     data class PostResponse(
@@ -17,10 +16,9 @@ class Transaction {
         val amount: Double,
         val type: MovementType,
         val concept: String,
-        @SerialName("created_at")
-        val createdAt: String,
-        val issuer: User,
-        val destinationUser: User,
+        val created_at: String,
+        val issuer: User.User,
+        val destinationUser: User.User,
         val isIncome: Boolean
     )
 

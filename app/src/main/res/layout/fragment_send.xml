@@ -46,7 +46,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/sendRvContacts"
         android:layout_width="match_parent"
-        android:layout_height="ma"
+        android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/common_size_middle"
         android:layout_marginTop="@dimen/common_size_large"
         app:layout_constraintEnd_toEndOf="@+id/homeDetailBtnBackToHome"
