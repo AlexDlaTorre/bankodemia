@@ -3,7 +3,7 @@ package com.example.bankodemia.domain.domainObjects.User
 import com.example.bankodemia.core.IdentityType
 import com.example.bankodemia.model.User
 
-data class UserDTO(val user: User) {
+data class UserDTO(val user: User.User) {
     val email: String
     val name: String
     val lastName: String

@@ -27,7 +27,7 @@ data class TransactionDTO(val response: Transaction.Transaction){
         amount = response.amount
         type = response.type.value
         concept = response.concept
-        createdAt = response.createdAt
+        createdAt = response.created_at
         issuer = UserDTO(response.issuer)
         destinationUser = UserDTO(response.destinationUser)
         isIncome = response.isIncome

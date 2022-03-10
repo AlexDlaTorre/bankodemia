@@ -21,7 +21,7 @@ class Contact {
 
     data class Contact(
         val shortName: String,
-        val owner: User,
-        val user: User
+        val owner: User.User,
+        val user: User.User
     )
 }
