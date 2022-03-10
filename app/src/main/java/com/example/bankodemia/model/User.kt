@@ -2,9 +2,7 @@ package com.example.bankodemia.model
 
 import com.example.bankodemia.core.IdentityType
 
-object User {
-    init { }
-
+class User {
     data class PostResponse(
         val success: Boolean,
         val data: PostData
@@ -47,3 +45,5 @@ object User {
         val identityImageType: IdentityType
     )
 }
+
+

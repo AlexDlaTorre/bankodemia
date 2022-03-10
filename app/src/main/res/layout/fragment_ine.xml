@@ -6,61 +6,45 @@
     android:layout_height="match_parent"
     tools:context=".ui.view.IneFragment">
 
-    <ImageView
-        android:id="@+id/ineIvLogo"
-        android:layout_width="70dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="42dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="42dp"
-        android:contentDescription="@null"
-        android:scaleType="centerInside"
+    <include
+        android:id="@+id/ineTemplateTopLogoSingle"
+        layout="@layout/template_toplogo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/ineBtnBackToIdentityMenu"
-        style="@style/Widget.Material3.Button.TextButton.Icon"
+        style="@style/backTextButtonIconGray"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:fontFamily="@font/poppins"
+        android:layout_marginStart="@dimen/common_size_middle"
+        android:layout_marginTop="@dimen/common_size_min"
         android:text="@string/ine"
-        android:textSize="14sp"
-        app:icon="@drawable/ic_arrow_back"
-        app:layout_constraintBottom_toTopOf="@+id/ineTvInstructionsIne"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ineTemplateTopLogoSingle"
         tools:ignore="DuplicateSpeakableTextCheck" />
 
     <TextView
         android:id="@+id/ineTvInstructionsIne"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="24dp"
-        android:fontFamily="@font/poppins"
+        android:layout_marginHorizontal="@dimen/common_size_middle"
+        android:layout_marginTop="@dimen/common_size_default"
         android:text="@string/ineInstructions"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ineIvLogo" />
+        android:textAppearance="@style/contentText"
+        app:layout_constraintEnd_toEndOf="@+id/ineBtnBackToIdentityMenu"
+        app:layout_constraintStart_toStartOf="@+id/ineBtnBackToIdentityMenu"
+        app:layout_constraintTop_toBottomOf="@+id/ineBtnBackToIdentityMenu" />
 
     <Button
         android:id="@+id/ineBtnUploadInfo"
-        style="@style/Widget.Material3.Button.ElevatedButton"
+        style="@style/disabledButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="39dp"
-        android:fontFamily="@font/poppins"
+        android:layout_marginHorizontal="@dimen/common_size_middle"
+        android:layout_marginBottom="@dimen/common_size_large"
         android:text="@string/uploadInformation"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        app:backgroundTint="@color/principal_blue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

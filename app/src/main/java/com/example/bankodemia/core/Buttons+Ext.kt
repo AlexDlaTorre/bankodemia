@@ -15,10 +15,10 @@ fun activateButton(fragment: Fragment, button : Button, vararg checks: Boolean){
     //TODO : Buscar metodo que permita obtener el color desde los resources
     if (setCheckFieldsList.contains(trueOnlyValues) && setCheckFieldsList.size == 1){
         button.isEnabled = true
-        button.setBackgroundColor(fragment.resources.getColor(R.color.blue))
+        button.setBackgroundColor(fragment.resources.getColor(R.color.principal_blue))
     }else{
         button.isEnabled = false
-        button.setBackgroundColor(fragment.resources.getColor(R.color.gray_input))
+        button.setBackgroundColor(fragment.resources.getColor(R.color.principal_gray))
     }
 
 }

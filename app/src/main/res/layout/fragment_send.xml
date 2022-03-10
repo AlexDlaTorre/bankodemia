@@ -8,10 +8,9 @@
 
     <ImageView
         android:id="@+id/sendIvLogo"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="4dp"
+        android:layout_width="@dimen/common_width_logo"
+        android:layout_height="@dimen/common_heigth_logo"
+        android:layout_marginTop="@dimen/common_size_large"
         android:contentDescription="@null"
         android:scaleType="centerInside"
         app:layout_constraintEnd_toEndOf="parent"
@@ -19,43 +18,40 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo" />
 
-    <Button
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/sendBtnAdd"
-        style="@style/Widget.Material3.Button.TextButton.Icon"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_marginEnd="32dp"
-        app:icon="@drawable/ic_person_add"
-        app:iconGravity="end"
-        app:layout_constraintBottom_toBottomOf="@+id/sendIvLogo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/sendIvLogo"
-        app:layout_constraintVertical_bias="1.0"
-        tools:ignore="DuplicateSpeakableTextCheck,SpeakableTextPresentCheck" />
-
-    <Button
-        android:id="@+id/homeDetailBtnBackToHome"
         style="@style/Widget.Material3.Button.TextButton.Icon"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:fontFamily="@font/poppins"
+        android:layout_marginEnd="@dimen/common_size_middle"
+        android:contentDescription="@null"
+        app:layout_constraintBottom_toBottomOf="@+id/homeDetailBtnBackToHome"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/homeDetailBtnBackToHome"
+        app:srcCompat="@drawable/ic_person_add"
+        app:tint="@color/principal_gray" />
+
+    <Button
+        android:id="@+id/homeDetailBtnBackToHome"
+        style="@style/backTextButtonIconGray"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/common_size_middle"
+        android:layout_marginTop="@dimen/common_size_min"
         android:text="@string/send_money"
-        android:textSize="14sp"
         app:icon="@drawable/ic_arrow_back"
-        app:layout_constraintBottom_toTopOf="@+id/sendRvContacts"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sendIvLogo" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/sendRvContacts"
-        android:layout_width="0dp"
-        android:layout_height="753dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sendIvLogo"
+        android:layout_width="match_parent"
+        android:layout_height="ma"
+        android:layout_marginHorizontal="@dimen/common_size_middle"
+        android:layout_marginTop="@dimen/common_size_large"
+        app:layout_constraintEnd_toEndOf="@+id/homeDetailBtnBackToHome"
+        app:layout_constraintStart_toStartOf="@+id/homeDetailBtnBackToHome"
+        app:layout_constraintTop_toBottomOf="@+id/homeDetailBtnBackToHome"
         tools:listitem="@layout/item_cardview_contact" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

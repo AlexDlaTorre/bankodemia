@@ -36,7 +36,7 @@
     <string name="confirmation">¡Listo! Recibimos tu información. Usualmente tardamos unos minutos en verificar, pero en caso de tener algún problema, nos comunicaremos contigo.</string>
     <string name="thanks">¡GRACIAS POR USAR BANKODEMIA!</string>
     <string name="password_b">Contraseña</string>
-    <string name="instructions_password">Lo usarás para entrar a la app y confirmar tus transacciones. n Usa al menos 6 caracteres alfanuméricos, no consecutivos ni repetidos.</string>
+    <string name="instructions_password">Lo usarás para entrar a la app y confirmar tus transacciones. \n Usa al menos 6 caracteres alfanuméricos, no consecutivos ni repetidos.</string>
     <string name="create_password">Crear Contraseña</string>
     <string name="confirm_password">Confirma tu contraseña</string>
     <string name="instractions_safe_password">Crea una contraseña segura</string>

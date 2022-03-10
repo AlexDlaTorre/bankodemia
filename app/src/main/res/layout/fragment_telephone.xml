@@ -20,45 +20,31 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/telephoneIvLogo"
-                android:layout_width="70dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="42dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="42dp"
-                android:contentDescription="@null"
-                android:scaleType="centerInside"
+            <include
+                android:id="@+id/telephoneTemplateTopLogoSingle"
+                layout="@layout/template_toplogo"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/logo" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <Button
                 android:id="@+id/telephoneBtnBackToData"
-                style="@style/Widget.Material3.Button.TextButton.Icon"
+                style="@style/backTextButtonIconGray"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
-                android:fontFamily="@font/poppins"
-                android:text="@string/instructions_telephone"
-                android:textSize="14sp"
-                app:icon="@drawable/ic_arrow_back"
-                app:layout_constraintBottom_toTopOf="@+id/telephoneTvInstructions"
-                app:layout_constraintStart_toStartOf="parent" />
+                android:layout_marginStart="@dimen/common_size_middle"
+                android:layout_marginTop="@dimen/common_size_min"
+                android:text="@string/go_back_home"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/telephoneTemplateTopLogoSingle" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/telephoneTilTelephone"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/outlinedTextFieldBlue"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="45dp"
-                android:layout_marginEnd="24dp"
-                android:fontFamily="@font/poppins"
-                android:hint="@string/hind_telephone"
-                android:textColorHint="@color/input_gray"
-                app:boxStrokeColor="@color/principal_blue"
+                android:layout_marginHorizontal="@dimen/common_size_middle"
+                android:layout_marginTop="@dimen/common_size_large"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/telephoneTvInstructions">
@@ -67,10 +53,8 @@
                     android:id="@+id/telephoneTietTelephone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins"
                     android:hint="@string/hind_telephone"
                     android:inputType="phone"
-                    android:textColor="@color/input_gray"
                     tools:ignore="TextContrastCheck" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -79,48 +63,37 @@
                 android:id="@+id/telephoneTvInstructions"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="80dp"
-                android:layout_marginEnd="24dp"
-                android:fontFamily="@font/poppins"
+                android:layout_marginHorizontal="@dimen/common_size_middle"
+                android:layout_marginTop="@dimen/common_size_min"
                 android:text="@string/instructions_telephone_textinput"
-                android:textColor="@color/black"
+                android:textAppearance="@style/contentText"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/telephoneIvLogo" />
+                app:layout_constraintTop_toBottomOf="@+id/telephoneBtnBackToData" />
 
             <TextView
                 android:id="@+id/telephoneTvSms"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="240dp"
-                android:layout_marginEnd="24dp"
-                android:fontFamily="@font/poppins"
+                android:layout_marginHorizontal="@dimen/common_size_middle"
+                android:layout_marginTop="@dimen/common_size_max"
                 android:text="@string/instructions_send_sms"
-                android:textColor="@color/black"
+                android:textAppearance="@style/contentText"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/telephoneTilTelephone" />
 
             <Button
                 android:id="@+id/telephoneBtnContinueProcess"
-                style="@style/Widget.Material3.Button.ElevatedButton"
+                style="@style/disabledButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="45dp"
-                android:layout_marginEnd="24dp"
-                android:layout_marginBottom="39dp"
-                android:enabled="false"
-                android:fontFamily="@font/poppins"
+                android:layout_marginTop="@dimen/common_size_extra_large_large"
+                android:layout_marginBottom="@dimen/common_size_min"
                 android:text="@string/continue_b"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                app:backgroundTint="@color/principal_blue"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/telephoneTvSms"
+                app:layout_constraintStart_toStartOf="@+id/telephoneTvSms"
                 app:layout_constraintTop_toBottomOf="@id/telephoneTvSms"
                 tools:ignore="TextContrastCheck" />
 

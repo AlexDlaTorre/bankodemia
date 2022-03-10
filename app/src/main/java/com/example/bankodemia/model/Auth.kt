@@ -1,9 +1,10 @@
 package com.example.bankodemia.model
 
-object Auth {
+class Auth {
     init { }
-    data class Response(
+    data class AuthResponse(
         val token: String,
         val expiresIn: String
     )
+
 }

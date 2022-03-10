@@ -1,7 +1,6 @@
 package com.example.bankodemia.model
 
-object Contact {
-    init { }
+class Contact {
     data class PostResponse(
         val success: Boolean,
         val data: PostData
