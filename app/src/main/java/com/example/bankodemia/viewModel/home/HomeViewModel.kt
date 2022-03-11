@@ -1,4 +1,4 @@
-package com.example.bankodemia.ui.home
+package com.example.bankodemia.viewModel.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

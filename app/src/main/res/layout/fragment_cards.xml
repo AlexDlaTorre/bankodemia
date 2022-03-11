@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CardsFragment">
+    android:background="@color/white"
+    tools:context=".UI.View.home.CardsFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -36,6 +37,7 @@
             android:importantForAccessibility="no"
             app:cardCornerRadius="10dp"
             app:cardElevation="10dp"
+            android:backgroundTint="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cardsTvCard">
@@ -72,7 +74,7 @@
         </androidx.cardview.widget.CardView>
 
         <TextView
-            android:id="@+id/CardsTvCardText"
+            android:id="@+id/cardsTvCardText"
             style="@style/contentText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -88,8 +90,8 @@
             style="@style/contentTextGray"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="@+id/CardsTvCardText"
-            app:layout_constraintTop_toBottomOf="@+id/CardsTvCardText"
+            app:layout_constraintStart_toStartOf="@+id/cardsTvCardText"
+            app:layout_constraintTop_toBottomOf="@+id/cardsTvCardText"
             tools:text="5439246476642003" />
 
         <TextView

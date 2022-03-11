@@ -1,4 +1,4 @@
-package com.example.bankodemia
+package com.example.bankodemia.UI.View.home
 
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -7,6 +7,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.bankodemia.R
 import com.example.bankodemia.databinding.ActivityHome2Binding
 
 class HomeActivity : AppCompatActivity() {
@@ -26,7 +27,7 @@ class HomeActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications
+                R.id.navigation_home, R.id.cardsFragment, R.id.servicesFragment,R.id.homeDetailFragment
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
