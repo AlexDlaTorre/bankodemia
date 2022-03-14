@@ -1,4 +1,6 @@
 package com.example.bankodemia.UI.viewModel
 
-class CardsViewModel {
+import androidx.lifecycle.ViewModel
+
+class CardsViewModel : ViewModel() {
 }

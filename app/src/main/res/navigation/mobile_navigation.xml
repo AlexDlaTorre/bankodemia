@@ -22,4 +22,8 @@
         android:name="com.example.bankodemia.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/cardsFragment"
+        android:name="com.example.bankodemia.UI.View.CardsFragment"
+        android:label="CardsFragment" />
 </navigation>

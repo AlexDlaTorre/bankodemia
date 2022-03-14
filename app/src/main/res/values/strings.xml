@@ -118,4 +118,5 @@
     <string name="helper_date_no_valid">Fecha invalida</string>
     <string name="helper_fields_no_match">Los campos no coinciden</string>
     <string name="make_transfer">Hacer Transferencia</string>
+    <string name="cards">Tarjetas</string>
 </resources>
