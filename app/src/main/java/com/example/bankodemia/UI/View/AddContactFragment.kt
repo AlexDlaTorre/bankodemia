@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
+import com.example.bankodemia.R
 import com.example.bankodemia.UI.viewModel.AddContactViewModel
 import com.example.bankodemia.UI.viewModel.CardsViewModel
 import com.example.bankodemia.core.FieldTypeEnum
@@ -27,6 +29,11 @@ class AddContactFragment : Fragment(), Fields {
             ViewModelProvider(this).get(AddContactViewModel::class.java)
 
         _binding = FragmentAddContactBinding.inflate(inflater, container, false)
+
+        binding.addContactBtnBackToSend.setOnClickListener { view : View ->
+            view.findNavController().navigate(R.id.action_addContactFragment_to_sendFragment)
+        }
+
         validationFields()
         return binding.root
     }
