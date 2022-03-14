@@ -66,6 +66,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/addContactTietCardNumber"
                 android:layout_width="match_parent"
+                android:textColor="@color/input_gray"
                 android:layout_height="wrap_content"
                 android:hint="@string/digits"
                 android:inputType="number"
@@ -86,6 +87,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/addContactTietInstitution"
                 android:layout_width="match_parent"
+                android:textColor="@color/input_gray"
                 android:layout_height="wrap_content"
                 android:hint="@string/institution"
                 android:inputType="textPersonName"
@@ -104,6 +106,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/addContactTietName"
+                android:textColor="@color/input_gray"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/name"
@@ -123,6 +126,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/addContactTietEmail"
+                android:textColor="@color/input_gray"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/notification_mail"
