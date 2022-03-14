@@ -12,12 +12,6 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.example.bankodemia.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
-
-    <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.example.bankodemia.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
@@ -26,4 +20,8 @@
         android:id="@+id/cardsFragment"
         android:name="com.example.bankodemia.UI.View.CardsFragment"
         android:label="CardsFragment" />
+    <fragment
+        android:id="@+id/servicesFragment"
+        android:name="com.example.bankodemia.UI.View.ServicesFragment"
+        android:label="ServicesFragment" />
 </navigation>
