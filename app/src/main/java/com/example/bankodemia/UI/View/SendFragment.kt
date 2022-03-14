@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
+import com.example.bankodemia.R
 import com.example.bankodemia.UI.viewModel.SendViewModel
 import com.example.bankodemia.databinding.FragmentSendBinding
 
@@ -23,6 +25,11 @@ class SendFragment : Fragment() {
             ViewModelProvider(this).get(SendViewModel::class.java)
 
         _binding = FragmentSendBinding.inflate(inflater, container, false)
+
+
+        binding.homeDetailBtnBackToHome.setOnClickListener { view : View ->
+            view.findNavController().navigate(R.id.action_sendFragment_to_navigation_home)
+        }
 
         return binding.root
     }
