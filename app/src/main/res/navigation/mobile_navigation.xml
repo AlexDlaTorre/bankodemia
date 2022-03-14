@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_navigation_home_to_sendFragment"
             app:destination="@id/sendFragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_homeDetailFragment"
+            app:destination="@id/homeDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/cardsFragment"
@@ -79,4 +82,9 @@
             android:id="@+id/action_processingTransactionFragment_to_navigation_home"
             app:destination="@id/navigation_home" />
     </fragment>
+    <fragment
+        android:id="@+id/homeDetailFragment"
+        android:name="com.example.bankodemia.UI.View.HomeDetailFragment"
+        android:label="fragment_home_detail"
+        tools:layout="@layout/fragment_home_detail" />
 </navigation>

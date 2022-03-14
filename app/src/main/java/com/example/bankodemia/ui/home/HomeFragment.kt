@@ -28,6 +28,10 @@ class HomeFragment : Fragment() {
             view.findNavController().navigate(R.id.action_navigation_home_to_sendFragment)
         }
 
+        binding.homeTvAvailableMoney.setOnClickListener { view : View ->
+            view.findNavController().navigate(R.id.action_navigation_home_to_homeDetailFragment)
+        }
+
         return binding.root
     }
 

@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeDetailFragment">
+    android:background="@color/white"
+    tools:context=".UI.View.HomeDetailFragment">
 
     <include
         android:id="@+id/homeDetailTitleBar"
@@ -60,6 +61,7 @@
         android:layout_marginHorizontal="@dimen/common_size_middle"
         android:layout_marginTop="@dimen/common_size_extra_large"
         android:text="@string/date_and_time"
+        android:textColor="@color/black"
         android:textAppearance="@style/contentTextVariant"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -71,6 +73,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/common_size_min"
+        android:textColor="@color/input_gray"
         android:textAppearance="@style/contentTextVariantGray"
         app:layout_constraintEnd_toEndOf="@+id/homeDetailTvDate"
         app:layout_constraintStart_toStartOf="@+id/homeDetailTvDate"
@@ -83,6 +86,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/common_size_middle"
         android:text="@string/transaction_id"
+        android:textColor="@color/black"
         android:textAppearance="@style/contentTextVariant"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/homeDetailTvDateTime"
@@ -94,6 +98,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/common_size_min"
+        android:textColor="@color/input_gray"
         android:textAppearance="@style/contentTextVariantGray"
         app:layout_constraintEnd_toEndOf="@+id/homeDetailTvTransactionId"
         app:layout_constraintStart_toStartOf="@+id/homeDetailTvTransactionId"
@@ -108,6 +113,7 @@
         android:text="@string/concept"
         android:textAppearance="@style/contentTextVariant"
         android:textStyle="bold"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="@+id/homeDetailTvTransactionIdNum"
         app:layout_constraintStart_toStartOf="@+id/homeDetailTvTransactionIdNum"
         app:layout_constraintTop_toBottomOf="@+id/homeDetailTvTransactionIdNum" />
@@ -118,7 +124,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/common_size_min"
         android:textAppearance="@style/contentTextVariantGray"
-
+        android:textColor="@color/input_gray"
         app:layout_constraintEnd_toEndOf="@+id/homeDetailTvConcept"
         app:layout_constraintStart_toStartOf="@+id/homeDetailTvConcept"
         app:layout_constraintTop_toBottomOf="@+id/homeDetailTvConcept"
@@ -130,6 +136,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/common_size_middle"
         android:text="@string/issuer_account"
+        android:textColor="@color/black"
         android:textAppearance="@style/contentTextVariant"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/homeDetailTvConceptDetail"
@@ -142,6 +149,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/common_size_min"
         android:text="@string/account_number"
+        android:textColor="@color/input_gray"
         android:textAppearance="@style/contentTextVariantGray"
         app:layout_constraintEnd_toEndOf="@+id/homeDetailTvIssuerAccount"
         app:layout_constraintStart_toStartOf="@+id/homeDetailTvIssuerAccount"
@@ -156,6 +164,7 @@
         app:layout_constraintEnd_toEndOf="@+id/homeDetailTvNum"
         app:layout_constraintStart_toStartOf="@+id/homeDetailTvNum"
         app:layout_constraintTop_toBottomOf="@+id/homeDetailTvNum"
+        android:textColor="@color/input_gray"
         tools:text="%s" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
