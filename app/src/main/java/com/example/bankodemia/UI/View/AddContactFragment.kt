@@ -34,6 +34,10 @@ class AddContactFragment : Fragment(), Fields {
             view.findNavController().navigate(R.id.action_addContactFragment_to_sendFragment)
         }
 
+        binding.addContactBtnAddContact.setOnClickListener { view : View ->
+            view.findNavController().navigate(R.id.action_addContactFragment_to_contactAddedFragment)
+        }
+
         validationFields()
         return binding.root
     }

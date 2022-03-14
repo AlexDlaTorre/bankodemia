@@ -42,5 +42,17 @@
         <action
             android:id="@+id/action_addContactFragment_to_sendFragment"
             app:destination="@id/sendFragment" />
+        <action
+            android:id="@+id/action_addContactFragment_to_contactAddedFragment"
+            app:destination="@id/contactAddedFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/contactAddedFragment"
+        android:name="com.example.bankodemia.ui.view.ContactAddedFragment"
+        android:label="fragment_contact_added"
+        tools:layout="@layout/fragment_contact_added" >
+        <action
+            android:id="@+id/action_contactAddedFragment_to_navigation_home"
+            app:destination="@id/navigation_home" />
     </fragment>
 </navigation>
