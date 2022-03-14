@@ -30,6 +30,9 @@ class SendFragment : Fragment() {
         binding.homeDetailBtnBackToHome.setOnClickListener { view : View ->
             view.findNavController().navigate(R.id.action_sendFragment_to_navigation_home)
         }
+        binding.sendBtnAdd.setOnClickListener { view : View ->
+            view.findNavController().navigate(R.id.action_sendFragment_to_addContactFragment)
+        }
 
         return binding.root
     }

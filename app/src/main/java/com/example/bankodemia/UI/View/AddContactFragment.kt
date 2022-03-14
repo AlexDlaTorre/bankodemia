@@ -1,4 +1,4 @@
-package com.example.bankodemia
+package com.example.bankodemia.UI.View
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,6 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
+import androidx.lifecycle.ViewModelProvider
+import com.example.bankodemia.UI.viewModel.AddContactViewModel
+import com.example.bankodemia.UI.viewModel.CardsViewModel
 import com.example.bankodemia.core.FieldTypeEnum
 import com.example.bankodemia.core.activateButton
 import com.example.bankodemia.core.validateField
@@ -20,6 +23,9 @@ class AddContactFragment : Fragment(), Fields {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        val addContactViewModel =
+            ViewModelProvider(this).get(AddContactViewModel::class.java)
+
         _binding = FragmentAddContactBinding.inflate(inflater, container, false)
         validationFields()
         return binding.root
