@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import com.example.bankodemia.R
 import com.example.bankodemia.UI.viewModel.CardsViewModel
 import com.example.bankodemia.UI.viewModel.HomeDetailViewModel
@@ -26,6 +27,10 @@ class HomeDetailFragment : Fragment() {
             ViewModelProvider(this).get(HomeDetailViewModel::class.java)
 
         _binding = FragmentHomeDetailBinding.inflate(inflater, container, false)
+
+        binding.homeDetailBtnBackToHome.setOnClickListener { view : View ->
+            view.findNavController().navigate(R.id.action_homeDetailFragment_to_navigation_home)
+        }
 
         return binding.root
     }

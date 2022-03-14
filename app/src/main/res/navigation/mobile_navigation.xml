@@ -86,5 +86,9 @@
         android:id="@+id/homeDetailFragment"
         android:name="com.example.bankodemia.UI.View.HomeDetailFragment"
         android:label="fragment_home_detail"
-        tools:layout="@layout/fragment_home_detail" />
+        tools:layout="@layout/fragment_home_detail" >
+        <action
+            android:id="@+id/action_homeDetailFragment_to_navigation_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
 </navigation>
