@@ -66,10 +66,17 @@
         <action
             android:id="@+id/action_transferDetailFragment_to_sendFragment"
             app:destination="@id/sendFragment" />
+        <action
+            android:id="@+id/action_transferDetailFragment_to_processingTransactionFragment"
+            app:destination="@id/processingTransactionFragment" />
     </fragment>
     <fragment
         android:id="@+id/processingTransactionFragment"
         android:name="com.example.bankodemia.ui.view.ProcessingTransactionFragment"
         android:label="fragment_processing_transaction"
-        tools:layout="@layout/fragment_processing_transaction" />
+        tools:layout="@layout/fragment_processing_transaction" >
+        <action
+            android:id="@+id/action_processingTransactionFragment_to_navigation_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
 </navigation>

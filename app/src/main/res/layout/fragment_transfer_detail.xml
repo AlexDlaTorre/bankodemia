@@ -120,6 +120,7 @@
             android:id="@+id/transferTietAmount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/input_gray"
             android:hint="@string/zero"
             android:inputType="number"
             android:textAlignment="center" />

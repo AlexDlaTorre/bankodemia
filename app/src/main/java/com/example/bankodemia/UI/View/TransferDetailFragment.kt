@@ -27,6 +27,11 @@ class TransferDetailFragment : Fragment(), Fields {
         binding.transferBtnBackToSend.setOnClickListener { view : View ->
             view.findNavController().navigate(R.id.action_transferDetailFragment_to_sendFragment)
         }
+
+        binding.transferBtnMakeTransfer.setOnClickListener { view : View ->
+            view.findNavController().navigate(R.id.action_transferDetailFragment_to_processingTransactionFragment)
+        }
+
         validationFields()
         return binding.root
     }
