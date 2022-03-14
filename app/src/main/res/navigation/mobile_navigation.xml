@@ -9,13 +9,11 @@
         android:id="@+id/navigation_home"
         android:name="com.example.bankodemia.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
-
-    <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.bankodemia.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_sendFragment"
+            app:destination="@id/sendFragment" />
+    </fragment>
     <fragment
         android:id="@+id/cardsFragment"
         android:name="com.example.bankodemia.UI.View.CardsFragment"
@@ -24,4 +22,9 @@
         android:id="@+id/servicesFragment"
         android:name="com.example.bankodemia.UI.View.ServicesFragment"
         android:label="ServicesFragment" />
+    <fragment
+        android:id="@+id/sendFragment"
+        android:name="com.example.bankodemia.UI.View.SendFragment"
+        android:label="fragment_send"
+        tools:layout="@layout/fragment_send" />
 </navigation>
