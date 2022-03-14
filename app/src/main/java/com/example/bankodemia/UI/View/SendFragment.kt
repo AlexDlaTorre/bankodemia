@@ -34,6 +34,10 @@ class SendFragment : Fragment() {
             view.findNavController().navigate(R.id.action_sendFragment_to_addContactFragment)
         }
 
+        binding.sendIvLogo.setOnClickListener { view : View ->
+            view.findNavController().navigate(R.id.action_sendFragment_to_transferDetailFragment)
+        }
+
         return binding.root
     }
 

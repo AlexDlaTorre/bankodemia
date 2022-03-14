@@ -1,4 +1,4 @@
-package com.example.bankodemia
+package com.example.bankodemia.UI.View
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
+import androidx.navigation.findNavController
+import com.example.bankodemia.R
 import com.example.bankodemia.core.FieldTypeEnum
 import com.example.bankodemia.core.activateButton
 import com.example.bankodemia.core.validateField
@@ -21,6 +23,10 @@ class TransferDetailFragment : Fragment(), Fields {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentTransferDetailBinding.inflate(inflater, container, false)
+
+        binding.transferBtnBackToSend.setOnClickListener { view : View ->
+            view.findNavController().navigate(R.id.action_transferDetailFragment_to_sendFragment)
+        }
         validationFields()
         return binding.root
     }

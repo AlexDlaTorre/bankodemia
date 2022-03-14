@@ -33,6 +33,9 @@
         <action
             android:id="@+id/action_sendFragment_to_addContactFragment"
             app:destination="@id/addContactFragment" />
+        <action
+            android:id="@+id/action_sendFragment_to_transferDetailFragment"
+            app:destination="@id/transferDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/addContactFragment"
@@ -55,4 +58,18 @@
             android:id="@+id/action_contactAddedFragment_to_navigation_home"
             app:destination="@id/navigation_home" />
     </fragment>
+    <fragment
+        android:id="@+id/transferDetailFragment"
+        android:name="com.example.bankodemia.UI.View.TransferDetailFragment"
+        android:label="fragment_transfer_detail"
+        tools:layout="@layout/fragment_transfer_detail" >
+        <action
+            android:id="@+id/action_transferDetailFragment_to_sendFragment"
+            app:destination="@id/sendFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/processingTransactionFragment"
+        android:name="com.example.bankodemia.ui.view.ProcessingTransactionFragment"
+        android:label="fragment_processing_transaction"
+        tools:layout="@layout/fragment_processing_transaction" />
 </navigation>
