@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
-import com.example.bankodemia.core.FieldTypeEnum
+import com.example.bankodemia.core.types.FieldTypeEnum
 import com.example.bankodemia.core.activateButton
 import com.example.bankodemia.core.compareEqualsFields
 import com.example.bankodemia.core.validateField

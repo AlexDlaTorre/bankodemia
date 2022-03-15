@@ -1,6 +1,6 @@
 package com.example.bankodemia.domain.domainObjects.Contact
 
-import com.example.bankodemia.model.Contact
+import com.example.bankodemia.data.model.Contact
 
 class ContactGetDTO(val response: Contact.GetResponse) {
     val success: Boolean

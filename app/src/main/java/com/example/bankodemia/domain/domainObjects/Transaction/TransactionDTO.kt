@@ -2,7 +2,7 @@ package com.example.bankodemia.domain.domainObjects.Transaction
 
 import com.example.bankodemia.core.zero
 import com.example.bankodemia.domain.domainObjects.User.UserDTO
-import com.example.bankodemia.model.Transaction
+import com.example.bankodemia.data.model.Transaction
 import java.text.NumberFormat
 import java.util.*
 
@@ -25,7 +25,7 @@ data class TransactionDTO(val response: Transaction.Transaction){
 
     init {
         amount = response.amount
-        type = response.type.value
+        type = response.type.type
         concept = response.concept
         createdAt = response.created_at
         issuer = UserDTO(response.issuer)

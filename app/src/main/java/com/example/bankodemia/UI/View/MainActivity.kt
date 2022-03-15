@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.bankodemia.databinding.ActivityMainBinding
 import com.example.bankodemia.core.transitionFragment
+import com.example.bankodemia.ui.home.HomeFragment
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -15,7 +16,7 @@ class MainActivity : AppCompatActivity() {
 
         with(binding) {
             mainBtnLogin.setOnClickListener {
-                transitionFragment(fragmentClass = LoginFragment(), supportFragmentManager)
+                transitionFragment(fragmentClass = HomeFragment(), supportFragmentManager)
             }
 
             mainBtnCreateAccount.setOnClickListener {
