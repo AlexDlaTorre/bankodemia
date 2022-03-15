@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".ui.view.ProcessingTransactionFragment">
 
 
@@ -39,7 +40,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
     <Button
-        android:id="@+id/buttonCreateAccount"
+        android:id="@+id/buttonTransferDone"
         style="@style/fillButtonBlue"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
