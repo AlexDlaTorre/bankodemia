@@ -78,5 +78,20 @@
             app:layout_constraintTop_toBottomOf="@+id/homeBtnSend"
             tools:listitem="@layout/item_cardview_transactions" />
 
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/balance_shimmer"
+            android:layout_width="180dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@+id/hometvAvailableMoneyAmount"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/hometvAvailableMoneyAmount">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_skeleton_component"/>
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

@@ -128,8 +128,23 @@
     </style>
 
 
-    <style name="titleTextGray" parent="titleText">
+    <style name="grayTextView" parent="Widget.MaterialComponents.TextView">
         <item name="android:textColor">@color/principal_gray</item>
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="blackTextView" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="blueTextView" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColor">@color/principal_blue</item>
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textSize">14sp</item>
     </style>
 
     <style name="subtitleTextGray" parent="subtitleText">

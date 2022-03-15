@@ -1,6 +1,6 @@
 package com.example.bankodemia.domain.domainObjects.Transaction
 
-import com.example.bankodemia.model.Transaction
+import com.example.bankodemia.data.model.Transaction
 
 data class TransacionGetDTO(val response: Transaction.GetResponse) {
     val success: Boolean

@@ -1,6 +1,6 @@
 package com.example.bankodemia.domain.domainObjects.Auth
 
-import com.example.bankodemia.model.Auth
+import com.example.bankodemia.data.model.Auth
 
 class AuthDTO(val response: Auth.AuthResponse) {
     val token: String
