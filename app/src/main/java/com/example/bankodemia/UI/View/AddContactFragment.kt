@@ -1,4 +1,4 @@
-package com.example.bankodemia
+package com.example.bankodemia.UI.View
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,6 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
 import com.example.bankodemia.core.types.FieldTypeEnum
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
+import com.example.bankodemia.R
+import com.example.bankodemia.UI.viewModel.AddContactViewModel
+import com.example.bankodemia.UI.viewModel.CardsViewModel
 import com.example.bankodemia.core.activateButton
 import com.example.bankodemia.core.validateField
 import com.example.bankodemia.databinding.FragmentAddContactBinding
@@ -20,7 +25,19 @@ class AddContactFragment : Fragment(), Fields {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        val addContactViewModel =
+            ViewModelProvider(this).get(AddContactViewModel::class.java)
+
         _binding = FragmentAddContactBinding.inflate(inflater, container, false)
+
+        binding.addContactBtnBackToSend.setOnClickListener { view : View ->
+            view.findNavController().navigate(R.id.action_addContactFragment_to_sendFragment)
+        }
+
+        binding.addContactBtnAddContact.setOnClickListener { view : View ->
+            view.findNavController().navigate(R.id.action_addContactFragment_to_contactAddedFragment)
+        }
+
         validationFields()
         return binding.root
     }

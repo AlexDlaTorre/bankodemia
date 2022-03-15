@@ -12,6 +12,9 @@ import com.example.bankodemia.UI.ViewModel.HomeViewModel
 import com.example.bankodemia.UI.home.TransactionsAdapter
 import com.example.bankodemia.core.showToastMessage
 import com.example.bankodemia.core.utils.BaseUiState
+import android.widget.Button
+import androidx.navigation.findNavController
+import com.example.bankodemia.R
 import com.example.bankodemia.databinding.FragmentHomeBinding
 import com.example.bankodemia.domain.domainObjects.User.geUserProfile.UserProfileDTO
 import com.example.bankodemia.domain.domainObjects.User.geUserProfile.UserProfileTransactionDTO
@@ -31,6 +34,15 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         viewModel.getUserProfileData()
         setupObservers()
+
+        binding.homeBtnSend.setOnClickListener { view : View ->
+            view.findNavController().navigate(R.id.action_navigation_home_to_sendFragment)
+        }
+
+        binding.homeTvAvailableMoney.setOnClickListener { view : View ->
+            view.findNavController().navigate(R.id.action_navigation_home_to_homeDetailFragment)
+        }
+
         return binding.root
     }
 

@@ -1,4 +1,4 @@
-package com.example.bankodemia.ui.view
+package com.example.bankodemia.UI.View
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,12 +9,13 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.example.bankodemia.R
 import com.example.bankodemia.UI.viewModel.CardsViewModel
+import com.example.bankodemia.UI.viewModel.HomeDetailViewModel
 import com.example.bankodemia.databinding.FragmentCardsBinding
-import com.example.bankodemia.databinding.FragmentContactAddedBinding
+import com.example.bankodemia.databinding.FragmentHomeDetailBinding
 
-class ContactAddedFragment : Fragment() {
+class HomeDetailFragment : Fragment() {
 
-    private var _binding: FragmentContactAddedBinding? = null
+    private var _binding: FragmentHomeDetailBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -22,10 +23,13 @@ class ContactAddedFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentContactAddedBinding.inflate(inflater, container, false)
+        val homeDetailViewModel =
+            ViewModelProvider(this).get(HomeDetailViewModel::class.java)
 
-        binding.contacAddedBtnBackToHome.setOnClickListener { view : View ->
-            view.findNavController().navigate(R.id.action_contactAddedFragment_to_navigation_home)
+        _binding = FragmentHomeDetailBinding.inflate(inflater, container, false)
+
+        binding.homeDetailBtnBackToHome.setOnClickListener { view : View ->
+            view.findNavController().navigate(R.id.action_homeDetailFragment_to_navigation_home)
         }
 
         return binding.root

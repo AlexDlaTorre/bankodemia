@@ -1,4 +1,4 @@
-package com.example.bankodemia.ui.view
+package com.example.bankodemia.UI.View
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,15 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.findNavController
-import com.example.bankodemia.R
 import com.example.bankodemia.UI.viewModel.CardsViewModel
 import com.example.bankodemia.databinding.FragmentCardsBinding
-import com.example.bankodemia.databinding.FragmentContactAddedBinding
 
-class ContactAddedFragment : Fragment() {
+class CardsFragment : Fragment() {
 
-    private var _binding: FragmentContactAddedBinding? = null
+    private var _binding: FragmentCardsBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -22,11 +19,10 @@ class ContactAddedFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentContactAddedBinding.inflate(inflater, container, false)
+        val cardsViewModel =
+            ViewModelProvider(this).get(CardsViewModel::class.java)
 
-        binding.contacAddedBtnBackToHome.setOnClickListener { view : View ->
-            view.findNavController().navigate(R.id.action_contactAddedFragment_to_navigation_home)
-        }
+        _binding = FragmentCardsBinding.inflate(inflater, container, false)
 
         return binding.root
     }

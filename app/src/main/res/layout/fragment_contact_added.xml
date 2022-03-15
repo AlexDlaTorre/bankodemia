@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".ui.view.ContactAddedFragment">
 
     <include
@@ -19,7 +20,7 @@
         android:layout_height="@dimen/common_height_image_add_contact"
         android:contentDescription="@null"
         android:src="@drawable/contacts"
-        app:layout_constraintBottom_toTopOf="@+id/buttonCreateAccount"
+        app:layout_constraintBottom_toTopOf="@+id/contacAddedBtnBackToHome"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/include" />
@@ -38,7 +39,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
     <Button
-        android:id="@+id/buttonCreateAccount"
+        android:id="@+id/contacAddedBtnBackToHome"
         style="@style/fillButtonBlue"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

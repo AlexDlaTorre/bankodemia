@@ -9,17 +9,86 @@
         android:id="@+id/navigation_home"
         android:name="com.example.bankodemia.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
-
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_sendFragment"
+            app:destination="@id/sendFragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_homeDetailFragment"
+            app:destination="@id/homeDetailFragment" />
+    </fragment>
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.example.bankodemia.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
-
+        android:id="@+id/cardsFragment"
+        android:name="com.example.bankodemia.UI.View.CardsFragment"
+        android:label="CardsFragment" />
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.bankodemia.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/servicesFragment"
+        android:name="com.example.bankodemia.UI.View.ServicesFragment"
+        android:label="ServicesFragment" />
+    <fragment
+        android:id="@+id/sendFragment"
+        android:name="com.example.bankodemia.UI.View.SendFragment"
+        android:label="fragment_send"
+        tools:layout="@layout/fragment_send" >
+        <action
+            android:id="@+id/action_sendFragment_to_navigation_home"
+            app:destination="@id/navigation_home" />
+        <action
+            android:id="@+id/action_sendFragment_to_addContactFragment"
+            app:destination="@id/addContactFragment" />
+        <action
+            android:id="@+id/action_sendFragment_to_transferDetailFragment"
+            app:destination="@id/transferDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addContactFragment"
+        android:name="com.example.bankodemia.UI.View.AddContactFragment"
+        android:label="fragment_add_contact"
+        tools:layout="@layout/fragment_add_contact" >
+        <action
+            android:id="@+id/action_addContactFragment_to_sendFragment"
+            app:destination="@id/sendFragment" />
+        <action
+            android:id="@+id/action_addContactFragment_to_contactAddedFragment"
+            app:destination="@id/contactAddedFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/contactAddedFragment"
+        android:name="com.example.bankodemia.ui.view.ContactAddedFragment"
+        android:label="fragment_contact_added"
+        tools:layout="@layout/fragment_contact_added" >
+        <action
+            android:id="@+id/action_contactAddedFragment_to_navigation_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
+    <fragment
+        android:id="@+id/transferDetailFragment"
+        android:name="com.example.bankodemia.UI.View.TransferDetailFragment"
+        android:label="fragment_transfer_detail"
+        tools:layout="@layout/fragment_transfer_detail" >
+        <action
+            android:id="@+id/action_transferDetailFragment_to_sendFragment"
+            app:destination="@id/sendFragment" />
+        <action
+            android:id="@+id/action_transferDetailFragment_to_processingTransactionFragment"
+            app:destination="@id/processingTransactionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/processingTransactionFragment"
+        android:name="com.example.bankodemia.ui.view.ProcessingTransactionFragment"
+        android:label="fragment_processing_transaction"
+        tools:layout="@layout/fragment_processing_transaction" >
+        <action
+            android:id="@+id/action_processingTransactionFragment_to_navigation_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeDetailFragment"
+        android:name="com.example.bankodemia.UI.View.HomeDetailFragment"
+        android:label="fragment_home_detail"
+        tools:layout="@layout/fragment_home_detail" >
+        <action
+            android:id="@+id/action_homeDetailFragment_to_navigation_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
 </navigation>
