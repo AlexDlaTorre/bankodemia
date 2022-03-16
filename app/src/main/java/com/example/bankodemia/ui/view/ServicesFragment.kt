@@ -1,4 +1,4 @@
-package com.example.bankodemia.UI.View
+package com.example.bankodemia.ui.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,12 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
-import com.example.bankodemia.UI.viewModel.CardsViewModel
-import com.example.bankodemia.databinding.FragmentCardsBinding
+import com.example.bankodemia.ui.viewModel.ServicesViewModel
+import com.example.bankodemia.databinding.FragmentServicesBinding
 
-class CardsFragment : Fragment() {
 
-    private var _binding: FragmentCardsBinding? = null
+class ServicesFragment : Fragment() {
+    private var _binding: FragmentServicesBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -19,10 +19,10 @@ class CardsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val cardsViewModel =
-            ViewModelProvider(this).get(CardsViewModel::class.java)
+        val servicesViewModel =
+            ViewModelProvider(this).get(ServicesViewModel::class.java)
 
-        _binding = FragmentCardsBinding.inflate(inflater, container, false)
+        _binding = FragmentServicesBinding.inflate(inflater, container, false)
 
         return binding.root
     }

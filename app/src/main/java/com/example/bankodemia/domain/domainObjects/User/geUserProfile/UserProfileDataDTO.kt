@@ -15,8 +15,7 @@ data class UserProfileDataDTO(val response: User.ProfileData) {
     get() {
         val numberFormat = NumberFormat.getCurrencyInstance()
         numberFormat.maximumFractionDigits = Int.zero
-        numberFormat.currency = Currency.getInstance("MXN")
-        return "$ ${numberFormat.format(balance.toDouble())}"
+        return "${numberFormat.format(balance.toDouble())}"
     }
 
     init {

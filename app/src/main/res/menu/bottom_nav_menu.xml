@@ -4,16 +4,20 @@
     <item
         android:id="@+id/navigation_home"
         android:icon="@drawable/ic_logomini"
+        android:iconTint="@color/white"
         android:title="@string/title_home" />
 
     <item
         android:id="@+id/cardsFragment"
         android:icon="@drawable/ic_credit_card"
+        android:iconTint="@color/white"
         android:title="@string/cards" />
 
     <item
         android:id="@+id/servicesFragment"
         android:icon="@drawable/ic_services"
+        android:iconTintMode="add"
+        android:iconTint="@color/white"
         android:title="@string/servicies_lowercase" />
 
 </menu>

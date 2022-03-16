@@ -20,7 +20,7 @@
     <color name="shadow_title_creamy">#ffedee</color>
 
     <!-- Generals -->
-    <color name="black">#161616</color>
+    <color name="black">#000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="red">#C0392B</color>
     <color name="skeleton">#eef0f3</color>

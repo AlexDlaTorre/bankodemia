@@ -1,11 +1,9 @@
-package com.example.bankodemia.UI.ViewModel
+package com.example.bankodemia.ui.viewModel
 
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.bankodemia.core.utils.BaseUiState
 import com.example.bankodemia.core.utils.LocalErrorCodes
 import com.example.bankodemia.data.model.EntityException
-import com.example.bankodemia.domain.domainObjects.User.geUserProfile.UserProfileDTO
 import com.example.bankodemia.domain.useCase.GetUserProfileInfoUseCase
 import kotlinx.coroutines.launch
 

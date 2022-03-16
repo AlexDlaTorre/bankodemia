@@ -17,13 +17,14 @@
 
         <TextView
             android:id="@+id/homeTvAvailableMoney"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/common_size_middle"
             android:layout_marginTop="@dimen/common_size_min"
             android:text="@string/available_money"
-            android:textColor="@color/input_gray"
+            style="@style/grayTextView"
             android:textAppearance="@style/contentTextVariant"
+            android:textColor="@color/input_gray"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/homeTitleBar" />
 
@@ -60,18 +61,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/common_size_middle"
+            android:layout_marginTop="8dp"
             android:textAlignment="center"
             android:textAppearance="@style/titleText"
-            android:textStyle="bold"
+            style="@style/blackTextView"
+            android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="@+id/homeTvAvailableMoney"
             app:layout_constraintStart_toStartOf="@+id/homeTvAvailableMoney"
-            app:layout_constraintTop_toBottomOf="@+id/homeTvAvailableMoney"
-            tools:text="$ s%" />
+            app:layout_constraintTop_toBottomOf="@+id/homeTvAvailableMoney"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/homeRvTransactions"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/common_size_large"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

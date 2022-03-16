@@ -1,4 +1,4 @@
-package com.example.bankodemia.UI.View
+package com.example.bankodemia.ui.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,9 +8,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.example.bankodemia.R
-import com.example.bankodemia.UI.viewModel.CardsViewModel
-import com.example.bankodemia.UI.viewModel.HomeDetailViewModel
-import com.example.bankodemia.databinding.FragmentCardsBinding
+import com.example.bankodemia.ui.viewModel.HomeDetailViewModel
 import com.example.bankodemia.databinding.FragmentHomeDetailBinding
 
 class HomeDetailFragment : Fragment() {

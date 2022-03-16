@@ -19,6 +19,10 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="myCustomMenuTextAppearance" parent="@android:style/TextAppearance.Widget.IconMenu.Item">
+        <item name="android:textColor">@android:color/primary_text_dark</item>
+    </style>
+
     <style name="Theme.Bankodemia.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.Bankodemia.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
