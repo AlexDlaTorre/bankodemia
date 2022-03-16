@@ -1,5 +1,6 @@
 package com.example.bankodemia.ui.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.bankodemia.databinding.ActivityMainBinding
@@ -16,7 +17,9 @@ class MainActivity : AppCompatActivity() {
 
         with(binding) {
             mainBtnLogin.setOnClickListener {
-                transitionFragment(fragmentClass = HomeFragment(), supportFragmentManager)
+                val intent = Intent(this@MainActivity, HomeActivity::class.java)
+                startActivity(intent)
+                //transitionFragment(fragmentClass = HomeFragment(), supportFragmentManager)
             }
 
             mainBtnCreateAccount.setOnClickListener {

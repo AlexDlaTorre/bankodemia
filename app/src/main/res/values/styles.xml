@@ -159,6 +159,13 @@
         <item name="android:textColor">@color/principal_gray</item>
     </style>
 
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        ...
+        <item name="android:itemBackground">@color/black</item>
+        ...
+    </style>
+
+
     <style name="titleText" parent="TextAppearance.AppCompat">
         <item name="android:textFontWeight">@integer/common_fontWeight_middle</item>
         <item name="android:fontFamily">@font/poppins</item>

@@ -25,11 +25,10 @@ data class UserProfileTransactionDTO(val response: User.TransactionProfile) {
     get() {
         val format = NumberFormat.getCurrencyInstance()
         format.maximumFractionDigits = Int.zero
-        format.currency = Currency.getInstance("MXN")
         if (getMovementType(type) == MovementType.DEPOSIT) {
-            return "+ $${format.format(amount.toDouble())}"
+            return "+ ${format.format(amount.toDouble())}"
         } else {
-            return "- $${format.format(amount.toDouble())}"
+            return "- ${format.format(amount.toDouble())}"
         }
     }
 

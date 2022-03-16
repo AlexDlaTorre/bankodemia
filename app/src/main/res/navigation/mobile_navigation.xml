@@ -19,15 +19,15 @@
     </fragment>
     <fragment
         android:id="@+id/cardsFragment"
-        android:name="com.example.bankodemia.UI.View.CardsFragment"
+        android:name="com.example.bankodemia.ui.view.CardsFragment"
         android:label="CardsFragment" />
     <fragment
         android:id="@+id/servicesFragment"
-        android:name="com.example.bankodemia.UI.View.ServicesFragment"
+        android:name="com.example.bankodemia.ui.view.ServicesFragment"
         android:label="ServicesFragment" />
     <fragment
         android:id="@+id/sendFragment"
-        android:name="com.example.bankodemia.UI.View.SendFragment"
+        android:name="com.example.bankodemia.ui.view.SendFragment"
         android:label="fragment_send"
         tools:layout="@layout/fragment_send" >
         <action
@@ -42,7 +42,7 @@
     </fragment>
     <fragment
         android:id="@+id/addContactFragment"
-        android:name="com.example.bankodemia.UI.View.AddContactFragment"
+        android:name="com.example.bankodemia.ui.view.AddContactFragment"
         android:label="fragment_add_contact"
         tools:layout="@layout/fragment_add_contact" >
         <action
@@ -63,7 +63,7 @@
     </fragment>
     <fragment
         android:id="@+id/transferDetailFragment"
-        android:name="com.example.bankodemia.UI.View.TransferDetailFragment"
+        android:name="com.example.bankodemia.ui.view.TransferDetailFragment"
         android:label="fragment_transfer_detail"
         tools:layout="@layout/fragment_transfer_detail" >
         <action
@@ -84,7 +84,7 @@
     </fragment>
     <fragment
         android:id="@+id/homeDetailFragment"
-        android:name="com.example.bankodemia.UI.View.HomeDetailFragment"
+        android:name="com.example.bankodemia.ui.view.HomeDetailFragment"
         android:label="fragment_home_detail"
         tools:layout="@layout/fragment_home_detail" >
         <action

@@ -8,11 +8,9 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.bankodemia.UI.ViewModel.HomeViewModel
-import com.example.bankodemia.UI.home.TransactionsAdapter
+import com.example.bankodemia.ui.viewModel.HomeViewModel
 import com.example.bankodemia.core.showToastMessage
 import com.example.bankodemia.core.utils.BaseUiState
-import android.widget.Button
 import androidx.navigation.findNavController
 import com.example.bankodemia.R
 import com.example.bankodemia.databinding.FragmentHomeBinding
@@ -37,10 +35,6 @@ class HomeFragment : Fragment() {
 
         binding.homeBtnSend.setOnClickListener { view : View ->
             view.findNavController().navigate(R.id.action_navigation_home_to_sendFragment)
-        }
-
-        binding.homeTvAvailableMoney.setOnClickListener { view : View ->
-            view.findNavController().navigate(R.id.action_navigation_home_to_homeDetailFragment)
         }
 
         return binding.root
@@ -72,9 +66,8 @@ class HomeFragment : Fragment() {
         binding.apply {
             balanceShimmer.stopShimmer()
             balanceShimmer.visibility = View.GONE
-            homeTvAvailableMoney.text = user.data.formattedBalance
+            hometvAvailableMoneyAmount.text = user.data.formattedBalance
         }
-        binding.balanceShimmer.stopShimmer()
     }
 
     fun setupReclycerView(userTansactions: List<UserProfileTransactionDTO>, isSkeleton: Boolean) {

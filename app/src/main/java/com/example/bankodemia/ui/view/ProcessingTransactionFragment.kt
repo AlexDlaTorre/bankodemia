@@ -5,12 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.example.bankodemia.R
-import com.example.bankodemia.UI.viewModel.SendViewModel
 import com.example.bankodemia.databinding.FragmentProcessingTransactionBinding
-import com.example.bankodemia.databinding.FragmentSendBinding
 
 
 class ProcessingTransactionFragment : Fragment() {
