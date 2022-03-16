@@ -13,15 +13,19 @@ import com.example.bankodemia.core.showToastMessage
 import com.example.bankodemia.core.utils.BaseUiState
 import androidx.navigation.findNavController
 import com.example.bankodemia.R
+import com.example.bankodemia.core.transitionFragment
+import com.example.bankodemia.core.utils.FragmentCommunicator
 import com.example.bankodemia.databinding.FragmentHomeBinding
 import com.example.bankodemia.domain.domainObjects.User.geUserProfile.UserProfileDTO
 import com.example.bankodemia.domain.domainObjects.User.geUserProfile.UserProfileTransactionDTO
+import com.example.bankodemia.ui.view.HomeDetailFragment
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(), AdapterItemSelected {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
     private lateinit var viewModel: HomeViewModel
+    private lateinit var communicator: FragmentCommunicator
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,14 +34,19 @@ class HomeFragment : Fragment() {
     ): View {
         viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        communicator = requireActivity() as FragmentCommunicator
         viewModel.getUserProfileData()
         setupObservers()
+        setupEvents()
+        return binding.root
+    }
 
+    fun setupEvents() {
         binding.homeBtnSend.setOnClickListener { view : View ->
             view.findNavController().navigate(R.id.action_navigation_home_to_sendFragment)
         }
 
-        return binding.root
+        binding
     }
 
     private fun setupObservers() {
@@ -72,7 +81,7 @@ class HomeFragment : Fragment() {
 
     fun setupReclycerView(userTansactions: List<UserProfileTransactionDTO>, isSkeleton: Boolean) {
         val activity = activity ?: return
-        val adapter = TransactionsAdapter(userTansactions, isSkeleton)
+        val adapter = TransactionsAdapter(userTansactions, isSkeleton, this)
         binding.apply {
             homeRvTransactions.layoutManager = LinearLayoutManager(activity)
             homeRvTransactions.setHasFixedSize(true)
@@ -84,5 +93,9 @@ class HomeFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun <T> itemSelected(item: T) {
+        communicator.sendData(item, HomeDetailFragment())
     }
 }

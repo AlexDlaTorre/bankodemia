@@ -26,6 +26,9 @@ class User {
     )
 
     data class TransactionProfile(
+        @SerializedName("_id")
+        val id: String,
+        val isIncome: Boolean,
         val amount: Int,
         val type: String,
         val concept: String,
@@ -44,6 +47,7 @@ class User {
     )
 
     data class User(
+        @SerializedName("_id")
         val id: String,
         val phone: String,
         val lastName: String,

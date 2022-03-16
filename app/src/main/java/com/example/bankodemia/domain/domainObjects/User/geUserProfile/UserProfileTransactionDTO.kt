@@ -13,7 +13,8 @@ import java.time.ZonedDateTime
 import java.time.format.DateTimeFormatter
 import java.util.*
 
-data class UserProfileTransactionDTO(val response: User.TransactionProfile) {
+data class UserProfileTransactionDTO(val response: User.TransactionProfile): java.io.Serializable {
+    val id: String
     val amount: Int
     val type: String
     val concept: String
@@ -40,6 +41,14 @@ data class UserProfileTransactionDTO(val response: User.TransactionProfile) {
         return date.format(formatter)
     }
 
+    val formattedDate: String
+    @RequiresApi(Build.VERSION_CODES.O)
+    get() {
+        val date = ZonedDateTime.parse(createdAt)
+        val formatter = DateTimeFormatter.ofPattern("d MMMM yyyy HH:MM a", Locale("es", "ES"))
+        return date.format(formatter)
+    }
+
     val date: LocalDate?
     @RequiresApi(Build.VERSION_CODES.O)
     get() {
@@ -47,6 +56,7 @@ data class UserProfileTransactionDTO(val response: User.TransactionProfile) {
     }
 
     init {
+        id = response.id
         amount = response.amount
         type = response.type
         concept = response.concept

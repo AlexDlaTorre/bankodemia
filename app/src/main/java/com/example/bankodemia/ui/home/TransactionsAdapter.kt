@@ -1,21 +1,30 @@
 package com.example.bankodemia.ui.home
 
+import android.content.Context
+import android.location.GnssAntennaInfo
 import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.commit
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bankodemia.R
 import com.example.bankodemia.core.five
 import com.example.bankodemia.databinding.ItemCardviewTransactionsBinding
 import com.example.bankodemia.domain.domainObjects.User.geUserProfile.UserProfileTransactionDTO
 
+interface AdapterItemSelected {
+    fun <T> itemSelected(item: T)
+}
+
 class TransactionsAdapter(val transactions: List<UserProfileTransactionDTO>,
-                          val isSkeleton: Boolean):
+                          val isSkeleton: Boolean,
+                          val listener: AdapterItemSelected):
     RecyclerView.Adapter<TransactionsAdapter.TransactionsHolder>() {
 
-    class TransactionsHolder(val view: View): RecyclerView.ViewHolder(view) {
+    inner class TransactionsHolder(val view: View): RecyclerView.ViewHolder(view) {
         val binding = ItemCardviewTransactionsBinding.bind(view)
 
         @RequiresApi(Build.VERSION_CODES.O)
@@ -58,7 +67,7 @@ class TransactionsAdapter(val transactions: List<UserProfileTransactionDTO>,
 
         private fun setupListeners(transaction: UserProfileTransactionDTO) {
             binding.itemTransactionsCvTransactions.setOnClickListener {
-                // TODO - implement event to show transaction detail
+                listener.itemSelected(transaction)
             }
         }
     }

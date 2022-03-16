@@ -17,9 +17,7 @@ class MainActivity : AppCompatActivity() {
 
         with(binding) {
             mainBtnLogin.setOnClickListener {
-                val intent = Intent(this@MainActivity, HomeActivity::class.java)
-                startActivity(intent)
-                //transitionFragment(fragmentClass = HomeFragment(), supportFragmentManager)
+                transitionFragment(fragmentClass = HomeFragment(), supportFragmentManager)
             }
 
             mainBtnCreateAccount.setOnClickListener {
