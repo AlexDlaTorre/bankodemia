@@ -120,4 +120,9 @@
     <string name="make_transfer">Hacer Transferencia</string>
     <string name="cards">Tarjetas</string>
     <string name="servicies_lowercase">Servicios</string>
+    <string name="time_left">Tiempo restante:</string>
+    <string name="deposit">Depositar</string>
+    <string name="deposit_description">¿Necesitas dinero?\n\n No te preocupes solo tendras que pulsar el boton lo mas rapido que puedas para sumar dinero y que puedas depositarlo a tu cuenta.\n\n ¡Suerte!</string>
+    <string name="begin">Empezar</string>
+    <string name="cancel">Cancelar</string>
 </resources>
