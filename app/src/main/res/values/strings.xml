@@ -122,7 +122,7 @@
     <string name="servicies_lowercase">Servicios</string>
     <string name="time_left">Tiempo restante:</string>
     <string name="deposit">Depositar</string>
-    <string name="deposit_description">¿Necesitas dinero? No te preocupes\n solo tendras que pulsar el boton\n lo mas rapido que puedas para\n sumar dinero y que puedas depositarlo\n a tu cuenta. ¡Suerte!</string>
+    <string name="deposit_description">¿Necesitas dinero?\n\n No te preocupes solo tendras que pulsar el boton lo mas rapido que puedas para sumar dinero y que puedas depositarlo a tu cuenta.\n\n ¡Suerte!</string>
     <string name="begin">Empezar</string>
     <string name="cancel">Cancelar</string>
 </resources>

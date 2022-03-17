@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_navigation_home_to_homeDetailFragment"
             app:destination="@id/homeDetailFragment" />
+        <action
+            android:id="@+id/homeFragment_to_depositFragment"
+            app:destination="@id/depositFragment" />
     </fragment>
     <fragment
         android:id="@+id/cardsFragment"
@@ -89,6 +92,15 @@
         tools:layout="@layout/fragment_home_detail" >
         <action
             android:id="@+id/action_homeDetailFragment_to_navigation_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
+    <fragment
+        android:id="@+id/depositFragment"
+        android:name="com.example.bankodemia.ui.view.deposit.DepositFragment"
+        android:label="fragment_deposit"
+        tools:layout="@layout/fragment_deposit" >
+        <action
+            android:id="@+id/action_depositFragment_to_navigation_home"
             app:destination="@id/navigation_home" />
     </fragment>
 </navigation>
