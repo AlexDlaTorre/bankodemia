@@ -7,7 +7,10 @@ import retrofit2.http.*
 
 interface TransactionsApi {
     @POST("/transactions")
-    suspend fun makeSelfTransaction(@Body parameters: RequestBody): Response<Transaction.PostResponse>
+    // TODO - remove harcoded token when token implementation is available
+    suspend fun makeTransaction(
+        @Header("Authorization") token: String,
+        @Body parameters: RequestBody): Response<Transaction.PostResponse>
 
     @GET("/transactions/me")
     suspend fun getSelfTransactions(): Response<Transaction.GetResponse>

@@ -1,25 +1,21 @@
 package com.example.bankodemia.ui.home
 
-import android.content.Context
-import android.location.GnssAntennaInfo
 import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
-import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.commit
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bankodemia.R
 import com.example.bankodemia.core.five
 import com.example.bankodemia.databinding.ItemCardviewTransactionsBinding
-import com.example.bankodemia.domain.domainObjects.User.geUserProfile.UserProfileTransactionDTO
+import com.example.bankodemia.domain.domainObjects.Transaction.TransactionDTO
 
 interface AdapterItemSelected {
     fun <T> itemSelected(item: T)
 }
 
-class TransactionsAdapter(val transactions: List<UserProfileTransactionDTO>,
+class TransactionsAdapter(val transactions: List<TransactionDTO>,
                           val isSkeleton: Boolean,
                           val listener: AdapterItemSelected):
     RecyclerView.Adapter<TransactionsAdapter.TransactionsHolder>() {
@@ -28,7 +24,7 @@ class TransactionsAdapter(val transactions: List<UserProfileTransactionDTO>,
         val binding = ItemCardviewTransactionsBinding.bind(view)
 
         @RequiresApi(Build.VERSION_CODES.O)
-        fun render(transaction: UserProfileTransactionDTO) {
+        fun render(transaction: TransactionDTO) {
             stopShimmers()
             binding.apply {
                 conceptTextView.text = transaction.concept
@@ -65,7 +61,7 @@ class TransactionsAdapter(val transactions: List<UserProfileTransactionDTO>,
             }
         }
 
-        private fun setupListeners(transaction: UserProfileTransactionDTO) {
+        private fun setupListeners(transaction: TransactionDTO) {
             binding.itemTransactionsCvTransactions.setOnClickListener {
                 listener.itemSelected(transaction)
             }

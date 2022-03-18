@@ -7,22 +7,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
-import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.findNavController
-import com.example.bankodemia.R
 import com.example.bankodemia.core.utils.FragmentCommunicator
 import com.example.bankodemia.core.utils.TRANSACTIONDETAIL
-import com.example.bankodemia.ui.viewModel.HomeDetailViewModel
 import com.example.bankodemia.databinding.FragmentHomeDetailBinding
-import com.example.bankodemia.domain.domainObjects.User.geUserProfile.UserProfileTransactionDTO
+import com.example.bankodemia.domain.domainObjects.Transaction.TransactionDTO
 import com.example.bankodemia.ui.home.HomeFragment
 
 class HomeDetailFragment : Fragment() {
 
     private var _binding: FragmentHomeDetailBinding? = null
     private val binding get() = _binding!!
-    private var transactionDetail: UserProfileTransactionDTO? = null
+    private var transactionDetail: TransactionDTO? = null
     private lateinit var communicator: FragmentCommunicator
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -32,7 +27,7 @@ class HomeDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentHomeDetailBinding.inflate(inflater, container, false)
-        transactionDetail = arguments?.getSerializable(TRANSACTIONDETAIL) as UserProfileTransactionDTO
+        transactionDetail = arguments?.getSerializable(TRANSACTIONDETAIL) as TransactionDTO
         communicator = requireActivity() as FragmentCommunicator
         setupEvents()
         setupView()

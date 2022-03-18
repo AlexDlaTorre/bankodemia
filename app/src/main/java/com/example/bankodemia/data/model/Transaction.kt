@@ -1,25 +1,29 @@
 package com.example.bankodemia.data.model
 
 import com.example.bankodemia.core.types.MovementType
+import com.google.gson.annotations.SerializedName
 
 class Transaction {
     data class PostResponse(
         val success: Boolean,
-        val data: PostTransactionData,
-        val finalBalance: Int?)
+        val data: PostTransactionData)
 
     data class PostTransactionData(
-        val transaction: Transaction
+        val transaction: Transaction,
+        val finalBalance: Int?
     )
 
     data class Transaction(
-        val amount: Double,
+        @SerializedName("_id")
+        val id: String,
+        val amount: Int,
         val type: MovementType,
         val concept: String,
-        val created_at: String,
+        @SerializedName("created_at")
+        val createdAt: String,
         val issuer: User.User,
         val destinationUser: User.User,
-        val isIncome: Boolean
+        val isIncome: Boolean?
     )
 
     data class GetResponse(

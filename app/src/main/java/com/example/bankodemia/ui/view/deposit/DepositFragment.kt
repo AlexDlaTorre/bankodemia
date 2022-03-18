@@ -8,12 +8,20 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.example.bankodemia.R
 import com.example.bankodemia.core.once
+import com.example.bankodemia.core.showToastMessage
+import com.example.bankodemia.core.types.MovementType
+import com.example.bankodemia.core.utils.BaseUiState
 import com.example.bankodemia.core.utils.FragmentCommunicator
+import com.example.bankodemia.core.utils.selfDeposit
 import com.example.bankodemia.core.zero
 import com.example.bankodemia.databinding.FragmentDepositBinding
+import com.example.bankodemia.domain.domainObjects.Transaction.TransactionDTO
+import com.example.bankodemia.domain.domainObjects.Transaction.TransactionPostReponseDTO
 import com.example.bankodemia.ui.home.HomeFragment
 import java.text.NumberFormat
 
@@ -24,7 +32,7 @@ class DepositFragment : Fragment() {
     private var money: Int = Int.zero
     private var index: Int = Int.zero
     private lateinit var communicator: FragmentCommunicator
-    private lateinit var countDown : CountDownTimer
+    private lateinit var viewModel: DepositViewModel
     private val initialCountDown: Long = 5000
     private val countInterval: Long = 1000
 
@@ -35,12 +43,38 @@ class DepositFragment : Fragment() {
     ): View {
         _binding = FragmentDepositBinding.inflate(inflater, container, false)
         communicator = requireActivity() as FragmentCommunicator
-        setupView()
+        viewModel = ViewModelProvider(this).get(DepositViewModel::class.java)
+        showAlert()
+        setupEvents()
         setupObservers()
         return binding.root
     }
 
-    private fun setupView() {
+    private fun setupObservers() {
+        viewModel.uiStateEmitter.observe(viewLifecycleOwner) { updateUI(it) }
+    }
+
+    fun updateUI(uiState: BaseUiState) {
+        when (uiState) {
+            is BaseUiState.SuccessResult<*> -> {
+                if (uiState.result is TransactionPostReponseDTO) {
+                    communicator.showLoader(false)
+                    val transaction = uiState.result as TransactionPostReponseDTO
+                    backToHome()
+                    communicator.showToastMessage(getString(R.string.successDeposit, transaction.data.transaction.amount.toString()))
+                }
+            }
+            is BaseUiState.loading -> {
+                communicator.showLoader(true)
+            }
+            is BaseUiState.Error -> {
+                communicator.showLoader(false)
+                showToastMessage(uiState.error.localizedMessage, Toast.LENGTH_SHORT)
+            }
+        }
+    }
+
+    private fun showAlert() {
         val builder: AlertDialog.Builder = AlertDialog.Builder(requireContext())
         builder.setTitle(R.string.welcome_message)
         builder.setMessage(R.string.deposit_description)
@@ -73,16 +107,20 @@ class DepositFragment : Fragment() {
         binding.depositButton.visibility = View.VISIBLE
     }
 
-    private fun setupObservers() {
+    private fun setupEvents() {
         binding.increaseButton.setOnClickListener {
             increaseMoney()
         }
         binding.depositButton.setOnClickListener {
-            // TODO - implementar flujo de deposito
+            viewModel.makeDeposit(money, MovementType.DEPOSIT, selfDeposit)
         }
         binding.backButton.setOnClickListener { view: View ->
-            view.findNavController().navigate(R.id.action_depositFragment_to_navigation_home)
+            backToHome()
         }
+    }
+
+    private fun backToHome() {
+        view?.findNavController()?.navigate(R.id.action_depositFragment_to_navigation_home)
     }
 
     private fun increaseMoney(){
