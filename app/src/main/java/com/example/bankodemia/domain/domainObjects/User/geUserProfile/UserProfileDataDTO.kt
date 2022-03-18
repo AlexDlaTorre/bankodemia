@@ -2,13 +2,13 @@ package com.example.bankodemia.domain.domainObjects.User.geUserProfile
 
 import com.example.bankodemia.core.zero
 import com.example.bankodemia.data.model.User
+import com.example.bankodemia.domain.domainObjects.Transaction.TransactionDTO
 import com.example.bankodemia.domain.domainObjects.User.UserDTO
 import java.text.NumberFormat
-import java.util.*
 
 data class UserProfileDataDTO(val response: User.ProfileData) {
     val user: UserDTO
-    val transactions: List<UserProfileTransactionDTO>
+    val transactions: List<TransactionDTO>
     val balance: Int
 
     val formattedBalance: String
@@ -20,7 +20,7 @@ data class UserProfileDataDTO(val response: User.ProfileData) {
 
     init {
         user = UserDTO(response.user)
-        transactions = response.transactions.map { UserProfileTransactionDTO(it) }
+        transactions = response.transactions.map { TransactionDTO(it) }
         balance = response.balance
     }
 }

@@ -125,4 +125,5 @@
     <string name="deposit_description">¿Necesitas dinero?\n\n No te preocupes solo tendras que pulsar el boton lo mas rapido que puedas para sumar dinero y que puedas depositarlo a tu cuenta.\n\n ¡Suerte!</string>
     <string name="begin">Empezar</string>
     <string name="cancel">Cancelar</string>
+    <string name="successDeposit">Tu deposito de %s se realizo satisfactoriamente a tu cuenta</string>
 </resources>

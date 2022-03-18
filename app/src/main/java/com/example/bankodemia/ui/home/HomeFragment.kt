@@ -13,13 +13,11 @@ import com.example.bankodemia.core.showToastMessage
 import com.example.bankodemia.core.utils.BaseUiState
 import androidx.navigation.findNavController
 import com.example.bankodemia.R
-import com.example.bankodemia.core.transitionFragment
 import com.example.bankodemia.core.utils.FragmentCommunicator
 import com.example.bankodemia.databinding.FragmentHomeBinding
 import com.example.bankodemia.domain.domainObjects.User.geUserProfile.UserProfileDTO
-import com.example.bankodemia.domain.domainObjects.User.geUserProfile.UserProfileTransactionDTO
+import com.example.bankodemia.domain.domainObjects.Transaction.TransactionDTO
 import com.example.bankodemia.ui.view.HomeDetailFragment
-import com.example.bankodemia.ui.view.deposit.DepositFragment
 
 class HomeFragment : Fragment(), AdapterItemSelected {
 
@@ -81,7 +79,7 @@ class HomeFragment : Fragment(), AdapterItemSelected {
         }
     }
 
-    fun setupReclycerView(userTansactions: List<UserProfileTransactionDTO>, isSkeleton: Boolean) {
+    fun setupReclycerView(userTansactions: List<TransactionDTO>, isSkeleton: Boolean) {
         val activity = activity ?: return
         val adapter = TransactionsAdapter(userTansactions, isSkeleton, this)
         binding.apply {
