@@ -1,4 +1,4 @@
-package com.example.bankodemia.core
+package com.example.bankodemia.core.instances
 
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit

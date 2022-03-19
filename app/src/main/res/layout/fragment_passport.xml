@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".ui.view.PassportFragment">
 
     <include
@@ -14,13 +15,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/passportBtnBackToMigratory"
+        android:id="@+id/passportBtnBackToIdentityMenu"
         style="@style/backTextButtonIconGray"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/common_size_middle"
         android:layout_marginTop="@dimen/common_size_min"
-        android:text="@string/passport"
+        android:text="@string/enter_type_document"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passportTemplateTopLogoSingle"
         tools:ignore="DuplicateSpeakableTextCheck" />
@@ -33,9 +34,9 @@
         android:layout_marginTop="@dimen/common_size_default"
         android:text="@string/ineInstructions"
         android:textAppearance="@style/contentText"
-        app:layout_constraintEnd_toEndOf="@+id/passportBtnBackToMigratory"
-        app:layout_constraintStart_toStartOf="@+id/passportBtnBackToMigratory"
-        app:layout_constraintTop_toBottomOf="@+id/passportBtnBackToMigratory" />
+        app:layout_constraintEnd_toEndOf="@+id/passportBtnBackToIdentityMenu"
+        app:layout_constraintStart_toStartOf="@+id/passportBtnBackToIdentityMenu"
+        app:layout_constraintTop_toBottomOf="@+id/passportBtnBackToIdentityMenu" />
 
     <Button
         android:id="@+id/passportBtnUploadInfo"

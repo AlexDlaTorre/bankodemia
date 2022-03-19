@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/common_size_min"
+    android:clickable="true"
+    android:focusable="true"
+    app:cardElevation="0dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="?attr/selectableItemBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/common_size_min">
+
+        <TextView
+            android:id="@+id/ladaTvMainTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lada_internacional"
+            android:textAppearance="@style/contentText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/ladaTvLadaNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/common_size_min"
+            android:textAppearance="@style/contentTextGray"
+            app:layout_constraintStart_toEndOf="@+id/ladaTvMainTitle"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="52" />
+
+        <TextView
+            android:id="@+id/ladaTvCountryTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/Country"
+            android:textAppearance="@style/contentText"
+            app:layout_constraintEnd_toEndOf="@+id/ladaTvMainTitle"
+            app:layout_constraintStart_toStartOf="@+id/ladaTvMainTitle"
+            app:layout_constraintTop_toBottomOf="@+id/ladaTvMainTitle" />
+
+        <TextView
+            android:id="@+id/ladaTvCountry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/contentTextGray"
+            app:layout_constraintStart_toStartOf="@+id/ladaTvLadaNumber"
+            app:layout_constraintTop_toBottomOf="@+id/ladaTvLadaNumber"
+            tools:text="Mexico" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/common_size_min"
+            android:background="@color/principal_gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ladaTvCountry" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
