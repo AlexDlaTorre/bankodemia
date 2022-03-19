@@ -1,17 +1,21 @@
 package com.example.bankodemia.ui.view
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import androidx.core.widget.addTextChangedListener
 import androidx.navigation.fragment.findNavController
 import com.example.bankodemia.R
+import com.example.bankodemia.UI.view.DatePickerFragment
 import com.example.bankodemia.core.types.FieldTypeEnum
 import com.example.bankodemia.core.activateButton
 import com.example.bankodemia.core.validateField
 import com.example.bankodemia.databinding.FragmentDataBinding
+import java.text.SimpleDateFormat
 
 
 class DataFragment : Fragment(), Fields {
@@ -29,7 +33,7 @@ class DataFragment : Fragment(), Fields {
     }
 
     private fun initializeComponents() {
-        with(mBinding){
+        with(mBinding) {
             dataBtnBackToCreateAccount.setOnClickListener {
                 findNavController().navigate(R.id.action_dataFragment_to_createAccountFragment)
             }
@@ -37,6 +41,11 @@ class DataFragment : Fragment(), Fields {
             dataBtnContinue.setOnClickListener {
                 findNavController().navigate(R.id.action_dataFragment_to_telephoneFragment)
             }
+
+            dataTietBirthday.setOnClickListener {
+                showDatePickerDialog()
+            }
+
         }
     }
 
@@ -99,6 +108,18 @@ class DataFragment : Fragment(), Fields {
                 )
             }
         }
+    }
+
+    private fun showDatePickerDialog() {
+        val datePicker = DatePickerFragment { day, month, year ->
+            onDateSelected(day, month, year)
+        }
+        datePicker.show(activity?.supportFragmentManager!!, "datePicker")
+    }
+
+    @SuppressLint("SetTextI18n", "SimpleDateFormat")
+    private fun onDateSelected(day: Int, month: Int, year: Int) {
+        mBinding.dataTietBirthday.setText("$day-${month + 1}-$year")
     }
 
     override fun onDestroyView() {

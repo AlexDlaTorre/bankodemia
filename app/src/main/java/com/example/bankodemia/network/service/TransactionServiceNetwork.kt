@@ -1,7 +1,7 @@
 package com.example.bankodemia.network.service
 
 import android.util.Log
-import com.example.bankodemia.core.RetrofitBankodemiaInstance
+import com.example.bankodemia.core.instances.RetrofitBankodemiaInstance
 import com.example.bankodemia.core.retrofit.RetrofitExceptionHandler
 import com.example.bankodemia.data.model.BankodemiaErrorResponse
 import com.example.bankodemia.data.model.Transaction
