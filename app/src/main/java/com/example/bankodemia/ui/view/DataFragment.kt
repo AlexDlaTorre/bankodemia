@@ -119,7 +119,7 @@ class DataFragment : Fragment(), Fields {
 
     @SuppressLint("SetTextI18n", "SimpleDateFormat")
     private fun onDateSelected(day: Int, month: Int, year: Int) {
-        mBinding.dataTietBirthday.setText("$day-$month-$year")
+        mBinding.dataTietBirthday.setText("$day-${month + 1}-$year")
     }
 
     override fun onDestroyView() {
