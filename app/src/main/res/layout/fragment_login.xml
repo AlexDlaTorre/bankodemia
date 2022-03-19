@@ -26,7 +26,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <Button
-                android:id="@+id/LoginBtnBackToMain"
+                android:id="@+id/loginBtnBackToMain"
                 style="@style/backTextButtonIconGray"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -87,9 +87,9 @@
                 android:layout_marginTop="@dimen/common_size_default"
                 android:text="@string/instructions_login"
                 android:textAppearance="@style/contentText"
-                app:layout_constraintEnd_toEndOf="@+id/LoginBtnBackToMain"
-                app:layout_constraintStart_toStartOf="@+id/LoginBtnBackToMain"
-                app:layout_constraintTop_toBottomOf="@+id/LoginBtnBackToMain" />
+                app:layout_constraintEnd_toEndOf="@+id/loginBtnBackToMain"
+                app:layout_constraintStart_toStartOf="@+id/loginBtnBackToMain"
+                app:layout_constraintTop_toBottomOf="@+id/loginBtnBackToMain" />
 
             <TextView
                 android:id="@+id/loginTvInstructionsHelp"

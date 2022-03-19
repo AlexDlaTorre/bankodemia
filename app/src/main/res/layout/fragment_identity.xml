@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".ui.view.IdentityFragment">
 
     <include
@@ -20,7 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/common_size_middle"
         android:layout_marginTop="@dimen/common_size_min"
-        android:text="@string/identity"
+        android:text="@string/enter_telephone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/identityTemplateTopLogoSingle"
         tools:ignore="DuplicateSpeakableTextCheck" />
@@ -50,6 +51,7 @@
         app:layout_constraintTop_toBottomOf="@+id/identityBtnBackToTelephone" />
 
     <Button
+        android:gravity="bottom|center"
         android:id="@+id/identityBtnUnderstood"
         style="@style/fillButtonBlue"
         android:layout_width="0dp"

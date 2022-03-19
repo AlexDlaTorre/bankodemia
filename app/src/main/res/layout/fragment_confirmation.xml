@@ -4,11 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".ui.view.ConfirmationFragment">
 
     <include
         android:id="@+id/confirmationTemplateTopBarSingle"
-        layout="@layout/template_toplogo"/>
+        layout="@layout/template_toplogo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/confirmationIvSending"

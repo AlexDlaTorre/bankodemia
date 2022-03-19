@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
+import androidx.navigation.fragment.findNavController
+import com.example.bankodemia.R
 import com.example.bankodemia.core.types.FieldTypeEnum
 import com.example.bankodemia.core.activateButton
 import com.example.bankodemia.core.validateField
@@ -14,15 +16,28 @@ import com.example.bankodemia.databinding.FragmentDataBinding
 
 class DataFragment : Fragment(), Fields {
     private var _binding: FragmentDataBinding? = null
-    private val binding get() = _binding!!
+    private val mBinding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentDataBinding.inflate(inflater, container, false)
+        initializeComponents()
         validationFields()
-        return binding.root
+        return mBinding.root
+    }
+
+    private fun initializeComponents() {
+        with(mBinding){
+            dataBtnBackToCreateAccount.setOnClickListener {
+                findNavController().navigate(R.id.action_dataFragment_to_createAccountFragment)
+            }
+
+            dataBtnContinue.setOnClickListener {
+                findNavController().navigate(R.id.action_dataFragment_to_telephoneFragment)
+            }
+        }
     }
 
     override fun validationFields() {
@@ -31,7 +46,7 @@ class DataFragment : Fragment(), Fields {
         var checkOccupation = false
         var checkBirthday = false
 
-        with(binding) {
+        with(mBinding) {
             dataTietName.addTextChangedListener {
                 checkName = validateField(
                     fragment = this@DataFragment,
