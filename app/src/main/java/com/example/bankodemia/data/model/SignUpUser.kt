@@ -21,21 +21,8 @@ class User {
 
     data class ProfileData(
         val user: User,
-        val transactions: List<TransactionProfile>,
+        val transactions: List<Transaction.Transaction>,
         val balance: Int
-    )
-
-    data class TransactionProfile(
-        @SerializedName("_id")
-        val id: String,
-        val isIncome: Boolean,
-        val amount: Int,
-        val type: String,
-        val concept: String,
-        @SerializedName("created_at")
-        val createdAt: String,
-        val issuer: SignUpUser,
-        val destinationUser: SignUpUser
     )
 
     data class PostData(
