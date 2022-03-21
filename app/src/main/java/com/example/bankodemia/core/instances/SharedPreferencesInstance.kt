@@ -3,6 +3,7 @@ package com.example.bankodemia.core.instances
 import android.app.Activity
 import android.content.Context
 import android.content.SharedPreferences
+import com.example.bankodemia.BuildConfig
 
 object SharedPreferencesInstance {
     private val mSharedPreferencesInstance = SharedPreferencesInstance
@@ -10,11 +11,8 @@ object SharedPreferencesInstance {
     private lateinit var mEditor: SharedPreferences.Editor
 
     fun getInstance(context: Context): SharedPreferencesInstance {
-        if (mSharedPreferences == null) {
-            mSharedPreferences =
-                context.getSharedPreferences(context.packageName, Activity.MODE_PRIVATE)
-            mEditor = mSharedPreferences.edit()
-        }
+        mSharedPreferences = context.getSharedPreferences(BuildConfig.APPLICATION_ID, Activity.MODE_PRIVATE)
+        mEditor = mSharedPreferences.edit()
         return mSharedPreferencesInstance
     }
 
