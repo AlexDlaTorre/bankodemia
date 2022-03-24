@@ -43,6 +43,7 @@ class User {
     )
 
     data class SignUpUser(
+        @SerializedName("_id")
         val id: String,
         val email: String,
         val name: String,

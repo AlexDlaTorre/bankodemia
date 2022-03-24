@@ -17,7 +17,7 @@ class TransactionServiceNetwork {
     suspend fun makeDeposit(parameters: RequestBody): Transaction.PostResponse? {
         return withContext(Dispatchers.IO) {
             // TODO - remove hardcoded token
-            val response = retrofit.makeTransaction("Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MjJiYjEzNDhjZTZjNDc4ZDBlMWJmZTYiLCJpYXQiOjE2NDc1NzE4MDMsImV4cCI6MTY0NzU3NTQwM30.HAiuhoIGzTR9u6QMT89WZFfWqyF5M3nUmawod4ijOFY",
+            val response = retrofit.makeTransaction("Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MjJiYjEzNDhjZTZjNDc4ZDBlMWJmZTYiLCJpYXQiOjE2NDc3MTMxNDMsImV4cCI6MTY0NzcxNjc0M30.7o6XZ4B0xI3LhWWEPdFcKkz6Ejo_vOj0gYBvKu7H46A",
             parameters)
             Log.d("PostTransactionsResponse", response.body().toString())
             val responseBody = response.body() ?: throw exceptionHandler.createApiExeption(response, BankodemiaErrorResponse::class.java)

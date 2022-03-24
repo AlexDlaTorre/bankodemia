@@ -30,7 +30,7 @@
         android:label="ServicesFragment" />
     <fragment
         android:id="@+id/sendFragment"
-        android:name="com.example.bankodemia.ui.view.SendFragment"
+        android:name="com.example.bankodemia.ui.view.transaction.SendFragment"
         android:label="fragment_send"
         tools:layout="@layout/fragment_send" >
         <action

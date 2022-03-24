@@ -49,10 +49,11 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.14945652173913043" />
         <entry key="app/src/main/res/layout/fragment_data.xml" value="0.23278985507246377" />
         <entry key="app/src/main/res/layout/fragment_deposit.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.6212478637695312" />
         <entry key="app/src/main/res/layout/fragment_home_detail.xml" value="0.21828074956633634" />
         <entry key="app/src/main/res/layout/fragment_identity.xml" value="0.23278985507246377" />
         <entry key="app/src/main/res/layout/fragment_loader.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/item_cardview_contact.xml" value="0.37266693115234373" />
         <entry key="app/src/main/res/layout/item_cardview_transactions.xml" value="0.2934936523437501" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
       </map>

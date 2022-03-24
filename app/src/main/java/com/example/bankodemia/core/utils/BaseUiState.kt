@@ -7,8 +7,6 @@ sealed class BaseUiState {
 
     class LoadingWithMessage(val message: String): BaseUiState()
 
-    open class Success: BaseUiState()
-
     open class SuccessResult<T>(var result: T): BaseUiState() {
         override fun equals(other: Any?): Boolean {
             if (this == other) return true

@@ -2,7 +2,7 @@ package com.example.bankodemia.domain.domainObjects.User.getUsers
 
 import com.example.bankodemia.data.model.User
 
-data class UserGetResponse(val userGetResponse: User.GetResponse) {
+data class UserGetResponseDTO(val userGetResponse: User.GetResponse) {
     val success: Boolean
     val data: UserGetDataDTO
 
