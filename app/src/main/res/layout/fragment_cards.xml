@@ -109,6 +109,8 @@
             style="@style/contentTextGray"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="60dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/cardsTvValidityText"
             app:layout_constraintTop_toBottomOf="@+id/cardsTvValidityText"
             tools:text="11/26" />
@@ -124,13 +126,18 @@
             app:layout_constraintEnd_toEndOf="@+id/cardsCvCard"
             app:layout_constraintTop_toTopOf="@+id/cardsTvValidityText" />
 
-        <TextView
-            android:id="@+id/cardsTvCvvNum"
-            style="@style/contentTextGray"
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/cardsEtCvv"
+            style="@style/contentText"
+            android:hint=""
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:enabled="false"
+            app:endIconMode="password_toggle"
+            app:layout_constraintEnd_toEndOf="@+id/cardsTvCvvText"
             app:layout_constraintStart_toStartOf="@+id/cardsTvCvvText"
             app:layout_constraintTop_toBottomOf="@+id/cardsTvCvvText"
-            tools:text="125" />
+            tools:text="123" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

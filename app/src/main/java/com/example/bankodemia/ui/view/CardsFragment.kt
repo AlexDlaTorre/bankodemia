@@ -1,18 +1,23 @@
 package com.example.bankodemia.ui.view
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.bankodemia.ui.viewModel.CardsViewModel
+import com.example.bankodemia.core.utils.RandomNumber
+import com.example.bankodemia.core.utils.RandomString
 import com.example.bankodemia.databinding.FragmentCardsBinding
+import com.example.bankodemia.ui.viewModel.CardsViewModel
+import kotlinx.android.synthetic.main.fragment_cards.*
 
 class CardsFragment : Fragment() {
 
     private var _binding: FragmentCardsBinding? = null
     private val binding get() = _binding!!
+    private lateinit var bankList:Array<String>
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -21,8 +26,18 @@ class CardsFragment : Fragment() {
     ): View {
         val cardsViewModel =
             ViewModelProvider(this).get(CardsViewModel::class.java)
+        bankList = arrayOf("Bankodemia","HSBC","CityBanamex","Bancomer","BBVA")
 
         _binding = FragmentCardsBinding.inflate(inflater, container, false)
+        var randomnumero = RandomNumber(100,199).roll().toString()
+
+        binding.cardsEtCvv.text = randomnumero
+
+
+
+        println(RandomString(bankList).rollBank())
+        println(binding.cardsEtCvv.text )
+//        binding.textField123.text = "Hola"
 
         return binding.root
     }
