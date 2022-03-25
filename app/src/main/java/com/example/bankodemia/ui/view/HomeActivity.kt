@@ -21,6 +21,7 @@ import com.example.bankodemia.core.zero
 import com.example.bankodemia.databinding.ActivityHome2Binding
 import com.example.bankodemia.domain.domainObjects.Transaction.TransactionDTO
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.android.synthetic.main.loader.*
 import kotlin.random.Random
 
 class HomeActivity : AppCompatActivity(), FragmentCommunicator {

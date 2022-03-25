@@ -2,7 +2,7 @@ package com.example.bankodemia.domain.domainObjects.Auth
 
 import com.example.bankodemia.data.model.Auth
 
-class AuthDTO(val response: Auth.AuthResponse) {
+class AuthDTO(val response: Auth.AuthResponse): java.io.Serializable{
     val token: String
     val expiresIn: String
 

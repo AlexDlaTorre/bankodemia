@@ -19,4 +19,11 @@
         app:layout_constraintTop_toTopOf="parent"
         app:navGraph="@navigation/onbording_navigation" />
 
+    <include
+        layout="@layout/loader"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
