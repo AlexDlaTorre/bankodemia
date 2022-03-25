@@ -14,6 +14,7 @@
 
     <!-- Secondary -->
     <color name="secondary_purple">#7B78EA</color>
+    <color name="secondary_black">#161616</color>
 
     <!-- Components -->
     <color name="input_gray">#626262</color>

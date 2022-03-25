@@ -9,6 +9,7 @@ import com.example.bankodemia.R
 import com.example.bankodemia.core.showSnackBarMessagee
 import com.example.bankodemia.core.utils.FragmentCommunicator
 import com.example.bankodemia.core.utils.TRANSACTIONDETAIL
+import com.example.bankodemia.core.instances.SharedPreferencesInstance
 import com.example.bankodemia.databinding.ActivityMainBinding
 import com.example.bankodemia.domain.domainObjects.Auth.AuthDTO
 import com.example.bankodemia.domain.domainObjects.Transaction.TransactionDTO
@@ -19,10 +20,14 @@ import kotlinx.android.synthetic.main.loader.*
 
 class MainActivity : AppCompatActivity(), FragmentCommunicator {
     private lateinit var mBinding: ActivityMainBinding
+    private lateinit var mSharedPreferences: SharedPreferencesInstance
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mBinding = ActivityMainBinding.inflate(layoutInflater)
+
+        mSharedPreferences = SharedPreferencesInstance.getInstance(this)
+
         setContentView(mBinding.root)
     }
 
