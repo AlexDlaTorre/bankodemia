@@ -25,9 +25,8 @@ class MainActivity : AppCompatActivity(), FragmentCommunicator {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mBinding = ActivityMainBinding.inflate(layoutInflater)
-
         mSharedPreferences = SharedPreferencesInstance.getInstance(this)
-
+        mSharedPreferences.clean()
         setContentView(mBinding.root)
     }
 

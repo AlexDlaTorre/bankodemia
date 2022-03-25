@@ -1,24 +1,24 @@
 package com.example.bankodemia.core.retrofit
 
+import android.util.Log
+import com.example.bankodemia.core.instances.SharedPreferencesInstance
 import okhttp3.Interceptor
 import okhttp3.Response
 
 class HeaderInterceptor : Interceptor {
-    private var mToken = ""
-
+    private var mToken = SharedPreferencesInstance.getToken()
     override fun intercept(chain: Interceptor.Chain): Response {
-        val request = chain.request()
+        Log.d("HeaderInterceptor", "Token inicial : $mToken")
+
+        val request = chain.request().newBuilder()
         if (!mToken.isNullOrEmpty()) {
-            request.newBuilder()
+            Log.d("HeaderInterceptor", "Token: $mToken")
+            request
                 .addHeader("Accept", "application/json")
                 .addHeader("Content-Type", "application/json")
                 .addHeader("Authorization", "Bearer $mToken")
-                .build()
         }
-        return chain.proceed(request)
+        return chain.proceed(request.build())
     }
 
-    fun setToken(token: String) {
-        this.mToken = token
-    }
 }

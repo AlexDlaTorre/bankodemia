@@ -1,5 +1,6 @@
 package com.example.bankodemia.core.instances
 
+import android.util.Log
 import com.example.bankodemia.core.retrofit.HeaderInterceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit

@@ -14,6 +14,7 @@ import com.example.bankodemia.R
 import com.example.bankodemia.UI.viewModel.LoginViewModel
 import com.example.bankodemia.core.types.FieldTypeEnum
 import com.example.bankodemia.core.activateButton
+import com.example.bankodemia.core.instances.SharedPreferencesInstance
 import com.example.bankodemia.core.retrofit.HeaderInterceptor
 import com.example.bankodemia.core.showToastMessage
 import com.example.bankodemia.core.utils.BaseUiState
@@ -75,6 +76,7 @@ class LoginFragment : Fragment(), Fields {
                 if (uiState.result is AuthDTO) {
                     val authInfo = uiState.result as AuthDTO
                     if (!authInfo.token.isNullOrBlank() && !authInfo.token.isNullOrEmpty()) {
+                        SharedPreferencesInstance.saveToken(token = authInfo.token)
                         val intent = Intent(activity, HomeActivity::class.java)
                         startActivity(intent)
                         activity?.finish()

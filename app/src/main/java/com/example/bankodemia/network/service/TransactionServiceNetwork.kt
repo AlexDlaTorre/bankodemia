@@ -11,16 +11,18 @@ import kotlinx.coroutines.withContext
 import okhttp3.RequestBody
 
 class TransactionServiceNetwork {
-    private val retrofit = RetrofitBankodemiaInstance.getRetrofit().create(TransactionsApi::class.java)
+    private val retrofit =
+        RetrofitBankodemiaInstance.getRetrofit().create(TransactionsApi::class.java)
     private lateinit var exceptionHandler: RetrofitExceptionHandler
 
     suspend fun makeDeposit(parameters: RequestBody): Transaction.PostResponse? {
         return withContext(Dispatchers.IO) {
-            // TODO - remove hardcoded token
-            val response = retrofit.makeTransaction("Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MjJiYjEzNDhjZTZjNDc4ZDBlMWJmZTYiLCJpYXQiOjE2NDc1NzE4MDMsImV4cCI6MTY0NzU3NTQwM30.HAiuhoIGzTR9u6QMT89WZFfWqyF5M3nUmawod4ijOFY",
-            parameters)
+            val response = retrofit.makeTransaction(parameters)
             Log.d("PostTransactionsResponse", response.body().toString())
-            val responseBody = response.body() ?: throw exceptionHandler.createApiExeption(response, BankodemiaErrorResponse::class.java)
+            val responseBody = response.body() ?: throw exceptionHandler.createApiExeption(
+                response,
+                BankodemiaErrorResponse::class.java
+            )
             responseBody
         }
     }
