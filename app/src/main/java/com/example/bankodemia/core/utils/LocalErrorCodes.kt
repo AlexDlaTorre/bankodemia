@@ -6,9 +6,10 @@ object LocalErrorCodes {
      */
     const val USER_PROFILE_ERROR = "BANKODEMIA_1010"
 
+    const val BAD_JSON_ERROR_FORMAT = "E-002"
+  
     /**
      *CUANDO OCURRIO UN ERROR EN LA PETICION AL SERVICIO DE LOG IN
      */
     const val LOGIN_ERROR = "BANKODEMIA_0010"
-
 }

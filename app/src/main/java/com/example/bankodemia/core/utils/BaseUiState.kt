@@ -1,6 +1,8 @@
 package com.example.bankodemia.core.utils
 
 import com.example.bankodemia.core.empty
+import com.example.bankodemia.data.model.BankodemiaError
+import com.example.bankodemia.data.model.EntityException
 
 sealed class BaseUiState {
     object loading: BaseUiState()
@@ -21,11 +23,17 @@ sealed class BaseUiState {
         }
     }
 
-    class Error(val error: Throwable): BaseUiState() {
-        data class UIError(
-            val code: String = "UNEXPECTED ERROR CODE",
-            val message: String = String.empty,
-            val eventId: String? = String.empty
-        ): BaseUiState()
+    data class Error(val errorResponse: BankodemiaError): BaseUiState() {
+        val errorCode: String
+        val message: String?
+        val messages: List<String>?
+        val error: String
+
+        init {
+            errorCode = errorResponse.code.toString()
+            message = errorResponse.message
+            messages = errorResponse.messages
+            error = errorResponse.error
+        }
     }
 }

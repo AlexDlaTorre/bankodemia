@@ -13,16 +13,19 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.example.bankodemia.R
 import com.example.bankodemia.core.once
+import com.example.bankodemia.core.showSnackBarMessage
 import com.example.bankodemia.core.showToastMessage
 import com.example.bankodemia.core.types.MovementType
 import com.example.bankodemia.core.utils.BaseUiState
 import com.example.bankodemia.core.utils.FragmentCommunicator
+import com.example.bankodemia.core.utils.general
 import com.example.bankodemia.core.utils.selfDeposit
 import com.example.bankodemia.core.zero
 import com.example.bankodemia.databinding.FragmentDepositBinding
 import com.example.bankodemia.domain.domainObjects.Transaction.TransactionDTO
 import com.example.bankodemia.domain.domainObjects.Transaction.TransactionPostReponseDTO
 import com.example.bankodemia.ui.home.HomeFragment
+import com.google.android.material.snackbar.Snackbar
 import java.text.NumberFormat
 
 class DepositFragment : Fragment() {
@@ -69,7 +72,7 @@ class DepositFragment : Fragment() {
             }
             is BaseUiState.Error -> {
                 communicator.showLoader(false)
-                showToastMessage(uiState.error.localizedMessage, Toast.LENGTH_SHORT)
+                showSnackBarMessage(uiState.message ?: general, Snackbar.LENGTH_LONG)
             }
         }
     }
