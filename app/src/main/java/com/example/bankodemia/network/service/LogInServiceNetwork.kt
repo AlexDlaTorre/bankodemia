@@ -1,5 +1,6 @@
 package com.example.bankodemia.network.service
 
+import android.util.Log
 import com.example.bankodemia.core.instances.RetrofitBankodemiaInstance
 import com.example.bankodemia.data.model.Auth
 import com.example.bankodemia.network.api.ILogInAPI

@@ -1,5 +1,6 @@
 package com.example.bankodemia.UI.viewModel
 
+import android.util.Log
 import androidx.lifecycle.viewModelScope
 import com.example.bankodemia.core.utils.BaseUiState
 import com.example.bankodemia.core.utils.LocalErrorCodes
@@ -25,8 +26,8 @@ class LoginViewModel : BaseViewModel() {
                 )
                 return@launch
             }
-            val profileInfo = result?.let { it } ?: return@launch
-            uiStateEmitter.value = BaseUiState.SuccessResult(profileInfo)
+            val authInfo = result?.let { it } ?: return@launch
+            uiStateEmitter.value = BaseUiState.SuccessResult(authInfo)
         }
     }
 }

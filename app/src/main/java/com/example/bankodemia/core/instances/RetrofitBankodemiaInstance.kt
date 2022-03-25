@@ -1,5 +1,6 @@
 package com.example.bankodemia.core.instances
 
+import com.example.bankodemia.core.retrofit.HeaderInterceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -10,7 +11,9 @@ object RetrofitBankodemiaInstance {
         val okHttpClient = OkHttpClient.Builder()
             .readTimeout(60, TimeUnit.SECONDS)
             .connectTimeout(60, TimeUnit.SECONDS)
+            .addInterceptor(HeaderInterceptor())
             .build()
+
         return Retrofit.Builder()
             .baseUrl("https://bankodemia.kodemia.mx/")
             .client(okHttpClient)

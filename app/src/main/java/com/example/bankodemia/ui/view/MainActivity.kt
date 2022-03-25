@@ -14,6 +14,7 @@ import com.example.bankodemia.domain.domainObjects.Auth.AuthDTO
 import com.example.bankodemia.domain.domainObjects.Transaction.TransactionDTO
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_home2.*
+import kotlinx.android.synthetic.main.loader.*
 
 
 class MainActivity : AppCompatActivity(), FragmentCommunicator {
@@ -29,7 +30,7 @@ class MainActivity : AppCompatActivity(), FragmentCommunicator {
         val bundle = Bundle()
         when (data) {
             is AuthDTO -> {
-                bundle.putSerializable(TRANSACTIONDETAIL, data as TransactionDTO)
+                bundle.putSerializable(TRANSACTIONDETAIL, data as AuthDTO)
             }
         }
         val transaction = supportFragmentManager.beginTransaction()
@@ -43,7 +44,7 @@ class MainActivity : AppCompatActivity(), FragmentCommunicator {
 
     override fun goTo(destination: Fragment) {
         val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.nav_host_fragment_activity_home2, destination)
+        transaction.replace(R.id.nav_host_fragment_activity_main, destination)
         transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE)
         transaction.commit()
     }

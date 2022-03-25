@@ -1,5 +1,6 @@
 package com.example.bankodemia.data.repository
 
+import android.util.Log
 import com.example.bankodemia.data.model.Auth
 import com.example.bankodemia.domain.domainObjects.Auth.AuthDTO
 import com.example.bankodemia.network.service.LogInServiceNetwork

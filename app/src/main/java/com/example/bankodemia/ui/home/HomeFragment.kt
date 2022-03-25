@@ -34,8 +34,8 @@ class HomeFragment : Fragment(), AdapterItemSelected {
         viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         communicator = requireActivity() as FragmentCommunicator
-        /* FIXME: Kotlin.UninitializedPropertyAccessException: lateinit property exceptionHandler has not been initialized
-        viewModel.getUserProfileData()*/
+        /* FIXME: Kotlin.UninitializedPropertyAccessException: lateinit property exceptionHandler has not been initialized*/
+        viewModel.getUserProfileData()
         setupObservers()
         setupEvents()
         return binding.root
