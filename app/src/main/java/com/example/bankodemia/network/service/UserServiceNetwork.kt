@@ -17,8 +17,9 @@ class UserServiceNetwork {
         return withContext(Dispatchers.IO) {
             val response = retrofit.getUserProfileInfo()
             Log.d("UserProfileResponse", response.body().toString())
-            val responseBody = response.body() ?: throw exceptionHandler.createApiExeption(response, BankodemiaErrorResponse::class.java)
-            responseBody
+            //val responseBody = response.body() ?: throw exceptionHandler.createApiExeption(response, BankodemiaErrorResponse::class.java)
+            //responseBody
+            response.body()
         }
     }
 }
