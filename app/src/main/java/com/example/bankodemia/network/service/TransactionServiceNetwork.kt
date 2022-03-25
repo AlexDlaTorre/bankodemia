@@ -2,7 +2,8 @@ package com.example.bankodemia.network.service
 
 import android.util.Log
 import com.example.bankodemia.core.instances.RetrofitBankodemiaInstance
-import com.example.bankodemia.core.retrofit.RetrofitExceptionHandler
+import com.example.bankodemia.core.utils.createApiError
+import com.example.bankodemia.data.model.BankodemiaError
 import com.example.bankodemia.data.model.BankodemiaErrorResponse
 import com.example.bankodemia.data.model.Transaction
 import com.example.bankodemia.network.api.TransactionsApi
@@ -12,16 +13,20 @@ import okhttp3.RequestBody
 
 class TransactionServiceNetwork {
     private val retrofit = RetrofitBankodemiaInstance.getRetrofit().create(TransactionsApi::class.java)
-    private lateinit var exceptionHandler: RetrofitExceptionHandler
 
-    suspend fun makeDeposit(parameters: RequestBody): Transaction.PostResponse? {
+    suspend fun makeDeposit(parameters: RequestBody): Pair<Transaction.PostResponse?, BankodemiaError?> {
         return withContext(Dispatchers.IO) {
             // TODO - remove hardcoded token
-            val response = retrofit.makeTransaction("Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MjJiYjEzNDhjZTZjNDc4ZDBlMWJmZTYiLCJpYXQiOjE2NDc1NzE4MDMsImV4cCI6MTY0NzU3NTQwM30.HAiuhoIGzTR9u6QMT89WZFfWqyF5M3nUmawod4ijOFY",
+            val response = retrofit.makeTransaction("Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MjJiYjEzNDhjZTZjNDc4ZDBlMWJmZTYiLCJpYXQiOjE2NDgxNjYyNzksImV4cCI6MTY0ODE2OTg3OX0.V0e_0QjJ34kk2-Rk6Pfo2SrKcZ0WKZP27T5XikxsWfU",
             parameters)
             Log.d("PostTransactionsResponse", response.body().toString())
-            val responseBody = response.body() ?: throw exceptionHandler.createApiExeption(response, BankodemiaErrorResponse::class.java)
-            responseBody
+            val responseBody = response.body()
+            if (responseBody != null) {
+                responseBody to null
+            } else {
+                val errorResponse = createApiError(response, BankodemiaErrorResponse::class.java)
+                null to errorResponse
+            }
         }
     }
 }

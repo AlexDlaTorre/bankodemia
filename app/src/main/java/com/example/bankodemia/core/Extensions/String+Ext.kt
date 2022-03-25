@@ -68,7 +68,6 @@ var String.Companion.empty: String
     get() = ""
     set(value) { "" }
 
-
 var String.dots: String
     get() = ":"
     set(value) { ":" }

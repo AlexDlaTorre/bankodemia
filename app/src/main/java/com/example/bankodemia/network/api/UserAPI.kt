@@ -8,5 +8,5 @@ import retrofit2.http.Header
 interface UserAPI {
     @GET("/users/me/profile")
     // TODO- remove harcoded token when logic is available
-    suspend fun getUserProfileInfo(@Header("Authorization") token: String = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MjJiYjEzNDhjZTZjNDc4ZDBlMWJmZTYiLCJpYXQiOjE2NDc1NzE4MDMsImV4cCI6MTY0NzU3NTQwM30.HAiuhoIGzTR9u6QMT89WZFfWqyF5M3nUmawod4ijOFY"): Response<User.UserProfile>
+    suspend fun getUserProfileInfo(@Header("Authorization") token: String = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MjJiYjEzNDhjZTZjNDc4ZDBlMWJmZTYiLCJpYXQiOjE2NDgxODIwNTcsImV4cCI6MTY0ODE4NTY1N30.TeqgOSAhMQHIIXzQ5j5FbvEtGVKJ3v5oUXHqZ2zlhlt"): Response<User.UserProfile>
 }

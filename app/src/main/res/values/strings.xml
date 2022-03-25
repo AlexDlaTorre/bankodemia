@@ -132,4 +132,5 @@
     <string name="Country">País</string>
     <string name="lada_default">+52</string>
     <string name="successDeposit">Tu deposito de %s se realizo satisfactoriamente a tu cuenta</string>
+
 </resources>

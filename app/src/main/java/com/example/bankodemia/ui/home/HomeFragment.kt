@@ -4,20 +4,21 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.bankodemia.ui.viewModel.HomeViewModel
-import com.example.bankodemia.core.showToastMessage
 import com.example.bankodemia.core.utils.BaseUiState
 import androidx.navigation.findNavController
 import com.example.bankodemia.R
+import com.example.bankodemia.core.showSnackBarMessage
 import com.example.bankodemia.core.utils.FragmentCommunicator
+import com.example.bankodemia.core.utils.general
 import com.example.bankodemia.databinding.FragmentHomeBinding
 import com.example.bankodemia.domain.domainObjects.User.geUserProfile.UserProfileDTO
 import com.example.bankodemia.domain.domainObjects.Transaction.TransactionDTO
 import com.example.bankodemia.ui.view.HomeDetailFragment
+import com.google.android.material.snackbar.Snackbar
 
 class HomeFragment : Fragment(), AdapterItemSelected {
 
@@ -34,8 +35,9 @@ class HomeFragment : Fragment(), AdapterItemSelected {
         viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         communicator = requireActivity() as FragmentCommunicator
-        /* FIXME: Kotlin.UninitializedPropertyAccessException: lateinit property exceptionHandler has not been initialized
-        viewModel.getUserProfileData()*/
+        /* FIXME: Kotlin.UninitializedPropertyAccessException: lateinit property exceptionHandler has not been initialized*/
+        setupReclycerView(mutableListOf(), true)
+        viewModel.getUserProfileData()
         setupObservers()
         setupEvents()
         return binding.root
@@ -64,10 +66,7 @@ class HomeFragment : Fragment(), AdapterItemSelected {
                 }
             }
             is BaseUiState.Error -> {
-                showToastMessage(uiState.error.localizedMessage, Toast.LENGTH_SHORT)
-            }
-            is BaseUiState.loading -> {
-                setupReclycerView(mutableListOf(), true)
+                showSnackBarMessage(uiState.message ?: general, Snackbar.LENGTH_LONG)
             }
         }
     }
