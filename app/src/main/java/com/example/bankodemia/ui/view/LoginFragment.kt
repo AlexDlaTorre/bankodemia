@@ -19,6 +19,7 @@ import com.example.bankodemia.core.retrofit.HeaderInterceptor
 import com.example.bankodemia.core.showToastMessage
 import com.example.bankodemia.core.utils.BaseUiState
 import com.example.bankodemia.core.utils.FragmentCommunicator
+import com.example.bankodemia.core.utils.general
 import com.example.bankodemia.core.validateField
 import com.example.bankodemia.data.model.Auth
 import com.example.bankodemia.databinding.FragmentLoginBinding
@@ -86,14 +87,13 @@ class LoginFragment : Fragment(), Fields {
             }
             is BaseUiState.Error -> {
                 mCommunicator.showLoader(false)
-                showToastMessage(uiState.error.localizedMessage, Toast.LENGTH_SHORT)
+                showToastMessage(uiState.message ?: general, Toast.LENGTH_SHORT)
             }
             is BaseUiState.loading -> {
                 mCommunicator.showLoader(true)
             }
         }
     }
-
 
     override fun validationFields() {
         var checkMail = false

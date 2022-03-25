@@ -16,9 +16,7 @@ class TransactionServiceNetwork {
 
     suspend fun makeDeposit(parameters: RequestBody): Pair<Transaction.PostResponse?, BankodemiaError?> {
         return withContext(Dispatchers.IO) {
-            // TODO - remove hardcoded token
-            val response = retrofit.makeTransaction("Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MjJiYjEzNDhjZTZjNDc4ZDBlMWJmZTYiLCJpYXQiOjE2NDgxNjYyNzksImV4cCI6MTY0ODE2OTg3OX0.V0e_0QjJ34kk2-Rk6Pfo2SrKcZ0WKZP27T5XikxsWfU",
-            parameters)
+            val response = retrofit.makeTransaction(parameters)
             Log.d("PostTransactionsResponse", response.body().toString())
             val responseBody = response.body()
             if (responseBody != null) {
