@@ -17,7 +17,6 @@ class CardsFragment : Fragment() {
 
     private var _binding: FragmentCardsBinding? = null
     private val binding get() = _binding!!
-    private lateinit var bankList:Array<String>
     private lateinit var cardsViewModel: CardsViewModel
 
     override fun onCreateView(
@@ -26,7 +25,6 @@ class CardsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         cardsViewModel = ViewModelProvider(this).get(CardsViewModel::class.java)
-        bankList = arrayOf("Bankodemia","HSBC","CityBanamex","Bancomer","BBVA")
 
         _binding = FragmentCardsBinding.inflate(inflater, container, false)
 
