@@ -32,8 +32,11 @@ class CardsFragment : Fragment() {
         _binding = FragmentCardsBinding.inflate(inflater, container, false)
         val randomCvv = RandomNumber(100,199).roll().toString()
         val randomCardNumber = RandomNumber(1000,1999).roll().toString()
+        val randomMonth = RandomNumber(1,12).roll().toString()
+        val randomDay = RandomNumber(1,30).roll().toString()
 
         binding.cardsEtCvv.text = randomCvv
+        binding.cardsTvValidityDate.text = "$randomMonth/$randomDay"
         binding.cardsTvCardNumber.text = "543924647664$randomCardNumber"
 
 
@@ -41,7 +44,6 @@ class CardsFragment : Fragment() {
 
         println(RandomString(bankList).rollBank())
         println(binding.cardsEtCvv.text )
-//        binding.textField123.text = "Hola"
 
         return binding.root
     }
