@@ -17,17 +17,15 @@ class LoginViewModel : BaseViewModel() {
         viewModelScope.launch {
             uiStateEmitter.value = BaseUiState.loading
             val result = logInUseCase.invoke(login)
-            if (result == null) {
-                uiStateEmitter.value = BaseUiState.Error(
-                    EntityException.Local(
-                        LocalErrorCodes.LOGIN_ERROR,
-                        "AN ERROR OCURRED IN LOG IN POST ENDPOINT"
-                    )
-                )
-                return@launch
+            Log.d("LoginViewModel", result.toString())
+            if (result.second != null) {
+                val error = result?.let { it.second?.let { it } } ?: return@launch
+                Log.d("LoginViewModel", error.toString())
+                uiStateEmitter.value = BaseUiState.Error(error)
             }
-            val authInfo = result?.let { it } ?: return@launch
-            uiStateEmitter.value = BaseUiState.SuccessResult(authInfo)
+            val response = result?.let { it.first?.let { it } } ?: return@launch ?: return@launch
+            Log.d("LoginViewModel", response.toString())
+            uiStateEmitter.value = BaseUiState.SuccessResult(response)
         }
     }
 }
