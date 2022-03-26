@@ -132,5 +132,5 @@
     <string name="Country">País</string>
     <string name="lada_default">+52</string>
     <string name="successDeposit">Tu deposito de %s se realizo satisfactoriamente a tu cuenta</string>
-    <string name="base_card_number">543924647664</string>
+    <string name="token">token</string>
 </resources>
