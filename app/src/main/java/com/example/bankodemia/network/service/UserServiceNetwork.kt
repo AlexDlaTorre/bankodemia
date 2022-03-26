@@ -22,10 +22,10 @@ class UserServiceNetwork {
         }
     }
 
-    suspend fun getUsers(): User.GetResponse? {
+    suspend fun getUsers(query: String): Pair<User.GetResponse?, BankodemiaErrorResponse> {
         return withContext(Dispatchers.IO) {
             // TODO - remove harcoded token when logic is available
-            val response = retrofit.getUsers("Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MjJiYjEzNDhjZTZjNDc4ZDBlMWJmZTYiLCJpYXQiOjE2NDc1NzE4MDMsImV4cCI6MTY0NzU3NTQwM30.HAiuhoIGzTR9u6QMT89WZFfWqyF5M3nUmawod4ijOFY")
+            val response = retrofit.getUsers(query)
             val responseBody = response.body() ?: throw exceptionHandler.createApiExeption(response, BankodemiaErrorResponse::class.java)
             responseBody
         }
