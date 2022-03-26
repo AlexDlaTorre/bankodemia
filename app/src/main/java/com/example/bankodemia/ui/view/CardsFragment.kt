@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.example.bankodemia.R
 import com.example.bankodemia.core.utils.RandomNumber
 import com.example.bankodemia.core.utils.RandomString
 import com.example.bankodemia.databinding.FragmentCardsBinding
@@ -29,9 +30,12 @@ class CardsFragment : Fragment() {
         bankList = arrayOf("Bankodemia","HSBC","CityBanamex","Bancomer","BBVA")
 
         _binding = FragmentCardsBinding.inflate(inflater, container, false)
-        var randomnumero = RandomNumber(100,199).roll().toString()
+        val randomCvv = RandomNumber(100,199).roll().toString()
+        val randomCardNumber = RandomNumber(1000,1999).roll().toString()
 
-        binding.cardsEtCvv.text = randomnumero
+        binding.cardsEtCvv.text = randomCvv
+        binding.cardsTvCardNumber.text = "543924647664$randomCardNumber"
+
 
 
 
