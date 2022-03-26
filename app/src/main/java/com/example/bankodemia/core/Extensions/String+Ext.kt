@@ -58,7 +58,7 @@ fun String.isPhoneValid(): Boolean{
 }
 
 fun String.isDateValid(): Boolean{
-    val expression = "^[a-zA-Z0-9 \\-_/]*$"
+    val expression = "^[0-9 \\-_/+]*$"
     val pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE)
     val matcher = pattern.matcher(this)
     return matcher.matches()
@@ -67,7 +67,6 @@ fun String.isDateValid(): Boolean{
 var String.Companion.empty: String
     get() = ""
     set(value) { "" }
-
 
 var String.dots: String
     get() = ":"

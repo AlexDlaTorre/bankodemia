@@ -10,11 +10,12 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -34,19 +35,44 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/common_size_middle"
                 android:layout_marginTop="@dimen/common_size_min"
-                android:text="@string/go_back_home"
+                android:text="@string/enter_data"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/telephoneTemplateTopLogoSingle" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/telephoneRvLada"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@+id/telephoneTvSms"
+                app:layout_constraintEnd_toEndOf="@+id/telephoneTilTelephone"
+                app:layout_constraintStart_toStartOf="@+id/telephoneBtnLadas"
+                app:layout_constraintTop_toBottomOf="@+id/telephoneTilTelephone"
+                tools:listitem="@layout/item_lada"
+                tools:visibility="visible" />
+
+
+            <Button
+                android:id="@+id/telephoneBtnLadas"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="100dp"
+                android:layout_height="0dp"
+                android:text="@string/lada_default"
+                android:textAppearance="@style/contentText"
+                app:icon="@drawable/ic_arrow_drop_down"
+                app:iconTint="@color/secondary_purple"
+                app:layout_constraintBottom_toBottomOf="@+id/telephoneTilTelephone"
+                app:layout_constraintStart_toStartOf="@+id/telephoneTvInstructions"
+                app:layout_constraintTop_toTopOf="@+id/telephoneTilTelephone" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/telephoneTilTelephone"
                 style="@style/outlinedTextFieldBlue"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/common_size_middle"
                 android:layout_marginTop="@dimen/common_size_large"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/telephoneTvInstructions"
+                app:layout_constraintStart_toEndOf="@+id/telephoneBtnLadas"
                 app:layout_constraintTop_toBottomOf="@+id/telephoneTvInstructions">
 
                 <com.google.android.material.textfield.TextInputEditText

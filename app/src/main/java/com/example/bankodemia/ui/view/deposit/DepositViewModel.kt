@@ -23,16 +23,11 @@ class DepositViewModel: BaseViewModel() {
                                                     type,
                                                     concept)
             val result = makeTransactionUseCase.invoke(parameters)
-            if (result == null) {
-                uiStateEmitter.value = BaseUiState.Error(
-                    EntityException.Local(
-                        LocalErrorCodes.USER_PROFILE_ERROR,
-                        "AN ERROR OCURRED IN MAKE TRANSACTION ENDPOINT"
-                    )
-                )
-                return@launch
+            if (result.second != null) {
+                val error = result?.let { it.second?.let { it } } ?: return@launch
+                uiStateEmitter.value = BaseUiState.Error(error)
             }
-            val transactionInfo = result?.let { it } ?: return@launch
+            val transactionInfo = result?.let { it.first?.let { it } } ?: return@launch
             uiStateEmitter.value = BaseUiState.SuccessResult(transactionInfo)
         }
     }

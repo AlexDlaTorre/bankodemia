@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/secondary_black"
+    tools:context=".UI.view.MainFragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/mainIvLogo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/common_size_middle"
+                android:layout_marginTop="@dimen/common_size_middle"
+                android:contentDescription="@null"
+                android:scaleType="centerInside"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/logobankodemiapng" />
+
+
+            <TextView
+                android:id="@+id/mainTvWelcome"
+                style="@style/titleTextWhite"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/welcome_message"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="@+id/mainIvLogo"
+                app:layout_constraintStart_toStartOf="@+id/mainIvLogo"
+                app:layout_constraintTop_toBottomOf="@+id/mainIvLogo" />
+
+            <TextView
+                android:id="@+id/mainTvWelcome2"
+                style="@style/subtitleTextWhite"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/welcome2"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="@+id/mainTvWelcome"
+                app:layout_constraintStart_toStartOf="@+id/mainTvWelcome"
+                app:layout_constraintTop_toBottomOf="@+id/mainTvWelcome" />
+
+            <ImageView
+                android:id="@+id/mainIvWelcome"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:contentDescription="@null"
+                app:layout_constraintEnd_toEndOf="@+id/mainTvWelcome2"
+                app:layout_constraintStart_toStartOf="@+id/mainTvWelcome2"
+                app:layout_constraintTop_toBottomOf="@+id/mainTvWelcome2"
+                app:srcCompat="@drawable/welcomeimage" />
+
+            <Button
+                android:id="@+id/mainBtnCreateAccount"
+                style="@style/fillButtonBlue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/create_account"
+                app:layout_constraintEnd_toEndOf="@+id/mainIvWelcome"
+                app:layout_constraintStart_toStartOf="@+id/mainIvWelcome"
+                app:layout_constraintTop_toBottomOf="@+id/mainIvWelcome"
+                tools:ignore="TextContrastCheck" />
+
+            <Button
+                android:id="@+id/mainBtnLogin"
+                style="@style/outlinedButtonBlue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/common_size_default"
+                android:text="@string/login"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/mainBtnCreateAccount"
+                app:layout_constraintStart_toStartOf="@+id/mainBtnCreateAccount"
+                app:layout_constraintTop_toBottomOf="@+id/mainBtnCreateAccount" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

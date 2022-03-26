@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/common_size_middle"
             android:layout_marginTop="@dimen/common_size_min"
-            android:text="@string/enter_data"
+            android:text="@string/enter_email"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/dataTemplateTopBarSingle" />
 
@@ -118,7 +118,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/birthday"
-                android:inputType="date"
                 tools:ignore="TextContrastCheck" />
 
         </com.google.android.material.textfield.TextInputLayout>

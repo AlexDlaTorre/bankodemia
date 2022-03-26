@@ -204,4 +204,13 @@
         <item name="android:fontFamily">@font/poppins</item>
     </style>
 
+    <style name="customDatePickerStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:datePickerStyle">@style/customDatePicker</item>
+    </style>
+
+    <style name="customDatePicker" parent="@android:style/Widget.Material.Light.DatePicker">
+        <item name="android:textColor"> @color/principal_blue </item>
+        <item name="android:datePickerMode">spinner</item>
+        <item name="android:calendarViewShown">false</item>
+    </style>
 </resources>
