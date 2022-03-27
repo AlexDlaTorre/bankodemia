@@ -44,14 +44,14 @@ class SendFragment : Fragment(), AdapterItemSelected {
     }
 
     fun setupEvents() {
-        binding.homeDetailBtnBackToHome.setOnClickListener { view : View ->
+        binding.homeDetailBtnBackToHome.setOnClickListener { view: View ->
             view.findNavController().navigate(R.id.action_sendFragment_to_navigation_home)
         }
-        binding.sendBtnAdd.setOnClickListener { view : View ->
+        binding.sendBtnAdd.setOnClickListener { view: View ->
             view.findNavController().navigate(R.id.action_sendFragment_to_addContactFragment)
         }
 
-        binding.sendIvLogo.setOnClickListener { view : View ->
+        binding.sendIvLogo.setOnClickListener { view: View ->
             view.findNavController().navigate(R.id.action_sendFragment_to_transferDetailFragment)
         }
     }
@@ -90,7 +90,7 @@ class SendFragment : Fragment(), AdapterItemSelected {
         _binding = null
     }
 
-    override fun <T> contactItemSelected(item: T) {
+    override fun <T> itemSelected(item: T) {
         communicator.sendData(item, TransferDetailFragment())
     }
 }

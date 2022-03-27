@@ -15,13 +15,13 @@ import com.example.bankodemia.domain.domainObjects.Transaction.TransactionDTO
 import com.example.bankodemia.ui.home.AdapterItemSelected
 import com.example.bankodemia.ui.home.TransactionsAdapter
 
-interface AdapterContactItemSelected {
-    fun <T> contactItemSelected(item: T)
+interface AdapterItemSelected {
+    fun <T>ItemSelected(item: T)
 }
 
 class ContactsAdapter(val contactsList: List<ContactDTO>,
                       val isSkeleton: Boolean,
-                      val listener: AdapterContactItemSelected
+                      val listener: AdapterItemSelected
 ):
     RecyclerView.Adapter<ContactsAdapter.ContactsHolder>() {
 
@@ -63,7 +63,7 @@ class ContactsAdapter(val contactsList: List<ContactDTO>,
 
         private fun setupListeners(contact: ContactDTO) {
             binding.itemContactsCvContacts.setOnClickListener {
-                listener.contactItemSelected(contact)
+                listener.itemSelected(contact)
             }
         }
     }
