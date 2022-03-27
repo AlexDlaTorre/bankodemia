@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/itemTransactionsCvTransactions"
+        android:id="@+id/itemContactsCvContacts"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -30,6 +30,22 @@
                 android:textStyle="bold"
                 tools:text="Cruz Eduardo Reveles Caldera" />
 
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/contact_shimmer"
+                android:layout_width="300dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="@+id/itemContactTvContact"
+                app:layout_constraintEnd_toEndOf="@+id/itemContactTvContact"
+                app:layout_constraintStart_toStartOf="@+id/itemContactTvContact"
+                app:layout_constraintTop_toTopOf="@+id/itemContactTvContact"
+                app:layout_constraintVertical_bias="1.0">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_skeleton_component" />
+            </com.facebook.shimmer.ShimmerFrameLayout>
+
             <TextView
                 android:id="@+id/itemContactTvContactAccount"
                 android:layout_width="wrap_content"
@@ -39,6 +55,21 @@
                 android:textAppearance="@style/contentTextVariantGray"
                 tools:text="4915 1573 8890 4376 / BANORTE" />
 
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/card_shimmer"
+                android:layout_width="300dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="@+id/itemContactTvContactAccount"
+                app:layout_constraintEnd_toEndOf="@+id/itemContactTvContactAccount"
+                app:layout_constraintStart_toStartOf="@+id/itemContactTvContactAccount"
+                app:layout_constraintTop_toTopOf="@+id/itemContactTvContactAccount"
+                app:layout_constraintVertical_bias="1.0">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_skeleton_component" />
+            </com.facebook.shimmer.ShimmerFrameLayout>
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
