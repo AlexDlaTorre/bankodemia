@@ -31,37 +31,8 @@ class SendFragment : Fragment() {
         _binding = FragmentSendBinding.inflate(inflater, container, false)
 
         setupEvents()
-        setupObservers()
 
         return binding.root
-    }
-
-    private fun setupObservers() {
-        viewModel.uiStateEmitter.observe(viewLifecycleOwner) {
-
-        }
-    }
-
-    private fun updateUI(uiState: BaseUiState) {
-        when (uiState) {
-            is BaseUiState.SuccessResult<*> -> {
-                if (uiState.result is UserGetResponseDTO) {
-                    val users = uiState.result as UserGetResponseDTO
-                    setupReclycerView(users.data.users, false)
-                }
-            }
-            is BaseUiState.loading -> {
-                setupReclycerView(mutableListOf(), true)
-            }
-            is BaseUiState.Error -> {
-                showToastMessage(uiState.error.localizedMessage, Toast.LENGTH_SHORT)
-            }
-        }
-    }
-
-    private fun setupReclycerView(users: List<UserDTO>, isSkeleton: Boolean) {
-        val activity = activity ?: return
-
     }
 
     private fun setupEvents() {
@@ -69,9 +40,8 @@ class SendFragment : Fragment() {
             view.findNavController().navigate(R.id.action_sendFragment_to_navigation_home)
         }
         binding.sendBtnAdd.setOnClickListener { view : View ->
-            view.findNavController().navigate(R.id.action_sendFragment_to_addContactFragment)
+            view.findNavController().navigate(R.id.action_sendFragment_to_searchUserFragment)
         }
-
         binding.sendIvLogo.setOnClickListener { view : View ->
             view.findNavController().navigate(R.id.action_sendFragment_to_transferDetailFragment)
         }

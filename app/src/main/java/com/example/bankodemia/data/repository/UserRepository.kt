@@ -15,9 +15,9 @@ class UserRepository {
         return profileDTO to response.second
     }
 
-    suspend fun getUsers(): UserGetResponseDTO? {
-        val response = api.getUsers()
-        val users = response?.let { UserGetResponseDTO(it) }
-        return users
+    suspend fun getUsers(query: String): Pair<UserGetResponseDTO?, BankodemiaError?> {
+        val response = api.getUsers(query)
+        val users = response?.let { it.first?.let { UserGetResponseDTO(it) } }
+        return users to response.second
     }
 }

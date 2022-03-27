@@ -59,6 +59,8 @@
         <entry key="app/src/main/res/layout/fragment_loader.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_password.xml" value="0.22010869565217392" />
         <entry key="app/src/main/res/layout/fragment_search_user.xml" value="0.22010869565217392" />
+        <entry key="app/src/main/res/layout/fragment_send.xml" value="0.22056159420289856" />
+        <entry key="app/src/main/res/layout/item_cardview_contact.xml" value="0.1" />
         <entry key="app/src/main/res/layout/item_cardview_transactions.xml" value="0.2934936523437501" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
       </map>
