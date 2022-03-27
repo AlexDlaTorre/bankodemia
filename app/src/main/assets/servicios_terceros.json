@@ -1,26 +1,26 @@
 [
     {
-        "name":"Recarga de celular",
-        "example":"Telcel, AT&T, Movistar"
+        "name_service":"Recarga de celular",
+        "providers_example":"Telcel, AT&T, Movistar"
     },
     {
-        "name":"Plan móvil",
-        "example":"Telcel, AT&T, Movistar"
+        "name_service":"Plan móvil",
+        "providers_example":"Telcel, AT&T, Movistar"
     },
     {
-        "name":"Internet / TV / Teléfono",
-        "example":"Telemx,Izzi,TotalPlay"
+        "name_service":"Internet / TV / Teléfono",
+        "providers_example":"Telemx,Izzi,TotalPlay"
     },
     {
-        "name":"Gas",
-        "example":"Naturgy y Compañía Mexicana"
+        "name_service":"Gas",
+        "providers_example":"Naturgy y Compañía Mexicana"
     },
     {
-        "name":"Tarjetas de crédito",
-        "example":"BBVA, Santander, Banorte, Banamex"
+        "name_service":"Tarjetas de crédito",
+        "providers_example":"BBVA, Santander, Banorte, Banamex"
     },
     {
-        "name":"Tiendas departamentales",
-        "example":"Liverpool, Sears, Palacio de Hierro"
+        "name_service":"Tiendas departamentales",
+        "providers_example":"Liverpool, Sears, Palacio de Hierro"
     }
 ]
