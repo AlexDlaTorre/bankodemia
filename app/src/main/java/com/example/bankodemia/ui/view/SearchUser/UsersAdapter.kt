@@ -17,16 +17,16 @@ class UsersAdapter(val users: List<UserDTO>,
 
         fun render(user: UserDTO) {
             binding.apply {
-                accountShimmer.visibility = View.GONE
-                userNameShimmer.visibility = View.GONE
-                userNameTextView.text = user.fullName
-                accountTextView.text = user.id
+                contactShimmer.visibility = View.GONE
+                cardShimmer.visibility = View.GONE
+                itemContactTvContact.text = user.fullName
+                itemContactTvContactAccount.text = user.id
             }
             setupListeners(user)
         }
 
         private fun setupListeners(user: UserDTO) {
-            binding.userCardView.setOnClickListener {
+            binding.itemContactsCvContacts.setOnClickListener {
                 listener.itemSelected(user)
             }
         }
