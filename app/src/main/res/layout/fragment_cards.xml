@@ -93,6 +93,21 @@
             app:layout_constraintTop_toBottomOf="@+id/CardsTvCardText"
             tools:text="5439246476642003" />
 
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/card_shimmer"
+            android:layout_width="300dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/cardsTvCardNumber"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/cardsTvCardNumber">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_skeleton_component" />
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
         <TextView
             android:id="@+id/cardsTvValidityText"
             style="@style/contentText"
@@ -109,6 +124,8 @@
             style="@style/contentTextGray"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="60dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/cardsTvValidityText"
             app:layout_constraintTop_toBottomOf="@+id/cardsTvValidityText"
             tools:text="11/26" />
@@ -124,13 +141,18 @@
             app:layout_constraintEnd_toEndOf="@+id/cardsCvCard"
             app:layout_constraintTop_toTopOf="@+id/cardsTvValidityText" />
 
-        <TextView
-            android:id="@+id/cardsTvCvvNum"
-            style="@style/contentTextGray"
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/cardsEtCvv"
+            style="@style/contentText"
+            android:hint=""
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:enabled="false"
+            app:endIconMode="password_toggle"
+            app:layout_constraintEnd_toEndOf="@+id/cardsTvCvvText"
             app:layout_constraintStart_toStartOf="@+id/cardsTvCvvText"
             app:layout_constraintTop_toBottomOf="@+id/cardsTvCvvText"
-            tools:text="125" />
+            tools:text="123" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

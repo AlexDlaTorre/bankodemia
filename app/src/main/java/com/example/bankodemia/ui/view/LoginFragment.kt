@@ -29,6 +29,7 @@ import com.example.bankodemia.domain.domainObjects.User.geUserProfile.UserProfil
 import com.google.android.material.snackbar.Snackbar
 
 class LoginFragment : Fragment(), Fields {
+
     private var _binding: FragmentLoginBinding? = null
     private val mBinding get() = _binding!!
 
