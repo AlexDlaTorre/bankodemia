@@ -15,9 +15,6 @@ import com.example.bankodemia.domain.domainObjects.Transaction.TransactionDTO
 import com.example.bankodemia.ui.home.AdapterItemSelected
 import com.example.bankodemia.ui.home.TransactionsAdapter
 
-interface AdapterItemSelected {
-    fun <T>ItemSelected(item: T)
-}
 
 class ContactsAdapter(val contactsList: List<ContactDTO>,
                       val isSkeleton: Boolean,
