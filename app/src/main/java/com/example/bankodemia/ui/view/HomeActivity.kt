@@ -19,6 +19,7 @@ import com.example.bankodemia.core.utils.TRANSACTIONDETAIL
 import com.example.bankodemia.core.utils.quotes
 import com.example.bankodemia.core.zero
 import com.example.bankodemia.databinding.ActivityHome2Binding
+import com.example.bankodemia.domain.domainObjects.Contact.ContactDTO
 import com.example.bankodemia.domain.domainObjects.Transaction.TransactionDTO
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.loader.*

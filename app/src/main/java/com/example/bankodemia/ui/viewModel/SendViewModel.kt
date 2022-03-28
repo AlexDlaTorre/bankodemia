@@ -2,8 +2,10 @@ package com.example.bankodemia.ui.viewModel
 
 import androidx.lifecycle.viewModelScope
 import com.example.bankodemia.core.utils.BaseUiState
-import com.example.bankodemia.domain.useCase.GetContactsListUseCase
+import com.example.bankodemia.core.utils.LocalErrorCodes
+import com.example.bankodemia.data.model.EntityException
 import kotlinx.coroutines.launch
+import com.example.bankodemia.domain.useCase.GetContactsListUseCase
 
 class SendViewModel : BaseViewModel() {
     val getContactsListUseCase = GetContactsListUseCase()

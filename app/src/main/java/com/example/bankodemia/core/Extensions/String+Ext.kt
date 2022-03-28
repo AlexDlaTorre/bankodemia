@@ -84,7 +84,7 @@ var String.slash: String
     get() = "/"
     set(value) { "/" }
 
-var String.whiteSpace: String
+var String.Companion.whiteSpace: String
     get() = " "
     set(value) { " " }
 
