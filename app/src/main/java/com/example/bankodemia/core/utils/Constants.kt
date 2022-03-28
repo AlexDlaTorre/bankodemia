@@ -48,12 +48,28 @@ fun <R, ERM> createApiError(
     val statusCode: Int = response.code()
     val url: String = response.raw().request().url().toString()
     return when (statusCode) {
-        HttpsURLConnection.HTTP_UNAUTHORIZED -> BankodemiaError(
-            statusCode,
-            null,
-            unauthorized,
-            String.empty
-        )
+        HttpsURLConnection.HTTP_UNAUTHORIZED -> {
+            try {
+                val errorResponse: BankodemiaErrorResponse = Gson().fromJson(body, BankodemiaErrorResponse::class.java)
+                val message = errorResponse.message?.let { it } ?: return BankodemiaError(
+                    statusCode,
+                    null,
+                    unauthorized,
+                    String.empty
+                )
+                return BankodemiaError(statusCode,
+                    null,
+                    message,
+                    errorResponse.error)
+            } catch (e: JsonSyntaxException) {
+                return BankodemiaError(
+                    statusCode,
+                    null,
+                    unauthorized,
+                    String.empty
+                )
+            }
+        }
         HttpsURLConnection.HTTP_GATEWAY_TIMEOUT -> BankodemiaError(
             statusCode,
             null,
@@ -75,7 +91,7 @@ fun <R, ERM> createApiError(
                         is BankodemiaErrorResponse -> {
                             return BankodemiaError(
                                 statusCode,
-                                errorResponse.messages,
+                                null,
                                 errorResponse.message,
                                 errorResponse.error
                             )

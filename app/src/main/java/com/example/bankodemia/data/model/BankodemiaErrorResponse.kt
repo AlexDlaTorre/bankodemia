@@ -11,8 +11,6 @@ data class BankodemiaError(
 
 data class BankodemiaErrorResponse(
     val statusCode: Int,
-    @SerializedName("message")
-    val messages: List<String>?,
     val message: String?,
     val error: String
 )
