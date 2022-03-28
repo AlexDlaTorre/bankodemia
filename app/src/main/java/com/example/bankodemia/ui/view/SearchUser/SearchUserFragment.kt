@@ -16,6 +16,7 @@ import com.example.bankodemia.core.twice
 import com.example.bankodemia.core.utils.BaseUiState
 import com.example.bankodemia.core.utils.FragmentCommunicator
 import com.example.bankodemia.core.utils.general
+import com.example.bankodemia.core.zero
 import com.example.bankodemia.data.model.User
 import com.example.bankodemia.databinding.FragmentSearchUserBinding
 import com.example.bankodemia.domain.domainObjects.User.UserDTO
@@ -34,6 +35,7 @@ class SearchUserFragment : Fragment(), AdapterItemSelected {
     private var users: List<UserDTO> = mutableListOf()
     private lateinit var communicator: FragmentCommunicator
     private lateinit var adapter: UsersAdapter
+    private var userNotFound = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -58,8 +60,9 @@ class SearchUserFragment : Fragment(), AdapterItemSelected {
                 if (uiState.result is UserGetResponseDTO) {
                     binding.loadingView.visibility = View.GONE
                     val users = uiState.result as UserGetResponseDTO
+                    userNotFound = !users.data.users.isEmpty()
                     this.users = users.data.users
-                    updateListInfo()
+                    setupReclycerView()
                 }
             }
             is BaseUiState.Error -> {
@@ -82,10 +85,6 @@ class SearchUserFragment : Fragment(), AdapterItemSelected {
         }
     }
 
-    fun updateListInfo() {
-        adapter.notifyDataSetChanged()
-    }
-
     override fun <T> itemSelected(item: T) {
         communicator.sendData(item, AddContactFragment())
     }
@@ -94,13 +93,21 @@ class SearchUserFragment : Fragment(), AdapterItemSelected {
         binding.searchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 binding.searchView.clearFocus()
+                if (!userNotFound) {
+                    showSnackBarMessage(getString(R.string.user_not_found), Snackbar.LENGTH_SHORT)
+                }
                 return false
             }
 
             override fun onQueryTextChange(query: String?): Boolean {
-                if (query.isNullOrEmpty()) return false
-                if (query.count() > Int.twice) {
-                    viewModel.getUser(query)
+                if (query.isNullOrEmpty()) {
+                    users = mutableListOf()
+                    setupReclycerView()
+                    binding.searchView.clearFocus()
+                } else {
+                    if (query.count() > Int.twice) {
+                        viewModel.getUser(query)
+                    }
                 }
                 return false
             }

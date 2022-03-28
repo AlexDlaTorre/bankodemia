@@ -17,6 +17,8 @@ class UsersAdapter(val users: List<UserDTO>,
 
         fun render(user: UserDTO) {
             binding.apply {
+                accountShimmer.visibility = View.GONE
+                userNameShimmer.visibility = View.GONE
                 userNameTextView.text = user.fullName
                 accountTextView.text = user.id
             }
