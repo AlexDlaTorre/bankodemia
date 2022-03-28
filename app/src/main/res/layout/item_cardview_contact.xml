@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/userCardView"
+        android:id="@+id/itemContactsCvContacts"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
@@ -32,6 +32,22 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/contact_shimmer"
+                android:layout_width="300dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="@+id/itemContactTvContact"
+                app:layout_constraintEnd_toEndOf="@+id/itemContactTvContact"
+                app:layout_constraintStart_toStartOf="@+id/itemContactTvContact"
+                app:layout_constraintTop_toTopOf="@+id/itemContactTvContact"
+                app:layout_constraintVertical_bias="1.0">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_skeleton_component" />
+            </com.facebook.shimmer.ShimmerFrameLayout>
+
             <TextView
                 android:id="@+id/accountTextView"
                 style="@style/grayTextView"
@@ -55,12 +71,27 @@
                 app:layout_constraintEnd_toEndOf="@+id/userNameTextView"
                 app:layout_constraintStart_toStartOf="@+id/userNameTextView"
                 app:layout_constraintTop_toTopOf="@+id/userNameTextView">
-
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/bg_skeleton_component"/>
             </com.facebook.shimmer.ShimmerFrameLayout>
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/card_shimmer"
+                android:layout_width="300dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="@+id/itemContactTvContactAccount"
+                app:layout_constraintEnd_toEndOf="@+id/itemContactTvContactAccount"
+                app:layout_constraintStart_toStartOf="@+id/itemContactTvContactAccount"
+                app:layout_constraintTop_toTopOf="@+id/itemContactTvContactAccount"
+                app:layout_constraintVertical_bias="1.0">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_skeleton_component" />
+            </com.facebook.shimmer.ShimmerFrameLayout> 
 
             <com.facebook.shimmer.ShimmerFrameLayout
                 android:id="@+id/accountShimmer"
@@ -78,5 +109,4 @@
             </com.facebook.shimmer.ShimmerFrameLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
