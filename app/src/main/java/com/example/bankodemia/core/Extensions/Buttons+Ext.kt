@@ -20,5 +20,4 @@ fun activateButton(fragment: Fragment, button : Button, vararg checks: Boolean){
         button.isEnabled = false
         button.setBackgroundColor(fragment.resources.getColor(R.color.principal_gray))
     }
-
 }

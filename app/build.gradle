@@ -91,4 +91,7 @@ dependencies {
     // Lottie
     def lottieVersion = "4.2.2"
     implementation "com.airbnb.android:lottie:$lottieVersion"
+
+    // Currency inputs
+    implementation 'com.cottacush:CurrencyEditText:0.0.10'
 }

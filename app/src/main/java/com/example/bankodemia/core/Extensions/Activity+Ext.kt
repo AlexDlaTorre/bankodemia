@@ -3,11 +3,13 @@ package com.example.bankodemia.core
 
 import android.app.Activity
 import android.view.Gravity
+import android.view.View
 import android.widget.FrameLayout
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
+import com.example.bankodemia.core.Extensions.hideKeyboard
 import com.google.android.material.snackbar.Snackbar
 
 fun transitionFragment( fragmentClass: Fragment, supportFragmentManager: FragmentManager) {
@@ -31,4 +33,8 @@ fun Activity.showSnackBarMessagee(message: String, duration: Int) {
         params.gravity = Gravity.TOP
         view.layoutParams = params
         snackBar.show()
+}
+
+fun Activity.hideKeyBoard() {
+        hideKeyboard(currentFocus ?: View(this))
 }
