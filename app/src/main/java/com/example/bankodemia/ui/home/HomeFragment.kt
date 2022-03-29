@@ -18,6 +18,7 @@ import com.example.bankodemia.databinding.FragmentHomeBinding
 import com.example.bankodemia.domain.domainObjects.User.geUserProfile.UserProfileDTO
 import com.example.bankodemia.domain.domainObjects.Transaction.TransactionDTO
 import com.example.bankodemia.ui.view.HomeDetailFragment
+import com.example.bankodemia.ui.view.transaction.SendFragment
 import com.google.android.material.snackbar.Snackbar
 
 class HomeFragment : Fragment(), AdapterItemSelected {
@@ -44,7 +45,7 @@ class HomeFragment : Fragment(), AdapterItemSelected {
 
     fun setupEvents() {
         binding.homeBtnSend.setOnClickListener { view : View ->
-            view.findNavController().navigate(R.id.action_navigation_home_to_sendFragment)
+            communicator.goTo(SendFragment())
         }
         binding.homeBtnReceive.setOnClickListener { view: View ->
             view.findNavController().navigate(R.id.homeFragment_to_depositFragment)
@@ -86,7 +87,6 @@ class HomeFragment : Fragment(), AdapterItemSelected {
             homeRvTransactions.setHasFixedSize(true)
             homeRvTransactions.adapter = adapter
         }
-        adapter.notifyDataSetChanged()
     }
 
     override fun onDestroyView() {

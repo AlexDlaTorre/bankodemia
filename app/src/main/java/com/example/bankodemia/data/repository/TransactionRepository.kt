@@ -9,7 +9,7 @@ class TransactionRepository {
     private val api = TransactionServiceNetwork()
 
     suspend fun makeTransaction(parameters: RequestBody): Pair<TransactionPostReponseDTO?, BankodemiaError?> {
-        val response = api.makeDeposit(parameters)
+        val response = api.makeTransaction(parameters)
         val transactionDTO = response?.let { it.first?.let { transaction -> TransactionPostReponseDTO(transaction) } }
         return transactionDTO to response.second
     }

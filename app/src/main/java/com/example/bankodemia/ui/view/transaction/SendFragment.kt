@@ -21,6 +21,8 @@ import com.example.bankodemia.domain.domainObjects.Contact.ContactDTO
 import com.example.bankodemia.domain.domainObjects.Contact.ContactGetDTO
 import com.example.bankodemia.ui.adapters.ContactsAdapter
 import com.example.bankodemia.ui.home.AdapterItemSelected
+import com.example.bankodemia.ui.home.HomeFragment
+import com.example.bankodemia.ui.view.SearchUser.SearchUserFragment
 import com.example.bankodemia.ui.view.TransferDetailFragment
 import com.google.android.material.snackbar.Snackbar
 
@@ -48,12 +50,11 @@ class SendFragment : Fragment(), AdapterItemSelected {
 
     fun setupEvents() {
         binding.homeDetailBtnBackToHome.setOnClickListener { view: View ->
-            view.findNavController().navigate(R.id.action_sendFragment_to_navigation_home)
+            communicator.goTo(HomeFragment())
         }
         binding.sendBtnAdd.setOnClickListener { view: View ->
-            view.findNavController().navigate(R.id.action_sendFragment_to_searchUserFragment)
+            communicator.goTo(SearchUserFragment())
         }
-
         binding.sendIvLogo.setOnClickListener { view: View ->
             view.findNavController().navigate(R.id.action_sendFragment_to_transferDetailFragment)
         }

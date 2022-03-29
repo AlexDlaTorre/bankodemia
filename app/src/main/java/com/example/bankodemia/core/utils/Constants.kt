@@ -14,9 +14,10 @@ val APP_ID: String = "com.example.bankodemia"
 val CONTACTDATA: String = "ContactData"
 
 // Body keys for post request
-val amountBodyKey   = "amount"
-val typeBodyKey     = "type"
-val conceptBodyKey  = "concept"
+val amountBodyKey       = "amount"
+val typeBodyKey         = "type"
+val conceptBodyKey      = "concept"
+val destinationUserKey  = "destinationUser"
 
 // json format
 val jsonFormat = "application/json; charset=utf-8"

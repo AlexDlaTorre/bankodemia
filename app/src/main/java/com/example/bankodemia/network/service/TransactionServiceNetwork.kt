@@ -14,7 +14,7 @@ import okhttp3.RequestBody
 class TransactionServiceNetwork {
     private val retrofit = RetrofitBankodemiaInstance.getRetrofit().create(TransactionsApi::class.java)
 
-    suspend fun makeDeposit(parameters: RequestBody): Pair<Transaction.PostResponse?, BankodemiaError?> {
+    suspend fun makeTransaction(parameters: RequestBody): Pair<Transaction.PostResponse?, BankodemiaError?> {
         return withContext(Dispatchers.IO) {
             val response = retrofit.makeTransaction(parameters)
             Log.d("PostTransactionsResponse", response.body().toString())
