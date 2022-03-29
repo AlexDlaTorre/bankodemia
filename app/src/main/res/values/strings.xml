@@ -82,7 +82,7 @@
     <string name="send_money">Enviar Dinero</string>
     <string name="transfer">Transferencia</string>
     <string name="quantity">CANTIDAD</string>
-    <string name="pay_concept">CONCEPTO DE PAGO</string>
+    <string name="pay_concept">CONCEPTO DE PAGO (OPCIONAL)</string>
     <string name="send_to">ENVIAR A</string>
     <string name="add_contact">Agregar contacto</string>
     <string name="digits">18 dìgitos</string>
@@ -135,4 +135,5 @@
     <string name="token">token</string>
     <string name="add_user">Añadir usuario</string>
     <string name="user_not_found">Usuario no encontrado</string>
+    <string name="invalid_amount">Monto invalido</string>
 </resources>

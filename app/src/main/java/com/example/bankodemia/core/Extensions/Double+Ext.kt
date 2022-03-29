@@ -1,6 +1,6 @@
 package com.example.bankodemia.core
 
-val Double.zero: Double
+val Double.Companion.zero: Double
     get() = 0.0
 
 val Double.once: Double

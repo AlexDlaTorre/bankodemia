@@ -14,6 +14,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.bankodemia.R
 import com.example.bankodemia.core.showMessage
 import com.example.bankodemia.core.showSnackBarMessagee
+import com.example.bankodemia.core.utils.CONTACTDATA
 import com.example.bankodemia.core.utils.FragmentCommunicator
 import com.example.bankodemia.core.utils.TRANSACTIONDETAIL
 import com.example.bankodemia.core.utils.quotes
@@ -59,6 +60,9 @@ class HomeActivity : AppCompatActivity(), FragmentCommunicator {
         when (data) {
             is TransactionDTO -> {
                 bundle.putSerializable(TRANSACTIONDETAIL, data as TransactionDTO)
+            }
+            is ContactDTO -> {
+                bundle.putSerializable(CONTACTDATA, data as ContactDTO)
             }
         }
         val transaction = supportFragmentManager.beginTransaction()

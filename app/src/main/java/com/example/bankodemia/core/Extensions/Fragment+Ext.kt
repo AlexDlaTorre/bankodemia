@@ -10,6 +10,7 @@ import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.example.bankodemia.R
+import com.example.bankodemia.core.Extensions.hideKeyboard
 import com.example.bankodemia.core.types.ToastType
 import com.example.bankodemia.ui.view.LoginFragment
 import com.google.android.material.snackbar.Snackbar
@@ -33,4 +34,8 @@ fun Fragment.showSnackBarActionMessage(message: String, actionTitle: String, dur
         setActionTextColor(ContextCompat.getColor(requireContext(), R.color.white))
         show()
     }
+}
+
+fun Fragment.hideKeyboard() {
+    view?.let { activity?.hideKeyboard(it) }
 }
