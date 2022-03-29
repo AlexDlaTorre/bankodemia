@@ -136,4 +136,8 @@
     <string name="add_user">Añadir usuario</string>
     <string name="user_not_found">Usuario no encontrado</string>
     <string name="invalid_amount">Monto invalido</string>
+    <string name="default_concept">Transferencia</string>
+    <string name="confirm_transfer">CONFIRMACIÓN DE TRASNFERENCIA</string>
+    <string name="confirm_transfer_description">¿Estás segura(o) que quieres realizar esta transacctión?</string>
+    <string name="confirm">Aceptar</string>
 </resources>
