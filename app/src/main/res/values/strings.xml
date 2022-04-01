@@ -140,4 +140,12 @@
     <string name="confirm_transfer">CONFIRMACIÓN DE TRASNFERENCIA</string>
     <string name="confirm_transfer_description">¿Estás segura(o) que quieres realizar esta transacctión?</string>
     <string name="confirm">Aceptar</string>
+    <string name="saved_mail">saved_mail</string>
+    <string name="saved_name">saved_name</string>
+    <string name="saved_last_name">saved_last_name</string>
+    <string name="saved_ocuppation">saved_ocuppation</string>
+    <string name="saved_birthday">saved_birthday</string>
+    <string name="saved_birthday_format">saved_birthday_format</string>
+    <string name="saved_telephone">saved_telephone</string>
+    <string name="saved_telephone_format">saved_telephone_format</string>
 </resources>

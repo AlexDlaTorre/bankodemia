@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity(), FragmentCommunicator {
         super.onCreate(savedInstanceState)
         mBinding = ActivityMainBinding.inflate(layoutInflater)
         mSharedPreferences = SharedPreferencesInstance.getInstance(this)
-        mSharedPreferences.clean()
+        mSharedPreferences.clearToken()
         setContentView(mBinding.root)
     }
 

@@ -1,6 +1,7 @@
 package com.example.bankodemia.ui.view
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +13,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.bankodemia.R
 import com.example.bankodemia.UI.adapters.LadaAdapter
 import com.example.bankodemia.UI.view.OnClikListener
+import com.example.bankodemia.core.Extensions.TAG
 import com.example.bankodemia.core.activateButton
+import com.example.bankodemia.core.instances.SharedPreferencesInstance
 import com.example.bankodemia.core.types.FieldTypeEnum
 import com.example.bankodemia.core.utils.ParseJson
 import com.example.bankodemia.core.validateField
@@ -43,12 +46,23 @@ class TelephoneFragment : Fragment(), OnClikListener, Fields {
     }
 
     private fun initializeComponents() {
+        var telephone = SharedPreferencesInstance.getStringValue(getString(R.string.saved_telephone))
+
         with(mBinding) {
+            telephoneTietTelephone.setText(telephone)
+
+            if (!telephone.isNullOrEmpty()) {
+                validateInfo()
+            }
+
             telephoneBtnBackToData.setOnClickListener {
                 findNavController().navigate(R.id.action_telephoneFragment_to_dataFragment)
             }
 
             telephoneBtnContinueProcess.setOnClickListener {
+                telephone = telephoneTietTelephone.text?.trim().toString()
+                SharedPreferencesInstance.setStringValue(getString(R.string.saved_telephone), telephone!!)
+                saveTelephoneFormat(telephone!!)
                 findNavController().navigate(R.id.action_telephoneFragment_to_identityFragment)
             }
 
@@ -64,9 +78,16 @@ class TelephoneFragment : Fragment(), OnClikListener, Fields {
         }
     }
 
+    private fun saveTelephoneFormat(telephone : String) {
+        val lada = mBinding.telephoneBtnLadas.text
+        val ladaFormat = if (lada.length <= 2 || lada.contains("+")) lada else lada.substring(0,2)
+        val telephoneFormat = if (ladaFormat.contains("+")) "$ladaFormat$telephone" else "+$ladaFormat$telephone"
+        SharedPreferencesInstance.setStringValue(getString(R.string.saved_telephone_format), telephoneFormat)
+    }
+
     private fun setRecyclerViewLadas() {
         val json = context?.let { ParseJson().getJsonDataFromAsset(it, "ladas_internacionales.json") }
-        listLada = Gson().fromJson(json,Array<Lada>::class.java).toList()
+        listLada = Gson().fromJson(json, Array<Lada>::class.java).toList()
 
         if (listLada != null) {
             mLadaAdapter = LadaAdapter(listLada!!, this)
@@ -80,6 +101,20 @@ class TelephoneFragment : Fragment(), OnClikListener, Fields {
         }
     }
 
+    private fun validateInfo() {
+        with(mBinding) {
+            val telephone = validateField(
+                fragment = this@TelephoneFragment,
+                typeEnum = FieldTypeEnum.PHONE,
+                telephoneTilTelephone
+            )
+            activateButton(
+                fragment = this@TelephoneFragment,
+                telephoneBtnContinueProcess,
+                telephone
+            )
+        }
+    }
 
     override fun validationFields() {
         var telephone: Boolean

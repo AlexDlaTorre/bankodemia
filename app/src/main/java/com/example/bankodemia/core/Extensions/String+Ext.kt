@@ -30,7 +30,7 @@ fun String.isPasswordValid(): Boolean{
 }
 
 fun String.isTextValid(): Boolean{
-    val expression = "^[a-zA-Z ]*$"
+    val expression = "^[a-zA-ZÀ-ÿ\\u00f1\\u00d1 ]*$"
     val pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE)
     val matcher = pattern.matcher(this)
     return matcher.matches()
@@ -44,7 +44,7 @@ fun String.isNumericValid(): Boolean{
 }
 
 fun String.isAlphanumericValid(): Boolean{
-    val expression = "^[a-zA-Z0-9 ]*$"
+    val expression = "^[0-9a-zA-ZÀ-ÿ\\u00f1\\u00d1 ]*$"
     val pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE)
     val matcher = pattern.matcher(this)
     return matcher.matches()
