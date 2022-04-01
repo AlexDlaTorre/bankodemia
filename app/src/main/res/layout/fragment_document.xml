@@ -5,17 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".ui.view.IneFragment">
+    tools:context=".ui.view.DocumentFragment">
 
     <include
-        android:id="@+id/ineTemplateTopLogoSingle"
+        android:id="@+id/documentTemplateTopLogoSingle"
         layout="@layout/template_toplogo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/ineBtnBackToIdentityMenu"
+        android:id="@+id/documentBtnBackToIdentityMenu"
         style="@style/backTextButtonIconGray"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -23,23 +23,33 @@
         android:layout_marginTop="@dimen/common_size_min"
         android:text="@string/enter_type_document"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ineTemplateTopLogoSingle"
+        app:layout_constraintTop_toBottomOf="@id/documentTemplateTopLogoSingle"
         tools:ignore="DuplicateSpeakableTextCheck" />
 
     <TextView
-        android:id="@+id/ineTvInstructionsIne"
+        android:id="@+id/documentTvInstructionsIne"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/common_size_middle"
         android:layout_marginTop="@dimen/common_size_default"
         android:text="@string/ineInstructions"
         android:textAppearance="@style/contentText"
-        app:layout_constraintEnd_toEndOf="@+id/ineBtnBackToIdentityMenu"
-        app:layout_constraintStart_toStartOf="@+id/ineBtnBackToIdentityMenu"
-        app:layout_constraintTop_toBottomOf="@+id/ineBtnBackToIdentityMenu" />
+        app:layout_constraintEnd_toEndOf="@+id/documentBtnBackToIdentityMenu"
+        app:layout_constraintStart_toStartOf="@+id/documentBtnBackToIdentityMenu"
+        app:layout_constraintTop_toBottomOf="@+id/documentBtnBackToIdentityMenu" />
+
+    <ImageView
+        tools:srcCompat="@tools:sample/avatars"
+        android:id="@+id/ineIvTakePhoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/documentBtnUploadInfo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/documentTvInstructionsIne" />
 
     <Button
-        android:id="@+id/ineBtnUploadInfo"
+        android:id="@+id/documentBtnUploadInfo"
         style="@style/fillButtonBlue"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

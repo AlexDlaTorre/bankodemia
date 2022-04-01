@@ -78,7 +78,7 @@
         app:layout_constraintTop_toBottomOf="@+id/identityMenuTvIdentityMenuInstructions" />
 
     <Button
-        android:id="@+id/identityMenuBtnDocument"
+        android:id="@+id/identityMenuBtnMigratory"
         style="@style/forwardTextButtonIconGray"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -95,8 +95,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/common_size_default"
         android:text="@string/passport"
-        app:layout_constraintEnd_toEndOf="@+id/identityMenuBtnDocument"
-        app:layout_constraintStart_toStartOf="@+id/identityMenuBtnDocument"
-        app:layout_constraintTop_toBottomOf="@+id/identityMenuBtnDocument" />
+        app:layout_constraintEnd_toEndOf="@+id/identityMenuBtnMigratory"
+        app:layout_constraintStart_toStartOf="@+id/identityMenuBtnMigratory"
+        app:layout_constraintTop_toBottomOf="@+id/identityMenuBtnMigratory" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

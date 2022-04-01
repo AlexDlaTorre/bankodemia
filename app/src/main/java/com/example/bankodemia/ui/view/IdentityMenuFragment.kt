@@ -29,15 +29,15 @@ class IdentityMenuFragment : Fragment() {
             }
 
             identityMenuBtnIne.setOnClickListener {
-                findNavController().navigate(R.id.action_identityMenuFragment_to_ineFragment)
+                findNavController().navigate(R.id.action_identityMenuFragment_to_documentFragment)
             }
 
-            identityMenuBtnDocument.setOnClickListener {
-                findNavController().navigate(R.id.action_identityMenuFragment_to_migratoryFragment)
+            identityMenuBtnMigratory.setOnClickListener {
+                findNavController().navigate(R.id.action_identityMenuFragment_to_documentFragment)
             }
 
             identityMenuBtnPassport.setOnClickListener {
-                findNavController().navigate(R.id.action_identityMenuFragment_to_passportFragment)
+                findNavController().navigate(R.id.action_identityMenuFragment_to_documentFragment)
             }
         }
     }

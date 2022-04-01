@@ -7,29 +7,30 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.bankodemia.R
-import com.example.bankodemia.databinding.FragmentPassportBinding
+import com.example.bankodemia.databinding.FragmentDocumentBinding
 
-class PassportFragment : Fragment() {
-    private var _binding: FragmentPassportBinding? = null
+
+class DocumentFragment : Fragment() {
+    private var _binding: FragmentDocumentBinding? = null
     private val mBinding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentPassportBinding.inflate(inflater, container, false)
+        _binding = FragmentDocumentBinding.inflate(inflater, container, false)
         initializeComponents()
         return mBinding.root
     }
 
     private fun initializeComponents() {
         with(mBinding) {
-            passportBtnUploadInfo.setOnClickListener {
-                findNavController().navigate(R.id.action_passportFragment_to_passwordFragment)
+            documentBtnUploadInfo.setOnClickListener {
+                findNavController().navigate(R.id.action_ineFragment_to_passwordFragment)
             }
 
-            passportBtnBackToIdentityMenu.setOnClickListener {
-                findNavController().navigate(R.id.action_passportFragment_to_identityMenuFragment)
+            documentBtnBackToIdentityMenu.setOnClickListener {
+                findNavController().navigate(R.id.action_ineFragment_to_identityMenuFragment)
             }
         }
     }

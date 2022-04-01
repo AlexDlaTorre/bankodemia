@@ -88,52 +88,22 @@
         android:label="fragment_identity_menu"
         tools:layout="@layout/fragment_identity_menu" >
         <action
-            android:id="@+id/action_identityMenuFragment_to_ineFragment"
-            app:destination="@id/ineFragment" />
-        <action
-            android:id="@+id/action_identityMenuFragment_to_migratoryFragment"
-            app:destination="@id/migratoryFragment" />
-        <action
-            android:id="@+id/action_identityMenuFragment_to_passportFragment"
-            app:destination="@id/passportFragment" />
+            android:id="@+id/action_identityMenuFragment_to_documentFragment"
+            app:destination="@id/documentFragment" />
         <action
             android:id="@+id/action_identityMenuFragment_to_identityFragment"
             app:destination="@id/identityFragment" />
     </fragment>
     <fragment
-        android:id="@+id/ineFragment"
-        android:name="com.example.bankodemia.ui.view.IneFragment"
+        android:id="@+id/documentFragment"
+        android:name="com.example.bankodemia.ui.view.DocumentFragment"
         android:label="fragment_ine"
-        tools:layout="@layout/fragment_ine" >
+        tools:layout="@layout/fragment_document" >
         <action
             android:id="@+id/action_ineFragment_to_passwordFragment"
             app:destination="@id/passwordFragment" />
         <action
             android:id="@+id/action_ineFragment_to_identityMenuFragment"
-            app:destination="@id/identityMenuFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/passportFragment"
-        android:name="com.example.bankodemia.ui.view.PassportFragment"
-        android:label="fragment_passport"
-        tools:layout="@layout/fragment_passport" >
-        <action
-            android:id="@+id/action_passportFragment_to_passwordFragment"
-            app:destination="@id/passwordFragment" />
-        <action
-            android:id="@+id/action_passportFragment_to_identityMenuFragment"
-            app:destination="@id/identityMenuFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/migratoryFragment"
-        android:name="com.example.bankodemia.ui.view.MigratoryFragment"
-        android:label="fragment_migratory"
-        tools:layout="@layout/fragment_migratory" >
-        <action
-            android:id="@+id/action_migratoryFragment_to_passwordFragment"
-            app:destination="@id/passwordFragment" />
-        <action
-            android:id="@+id/action_migratoryFragment_to_identityMenuFragment"
             app:destination="@id/identityMenuFragment" />
     </fragment>
     <fragment
