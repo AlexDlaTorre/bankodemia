@@ -24,4 +24,7 @@ class Contact {
         val owner: User.User,
         val user: User.User
     )
+    data class IdContact(
+        val id: String
+    )
 }

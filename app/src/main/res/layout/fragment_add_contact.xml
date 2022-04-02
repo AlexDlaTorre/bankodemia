@@ -69,6 +69,7 @@
                 android:textColor="@color/input_gray"
                 android:layout_height="wrap_content"
                 android:hint="@string/digits"
+                tools:text="card number"
                 android:inputType="number"
                 tools:ignore="TextContrastCheck" />
         </com.google.android.material.textfield.TextInputLayout>

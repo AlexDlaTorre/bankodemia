@@ -14,6 +14,8 @@ import com.example.bankodemia.ui.viewModel.AddContactViewModel
 import com.example.bankodemia.core.activateButton
 import com.example.bankodemia.core.validateField
 import com.example.bankodemia.databinding.FragmentAddContactBinding
+import com.example.bankodemia.domain.domainObjects.Contact.ContactDeleteDTO
+import kotlinx.android.synthetic.main.fragment_transfer_detail.*
 
 class AddContactFragment : Fragment(), Fields {
     private var _binding: FragmentAddContactBinding? = null
@@ -40,6 +42,7 @@ class AddContactFragment : Fragment(), Fields {
         return binding.root
     }
 
+
     override fun validationFields() {
         var checkNumber = false
         var checkInstitution= false
@@ -50,7 +53,7 @@ class AddContactFragment : Fragment(), Fields {
             addContactTietCardNumber.addTextChangedListener {
                 checkNumber = validateField(
                     fragment = this@AddContactFragment,
-                    typeEnum = FieldTypeEnum.NUMBER,
+                    typeEnum = FieldTypeEnum.TEXT,
                     addContactTilCardNumber
                 )
                 activateButton(

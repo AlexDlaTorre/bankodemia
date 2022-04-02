@@ -9,9 +9,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.bankodemia.R
 import com.example.bankodemia.core.five
 import com.example.bankodemia.databinding.ItemCardviewTransactionsBinding
+import com.example.bankodemia.domain.domainObjects.Contact.ContactDTO
 import com.example.bankodemia.domain.domainObjects.Transaction.TransactionDTO
 
 interface AdapterItemSelected {
+
     fun <T> itemSelected(item: T)
 }
 

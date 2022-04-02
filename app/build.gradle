@@ -94,4 +94,6 @@ dependencies {
 
     // Currency inputs
     implementation 'com.cottacush:CurrencyEditText:0.0.10'
+
+
 }
