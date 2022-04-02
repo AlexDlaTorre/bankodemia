@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Context
 import android.content.SharedPreferences
 import android.util.Log
+import com.example.bankodemia.R
 import com.example.bankodemia.core.Extensions.TAG
 import com.example.bankodemia.core.utils.APP_ID
 
@@ -50,7 +51,7 @@ object SharedPreferencesInstance {
         return mSharedPreferences.getLong(key, -1)
     }
 
-    fun setStringValue(key: String, value: String) {
+    fun setStringValue(key: String, value: String?) {
         mEditor.putString(key, value)
         mEditor.apply()
     }
@@ -63,6 +64,21 @@ object SharedPreferencesInstance {
     fun setLongValue(key: String, value: Long) {
         mEditor.putLong(key, value)
         mEditor.apply()
+    }
+
+    fun cleanFieldsCreateAccount(context: Context){
+        with(mEditor){
+            putString(context.getString(R.string.saved_mail),null)
+            putString(context.getString(R.string.saved_name),null)
+            putString(context.getString(R.string.saved_last_name),null)
+            putString(context.getString(R.string.saved_ocuppation),null)
+            putString(context.getString(R.string.saved_birthday),null)
+            putString(context.getString(R.string.saved_telephone),null)
+            putString(context.getString(R.string.saved_telephone_format),null)
+            putString(context.getString(R.string.saved_image_string),null)
+            putString(context.getString(R.string.saved_document),null)
+            apply()
+        }
     }
 
 }

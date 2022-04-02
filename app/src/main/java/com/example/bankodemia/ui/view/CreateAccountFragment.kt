@@ -46,7 +46,7 @@ class CreateAccountFragment : Fragment(), Fields {
     }
 
     private fun initializeComponents() {
-        var email = SharedPreferencesInstance.getStringValue(getString(R.string.saved_mail))
+        val email = SharedPreferencesInstance.getStringValue(getString(R.string.saved_mail))
         with(mBinding) {
             createAccountTietMail.setText(email)
 
@@ -55,8 +55,12 @@ class CreateAccountFragment : Fragment(), Fields {
             }
 
             createAccountBtnContinue.setOnClickListener {
-                email = createAccountTietMail.text?.trim().toString()
-                SharedPreferencesInstance.setStringValue(getString(R.string.saved_mail), email!!)
+                val fieldEmail = createAccountTietMail.text?.trim().toString()
+                if (!email.isNullOrEmpty()){
+                    if (email != fieldEmail) SharedPreferencesInstance.cleanFieldsCreateAccount(requireContext())
+                }
+
+                SharedPreferencesInstance.setStringValue(getString(R.string.saved_mail), fieldEmail)
                 findNavController().navigate(R.id.action_createAccountFragment_to_dataFragment)
             }
 
