@@ -3,10 +3,7 @@ package com.example.bankodemia.network.api
 import com.example.bankodemia.data.model.Contact
 import okhttp3.RequestBody
 import retrofit2.Response
-import retrofit2.http.DELETE
-import retrofit2.http.GET
-import retrofit2.http.Part
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface ContactAPI {
     @GET("/contacts")
@@ -15,5 +12,11 @@ interface ContactAPI {
     @DELETE("/contacts?id")
     suspend fun deleteContactInfo(
         @Query("id") id: RequestBody
+    ): Response<Contact.PostResponse>
+
+    @PATCH("/contacts?{id}")
+    suspend fun updateContactInfo(
+        @Part("id") id:string,
+        @Body shortName: RequestBody
     ): Response<Contact.PostResponse>
 }

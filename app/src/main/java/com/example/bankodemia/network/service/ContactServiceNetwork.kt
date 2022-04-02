@@ -46,4 +46,21 @@ class ContactServiceNetwork {
             }
         }
     }
+
+    suspend fun updateContactInfo(id:, parametersUpdate: RequestBody): Pair<Contact.PostResponse?,BankodemiaError?>{
+        return withContext(Dispatchers.IO){
+            val response = retrofit.updateContactInfo(parametersUpdate)
+            Log.d("UpdateContactResponse", response.body().toString())
+
+            val responseBody = response.body()
+            if (responseBody != null) {
+                println("RESPONSE BODY $responseBody")
+                responseBody to null
+            } else {
+                val errorResponse = createApiError(response, BankodemiaErrorResponse::class.java)
+                println(errorResponse)
+                null to errorResponse
+            }
+        }
+    }
 }

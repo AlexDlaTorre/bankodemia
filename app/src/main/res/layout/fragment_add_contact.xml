@@ -59,6 +59,9 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/common_size_middle"
             android:layout_marginTop="@dimen/common_size_large"
+            tools:hint="Card number"
+            android:textSize="18sp"
+            android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/AddContactTvCard">
@@ -68,11 +71,12 @@
                 android:layout_width="match_parent"
                 android:textColor="@color/input_gray"
                 android:layout_height="wrap_content"
-                android:hint="@string/digits"
-                tools:text="card number"
-                android:inputType="number"
+                android:enabled="false"
+                tools:hint="Card number"
+                android:inputType="textPersonName"
                 tools:ignore="TextContrastCheck" />
         </com.google.android.material.textfield.TextInputLayout>
+
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/addContactTilInstitution"
@@ -80,7 +84,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/common_size_large"
-            app:endIconMode="password_toggle"
+            tools:hint="Institution"
             app:layout_constraintEnd_toEndOf="@+id/addContactTilCardNumber"
             app:layout_constraintStart_toStartOf="@+id/addContactTilCardNumber"
             app:layout_constraintTop_toBottomOf="@+id/addContactTilCardNumber">
@@ -89,8 +93,9 @@
                 android:id="@+id/addContactTietInstitution"
                 android:layout_width="match_parent"
                 android:textColor="@color/input_gray"
+                android:enabled="false"
+                tools:hint="Institution"
                 android:layout_height="wrap_content"
-                android:hint="@string/institution"
                 android:inputType="textPersonName"
                 tools:ignore="TextContrastCheck" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -101,6 +106,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/common_size_large"
+            tools:hint="Name"
             app:layout_constraintEnd_toEndOf="@+id/addContactTilInstitution"
             app:layout_constraintStart_toStartOf="@+id/addContactTilInstitution"
             app:layout_constraintTop_toBottomOf="@+id/addContactTilInstitution">
@@ -108,9 +114,9 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/addContactTietName"
                 android:textColor="@color/input_gray"
+                tools:hint="Name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/name"
                 android:inputType="textPersonName" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -121,6 +127,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/common_size_large"
+            tools:hint="mail"
             app:layout_constraintEnd_toEndOf="@+id/addContactTilName"
             app:layout_constraintStart_toStartOf="@+id/addContactTilName"
             app:layout_constraintTop_toBottomOf="@+id/addContactTilName">
@@ -128,10 +135,11 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/addContactTietEmail"
                 android:textColor="@color/input_gray"
+                tools:hint="mail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/notification_mail"
                 android:inputType="textEmailAddress"
+                android:enabled="false"
                 tools:ignore="TextContrastCheck" />
         </com.google.android.material.textfield.TextInputLayout>
 

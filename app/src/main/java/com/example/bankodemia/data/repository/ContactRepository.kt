@@ -21,4 +21,11 @@ class ContactRepository {
         val idContact = response?.let { it.first?.let { contact -> ContactPostDTO(contact) } }
         return idContact to response.second
     }
+
+    suspend fun upDateContactInfo(parametersUdate: RequestBody): Pair<ContactPostDTO?, BankodemiaError?> {
+        val response = api.updateContactInfo(parametersUdate)
+        println("GETCONTACT3")
+        val idContact = response?.let { it.first?.let { contact -> ContactPostDTO(contact) } }
+        return idContact to response.second
+    }
 }

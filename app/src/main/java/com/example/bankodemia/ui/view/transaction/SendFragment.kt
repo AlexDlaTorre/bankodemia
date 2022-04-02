@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -24,6 +25,8 @@ import com.example.bankodemia.ui.SwipeGesture
 import com.example.bankodemia.ui.adapters.ContactsAdapter
 import com.example.bankodemia.ui.home.AdapterItemSelected
 import com.example.bankodemia.ui.home.HomeFragment
+import com.example.bankodemia.ui.view.AddContactFragment
+import com.example.bankodemia.ui.view.ProcessingTransactionFragment
 import com.example.bankodemia.ui.view.SearchUser.SearchUserFragment
 import com.example.bankodemia.ui.view.TransferDetailFragment
 import com.example.bankodemia.ui.viewModel.SendViewModel
@@ -91,8 +94,25 @@ class SendFragment() : Fragment(), AdapterItemSelected {
         val swipeGesture = object : SwipeGesture(activity) {
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 val position = viewHolder.adapterPosition
-                println("POSICION! ${contactsList[position]}")
+                val contactDto = contactsList[position]
+                when(direction){
+                    ItemTouchHelper.LEFT ->{
+
+                        //binding.sendIvLogo.setOnClickListener { view: View ->
+//                            findNavController().navigate(R.id.action_sendFragment_to_addContactFragment)
+                        ///}
+//                        communicator.goTo(AddContactFragment())
+                        communicator.sendData(contactDto,AddContactFragment())
+
+
+                    }
+                    ItemTouchHelper.RIGHT ->{
+
+                        println("POSICION! ${contactsList[position]}")
 //                sendViewModel.deleteContact(contact.owner.id)
+                    }
+                }
+
             }
 
 
@@ -115,5 +135,6 @@ class SendFragment() : Fragment(), AdapterItemSelected {
 
     override fun <T> itemSelected(item: T) {
         communicator.sendData(item, TransferDetailFragment())
+        communicator.sendData(item, AddContactFragment())
     }
 }
