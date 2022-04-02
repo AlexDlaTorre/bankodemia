@@ -48,8 +48,8 @@
     <string name="known">Conoce</string>
     <string name="documentProtection">cómo protegemos tus documentos</string>
     <string name="ine">INE</string>
-    <string name="migratoryDocument">Documento Migratorio</string>
-    <string name="passport">Pasaporte</string>
+    <string name="migratoryDocument">DOCUMENTO MIGRATORIO</string>
+    <string name="passport">PASAPORTE</string>
     <string name="ineInstructions">Dale permiso a Bankodemia para utilizar la cámara. Asegúrate de tener buena luz y enfocar bien tu documento de frente.</string>
     <string name="uploadInformation">Subir Información</string>
     <string name="documentMigratory">Documento Migratorio</string>
@@ -148,4 +148,8 @@
     <string name="saved_birthday_format">saved_birthday_format</string>
     <string name="saved_telephone">saved_telephone</string>
     <string name="saved_telephone_format">saved_telephone_format</string>
+    <string name="instructions_camera">Presiona aqui para tomar foto de tu documento</string>
+    <string name="saved_image_string">saved_image_string</string>
+    <string name="saved_image_path">saved_image_path</string>
+    <string name="saved_document">document</string>
 </resources>

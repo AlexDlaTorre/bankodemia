@@ -1,8 +1,11 @@
 package com.example.bankodemia.core.utils
 
+import android.util.Log
 import com.example.bankodemia.core.empty
 import com.example.bankodemia.data.model.BankodemiaError
+import com.example.bankodemia.data.model.BankodemiaErrorBadRequest
 import com.example.bankodemia.data.model.BankodemiaErrorResponse
+import com.example.bankodemia.data.model.BankodemiaErrorPreconFailed
 import com.google.gson.Gson
 import com.google.gson.JsonSyntaxException
 import retrofit2.Response
@@ -78,6 +81,46 @@ fun <R, ERM> createApiError(
             endPointRequestTimeOut,
             String.empty
         )
+        HttpsURLConnection.HTTP_PRECON_FAILED -> {
+            try {
+                val errorResponse: BankodemiaErrorPreconFailed = Gson().fromJson(body, BankodemiaErrorPreconFailed::class.java)
+                val message = errorResponse.message?.let { it } ?: return BankodemiaError(
+                    statusCode,
+                    null,
+                    general,
+                    String.empty
+                )
+                return BankodemiaError(
+                    statusCode,
+                    null,
+                    message,
+                    String.empty)
+            } catch (e: JsonSyntaxException) {
+                return BankodemiaError(
+                    statusCode,
+                    null,
+                    unauthorized,
+                    String.empty
+                )
+            }
+        }
+        HttpsURLConnection.HTTP_BAD_REQUEST -> {
+            return try {
+                val errorResponse: BankodemiaErrorBadRequest = Gson().fromJson(body, BankodemiaErrorBadRequest::class.java)
+                BankodemiaError(
+                    statusCode,
+                    errorResponse.message,
+                    errorResponse.message?.get(0),
+                    errorResponse.error)
+            } catch (e: JsonSyntaxException) {
+                BankodemiaError(
+                    statusCode,
+                    null,
+                    unauthorized,
+                    String.empty
+                )
+            }
+        }
         else -> {
             if (body == null) {
                 return BankodemiaError(
