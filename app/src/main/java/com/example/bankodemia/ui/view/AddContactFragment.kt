@@ -18,6 +18,7 @@ import com.example.bankodemia.core.validateField
 import com.example.bankodemia.databinding.FragmentAddContactBinding
 import com.example.bankodemia.domain.domainObjects.Contact.ContactDTO
 import com.example.bankodemia.domain.domainObjects.Contact.ContactDeleteDTO
+import com.example.bankodemia.ui.view.transaction.SendFragment
 import kotlinx.android.synthetic.main.fragment_transfer_detail.*
 
 class AddContactFragment : Fragment(), Fields {
@@ -37,11 +38,11 @@ class AddContactFragment : Fragment(), Fields {
         contact = arguments?.getSerializable(CONTACTDATA) as ContactDTO
 
         binding.addContactBtnBackToSend.setOnClickListener { view : View ->
-            view.findNavController().navigate(R.id.action_addContactFragment_to_sendFragment)
+            communicator.goTo(SendFragment())
         }
 
         binding.addContactBtnAddContact.setOnClickListener { view : View ->
-            view.findNavController().navigate(R.id.action_addContactFragment_to_contactAddedFragment)
+            communicator.goTo(ContactAddedFragment())
         }
 
         setupView()
@@ -53,13 +54,13 @@ class AddContactFragment : Fragment(), Fields {
         val contact = contact ?: return
         binding.apply {
             addContactTilCardNumber.hint = contact.user.id
-            addContactTietName.hint = contact.user.id
             addContactTietInstitution.hint = contact.user.fullName
             addContactTietInstitution.hint = contact.user.fullName
             addContactTilName.hint = contact.shortName
-            addContactTietName.hint = contact.shortName
             addContactTilEmail.hint = contact.user.email
             addContactTietEmail.hint = contact.user.email
+            val shortName = addContactTietName.text?.trim().toString()
+
         }
     }
 
@@ -71,58 +72,18 @@ class AddContactFragment : Fragment(), Fields {
         var checkMail = false
 
         with(binding) {
-            addContactTietCardNumber.addTextChangedListener {
-                checkNumber = validateField(
-                    fragment = this@AddContactFragment,
-                    typeEnum = FieldTypeEnum.HINT,
-                    addContactTilCardNumber
-                )
-                activateButton(
-                    fragment = this@AddContactFragment,
-                    addContactBtnAddContact,
-                    checkNumber, checkInstitution, checkFullName, checkMail
-                )
-            }
 
-            addContactTietInstitution.addTextChangedListener {
-                checkInstitution = validateField(
-                    fragment = this@AddContactFragment,
-                    typeEnum = FieldTypeEnum.HINT,
-                    addContactTilInstitution
-                )
-                activateButton(
-                    fragment = this@AddContactFragment,
-                    addContactBtnAddContact,
-//                    checkNumber,
-                    checkInstitution, checkFullName, checkMail
-                )
-            }
 
             addContactTietName.addTextChangedListener {
                 checkFullName = validateField(
                     fragment = this@AddContactFragment,
-                    typeEnum = FieldTypeEnum.HINT,
+                    typeEnum = FieldTypeEnum.TEXT,
                     addContactTilName
                 )
                 activateButton(
                     fragment = this@AddContactFragment,
                     addContactBtnAddContact,
-//                    checkNumber,
-                    checkInstitution, checkFullName, checkMail
-                )
-            }
-
-            addContactTietEmail.addTextChangedListener {
-                checkMail = validateField(
-                    fragment = this@AddContactFragment,
-                    typeEnum = FieldTypeEnum.HINT,
-                    addContactTilEmail
-                )
-                activateButton(
-                    fragment = this@AddContactFragment,
-                    addContactBtnAddContact,
-//                    checkNumber,
-                    checkInstitution, checkFullName, checkMail
+                    checkFullName
                 )
             }
         }

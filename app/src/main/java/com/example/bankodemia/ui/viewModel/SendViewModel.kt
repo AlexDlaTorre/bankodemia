@@ -2,6 +2,7 @@ package com.example.bankodemia.ui.viewModel
 
 import androidx.lifecycle.viewModelScope
 import com.example.bankodemia.core.utils.*
+import com.example.bankodemia.domain.domainObjects.Contact.ContactDTO
 import com.example.bankodemia.domain.useCase.DeleteContactIdUseCase
 import com.example.bankodemia.domain.useCase.GetContactsListUseCase
 import kotlinx.coroutines.launch
@@ -40,16 +41,16 @@ class SendViewModel : BaseViewModel() {
             println("GETCONTACT2")
         }
     }
-//
-//    fun getContact(contact: ContactDTO) {
-//        deleteContact(contact.owner.id)
-//        println("GETCONTACT")
-//    }
+
+    fun getContact(contact: ContactDTO) {
+        deleteContact(contact.owner.id)
+        println("GETCONTACT")
+    }
 
     private fun getContactId(id: String):RequestBody {
-        val id = JSONObject()
-        id.put(idBodyKey, id)
-        return RequestBody.create(MediaType.parse(jsonFormat), id.toString())
+        val idContact = JSONObject()
+        idContact.put(idBodyKey, id)
+        return RequestBody.create(MediaType.parse(jsonFormat), idContact.toString())
     }
 
 

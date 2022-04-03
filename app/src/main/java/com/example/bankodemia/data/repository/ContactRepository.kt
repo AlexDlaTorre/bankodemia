@@ -1,6 +1,7 @@
 package com.example.bankodemia.data.repository
 
 import com.example.bankodemia.data.model.BankodemiaError
+import com.example.bankodemia.domain.domainObjects.Contact.ContactDTO
 import com.example.bankodemia.domain.domainObjects.Contact.ContactGetDTO
 import com.example.bankodemia.domain.domainObjects.Contact.ContactPostDTO
 import com.example.bankodemia.network.service.ContactServiceNetwork
@@ -15,15 +16,15 @@ class ContactRepository {
         return contactsDTO to response.second
     }
 
-    suspend fun deleteContactInfo(id: RequestBody): Pair<ContactPostDTO?, BankodemiaError?> {
-        val response = api.deleteContactInfo(id)
+    suspend fun deleteContactInfo(idContact: RequestBody): Pair<ContactPostDTO?, BankodemiaError?> {
+        val response = api.deleteContactInfo(idContact)
         println("GETCONTACT3")
-        val idContact = response?.let { it.first?.let { contact -> ContactPostDTO(contact) } }
+        val idContact = response?.let { it.first?.let { contactId -> ContactDTO(contactId) } }
         return idContact to response.second
     }
 
-    suspend fun upDateContactInfo(parametersUdate: RequestBody): Pair<ContactPostDTO?, BankodemiaError?> {
-        val response = api.updateContactInfo(parametersUdate)
+    suspend fun upDateContactInfo(id: String,parametersUdate: RequestBody): Pair<ContactPostDTO?, BankodemiaError?> {
+        val response = api.updateContactInfo(id, parametersUdate)
         println("GETCONTACT3")
         val idContact = response?.let { it.first?.let { contact -> ContactPostDTO(contact) } }
         return idContact to response.second

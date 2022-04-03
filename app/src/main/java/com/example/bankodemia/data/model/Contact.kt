@@ -20,6 +20,7 @@ class Contact {
     )
 
     data class Contact(
+        val _id: String,
         val shortName: String,
         val owner: User.User,
         val user: User.User

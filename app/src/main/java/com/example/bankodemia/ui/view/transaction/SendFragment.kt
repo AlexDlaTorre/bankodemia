@@ -108,8 +108,9 @@ class SendFragment() : Fragment(), AdapterItemSelected {
                     }
                     ItemTouchHelper.RIGHT ->{
 
-                        println("POSICION! ${contactsList[position]}")
-//                sendViewModel.deleteContact(contact.owner.id)
+                        println("POSICION! ${contactDto._id}")
+                        sendViewModel.deleteContact(contactDto._id)
+//                        sendViewModel.getContact(contactsList[position])
                     }
                 }
 

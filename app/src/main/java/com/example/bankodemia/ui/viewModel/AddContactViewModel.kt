@@ -19,7 +19,7 @@ class AddContactViewModel : BaseViewModel() {
         viewModelScope.launch {
             uiStateEmitter.value = BaseUiState.loading
             val parametersUdate = makeUpdateParameters(id,shortName)
-            val result = updateContactIdUseCase.invoke(parametersUdate)
+            val result = updateContactIdUseCase.invoke(id, parametersUdate)
             if (result.second != null) {
                 val error = result?.let { it.second?.let { it } } ?: return@launch
                 uiStateEmitter.value = BaseUiState.Error(error)
