@@ -69,7 +69,11 @@ class User {
         val phone: String,
         val identityImage: String,
         val identityImageType: IdentityType
-    )
+    ){
+        override fun toString(): String {
+            return "SingUpCreateUser(email='$email', name='$name', lastName='$lastName', occupation='$occupation', birthDate='$birthDate', password='$password', phone='$phone', identityImage='$identityImage', identityImageType=$identityImageType)"
+        }
+    }
 }
 
 

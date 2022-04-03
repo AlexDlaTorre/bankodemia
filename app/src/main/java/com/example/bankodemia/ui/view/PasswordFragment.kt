@@ -75,7 +75,7 @@ class PasswordFragment : Fragment(), Fields {
                     )
                 }
 
-                Log.d(TAG,"${mUserAccount.email} ${mUserAccount.name} ${mUserAccount.lastName} ${mUserAccount.occupation} ${mUserAccount.birthDate} ${mUserAccount.password} ${mUserAccount.phone} ${mUserAccount.identityImage} ${mUserAccount.identityImageType}")
+                Log.d(TAG, mUserAccount.toString())
 
                 mViewModel.createUserAccount(mUserAccount)
             }

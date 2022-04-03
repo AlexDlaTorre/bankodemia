@@ -13,12 +13,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.bankodemia.R
 import com.example.bankodemia.UI.adapters.LadaAdapter
 import com.example.bankodemia.UI.view.OnClikListener
+import com.example.bankodemia.core.*
 import com.example.bankodemia.core.Extensions.TAG
-import com.example.bankodemia.core.activateButton
 import com.example.bankodemia.core.instances.SharedPreferencesInstance
 import com.example.bankodemia.core.types.FieldTypeEnum
 import com.example.bankodemia.core.utils.ParseJson
-import com.example.bankodemia.core.validateField
 import com.example.bankodemia.data.model.Lada
 import com.example.bankodemia.databinding.FragmentTelephoneBinding
 import com.google.gson.Gson
@@ -80,8 +79,8 @@ class TelephoneFragment : Fragment(), OnClikListener, Fields {
 
     private fun saveTelephoneFormat(telephone : String) {
         val lada = mBinding.telephoneBtnLadas.text
-        val ladaFormat = if (lada.length <= 2 || lada.contains("+")) lada else lada.substring(0,2)
-        val telephoneFormat = if (ladaFormat.contains("+")) "$ladaFormat$telephone" else "+$ladaFormat$telephone"
+        val ladaFormat = if (lada.length <= Int.Companion.twice || lada.contains(String.Companion.aditionSymbol)) lada else lada.substring(Int.Companion.zero,Int.Companion.twice)
+        val telephoneFormat = if (ladaFormat.contains(String.Companion.aditionSymbol)) "$ladaFormat$telephone" else "${String.Companion.aditionSymbol}$ladaFormat$telephone"
         SharedPreferencesInstance.setStringValue(getString(R.string.saved_telephone_format), telephoneFormat)
     }
 

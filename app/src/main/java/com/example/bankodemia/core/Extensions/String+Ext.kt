@@ -91,3 +91,7 @@ var String.Companion.whiteSpace: String
 var String.percentage: String
     get() = "%"
     set(value) { "%" }
+
+var String.Companion.aditionSymbol: String
+    get() = "+"
+    set(value) { "+" }
