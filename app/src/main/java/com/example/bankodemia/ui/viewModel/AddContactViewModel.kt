@@ -1,11 +1,7 @@
 package com.example.bankodemia.ui.viewModel
 
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.bankodemia.core.types.MovementType
 import com.example.bankodemia.core.utils.*
-import com.example.bankodemia.domain.useCase.DeleteContactIdUseCase
-import com.example.bankodemia.domain.useCase.GetContactsListUseCase
 import com.example.bankodemia.domain.useCase.UpdateContactIdUseCase
 import kotlinx.coroutines.launch
 import okhttp3.MediaType
@@ -18,8 +14,10 @@ class AddContactViewModel : BaseViewModel() {
     fun updateContact(id: String,shortName: String) {
         viewModelScope.launch {
             uiStateEmitter.value = BaseUiState.loading
-            val parametersUdate = makeUpdateParameters(id,shortName)
-            val result = updateContactIdUseCase.invoke(id, parametersUdate)
+            val contactUpdate = makeUpdateParameters(shortName)
+            println("shortName request body ${contactUpdate} ${id}")
+            val result = updateContactIdUseCase.invoke(id, contactUpdate)
+            println("CASO DE USO body ${result}")
             if (result.second != null) {
                 val error = result?.let { it.second?.let { it } } ?: return@launch
                 uiStateEmitter.value = BaseUiState.Error(error)
@@ -30,11 +28,13 @@ class AddContactViewModel : BaseViewModel() {
         }
     }
 
-    private fun makeUpdateParameters(id: String,
-                                      shortName: String): RequestBody {
+    private fun makeUpdateParameters(
+//        id: String,
+        shortName: String
+    ): RequestBody {
         val contactUpdate = JSONObject()
-        contactUpdate.put(amountBodyKey, id)
-        contactUpdate.put(typeBodyKey, shortName)
+//        contactUpdate.put(amountBodyKey, id)
+        contactUpdate.put(shortNameBodyKey, shortName)
         return RequestBody.create(MediaType.parse(jsonFormat), contactUpdate.toString())
     }
 }

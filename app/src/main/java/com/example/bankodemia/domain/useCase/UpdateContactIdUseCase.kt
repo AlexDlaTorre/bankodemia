@@ -9,5 +9,5 @@ import okhttp3.RequestBody
 class UpdateContactIdUseCase {
     private val repository = ContactRepository()
 
-    suspend operator fun invoke(id: String, parametersUdate: RequestBody): Pair<ContactPostDTO?, BankodemiaError?> = repository.upDateContactInfo(id, parametersUdate)
+    suspend operator fun invoke(id: String,contactUpdate: RequestBody): Pair<ContactPostDTO?, BankodemiaError?> = repository.upDateContactInfo(id,contactUpdate)
 }

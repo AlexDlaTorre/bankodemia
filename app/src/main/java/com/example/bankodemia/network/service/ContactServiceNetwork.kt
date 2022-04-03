@@ -47,9 +47,9 @@ class ContactServiceNetwork {
         }
     }
 
-    suspend fun updateContactInfo(id:String, parametersUpdate: RequestBody): Pair<Contact.PostResponse?,BankodemiaError?>{
+    suspend fun updateContactInfo(id: String,contactUpdate: RequestBody): Pair<Contact.PostResponse?,BankodemiaError?>{
         return withContext(Dispatchers.IO){
-            val response = retrofit.updateContactInfo(id,parametersUpdate)
+            val response = retrofit.updateContactInfo(id,contactUpdate)
             Log.d("UpdateContactResponse", response.body().toString())
 
             val responseBody = response.body()

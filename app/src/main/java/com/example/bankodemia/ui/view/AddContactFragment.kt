@@ -12,46 +12,69 @@ import androidx.navigation.findNavController
 import com.example.bankodemia.R
 import com.example.bankodemia.ui.viewModel.AddContactViewModel
 import com.example.bankodemia.core.activateButton
-import com.example.bankodemia.core.utils.CONTACTDATA
-import com.example.bankodemia.core.utils.FragmentCommunicator
+import com.example.bankodemia.core.showSnackBarMessage
+import com.example.bankodemia.core.utils.*
 import com.example.bankodemia.core.validateField
 import com.example.bankodemia.databinding.FragmentAddContactBinding
 import com.example.bankodemia.domain.domainObjects.Contact.ContactDTO
 import com.example.bankodemia.domain.domainObjects.Contact.ContactDeleteDTO
+import com.example.bankodemia.domain.domainObjects.Contact.ContactGetDTO
+import com.example.bankodemia.domain.domainObjects.Contact.ContactPostDTO
 import com.example.bankodemia.ui.view.transaction.SendFragment
+import com.example.bankodemia.ui.viewModel.SendViewModel
+import com.google.android.material.snackbar.Snackbar
+import kotlinx.android.synthetic.main.fragment_add_contact.*
 import kotlinx.android.synthetic.main.fragment_transfer_detail.*
+import okhttp3.MediaType
+import okhttp3.RequestBody
+import org.json.JSONObject
 
 class AddContactFragment : Fragment(), Fields {
     private var _binding: FragmentAddContactBinding? = null
     private var contact: ContactDTO? = null
     private lateinit var communicator: FragmentCommunicator
+    private lateinit var addContactViewModel: AddContactViewModel
     private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val addContactViewModel =
+        addContactViewModel =
             ViewModelProvider(this).get(AddContactViewModel::class.java)
-
+        communicator = requireActivity() as FragmentCommunicator
         _binding = FragmentAddContactBinding.inflate(inflater, container, false)
-        contact = arguments?.getSerializable(CONTACTDATA) as ContactDTO
 
-        binding.addContactBtnBackToSend.setOnClickListener { view : View ->
-            communicator.goTo(SendFragment())
-        }
+         contact = arguments?.getSerializable(CONTACTDATA) as? ContactDTO
 
-        binding.addContactBtnAddContact.setOnClickListener { view : View ->
-            communicator.goTo(ContactAddedFragment())
-        }
-
-        setupView()
+        setupObservers()
         validationFields()
+        setEvents()
+        setupView(contact)
         return binding.root
     }
 
-    private fun setupView() {
-        val contact = contact ?: return
+    private fun setupObservers() {
+        addContactViewModel.uiStateEmitter.observe(viewLifecycleOwner) { updateUI(it) }
+    }
+
+    private fun updateUI(uiState: BaseUiState) {
+        when (uiState) {
+            is BaseUiState.SuccessResult<*> -> {
+                if (uiState.result is ContactPostDTO) {
+                    val contactInfo = uiState.result as ContactPostDTO
+
+                }
+            }
+            is BaseUiState.Error -> {
+                showSnackBarMessage(uiState.message ?: general, Snackbar.LENGTH_LONG)
+            }
+        }
+    }
+
+    private fun setupView(contact:ContactDTO?) {
+        println("contacaaaaaaaaaaaaaat, ${contact}")
+        if(contact != null) {
         binding.apply {
             addContactTilCardNumber.hint = contact.user.id
             addContactTietInstitution.hint = contact.user.fullName
@@ -59,17 +82,19 @@ class AddContactFragment : Fragment(), Fields {
             addContactTilName.hint = contact.shortName
             addContactTilEmail.hint = contact.user.email
             addContactTietEmail.hint = contact.user.email
-            val shortName = addContactTietName.text?.trim().toString()
+            }
+
+
 
         }
     }
 
 
     override fun validationFields() {
-        var checkNumber = false
-        var checkInstitution= false
+//        var checkNumber = false
+//        var checkInstitution= false
         var checkFullName = false
-        var checkMail = false
+//        var checkMail = false
 
         with(binding) {
 
@@ -87,6 +112,35 @@ class AddContactFragment : Fragment(), Fields {
                 )
             }
         }
+    }
+
+//    private fun makeUpdateParameters(
+//        shortName: String
+//    ): RequestBody {
+//        val contactUpdate = JSONObject()
+//        contactUpdate.put(typeBodyKey, shortName)
+//        return RequestBody.create(MediaType.parse(jsonFormat), contactUpdate.toString())
+//    }
+
+    private fun setEvents(){
+        binding.addContactBtnBackToSend.setOnClickListener { view : View ->
+            communicator.goTo(SendFragment())
+        }
+
+        binding.addContactBtnAddContact.setOnClickListener { view : View ->
+            val cardId = contact?._id
+            val shortName = addContactTietName.text?.trim().toString()
+//           val localContactUpdate = makeUpdateParameters(shortName)
+            println("fragmeeeeeent, ${shortName}, ${cardId}")
+            if(cardId.isNullOrEmpty()){
+                println("SHORT NAME IS NULL")
+            }else{
+                addContactViewModel.updateContact(cardId,shortName)
+                communicator.goTo(ContactAddedFragment())
+            }
+
+        }
+
     }
 
     override fun onDestroyView() {

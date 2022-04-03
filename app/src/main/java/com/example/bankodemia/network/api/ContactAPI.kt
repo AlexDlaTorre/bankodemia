@@ -16,9 +16,9 @@ interface ContactAPI {
         @Path("id") id: String
     ): Response<Contact.PostResponse>
 
-    @PATCH("/contacts/id")
+    @PATCH("/contacts/{id}")
     suspend fun updateContactInfo(
-        @Part("id") id:String,
-        @Body shortName: RequestBody
+        @Path("id") id:String,
+        @Body contactUpdate: RequestBody
     ): Response<Contact.PostResponse>
 }

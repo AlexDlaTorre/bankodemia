@@ -37,7 +37,7 @@ class SendFragment() : Fragment(), AdapterItemSelected {
 
     private var _binding: FragmentSendBinding? = null
     private val binding get() = _binding!!
-//    private var contact: ContactDeleteDTO? = null
+    private var contact: ContactDeleteDTO? = null
     private lateinit var sendViewModel: SendViewModel
     private lateinit var communicator: FragmentCommunicator
 
@@ -98,19 +98,19 @@ class SendFragment() : Fragment(), AdapterItemSelected {
                 when(direction){
                     ItemTouchHelper.LEFT ->{
 
-                        //binding.sendIvLogo.setOnClickListener { view: View ->
+//                        binding.sendIvLogo.setOnClickListener { view: View ->
 //                            findNavController().navigate(R.id.action_sendFragment_to_addContactFragment)
-                        ///}
+//                        }
 //                        communicator.goTo(AddContactFragment())
-                        communicator.sendData(contactDto,AddContactFragment())
 
+                        communicator.sendData(contactDto,AddContactFragment())
 
                     }
                     ItemTouchHelper.RIGHT ->{
 
                         println("POSICION! ${contactDto._id}")
                         sendViewModel.deleteContact(contactDto._id)
-//                        sendViewModel.getContact(contactsList[position])
+                        sendViewModel.getContact(contactsList[position])
                     }
                 }
 
