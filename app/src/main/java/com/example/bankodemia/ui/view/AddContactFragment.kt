@@ -45,7 +45,7 @@ class AddContactFragment : Fragment(), Fields {
         communicator = requireActivity() as FragmentCommunicator
         _binding = FragmentAddContactBinding.inflate(inflater, container, false)
 
-         contact = arguments?.getSerializable(CONTACTDATA) as? ContactDTO
+         contact = arguments?.getSerializable(CONTACTDATA) as ContactDTO
 
         setupObservers()
         validationFields()
