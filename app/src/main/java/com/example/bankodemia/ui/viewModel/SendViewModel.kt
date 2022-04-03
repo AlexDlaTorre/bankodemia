@@ -30,8 +30,8 @@ class SendViewModel : BaseViewModel() {
     fun deleteContact(id: String) {
         viewModelScope.launch {
             uiStateEmitter.value = BaseUiState.loading
-            val idContact = getContactId(id)
-            val result = deleteContactIdUseCase.invoke(idContact)
+//            val idContact = getContactId(id)
+            val result = deleteContactIdUseCase.invoke(id)
             if (result.second != null) {
                 val error = result?.let { it.second?.let { it } } ?: return@launch
                 uiStateEmitter.value = BaseUiState.Error(error)
@@ -47,11 +47,11 @@ class SendViewModel : BaseViewModel() {
         println("GETCONTACT")
     }
 
-    private fun getContactId(id: String):RequestBody {
-        val idContact = JSONObject()
-        idContact.put(idBodyKey, id)
-        return RequestBody.create(MediaType.parse(jsonFormat), idContact.toString())
-    }
+//    private fun getContactId(id: String) {
+//        val idContact = JSONObject()
+//        idContact.put(idBodyKey, id)
+//        return RequestBody.create(MediaType.parse(jsonFormat), idContact.toString())
+//    }
 
 
 }

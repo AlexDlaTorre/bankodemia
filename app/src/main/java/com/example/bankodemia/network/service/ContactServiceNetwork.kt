@@ -29,10 +29,10 @@ class ContactServiceNetwork {
         }
     }
 
-    suspend fun deleteContactInfo(idContact: RequestBody): Pair<Contact.PostResponse?,BankodemiaError?>{
-        println("GETCONTACT4 ${idContact}")
+    suspend fun deleteContactInfo(id: String): Pair<Contact.PostResponse?,BankodemiaError?>{
+        println("GETCONTACT4 ${id}")
         return withContext(Dispatchers.IO){
-            val response = retrofit.deleteContactInfo(idContact)
+            val response = retrofit.deleteContactInfo(id)
             Log.d("DeleteContactResponse", response.body().toString())
 
             val responseBody = response.body()

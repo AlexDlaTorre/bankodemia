@@ -10,5 +10,5 @@ import okhttp3.RequestBody
 class DeleteContactIdUseCase {
     private val repository = ContactRepository()
 
-    suspend operator fun invoke(idContact: RequestBody): Pair<ContactPostDTO?, BankodemiaError?> = repository.deleteContactInfo(idContact)
+    suspend operator fun invoke(id: String): Pair<ContactPostDTO?, BankodemiaError?> = repository.deleteContactInfo(id)
 }

@@ -16,10 +16,10 @@ class ContactRepository {
         return contactsDTO to response.second
     }
 
-    suspend fun deleteContactInfo(idContact: RequestBody): Pair<ContactPostDTO?, BankodemiaError?> {
-        val response = api.deleteContactInfo(idContact)
+    suspend fun deleteContactInfo(id: String): Pair<ContactPostDTO?, BankodemiaError?> {
+        val response = api.deleteContactInfo(id)
         println("GETCONTACT3")
-        val idContact = response?.let { it.first?.let { contactId -> ContactDTO(contactId) } }
+        val idContact = response?.let { it.first?.let { contactId -> ContactPostDTO(contactId) } }
         return idContact to response.second
     }
 

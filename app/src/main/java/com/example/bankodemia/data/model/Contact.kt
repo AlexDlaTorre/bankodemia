@@ -1,5 +1,7 @@
 package com.example.bankodemia.data.model
 
+import kotlinx.serialization.SerialName
+
 class Contact {
     data class PostResponse(
         val success: Boolean,
@@ -20,6 +22,7 @@ class Contact {
     )
 
     data class Contact(
+        @SerialName("_id")
         val _id: String,
         val shortName: String,
         val owner: User.User,

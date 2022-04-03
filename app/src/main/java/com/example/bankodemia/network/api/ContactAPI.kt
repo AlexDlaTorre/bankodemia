@@ -11,9 +11,9 @@ interface ContactAPI {
     @GET("/contacts")
     suspend fun getContactListInfo(): Response<Contact.GetResponse>
 
-    @DELETE("/contacts/id")
+    @DELETE("/contacts/{id}")
     suspend fun deleteContactInfo(
-        @Part("id") id: String
+        @Path("id") id: String
     ): Response<Contact.PostResponse>
 
     @PATCH("/contacts/id")
