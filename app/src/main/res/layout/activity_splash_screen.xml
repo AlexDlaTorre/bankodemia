@@ -14,15 +14,14 @@
         android:layout_width="234dp"
         android:layout_height="120dp"
         android:layout_gravity="center"
-        android:layout_marginEnd="24dp"
-        app:srcCompat="@drawable/logo_coin_nobg" />
+        app:srcCompat="@drawable/ic_logo_coin" />
 
     <ImageView
         android:id="@+id/ic_hand"
         android:layout_width="293dp"
         android:layout_height="258dp"
         android:layout_gravity="center"
-        app:srcCompat="@drawable/logo_hand_nobg" />
+        app:srcCompat="@drawable/ic_icono_hand" />
 
     <TextView
         android:id="@+id/splashTvBankodemia"
