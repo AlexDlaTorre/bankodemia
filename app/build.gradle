@@ -83,4 +83,7 @@ dependencies {
     implementation "com.airbnb.android:lottie:$lottieVersion"
     // Currency inputs
     implementation 'com.cottacush:CurrencyEditText:0.0.10'
+
+    // Android Splashscreen
+    implementation 'androidx.core:core-splashscreen:1.0.0-beta01'
 }
