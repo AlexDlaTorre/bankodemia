@@ -34,5 +34,6 @@
     <dimen name="common_heigth_image_paperplane">162dp</dimen>
     <dimen name="common_width_image_add_contact">240dp</dimen>
     <dimen name="common_height_image_add_contact">160dp</dimen>
+    <dimen name="heigth_camera_photo">200dp</dimen>
 
 </resources>

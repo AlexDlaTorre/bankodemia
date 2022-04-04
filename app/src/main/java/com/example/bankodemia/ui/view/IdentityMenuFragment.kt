@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.bankodemia.R
+import com.example.bankodemia.core.instances.SharedPreferencesInstance
+import com.example.bankodemia.core.types.IdentityType
 import com.example.bankodemia.databinding.FragmentIdentityMenuBinding
 
 class IdentityMenuFragment : Fragment() {
@@ -29,15 +31,18 @@ class IdentityMenuFragment : Fragment() {
             }
 
             identityMenuBtnIne.setOnClickListener {
-                findNavController().navigate(R.id.action_identityMenuFragment_to_ineFragment)
+                SharedPreferencesInstance.setStringValue(getString(R.string.saved_document),IdentityType.INE.value)
+                findNavController().navigate(R.id.action_identityMenuFragment_to_documentFragment)
             }
 
-            identityMenuBtnDocument.setOnClickListener {
-                findNavController().navigate(R.id.action_identityMenuFragment_to_migratoryFragment)
+            identityMenuBtnMigratory.setOnClickListener {
+                SharedPreferencesInstance.setStringValue(getString(R.string.saved_document),IdentityType.MIGRATION_FORM.value)
+                findNavController().navigate(R.id.action_identityMenuFragment_to_documentFragment)
             }
 
             identityMenuBtnPassport.setOnClickListener {
-                findNavController().navigate(R.id.action_identityMenuFragment_to_passportFragment)
+                SharedPreferencesInstance.setStringValue(getString(R.string.saved_document),IdentityType.PASSPORT.value)
+                findNavController().navigate(R.id.action_identityMenuFragment_to_documentFragment)
             }
         }
     }

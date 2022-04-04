@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ui.view.DocumentFragment">
+
+    <include
+        android:id="@+id/documentTemplateTopLogoSingle"
+        layout="@layout/template_toplogo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/documentBtnBackToIdentityMenu"
+        style="@style/backTextButtonIconGray"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/common_size_middle"
+        android:layout_marginTop="@dimen/common_size_min"
+        android:text="@string/enter_type_document"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/documentTemplateTopLogoSingle"
+        tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
+
+    <TextView
+        android:id="@+id/documentTvTypeDocument"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_size_middle"
+        android:textAppearance="@style/subtitleText"
+        app:layout_constraintStart_toStartOf="@+id/documentBtnBackToIdentityMenu"
+        app:layout_constraintTop_toBottomOf="@+id/documentBtnBackToIdentityMenu"
+        tools:text="INE" />
+
+    <TextView
+        android:id="@+id/documentTvInstructionsIne"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/common_size_middle"
+        android:layout_marginTop="@dimen/common_size_min"
+        android:text="@string/ineInstructions"
+        android:textAppearance="@style/contentText"
+        app:layout_constraintEnd_toEndOf="@+id/documentBtnBackToIdentityMenu"
+        app:layout_constraintStart_toStartOf="@+id/documentBtnBackToIdentityMenu"
+        app:layout_constraintTop_toBottomOf="@+id/documentTvTypeDocument" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/common_size_middle"
+        app:layout_constraintBottom_toTopOf="@+id/documentBtnUploadInfo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/documentTvInstructionsIne"
+        app:layout_constraintVertical_bias="0.25">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/principal_variant_gray">
+
+            <ImageView
+                android:id="@+id/documentIvTakePhoto"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/heigth_camera_photo"
+                android:contentDescription="@null"
+                android:scaleType="centerCrop"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@tools:sample/avatars"
+                tools:visibility="visible" />
+
+            <Button
+                android:id="@+id/documentBtnTakePhoto"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/instructions_camera"
+                android:textAppearance="@style/contentText"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/documentIvTakePhoto" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/documentBtnUploadInfo"
+        style="@style/disabledButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/common_size_middle"
+        android:layout_marginBottom="@dimen/common_size_large"
+        android:text="@string/uploadInformation"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="TextContrastCheck" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

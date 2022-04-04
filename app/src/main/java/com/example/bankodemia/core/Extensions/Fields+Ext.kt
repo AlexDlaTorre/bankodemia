@@ -1,5 +1,6 @@
 package com.example.bankodemia.core
 
+import android.util.Log
 import android.util.Patterns
 import androidx.fragment.app.Fragment
 import com.example.bankodemia.R

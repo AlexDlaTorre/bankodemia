@@ -49,7 +49,7 @@
                 app:layout_constraintStart_toStartOf="@+id/telephoneBtnLadas"
                 app:layout_constraintTop_toBottomOf="@+id/telephoneTilTelephone"
                 tools:listitem="@layout/item_lada"
-                tools:visibility="visible" />
+                tools:visibility="gone" />
 
 
             <Button
@@ -70,6 +70,9 @@
                 style="@style/outlinedTextFieldBlue"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                app:counterTextAppearance="@style/contentText"
+                app:counterEnabled="true"
+                app:counterMaxLength="10"
                 android:layout_marginTop="@dimen/common_size_large"
                 app:layout_constraintEnd_toEndOf="@+id/telephoneTvInstructions"
                 app:layout_constraintStart_toEndOf="@+id/telephoneBtnLadas"

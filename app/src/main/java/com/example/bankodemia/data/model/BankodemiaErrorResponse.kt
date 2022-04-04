@@ -14,3 +14,13 @@ data class BankodemiaErrorResponse(
     val message: String?,
     val error: String
 )
+
+data class BankodemiaErrorPreconFailed(
+    val message: String?
+)
+
+data class BankodemiaErrorBadRequest(
+    val statusCode: Int,
+    val message: List<String>?,
+    val error: String
+)

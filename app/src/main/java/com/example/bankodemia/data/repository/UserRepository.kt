@@ -2,6 +2,7 @@ package com.example.bankodemia.data.repository
 
 import com.example.bankodemia.data.model.User
 import com.example.bankodemia.data.model.BankodemiaError
+import com.example.bankodemia.domain.domainObjects.User.createUser.UserPostResponseDTO
 import com.example.bankodemia.domain.domainObjects.User.geUserProfile.UserProfileDTO
 import com.example.bankodemia.domain.domainObjects.User.getUsers.UserGetResponseDTO
 import com.example.bankodemia.network.service.UserServiceNetwork
@@ -19,5 +20,11 @@ class UserRepository {
         val response = api.getUsers(query)
         val users = response?.let { it.first?.let { UserGetResponseDTO(it) } }
         return users to response.second
+    }
+
+    suspend fun createUserAccount(user: User.SingUpCreateUser): Pair<UserPostResponseDTO?, BankodemiaError?>{
+        val response = api.createUserAccount(user)
+        val userAccount = response?.let { it.first?.let { UserPostResponseDTO(it) } }
+        return userAccount to response.second
     }
 }

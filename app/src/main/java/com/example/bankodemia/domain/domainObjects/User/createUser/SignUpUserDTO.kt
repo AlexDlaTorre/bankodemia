@@ -15,6 +15,7 @@ data class SignUpUserDTO(val user: User.SignUpUser) {
     val isPhoneVerified: Boolean
     val identityImage: String
     val identityImageType: IdentityType
+    val v: Int
 
     init {
         id = user.id
@@ -28,5 +29,6 @@ data class SignUpUserDTO(val user: User.SignUpUser) {
         isPhoneVerified = user.isPhoneVerified
         identityImage = user.identityImage
         identityImageType = user.identityImageType
+        v = user.v
     }
 }

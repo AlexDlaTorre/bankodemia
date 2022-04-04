@@ -9,6 +9,7 @@
     <!-- Paleta de colores bankodemia -->
     <!-- Principal -->
     <color name="principal_gray">#7F7F7F</color>
+    <color name="principal_variant_gray">#66E5E5E5</color>
     <color name="principal_blue">#00CCCC</color>
     <color name="principal_variant_blue">#00BCD4</color>
 
