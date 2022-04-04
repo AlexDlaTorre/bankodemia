@@ -1,6 +1,6 @@
 package com.example.bankodemia.ui.view.transaction
 
-import android.content.Context
+import android.app.AlertDialog
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Rect
@@ -13,7 +13,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -31,7 +30,6 @@ import com.example.bankodemia.ui.adapters.ContactsAdapter
 import com.example.bankodemia.ui.home.AdapterItemSelected
 import com.example.bankodemia.ui.home.HomeFragment
 import com.example.bankodemia.ui.view.AddContactFragment
-import com.example.bankodemia.ui.view.ProcessingTransactionFragment
 import com.example.bankodemia.ui.view.SearchUser.SearchUserFragment
 import com.example.bankodemia.ui.view.TransferDetailFragment
 import com.example.bankodemia.ui.viewModel.SendViewModel
@@ -48,6 +46,10 @@ class SendFragment() : Fragment(), AdapterItemSelected {
     private lateinit var sendViewModel: SendViewModel
     private lateinit var communicator: FragmentCommunicator
     private lateinit var contactInfo:ContactGetDTO
+    private lateinit var Itemcontact: ContactDTO
+    private lateinit var  adapter: ContactsAdapter
+    private var position: Int = 0
+
 
     private lateinit var dragHelper: ItemTouchHelper
     private lateinit var swipeHelper: ItemTouchHelper
@@ -101,7 +103,7 @@ class SendFragment() : Fragment(), AdapterItemSelected {
 
     fun setupReclycerViewContacts(contactsList: List<ContactDTO>, isSkeleton: Boolean) {
         val activity = activity ?: return
-        val adapter = ContactsAdapter(contactsList, isSkeleton, this)
+        adapter = ContactsAdapter(contactsList, isSkeleton, this)
 
         val swipeGesture = object : SwipeGesture(activity) {
             //BACKGROUND COLOR
@@ -119,21 +121,21 @@ class SendFragment() : Fragment(), AdapterItemSelected {
 
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                val position = viewHolder.adapterPosition
-                val contactDto = contactsList[position]
+                position = viewHolder.adapterPosition
+                Itemcontact = contactsList[position]
                 when(direction){
                     ItemTouchHelper.LEFT ->{
 
-                        communicator.sendData(contactDto,AddContactFragment())
+                        communicator.sendData(Itemcontact,AddContactFragment())
 
                     }
                     ItemTouchHelper.RIGHT ->{
-
-                        println("POSICION! ${contactDto._id}")
-//                        contactsList.removeAt(contactDto)
-                        sendViewModel.deleteContact(contactDto._id)
-//                        setupObservers()
-                        adapter.notifyItemRemoved(position)
+                        showAlert()
+//                        println("POSICION! ${Itemcontact._id}")
+////                        contactsList.removeAt(contactDto)
+//                        sendViewModel.deleteContact(Itemcontact._id)
+////                        setupObservers()
+//                        adapter.notifyItemRemoved(position)
                     }
                 }
 
@@ -229,6 +231,23 @@ class SendFragment() : Fragment(), AdapterItemSelected {
             sendRvContacts.adapter = adapter
         }
         adapter.notifyDataSetChanged()
+    }
+
+    private fun showAlert() {
+        val builder: AlertDialog.Builder = AlertDialog.Builder(requireContext())
+        builder.setTitle(R.string.welcome_message)
+        builder.setMessage(R.string.deposit_description)
+        builder.apply {
+            setPositiveButton(R.string.begin) { _, _ ->
+                sendViewModel.deleteContact(Itemcontact._id)
+//                        setupObservers()
+                adapter.notifyItemRemoved(position)
+            }
+            setNegativeButton(R.string.cancel) { _, _ ->
+                communicator.goTo(SendFragment())
+            }
+        }
+        builder.create().show()
     }
 
     override fun onDestroyView() {
