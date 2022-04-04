@@ -140,4 +140,5 @@
     <string name="confirm_transfer">CONFIRMACIÓN DE TRASNFERENCIA</string>
     <string name="confirm_transfer_description">¿Estás segura(o) que quieres realizar esta transacctión?</string>
     <string name="confirm">Aceptar</string>
+    <string name="bankodemia">BANKODEMIA</string>
 </resources>
