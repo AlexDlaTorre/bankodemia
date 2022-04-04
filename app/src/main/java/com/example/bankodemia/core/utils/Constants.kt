@@ -21,6 +21,9 @@ val amountBodyKey       = "amount"
 val typeBodyKey         = "type"
 val conceptBodyKey      = "concept"
 val destinationUserKey  = "destinationUser"
+val idBodyKey  = "id"
+val nameBodyKey  = "name"
+val shortNameBodyKey = "shortName"
 
 // json format
 val jsonFormat = "application/json; charset=utf-8"

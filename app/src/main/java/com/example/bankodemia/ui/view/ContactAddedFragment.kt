@@ -1,17 +1,18 @@
 package com.example.bankodemia.ui.view
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.findNavController
-import com.example.bankodemia.R
+import androidx.fragment.app.Fragment
+import com.example.bankodemia.core.utils.FragmentCommunicator
 import com.example.bankodemia.databinding.FragmentContactAddedBinding
+import com.example.bankodemia.ui.view.transaction.SendFragment
 
 class ContactAddedFragment : Fragment() {
 
     private var _binding: FragmentContactAddedBinding? = null
+    private lateinit var communicator: FragmentCommunicator
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -20,16 +21,20 @@ class ContactAddedFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentContactAddedBinding.inflate(inflater, container, false)
+        communicator = requireActivity() as FragmentCommunicator
 
-        binding.contacAddedBtnBackToHome.setOnClickListener { view : View ->
-            view.findNavController().navigate(R.id.action_contactAddedFragment_to_navigation_home)
-        }
-
+        setEvents()
         return binding.root
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+    fun setEvents() {
+        binding.contacAddedBtnBackToHome.setOnClickListener { view: View ->
+            communicator.goTo(SendFragment())
+        }
+
+        fun onDestroyView() {
+            super.onDestroyView()
+            _binding = null
+        }
     }
 }

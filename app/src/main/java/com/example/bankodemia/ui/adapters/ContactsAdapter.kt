@@ -1,5 +1,6 @@
 package com.example.bankodemia.ui.adapters
 
+import android.content.DialogInterface
 import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
@@ -18,8 +19,7 @@ import com.example.bankodemia.ui.home.TransactionsAdapter
 
 class ContactsAdapter(val contactsList: List<ContactDTO>,
                       val isSkeleton: Boolean,
-                      val listener: AdapterItemSelected
-):
+                      val listener: AdapterItemSelected):
     RecyclerView.Adapter<ContactsAdapter.ContactsHolder>() {
 
     inner class ContactsHolder(val view: View): RecyclerView.ViewHolder(view) {

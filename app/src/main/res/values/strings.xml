@@ -152,4 +152,11 @@
     <string name="saved_image_string">saved_image_string</string>
     <string name="saved_image_path">saved_image_path</string>
     <string name="saved_document">document</string>
+    <string name="delete_contact">Eliminar contacto</string>
+    <string name="delete_contact_description">¿Desea eliminar el contacto?</string>
+    <string name="delete">Eliminar Contacto</string>
+    <string name="edit">Editar contacto</string>
+    <string name="acept">Aceptar</string>
+    <string name="item_name_example">Roberto</string>
+    <string name="item_id_example">28ffhnf274bb7454</string>
 </resources>

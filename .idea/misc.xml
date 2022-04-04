@@ -19,13 +19,14 @@
         <entry key="..\:/Users/pablo/AndroidStudioProjects/bankodemia/app/src/main/res/layout/activity_main.xml" value="0.21" />
         <entry key="..\:/Users/pablo/AndroidStudioProjects/bankodemia/app/src/main/res/layout/app_bar_home.xml" value="0.1675929884566054" />
         <entry key="..\:/Users/pablo/AndroidStudioProjects/bankodemia/app/src/main/res/layout/content_home.xml" value="0.1675929884566054" />
-        <entry key="..\:/Users/pablo/AndroidStudioProjects/bankodemia/app/src/main/res/layout/fragment_add_contact.xml" value="0.1675929884566054" />
+        <entry key="..\:/Users/pablo/AndroidStudioProjects/bankodemia/app/src/main/res/layout/fragment_add_contact.xml" value="0.1" />
         <entry key="..\:/Users/pablo/AndroidStudioProjects/bankodemia/app/src/main/res/layout/fragment_aiting_transaction.xml" value="0.1675929884566054" />
         <entry key="..\:/Users/pablo/AndroidStudioProjects/bankodemia/app/src/main/res/layout/fragment_cards.xml" value="0.33" />
         <entry key="..\:/Users/pablo/AndroidStudioProjects/bankodemia/app/src/main/res/layout/fragment_confirmation.xml" value="0.33" />
         <entry key="..\:/Users/pablo/AndroidStudioProjects/bankodemia/app/src/main/res/layout/fragment_contact_added.xml" value="0.1675929884566054" />
         <entry key="..\:/Users/pablo/AndroidStudioProjects/bankodemia/app/src/main/res/layout/fragment_create_account.xml" value="0.25" />
         <entry key="..\:/Users/pablo/AndroidStudioProjects/bankodemia/app/src/main/res/layout/fragment_data.xml" value="0.25" />
+        <entry key="..\:/Users/pablo/AndroidStudioProjects/bankodemia/app/src/main/res/layout/fragment_deposit.xml" value="0.18854166666666666" />
         <entry key="..\:/Users/pablo/AndroidStudioProjects/bankodemia/app/src/main/res/layout/fragment_gallery.xml" value="0.1675929884566054" />
         <entry key="..\:/Users/pablo/AndroidStudioProjects/bankodemia/app/src/main/res/layout/fragment_home.xml" value="0.33" />
         <entry key="..\:/Users/pablo/AndroidStudioProjects/bankodemia/app/src/main/res/layout/fragment_home_detail.xml" value="0.33" />
