@@ -17,10 +17,13 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bankodemia.R
+import com.example.bankodemia.core.eight
 import com.example.bankodemia.core.showSnackBarMessage
+import com.example.bankodemia.core.three
 import com.example.bankodemia.core.utils.BaseUiState
 import com.example.bankodemia.core.utils.FragmentCommunicator
 import com.example.bankodemia.core.utils.general
+import com.example.bankodemia.core.zero
 import com.example.bankodemia.databinding.FragmentSendBinding
 import com.example.bankodemia.domain.domainObjects.Contact.ContactDTO
 import com.example.bankodemia.domain.domainObjects.Contact.ContactGetDTO
@@ -132,8 +135,8 @@ class SendFragment : Fragment(), AdapterItemSelected {
                 isCurrentlyActive: Boolean
             ) {
                 when {
-                    abs(dX) < width / 3 -> canvas.drawColor(Color.GRAY)
-                    dX > width / 3 -> canvas.drawColor(deleteColor)
+                    abs(dX) < width / Int.three -> canvas.drawColor(Color.GRAY)
+                    dX > width / Int.three -> canvas.drawColor(deleteColor)
                     else -> canvas.drawColor(editColor)
                 }
 
@@ -141,19 +144,19 @@ class SendFragment : Fragment(), AdapterItemSelected {
                     .roundToInt()
                 deleteIcon.bounds = Rect(
                     textMargin,
-                    viewHolder.itemView.top + textMargin + 8.dp,
+                    viewHolder.itemView.top + textMargin + Int.eight.dp,
                     textMargin + deleteIcon.intrinsicWidth,
                     viewHolder.itemView.top + deleteIcon.intrinsicHeight
-                            + textMargin + 8.dp
+                            + textMargin + Int.eight.dp
                 )
                 editIcon.bounds = Rect(
                     width - textMargin - editIcon.intrinsicWidth,
-                    viewHolder.itemView.top + textMargin + 8.dp,
+                    viewHolder.itemView.top + textMargin + Int.eight.dp,
                     width - textMargin,
                     viewHolder.itemView.top + editIcon.intrinsicHeight
-                            + textMargin + 8.dp
+                            + textMargin + Int.eight.dp
                 )
-                if (dX > 0) deleteIcon.draw(canvas) else editIcon.draw(canvas)
+                if (dX > Int.zero) deleteIcon.draw(canvas) else editIcon.draw(canvas)
 
                 super.onChildDraw(
                     canvas,

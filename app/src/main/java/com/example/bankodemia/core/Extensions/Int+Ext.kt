@@ -9,5 +9,11 @@ val Int.Companion.once: Int
 val Int.Companion.twice: Int
     get() = 2
 
+val Int.Companion.three: Int
+    get() = 3
+
 val Int.Companion.five: Int
 get() = 5
+
+val Int.Companion.eight: Int
+    get() = 8
