@@ -35,6 +35,7 @@ class AddContactFragment : Fragment(), Fields {
     private lateinit var communicator: FragmentCommunicator
     private lateinit var addContactViewModel: AddContactViewModel
     private val binding get() = _binding!!
+    private val bankArray = arrayOf("Bankodemia","Banorte","Santander","CityBanamex")
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -73,13 +74,12 @@ class AddContactFragment : Fragment(), Fields {
     }
 
     private fun setupView(contact:ContactDTO?) {
-        println("contacaaaaaaaaaaaaaat, ${contact}")
+        val bank = RandomString(bankArray).rollBank()
         if(contact != null) {
         binding.apply {
-            addContactTilCardNumber.hint = contact.user.id
-            addContactTietInstitution.hint = contact.user.fullName
-            addContactTietInstitution.hint = contact.user.fullName
-            addContactTilName.hint = contact.shortName
+            addContactTietCardNumber.hint = contact.user.id
+            addContactTietInstitution.hint = bank
+            addContactTietName.hint = contact.shortName
             addContactTilEmail.hint = contact.user.email
             addContactTietEmail.hint = contact.user.email
             }
@@ -114,13 +114,6 @@ class AddContactFragment : Fragment(), Fields {
         }
     }
 
-//    private fun makeUpdateParameters(
-//        shortName: String
-//    ): RequestBody {
-//        val contactUpdate = JSONObject()
-//        contactUpdate.put(typeBodyKey, shortName)
-//        return RequestBody.create(MediaType.parse(jsonFormat), contactUpdate.toString())
-//    }
 
     private fun setEvents(){
         binding.addContactBtnBackToSend.setOnClickListener { view : View ->
@@ -130,10 +123,7 @@ class AddContactFragment : Fragment(), Fields {
         binding.addContactBtnAddContact.setOnClickListener { view : View ->
             val cardId = contact?._id
             val shortName = addContactTietName.text?.trim().toString()
-//           val localContactUpdate = makeUpdateParameters(shortName)
-            println("fragmeeeeeent, ${shortName}, ${cardId}")
             if(cardId.isNullOrEmpty()){
-                println("SHORT NAME IS NULL")
             }else{
                 addContactViewModel.updateContact(cardId,shortName)
                 communicator.goTo(ContactAddedFragment())

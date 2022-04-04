@@ -140,4 +140,9 @@
     <string name="confirm_transfer">CONFIRMACIÓN DE TRASNFERENCIA</string>
     <string name="confirm_transfer_description">¿Estás segura(o) que quieres realizar esta transacctión?</string>
     <string name="confirm">Aceptar</string>
+    <string name="delete_contact">Eliminar contacto</string>
+    <string name="delete_contact_description">¿Desea eliminar el contacto?</string>
+    <string name="delete">Contacto eliminado</string>
+    <string name="edit">Editar contacto</string>
+    <string name="acept">Aceptar</string>
 </resources>
