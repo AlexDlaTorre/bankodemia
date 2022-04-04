@@ -38,28 +38,10 @@ class AddContactFragment : Fragment(), Fields {
         _binding = FragmentAddContactBinding.inflate(inflater, container, false)
         contact = arguments?.getSerializable(CONTACTDATA) as ContactDTO
 
-        setupObservers()
         validationFields()
         setEvents()
         setupView(contact)
         return binding.root
-    }
-
-    private fun setupObservers() {
-        addContactViewModel.uiStateEmitter.observe(viewLifecycleOwner) { updateUI(it) }
-    }
-
-    private fun updateUI(uiState: BaseUiState) {
-        when (uiState) {
-            is BaseUiState.SuccessResult<*> -> {
-                if (uiState.result is ContactPostDTO) {
-                    val contactInfo = uiState.result as ContactPostDTO
-                }
-            }
-            is BaseUiState.Error -> {
-                showSnackBarMessage(uiState.message ?: general, Snackbar.LENGTH_LONG)
-            }
-        }
     }
 
     private fun setupView(contact: ContactDTO?) {
