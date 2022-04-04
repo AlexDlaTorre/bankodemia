@@ -45,7 +45,6 @@ class AddContactFragment : Fragment(), Fields {
             ViewModelProvider(this).get(AddContactViewModel::class.java)
         communicator = requireActivity() as FragmentCommunicator
         _binding = FragmentAddContactBinding.inflate(inflater, container, false)
-
          contact = arguments?.getSerializable(CONTACTDATA) as ContactDTO
 
         setupObservers()
@@ -64,7 +63,6 @@ class AddContactFragment : Fragment(), Fields {
             is BaseUiState.SuccessResult<*> -> {
                 if (uiState.result is ContactPostDTO) {
                     val contactInfo = uiState.result as ContactPostDTO
-
                 }
             }
             is BaseUiState.Error -> {
@@ -79,26 +77,15 @@ class AddContactFragment : Fragment(), Fields {
         binding.apply {
             addContactTietCardNumber.hint = contact.user.id
             addContactTietInstitution.hint = bank
-            addContactTietName.hint = contact.shortName
-            addContactTilEmail.hint = contact.user.email
             addContactTietEmail.hint = contact.user.email
             }
-
-
-
         }
     }
 
 
     override fun validationFields() {
-//        var checkNumber = false
-//        var checkInstitution= false
         var checkFullName = false
-//        var checkMail = false
-
         with(binding) {
-
-
             addContactTietName.addTextChangedListener {
                 checkFullName = validateField(
                     fragment = this@AddContactFragment,

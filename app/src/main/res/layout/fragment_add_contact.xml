@@ -103,8 +103,8 @@
             style="@style/outlinedTextFieldBlue"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:hint="@string/name"
             android:layout_marginTop="@dimen/common_size_large"
-            android:text="@string/name"
             app:layout_constraintEnd_toEndOf="@+id/addContactTilInstitution"
             app:layout_constraintStart_toStartOf="@+id/addContactTilInstitution"
             app:layout_constraintTop_toBottomOf="@+id/addContactTilInstitution">
