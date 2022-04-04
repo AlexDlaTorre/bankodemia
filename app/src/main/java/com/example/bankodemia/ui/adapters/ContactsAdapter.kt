@@ -31,7 +31,6 @@ class ContactsAdapter(val contactsList: List<ContactDTO>,
             binding.apply {
                 itemContactTvContact.text = contact.shortName
                 itemContactTvContactAccount.text = contact.user.id
-//                itemContactTvContact.setOnClickListener{example()}
             }
             setupListeners(contact)
         }
@@ -93,5 +92,4 @@ class ContactsAdapter(val contactsList: List<ContactDTO>,
             return contactsList.size
         }
     }
-
 }

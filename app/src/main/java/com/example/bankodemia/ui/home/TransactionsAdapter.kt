@@ -13,7 +13,6 @@ import com.example.bankodemia.domain.domainObjects.Contact.ContactDTO
 import com.example.bankodemia.domain.domainObjects.Transaction.TransactionDTO
 
 interface AdapterItemSelected {
-
     fun <T> itemSelected(item: T)
 }
 

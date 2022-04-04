@@ -104,7 +104,6 @@ class AddContactFragment : Fragment(), Fields {
                 addContactViewModel.updateContact(cardId, shortName)
                 communicator.goTo(ContactAddedFragment())
             }
-
         }
     }
 

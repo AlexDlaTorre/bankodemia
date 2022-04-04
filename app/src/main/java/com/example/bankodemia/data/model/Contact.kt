@@ -1,12 +1,10 @@
 package com.example.bankodemia.data.model
 
-import kotlinx.serialization.SerialName
-
 class Contact {
     data class PostResponse(
         val success: Boolean,
         val data: PostData
-        )
+    )
 
     data class GetResponse(
         val success: Boolean,
