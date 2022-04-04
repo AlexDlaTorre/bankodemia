@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.bankodemia.R
+import com.example.bankodemia.core.instances.SharedPreferencesInstance
 import com.example.bankodemia.databinding.FragmentConfirmationBinding
 import com.example.bankodemia.databinding.FragmentIdentityMenuBinding
 
@@ -26,6 +27,7 @@ class ConfirmationFragment : Fragment() {
     private fun initializeComponents() {
         with(mBinding){
             confirmationBtnBackToMain.setOnClickListener {
+                SharedPreferencesInstance.cleanFieldsCreateAccount(requireContext())
                 findNavController().navigate(R.id.action_confirmationFragment_to_mainFragment)
             }
         }

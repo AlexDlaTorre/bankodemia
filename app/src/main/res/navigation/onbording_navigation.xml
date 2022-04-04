@@ -44,7 +44,9 @@
             app:destination="@id/dataFragment" />
         <action
             android:id="@+id/action_createAccountFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
+            app:destination="@id/mainFragment"
+            app:popUpTo="@id/mainFragment"
+            app:popUpToInclusive="true"/>
     </fragment>
     <fragment
         android:id="@+id/dataFragment"
@@ -56,7 +58,10 @@
             app:destination="@id/telephoneFragment" />
         <action
             android:id="@+id/action_dataFragment_to_createAccountFragment"
-            app:destination="@id/createAccountFragment" />
+            app:destination="@id/createAccountFragment"
+            app:popUpTo="@id/createAccountFragment"
+            app:popUpToInclusive="true"
+            />
     </fragment>
     <fragment
         android:id="@+id/telephoneFragment"
@@ -68,7 +73,9 @@
             app:destination="@id/identityFragment" />
         <action
             android:id="@+id/action_telephoneFragment_to_dataFragment"
-            app:destination="@id/dataFragment" />
+            app:destination="@id/dataFragment"
+            app:popUpTo="@id/dataFragment"
+            app:popUpToInclusive="true"/>
     </fragment>
     <fragment
         android:id="@+id/identityFragment"
@@ -80,7 +87,10 @@
             app:destination="@id/identityMenuFragment" />
         <action
             android:id="@+id/action_identityFragment_to_telephoneFragment"
-            app:destination="@id/telephoneFragment" />
+            app:destination="@id/telephoneFragment"
+            app:popUpTo="@id/telephoneFragment"
+            app:popUpToInclusive="true"
+            />
     </fragment>
     <fragment
         android:id="@+id/identityMenuFragment"
@@ -88,53 +98,27 @@
         android:label="fragment_identity_menu"
         tools:layout="@layout/fragment_identity_menu" >
         <action
-            android:id="@+id/action_identityMenuFragment_to_ineFragment"
-            app:destination="@id/ineFragment" />
-        <action
-            android:id="@+id/action_identityMenuFragment_to_migratoryFragment"
-            app:destination="@id/migratoryFragment" />
-        <action
-            android:id="@+id/action_identityMenuFragment_to_passportFragment"
-            app:destination="@id/passportFragment" />
+            android:id="@+id/action_identityMenuFragment_to_documentFragment"
+            app:destination="@id/documentFragment" />
         <action
             android:id="@+id/action_identityMenuFragment_to_identityFragment"
-            app:destination="@id/identityFragment" />
+            app:destination="@id/identityFragment"
+            app:popUpTo="@id/identityFragment"
+            app:popUpToInclusive="true"/>
     </fragment>
     <fragment
-        android:id="@+id/ineFragment"
-        android:name="com.example.bankodemia.ui.view.IneFragment"
+        android:id="@+id/documentFragment"
+        android:name="com.example.bankodemia.ui.view.DocumentFragment"
         android:label="fragment_ine"
-        tools:layout="@layout/fragment_ine" >
+        tools:layout="@layout/fragment_document" >
         <action
             android:id="@+id/action_ineFragment_to_passwordFragment"
             app:destination="@id/passwordFragment" />
         <action
             android:id="@+id/action_ineFragment_to_identityMenuFragment"
-            app:destination="@id/identityMenuFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/passportFragment"
-        android:name="com.example.bankodemia.ui.view.PassportFragment"
-        android:label="fragment_passport"
-        tools:layout="@layout/fragment_passport" >
-        <action
-            android:id="@+id/action_passportFragment_to_passwordFragment"
-            app:destination="@id/passwordFragment" />
-        <action
-            android:id="@+id/action_passportFragment_to_identityMenuFragment"
-            app:destination="@id/identityMenuFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/migratoryFragment"
-        android:name="com.example.bankodemia.ui.view.MigratoryFragment"
-        android:label="fragment_migratory"
-        tools:layout="@layout/fragment_migratory" >
-        <action
-            android:id="@+id/action_migratoryFragment_to_passwordFragment"
-            app:destination="@id/passwordFragment" />
-        <action
-            android:id="@+id/action_migratoryFragment_to_identityMenuFragment"
-            app:destination="@id/identityMenuFragment" />
+            app:destination="@id/identityMenuFragment"
+            app:popUpTo="@id/identityMenuFragment"
+            app:popUpToInclusive="true"/>
     </fragment>
     <fragment
         android:id="@+id/passwordFragment"
@@ -143,7 +127,9 @@
         tools:layout="@layout/fragment_password" >
         <action
             android:id="@+id/action_passwordFragment_to_confirmationFragment"
-            app:destination="@id/confirmationFragment" />
+            app:destination="@id/confirmationFragment"
+            app:popUpTo="@id/confirmationFragment"
+            app:popUpToInclusive="true"/>
         <action
             android:id="@+id/action_passwordFragment_to_identityMenuFragment"
             app:destination="@id/identityMenuFragment" />

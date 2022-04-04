@@ -54,8 +54,26 @@ class User {
         val phone: String,
         val isPhoneVerified: Boolean,
         val identityImage: String,
-        val identityImageType: IdentityType
+        val identityImageType: IdentityType,
+        @SerializedName("__v")
+        val v: Int
     )
+
+    data class SingUpCreateUser(
+        val email: String,
+        val name: String,
+        val lastName: String,
+        val occupation: String,
+        val birthDate: String,
+        val password: String,
+        val phone: String,
+        val identityImage: String,
+        val identityImageType: IdentityType
+    ){
+        override fun toString(): String {
+            return "SingUpCreateUser(email='$email', name='$name', lastName='$lastName', occupation='$occupation', birthDate='$birthDate', password='$password', phone='$phone', identityImage='$identityImage', identityImageType=$identityImageType)"
+        }
+    }
 }
 
 
