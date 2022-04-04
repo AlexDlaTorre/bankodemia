@@ -11,7 +11,6 @@ import com.example.bankodemia.ui.adapters.ContactsAdapter
 
 abstract class SwipeGesture(context: Context) : ItemTouchHelper.Callback() {
 
-//TODO DESCOMENTAR
     override fun getMovementFlags(
         recyclerView: RecyclerView,
         viewHolder: RecyclerView.ViewHolder
@@ -26,9 +25,6 @@ abstract class SwipeGesture(context: Context) : ItemTouchHelper.Callback() {
         viewHolder: RecyclerView.ViewHolder,
         target: RecyclerView.ViewHolder
     ): Boolean {
-        //TODO CAMBIAR A FALSE
         return true
     }
-
-
 }

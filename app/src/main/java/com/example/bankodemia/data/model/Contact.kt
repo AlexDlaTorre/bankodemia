@@ -22,13 +22,12 @@ class Contact {
     )
 
     data class Contact(
-        @SerialName("_id")
         val _id: String,
-        @SerialName("shortName")
         val shortName: String,
         val owner: User.User,
         val user: User.User
     )
+
     data class IdContact(
         val id: String
     )

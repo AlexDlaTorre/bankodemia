@@ -91,7 +91,6 @@ class AddContactFragment : Fragment(), Fields {
         }
     }
 
-
     private fun setEvents() {
         binding.addContactBtnBackToSend.setOnClickListener { view: View ->
             communicator.goTo(SendFragment())
@@ -107,7 +106,6 @@ class AddContactFragment : Fragment(), Fields {
             }
 
         }
-
     }
 
     override fun onDestroyView() {

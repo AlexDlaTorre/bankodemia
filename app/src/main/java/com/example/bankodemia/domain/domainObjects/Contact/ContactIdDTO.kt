@@ -8,6 +8,5 @@ data class ContactIdDTO(val response: Contact.IdContact): java.io.Serializable {
 
     init {
         id = response.id
-
     }
 }

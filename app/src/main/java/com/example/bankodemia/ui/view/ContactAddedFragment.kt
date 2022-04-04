@@ -24,8 +24,6 @@ class ContactAddedFragment : Fragment() {
         communicator = requireActivity() as FragmentCommunicator
 
         setEvents()
-
-
         return binding.root
     }
 
@@ -33,8 +31,7 @@ class ContactAddedFragment : Fragment() {
         binding.contacAddedBtnBackToHome.setOnClickListener { view: View ->
             communicator.goTo(SendFragment())
         }
-
-
+        
         fun onDestroyView() {
             super.onDestroyView()
             _binding = null
