@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_vertical"
     android:background="@drawable/gradient_bg"
     tools:context=".ui.view.transaction.SplashScreenActivity">
 
@@ -11,32 +13,23 @@
         android:id="@+id/ic_coin"
         android:layout_width="134dp"
         android:layout_height="75dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="300dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_gravity="center"
         app:srcCompat="@drawable/logo_coin_nobg" />
 
     <ImageView
         android:id="@+id/ic_hand"
         android:layout_width="193dp"
         android:layout_height="158dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ic_coin"
+        android:layout_gravity="center"
         app:srcCompat="@drawable/logo_hand_nobg" />
 
     <TextView
         android:id="@+id/splashTvBankodemia"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_gravity="center"
+        android:textAlignment="center"
         android:text="@string/bankodemia"
         android:textColor="@color/white"
-        android:textSize="40sp"
-        app:layout_constraintEnd_toEndOf="@+id/ic_hand"
-        app:layout_constraintStart_toStartOf="@+id/ic_hand"
-        app:layout_constraintTop_toBottomOf="@+id/ic_hand" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:textSize="40sp" />
+</LinearLayout>
