@@ -1,14 +1,17 @@
 package com.example.bankodemia.ui
 
-import android.R
 import android.content.Context
 import android.graphics.Canvas
-import androidx.core.content.ContextCompat
+import android.graphics.Paint
+import android.widget.LinearLayout
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
+import com.example.bankodemia.ui.adapters.ContactsAdapter
 
 
 abstract class SwipeGesture(context: Context) : ItemTouchHelper.Callback() {
+
+//TODO DESCOMENTAR
     override fun getMovementFlags(
         recyclerView: RecyclerView,
         viewHolder: RecyclerView.ViewHolder
@@ -23,7 +26,9 @@ abstract class SwipeGesture(context: Context) : ItemTouchHelper.Callback() {
         viewHolder: RecyclerView.ViewHolder,
         target: RecyclerView.ViewHolder
     ): Boolean {
-        return false
+        //TODO CAMBIAR A FALSE
+        return true
     }
+
 
 }
