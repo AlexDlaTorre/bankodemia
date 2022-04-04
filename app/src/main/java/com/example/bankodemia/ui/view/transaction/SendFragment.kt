@@ -40,6 +40,7 @@ class SendFragment() : Fragment(), AdapterItemSelected {
     private var contact: ContactDeleteDTO? = null
     private lateinit var sendViewModel: SendViewModel
     private lateinit var communicator: FragmentCommunicator
+    private lateinit var contactInfo:ContactGetDTO
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -88,12 +89,12 @@ class SendFragment() : Fragment(), AdapterItemSelected {
 
     fun setupReclycerViewContacts(contactsList: List<ContactDTO>, isSkeleton: Boolean) {
         val activity = activity ?: return
-//        val contact = contact ?: return
         val adapter = ContactsAdapter(contactsList, isSkeleton, this)
 
         val swipeGesture = object : SwipeGesture(activity) {
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 val position = viewHolder.adapterPosition
+                adapter.notifyItemRemoved(position)
                 val contactDto = contactsList[position]
                 when(direction){
                     ItemTouchHelper.LEFT ->{
@@ -104,6 +105,7 @@ class SendFragment() : Fragment(), AdapterItemSelected {
 
                         println("POSICION! ${contactDto._id}")
                         sendViewModel.deleteContact(contactDto._id)
+                        setupObservers()
                     }
                 }
 
