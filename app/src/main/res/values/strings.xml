@@ -142,7 +142,7 @@
     <string name="confirm">Aceptar</string>
     <string name="delete_contact">Eliminar contacto</string>
     <string name="delete_contact_description">¿Desea eliminar el contacto?</string>
-    <string name="delete">Contacto eliminado</string>
+    <string name="delete">Eliminar Contacto</string>
     <string name="edit">Editar contacto</string>
     <string name="acept">Aceptar</string>
 </resources>

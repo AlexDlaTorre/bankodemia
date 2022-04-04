@@ -23,7 +23,6 @@ import com.example.bankodemia.core.utils.FragmentCommunicator
 import com.example.bankodemia.core.utils.general
 import com.example.bankodemia.databinding.FragmentSendBinding
 import com.example.bankodemia.domain.domainObjects.Contact.ContactDTO
-import com.example.bankodemia.domain.domainObjects.Contact.ContactDeleteDTO
 import com.example.bankodemia.domain.domainObjects.Contact.ContactGetDTO
 import com.example.bankodemia.ui.SwipeGesture
 import com.example.bankodemia.ui.adapters.ContactsAdapter
@@ -96,16 +95,14 @@ class SendFragment : Fragment(), AdapterItemSelected {
     fun setupReclycerViewContacts(contactsList: List<ContactDTO>, isSkeleton: Boolean) {
         val activity = activity ?: return
         adapter = ContactsAdapter(contactsList, isSkeleton, this)
-
         val swipeGesture = object : SwipeGesture(activity) {
             val displayMetrics: DisplayMetrics = resources.displayMetrics
             val width = (displayMetrics.widthPixels / displayMetrics.density).toInt().dp
             val deleteIcon = resources.getDrawable(R.drawable.ic_delete, null)
             val editIcon = resources.getDrawable(R.drawable.ic_edit, null)
             val deleteColor = resources.getColor(android.R.color.holo_red_light)
-            val archiveColor = resources.getColor(android.R.color.holo_green_light)
+            val editColor = resources.getColor(android.R.color.holo_green_light)
             val sendFragmentLayout = binding.sendFragmentLayout
-
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 position = viewHolder.adapterPosition
@@ -137,7 +134,7 @@ class SendFragment : Fragment(), AdapterItemSelected {
                 when {
                     abs(dX) < width / 3 -> canvas.drawColor(Color.GRAY)
                     dX > width / 3 -> canvas.drawColor(deleteColor)
-                    else -> canvas.drawColor(archiveColor)
+                    else -> canvas.drawColor(editColor)
                 }
 
                 val textMargin = resources.getDimension(R.dimen.activity_horizontal_margin)
@@ -193,7 +190,7 @@ class SendFragment : Fragment(), AdapterItemSelected {
         builder.apply {
             setPositiveButton(R.string.acept) { _, _ ->
                 sendViewModel.deleteContact(Itemcontact._id)
-                adapter.notifyItemRemoved(position)
+                communicator.goTo(SendFragment())
             }
             setNegativeButton(R.string.cancel) { _, _ ->
                 communicator.goTo(SendFragment())

@@ -1,9 +1,7 @@
 package com.example.bankodemia.network.api
 
 import com.example.bankodemia.data.model.Contact
-import com.example.bankodemia.data.model.User
 import okhttp3.RequestBody
-import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.*
 
@@ -18,7 +16,7 @@ interface ContactAPI {
 
     @PATCH("/contacts/{id}")
     suspend fun updateContactInfo(
-        @Path("id") id:String,
+        @Path("id") id: String,
         @Body contactUpdate: RequestBody
     ): Response<Contact.PostResponse>
 }

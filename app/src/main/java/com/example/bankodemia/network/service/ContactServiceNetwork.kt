@@ -29,15 +29,13 @@ class ContactServiceNetwork {
         }
     }
 
-    suspend fun deleteContactInfo(id: String): Pair<Contact.PostResponse?,BankodemiaError?>{
-        println("GETCONTACT4 ${id}")
-        return withContext(Dispatchers.IO){
+    suspend fun deleteContactInfo(id: String): Pair<Contact.PostResponse?, BankodemiaError?> {
+        return withContext(Dispatchers.IO) {
             val response = retrofit.deleteContactInfo(id)
             Log.d("DeleteContactResponse", response.body().toString())
 
             val responseBody = response.body()
             if (responseBody != null) {
-                println("RESPONSE BODY $responseBody")
                 responseBody to null
             } else {
                 val errorResponse = createApiError(response, BankodemiaErrorResponse::class.java)
@@ -47,14 +45,16 @@ class ContactServiceNetwork {
         }
     }
 
-    suspend fun updateContactInfo(id: String,contactUpdate: RequestBody): Pair<Contact.PostResponse?,BankodemiaError?>{
-        return withContext(Dispatchers.IO){
-            val response = retrofit.updateContactInfo(id,contactUpdate)
+    suspend fun updateContactInfo(
+        id: String,
+        contactUpdate: RequestBody
+    ): Pair<Contact.PostResponse?, BankodemiaError?> {
+        return withContext(Dispatchers.IO) {
+            val response = retrofit.updateContactInfo(id, contactUpdate)
             Log.d("UpdateContactResponse", response.body().toString())
 
             val responseBody = response.body()
             if (responseBody != null) {
-                println("RESPONSE BODY $responseBody")
                 responseBody to null
             } else {
                 val errorResponse = createApiError(response, BankodemiaErrorResponse::class.java)
