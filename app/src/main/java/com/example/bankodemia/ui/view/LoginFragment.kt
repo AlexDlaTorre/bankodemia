@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -44,7 +45,6 @@ class LoginFragment : Fragment(), Fields {
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
         mViewModel = ViewModelProvider(this)[LoginViewModel::class.java]
         mCommunicator = requireActivity() as FragmentCommunicator
-
 
         setupObservers()
         initializeComponents()
