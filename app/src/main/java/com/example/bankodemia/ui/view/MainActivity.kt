@@ -3,6 +3,7 @@ package com.example.bankodemia.ui.view
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.example.bankodemia.R
@@ -12,7 +13,6 @@ import com.example.bankodemia.core.utils.TRANSACTIONDETAIL
 import com.example.bankodemia.core.instances.SharedPreferencesInstance
 import com.example.bankodemia.databinding.ActivityMainBinding
 import com.example.bankodemia.domain.domainObjects.Auth.AuthDTO
-import com.example.bankodemia.domain.domainObjects.Transaction.TransactionDTO
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_home2.*
 import kotlinx.android.synthetic.main.loader.*
@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity(), FragmentCommunicator {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        installSplashScreen()
         mBinding = ActivityMainBinding.inflate(layoutInflater)
         mSharedPreferences = SharedPreferencesInstance.getInstance(this)
         mSharedPreferences.clearToken()
