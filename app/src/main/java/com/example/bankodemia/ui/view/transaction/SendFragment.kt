@@ -97,12 +97,6 @@ class SendFragment() : Fragment(), AdapterItemSelected {
                 val contactDto = contactsList[position]
                 when(direction){
                     ItemTouchHelper.LEFT ->{
-
-//                        binding.sendIvLogo.setOnClickListener { view: View ->
-//                            findNavController().navigate(R.id.action_sendFragment_to_addContactFragment)
-//                        }
-//                        communicator.goTo(AddContactFragment())
-
                         communicator.sendData(contactDto,AddContactFragment())
 
                     }
@@ -110,7 +104,6 @@ class SendFragment() : Fragment(), AdapterItemSelected {
 
                         println("POSICION! ${contactDto._id}")
                         sendViewModel.deleteContact(contactDto._id)
-                        sendViewModel.getContact(contactsList[position])
                     }
                 }
 
