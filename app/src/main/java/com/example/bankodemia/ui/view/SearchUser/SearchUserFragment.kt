@@ -1,29 +1,26 @@
 package com.example.bankodemia.ui.view.SearchUser
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.bankodemia.R
-import com.example.bankodemia.core.empty
 import com.example.bankodemia.core.showSnackBarMessage
 import com.example.bankodemia.core.twice
 import com.example.bankodemia.core.utils.BaseUiState
 import com.example.bankodemia.core.utils.FragmentCommunicator
 import com.example.bankodemia.core.utils.general
-import com.example.bankodemia.core.zero
-import com.example.bankodemia.data.model.User
 import com.example.bankodemia.databinding.FragmentSearchUserBinding
 import com.example.bankodemia.domain.domainObjects.User.UserDTO
 import com.example.bankodemia.domain.domainObjects.User.getUsers.UserGetResponseDTO
 import com.example.bankodemia.ui.home.AdapterItemSelected
 import com.example.bankodemia.ui.view.AddContactFragment
-import com.example.bankodemia.ui.view.HomeDetailFragment
+import com.example.bankodemia.ui.view.transaction.SendFragment
 import com.example.bankodemia.ui.viewModel.SearchUserViewModel
 import com.google.android.material.snackbar.Snackbar
 
@@ -51,7 +48,7 @@ class SearchUserFragment : Fragment(), AdapterItemSelected {
     }
 
     private fun setupObservers() {
-        viewModel.uiStateEmitter.observe(viewLifecycleOwner) { updateUI(it)}
+        viewModel.uiStateEmitter.observe(viewLifecycleOwner) { updateUI(it) }
     }
 
     private fun updateUI(uiState: BaseUiState) {
@@ -90,7 +87,7 @@ class SearchUserFragment : Fragment(), AdapterItemSelected {
     }
 
     private fun setupEvents() {
-        binding.searchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener {
+        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 binding.searchView.clearFocus()
                 if (!userNotFound) {

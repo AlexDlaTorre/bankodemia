@@ -66,11 +66,11 @@ class SendFragment : Fragment(), AdapterItemSelected {
     }
 
     private fun setupEvents() {
-        binding.homeDetailBtnBackToHome.setOnClickListener {
-            communicator.goTo(HomeFragment())
+        binding.homeDetailBtnBackToHome.setOnClickListener { view ->
+            view.findNavController().navigate(R.id.action_sendFragment_to_navigation_home)
         }
-        binding.sendBtnAdd.setOnClickListener {
-            communicator.goTo(SearchUserFragment())
+        binding.sendBtnAdd.setOnClickListener { view ->
+            view.findNavController().navigate(R.id.action_sendFragment_to_searchUserFragment)
         }
         binding.sendIvLogo.setOnClickListener { view: View ->
             view.findNavController().navigate(R.id.action_sendFragment_to_transferDetailFragment)
