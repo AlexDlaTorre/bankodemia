@@ -100,7 +100,7 @@ class AddContactFragment : Fragment(), Fields {
             val shortName = addContactTietName.text?.trim().toString()
             val idUser = user?.id
 
-                if (cardId != null && editMode == true) {
+                if (cardId != null) {
                     addContactViewModel.updateContact(cardId, shortName)
                     communicator.goTo(ContactEditedFragment())
             } else {
