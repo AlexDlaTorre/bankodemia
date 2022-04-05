@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
+import com.example.bankodemia.R
 import com.example.bankodemia.core.utils.FragmentCommunicator
 import com.example.bankodemia.databinding.FragmentContactAddedBinding
 import com.example.bankodemia.ui.view.transaction.SendFragment
@@ -29,7 +31,7 @@ class ContactAddedFragment : Fragment() {
 
     fun setEvents() {
         binding.contacAddedBtnBackToHome.setOnClickListener { view: View ->
-            communicator.goTo(SendFragment())
+            view.findNavController().navigate(R.id.action_contactAddedFragment_to_sendFragment)
         }
 
         fun onDestroyView() {

@@ -21,6 +21,7 @@ import com.example.bankodemia.core.eight
 import com.example.bankodemia.core.showSnackBarMessage
 import com.example.bankodemia.core.three
 import com.example.bankodemia.core.utils.BaseUiState
+import com.example.bankodemia.core.utils.CONTACTDATA
 import com.example.bankodemia.core.utils.FragmentCommunicator
 import com.example.bankodemia.core.utils.general
 import com.example.bankodemia.core.zero
@@ -30,13 +31,11 @@ import com.example.bankodemia.domain.domainObjects.Contact.ContactGetDTO
 import com.example.bankodemia.ui.SwipeGesture
 import com.example.bankodemia.ui.adapters.ContactsAdapter
 import com.example.bankodemia.ui.home.AdapterItemSelected
-import com.example.bankodemia.ui.home.HomeFragment
 import com.example.bankodemia.ui.view.AddContactFragment
-import com.example.bankodemia.ui.view.SearchUser.SearchUserFragment
-import com.example.bankodemia.ui.view.TransferDetailFragment
 import com.example.bankodemia.ui.viewModel.SendViewModel
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_send.*
+import java.io.Serializable
 import kotlin.math.abs
 import kotlin.math.roundToInt
 
@@ -46,7 +45,7 @@ class SendFragment : Fragment(), AdapterItemSelected {
     private val binding get() = _binding!!
     private lateinit var sendViewModel: SendViewModel
     private lateinit var communicator: FragmentCommunicator
-    private lateinit var Itemcontact: ContactDTO
+    private lateinit var itemContact: ContactDTO
     private lateinit var adapter: ContactsAdapter
     private var position: Int = 0
 
@@ -71,9 +70,6 @@ class SendFragment : Fragment(), AdapterItemSelected {
         }
         binding.sendBtnAdd.setOnClickListener { view ->
             view.findNavController().navigate(R.id.action_sendFragment_to_searchUserFragment)
-        }
-        binding.sendIvLogo.setOnClickListener { view: View ->
-            view.findNavController().navigate(R.id.action_sendFragment_to_transferDetailFragment)
         }
     }
 
@@ -109,10 +105,13 @@ class SendFragment : Fragment(), AdapterItemSelected {
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 position = viewHolder.adapterPosition
-                Itemcontact = contactsList[position]
+                itemContact = contactsList[position]
                 when (direction) {
                     ItemTouchHelper.LEFT -> {
-                        communicator.sendData(Itemcontact, AddContactFragment())
+                        val bundle = Bundle().apply {
+                            putSerializable(CONTACTDATA, itemContact)
+                        }
+                        view?.findNavController()?.navigate(R.id.action_sendFragment_to_addContactFragment, bundle)
                     }
                     ItemTouchHelper.RIGHT -> {
                         showAlert()
@@ -189,15 +188,13 @@ class SendFragment : Fragment(), AdapterItemSelected {
     private fun showAlert() {
         val builder: AlertDialog.Builder = AlertDialog.Builder(requireContext())
         builder.setTitle(R.string.delete_contact)
-        builder.setMessage("${R.string.delete_contact_description} ${Itemcontact.shortName}")
+        builder.setMessage("${R.string.delete_contact_description} ${itemContact.shortName}")
         builder.apply {
             setPositiveButton(R.string.acept) { _, _ ->
-                sendViewModel.deleteContact(Itemcontact._id)
-                communicator.goTo(SendFragment())
+                sendViewModel.deleteContact(itemContact._id)
+                view?.findNavController()?.navigate(R.id.action_sendFragment_self)
             }
-            setNegativeButton(R.string.cancel) { _, _ ->
-                communicator.goTo(SendFragment())
-            }
+            setNegativeButton(R.string.cancel) { _, _ -> }
         }
         builder.create().show()
     }
@@ -208,6 +205,9 @@ class SendFragment : Fragment(), AdapterItemSelected {
     }
 
     override fun <T> itemSelected(item: T) {
-        communicator.sendData(item, TransferDetailFragment())
+        val bundle = Bundle().apply {
+            putSerializable(CONTACTDATA, item as Serializable)
+        }
+        view?.findNavController()?.navigate(R.id.action_sendFragment_to_transferDetailFragment, bundle)
     }
 }

@@ -1,6 +1,6 @@
 package com.example.bankodemia.core.types
 
-enum class MovementType(val type: String) {
+enum class MovementType(val type: String): java.io.Serializable {
     PAYMEMT("PAYMENT"),
     DEPOSIT("DEPOSIT");
 

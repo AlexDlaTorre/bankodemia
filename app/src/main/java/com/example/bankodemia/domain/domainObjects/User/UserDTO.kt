@@ -6,7 +6,7 @@ import com.example.bankodemia.core.whiteSpace
 import com.example.bankodemia.data.model.User
 import kotlinx.serialization.Serializable
 
-data class UserDTO(val user: User.User): java.io.Serializable {
+data class UserDTO(val user: User.User?): java.io.Serializable {
     val id: String
     val email: String
     val name: String
@@ -16,10 +16,10 @@ data class UserDTO(val user: User.User): java.io.Serializable {
     get() = name + String.whiteSpace + lastName
 
     init {
-        id = user.id
-        email = user.email
-        name = user.name
-        lastName = user.lastName
+        id = user?.id ?: String.empty
+        email = user?.email ?: String.empty
+        name = user?.name ?: String.empty
+        lastName = user?.lastName ?: String.empty
     }
 }
 

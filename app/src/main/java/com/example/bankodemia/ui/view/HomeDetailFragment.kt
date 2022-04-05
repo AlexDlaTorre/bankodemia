@@ -7,10 +7,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
+import androidx.navigation.findNavController
+import com.example.bankodemia.R
 import com.example.bankodemia.core.utils.FragmentCommunicator
 import com.example.bankodemia.core.utils.TRANSACTIONDETAIL
 import com.example.bankodemia.databinding.FragmentHomeDetailBinding
 import com.example.bankodemia.domain.domainObjects.Transaction.TransactionDTO
+import com.example.bankodemia.domain.domainObjects.User.UserDTO
 import com.example.bankodemia.ui.home.HomeFragment
 
 class HomeDetailFragment : Fragment() {
@@ -27,7 +30,7 @@ class HomeDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentHomeDetailBinding.inflate(inflater, container, false)
-        transactionDetail = arguments?.getSerializable(TRANSACTIONDETAIL) as TransactionDTO
+        transactionDetail = arguments?.getSerializable(TRANSACTIONDETAIL) as? TransactionDTO
         communicator = requireActivity() as FragmentCommunicator
         setupEvents()
         setupView()
@@ -47,8 +50,8 @@ class HomeDetailFragment : Fragment() {
     }
 
     private fun setupEvents() {
-        binding.homeDetailBtnBackToHome.setOnClickListener {
-            communicator.goTo(HomeFragment())
+        binding.homeDetailBtnBackToHome.setOnClickListener { view ->
+            view.findNavController().navigate(R.id.action_homeDetailFragment_to_navigation_home)
         }
     }
 

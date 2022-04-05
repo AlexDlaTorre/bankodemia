@@ -53,35 +53,6 @@ class HomeActivity : AppCompatActivity(), FragmentCommunicator {
         navView.setupWithNavController(navController)
     }
 
-    override fun <T> sendData(data: T, destination: Fragment) {
-        val bundle = Bundle()
-        when (data) {
-            is TransactionDTO -> {
-                bundle.putSerializable(TRANSACTIONDETAIL, data as TransactionDTO)
-            }
-            is ContactDTO -> {
-                bundle.putSerializable(CONTACTDATA, data as ContactDTO)
-            }
-            is UserDTO -> {
-                bundle.putSerializable(USERDATA, data as UserDTO)
-            }
-        }
-        val transaction = supportFragmentManager.beginTransaction()
-        destination.arguments = bundle
-
-        transaction.replace(R.id.nav_host_fragment_activity_home2, destination)
-        transaction.addToBackStack(null)
-        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-        transaction.commit()
-    }
-
-    override fun goTo(destination: Fragment) {
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.nav_host_fragment_activity_home2, destination)
-        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE)
-        transaction.commit()
-    }
-
     override fun showLoader(isVisible: Boolean) {
         if (isVisible) {
             binding.apply {
