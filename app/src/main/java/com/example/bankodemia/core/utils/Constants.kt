@@ -24,6 +24,7 @@ val destinationUserKey  = "destinationUser"
 val idBodyKey  = "id"
 val nameBodyKey  = "name"
 val shortNameBodyKey = "shortName"
+val idUserBodyKey = "user"
 
 // json format
 val jsonFormat = "application/json; charset=utf-8"

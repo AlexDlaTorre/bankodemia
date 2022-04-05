@@ -29,4 +29,10 @@ class ContactRepository {
         val idContact = response.let { it.first?.let { contact -> ContactPostDTO(contact) } }
         return idContact to response.second
     }
+
+    suspend fun createContactInfo(createContact: RequestBody): Pair<ContactPostDTO?, BankodemiaError?> {
+        val response = api.createContactInfo(createContact)
+        val idContact = response.let { it.first?.let { contact -> ContactPostDTO(contact) } }
+        return idContact to response.second
+    }
 }

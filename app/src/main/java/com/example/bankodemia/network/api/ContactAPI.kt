@@ -19,4 +19,9 @@ interface ContactAPI {
         @Path("id") id: String,
         @Body contactUpdate: RequestBody
     ): Response<Contact.PostResponse>
+
+    @POST("/contacts")
+    suspend fun createContactInfo(
+        @Body createContact: RequestBody
+    ): Response<Contact.PostResponse>
 }
