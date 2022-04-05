@@ -14,11 +14,11 @@
             android:id="@+id/action_navigation_home_to_sendFragment"
             app:destination="@id/sendFragment" />
         <action
-            android:id="@+id/action_navigation_home_to_homeDetailFragment"
-            app:destination="@id/homeDetailFragment" />
-        <action
             android:id="@+id/homeFragment_to_depositFragment"
             app:destination="@id/depositFragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_homeDetailFragment"
+            app:destination="@id/homeDetailFragment"/>
     </fragment>
     <fragment
         android:id="@+id/cardsFragment"
@@ -92,7 +92,11 @@
         android:id="@+id/homeDetailFragment"
         android:name="com.example.bankodemia.ui.view.HomeDetailFragment"
         android:label="fragment_home_detail"
-        tools:layout="@layout/fragment_home_detail" />
+        tools:layout="@layout/fragment_home_detail" >
+        <argument
+            android:name="TransactionDetail"
+            app:argType="com.example.bankodemia.domain.domainObjects.Transaction.TransactionDTO" />
+    </fragment>
     <fragment
         android:id="@+id/depositFragment"
         android:name="com.example.bankodemia.ui.view.deposit.DepositFragment"

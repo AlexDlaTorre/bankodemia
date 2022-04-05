@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,6 +14,7 @@ import androidx.navigation.findNavController
 import com.example.bankodemia.R
 import com.example.bankodemia.core.showSnackBarMessage
 import com.example.bankodemia.core.utils.FragmentCommunicator
+import com.example.bankodemia.core.utils.TRANSACTIONDETAIL
 import com.example.bankodemia.core.utils.general
 import com.example.bankodemia.databinding.FragmentHomeBinding
 import com.example.bankodemia.domain.domainObjects.User.geUserProfile.UserProfileDTO
@@ -95,6 +97,8 @@ class HomeFragment : Fragment(), AdapterItemSelected {
     }
 
     override fun <T> itemSelected(item: T) {
-        communicator.sendData(item, HomeDetailFragment())
+        val view = view?.let { it } ?: return
+        val bundle = bundleOf("TransactionDetail" to item as TransactionDTO)
+        view.findNavController().navigate(R.id.action_navigation_home_to_homeDetailFragment, bundle)
     }
 }
