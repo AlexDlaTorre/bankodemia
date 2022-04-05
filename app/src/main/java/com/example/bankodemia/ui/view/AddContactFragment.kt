@@ -30,7 +30,6 @@ class AddContactFragment : Fragment(), Fields {
     private lateinit var addContactViewModel: AddContactViewModel
     private val binding get() = _binding!!
     private val bankArray = arrayOf("Bankodemia", "Banorte", "Santander", "CityBanamex")
-    var editMode: Boolean = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,69 +39,46 @@ class AddContactFragment : Fragment(), Fields {
             ViewModelProvider(this).get(AddContactViewModel::class.java)
         communicator = requireActivity() as FragmentCommunicator
         _binding = FragmentAddContactBinding.inflate(inflater, container, false)
-        contact = arguments?.getSerializable(CONTACTDATA) as? ContactDTO
-        user = arguments?.getSerializable(USERDATA) as? UserDTO
+        contact = arguments?.getSerializable(CONTACTDATA) as ContactDTO
 
         validationFields()
         setEvents()
-        setupObservers()
-//        setupView(contact)
+        setUpViewMode()
         return binding.root
     }
 
-    fun setMode(){
-        if (contact != null){
-            setEvents(contact)
+    private fun setUpViewMode(){
+        if(contact != null) {
+            setupViewEditMode(contact)
         }else{
-            setEvents(user)
-        }
-
-    }    }
-
-    private fun setupObservers() {
-        addContactViewModel.uiStateEmitter.observe(viewLifecycleOwner) { updateUI(it) }
-    }
-
-
-
-    private fun updateUI(uiState: BaseUiState) {
-        when (uiState) {
-            is BaseUiState.SuccessResult<*> -> {
-                if (uiState.result is ContactGetDTO) {
-                    val contactInfo = uiState.result as ContactGetDTO
-                    setupView(contact)
-            }
-            is BaseUiState.Error -> {
-                showSnackBarMessage(uiState.message ?: general, Snackbar.LENGTH_LONG)
-            }
+            setupViewAddMode(user)
         }
     }
 
 
-    private fun setupView(contact: ContactDTO?) {
+    private fun setupViewEditMode(contact: ContactDTO?) {
         val bank = RandomString(bankArray).rollBank()
         if (contact != null) {
-            editMode = true
             binding.apply {
-                addContactTietCardNumber.hint = contact.owner.id
+                addContactTietCardNumber.hint = contact.user.id
                 addContactTietInstitution.hint = bank
-                addContactTietEmail.hint = contact.owner.email
-                addContactBtnBackToSend.text = "Editar Contacto"
-                addContactBtnAddContact.text = "Editar Contacto"
-            }
-        } else if (user != null) {
-            val user = user?.let { it } ?: return
-            binding.apply {
-                addContactTietCardNumber.hint = user.id
-                addContactTietInstitution.hint = bank
-                addContactTietEmail.hint = user.email
-                addContactTietName.hint = ""
-                addContactTietName.hint = user.fullName
-                addContactBtnBackToSend.text = "Añadir Contacto"
-                addContactBtnAddContact.text = "Añadir Contacto"
+                addContactTietEmail.hint = contact.user.email
             }
         }
     }
+
+    private fun setupViewAddMode(user: UserDTO?) {
+        val bank = RandomString(bankArray).rollBank()
+        if (user != null) {
+            binding.apply {
+                addContactTietCardNumber.hint = user?.id
+                addContactTietInstitution.hint = bank
+                addContactTietName.hint = user?.fullName
+                addContactTietEmail.hint = user?.email
+            }
+        }
+    }
+
 
     override fun validationFields() {
         var checkFullName = false
@@ -125,28 +101,27 @@ class AddContactFragment : Fragment(), Fields {
     private fun setEvents() {
         binding.addContactBtnBackToSend.setOnClickListener { view: View ->
             communicator.goTo(SendFragment())
-
-    private fun setFlow(){
+        }
 
         binding.addContactBtnAddContact.setOnClickListener { view: View ->
             val cardId = contact?._id
             val shortName = addContactTietName.text?.trim().toString()
-            val idUser = user?.id
-
-                if (cardId != null) {
-                    addContactViewModel.updateContact(cardId, shortName)
-                    communicator.goTo(ContactEditedFragment())
-            } else {
-                    if (idUser != null) {
-//                        addContactViewModel.createContact(shortName,idUser)
-                        communicator.goTo(ContactAddedFragment())
-                    }
-
+            val fullName = user?.fullName.toString()
+            val idUser = user?.id.toString()
+            if (cardId.isNullOrEmpty()) {
+            } else{
+                addContactViewModel.updateContact(cardId, shortName)
+                communicator.goTo(ContactAddedFragment())
+            }
+            if(user != null){
+                addContactViewModel.createContact(fullName, idUser)
+                communicator.goTo(ContactAddedFragment())
+            }
         }
     }
 
-    fun onDestroyView() {
+    override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
-}}
+}
