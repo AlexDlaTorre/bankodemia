@@ -4,8 +4,9 @@ import com.example.bankodemia.core.empty
 import com.example.bankodemia.core.types.IdentityType
 import com.example.bankodemia.core.whiteSpace
 import com.example.bankodemia.data.model.User
+import kotlinx.serialization.Serializable
 
-data class UserDTO(val user: User.User) {
+data class UserDTO(val user: User.User): java.io.Serializable {
     val id: String
     val email: String
     val name: String

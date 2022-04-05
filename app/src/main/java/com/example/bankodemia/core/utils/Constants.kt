@@ -15,6 +15,7 @@ import javax.net.ssl.HttpsURLConnection
 val TRANSACTIONDETAIL: String = "TransactionDetail"
 val APP_ID: String = "com.example.bankodemia"
 val CONTACTDATA: String = "ContactData"
+val USERDATA: String = "UserData"
 
 // Body keys for post request
 val amountBodyKey       = "amount"
