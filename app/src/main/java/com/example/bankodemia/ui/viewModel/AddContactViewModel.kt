@@ -39,10 +39,10 @@ class AddContactViewModel : BaseViewModel() {
         return RequestBody.create(MediaType.parse(jsonFormat), contactUpdate.toString())
     }
 
-    fun createContact(shortName: String,id: String) {
+    fun createContact(shortName: String,idUser: String) {
         viewModelScope.launch {
             uiStateEmitter.value = BaseUiState.loading
-            val createContact = makeCreateParameters(shortName,id)
+            val createContact = makeCreateParameters(shortName,idUser)
             val result = createContactUseCase.invoke(createContact)
             if (result.second != null) {
                 val error = result.let { it.second?.let { it } } ?: return@launch
@@ -56,11 +56,11 @@ class AddContactViewModel : BaseViewModel() {
 
     private fun makeCreateParameters(
         shortName: String,
-    id:String
+        idUser:String
     ): RequestBody {
         val contactCreate = JSONObject()
         contactCreate.put(shortNameBodyKey, shortName)
-        contactCreate.put(idUserBodyKey, id)
+        contactCreate.put(idUserBodyKey, idUser)
         return RequestBody.create(MediaType.parse(jsonFormat), contactCreate.toString())
     }
 }

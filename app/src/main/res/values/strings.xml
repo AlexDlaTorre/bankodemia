@@ -161,4 +161,6 @@
     <string name="item_id_example">28ffhnf274bb7454</string>
     <string name="bankodemia">BANKODEMIA</string>
     <string name="edit_contact">Editar contacto</string>
+    <string name="successful_edited_contact">Tu contacto se editó con exito</string>
+    <string name="go_back_send">Volver a contactos</string>
 </resources>

@@ -9,17 +9,17 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.bankodemia.R
 import com.example.bankodemia.core.activateButton
-import com.example.bankodemia.core.showSnackBarMessage
 import com.example.bankodemia.core.types.FieldTypeEnum
-import com.example.bankodemia.core.utils.*
+import com.example.bankodemia.core.utils.CONTACTDATA
+import com.example.bankodemia.core.utils.FragmentCommunicator
+import com.example.bankodemia.core.utils.RandomString
+import com.example.bankodemia.core.utils.USERDATA
 import com.example.bankodemia.core.validateField
 import com.example.bankodemia.databinding.FragmentAddContactBinding
 import com.example.bankodemia.domain.domainObjects.Contact.ContactDTO
-import com.example.bankodemia.domain.domainObjects.Contact.ContactPostDTO
 import com.example.bankodemia.domain.domainObjects.User.UserDTO
 import com.example.bankodemia.ui.view.transaction.SendFragment
 import com.example.bankodemia.ui.viewModel.AddContactViewModel
-import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_add_contact.*
 
 class AddContactFragment : Fragment(), Fields {
@@ -30,6 +30,7 @@ class AddContactFragment : Fragment(), Fields {
     private lateinit var addContactViewModel: AddContactViewModel
     private val binding get() = _binding!!
     private val bankArray = arrayOf("Bankodemia", "Banorte", "Santander", "CityBanamex")
+    var editMode: Boolean = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -51,21 +52,22 @@ class AddContactFragment : Fragment(), Fields {
     private fun setupView(contact: ContactDTO?) {
         val bank = RandomString(bankArray).rollBank()
         if (contact != null) {
+            editMode = true
             binding.apply {
                 addContactTietCardNumber.hint = contact.owner.id
                 addContactTietInstitution.hint = bank
                 addContactTietEmail.hint = contact.owner.email
-                addContactBtnBackToSend.text = R.string.edit_contact.toString()
-                addContactBtnAddContact.text = R.string.edit_contact.toString()
+                addContactBtnBackToSend.text = "Editar Contacto"
+                addContactBtnAddContact.text = "Editar Contacto"
             }
-        } else if(user != null) {
+        } else if (user != null) {
             val user = user?.let { it } ?: return
             binding.apply {
                 addContactTietCardNumber.hint = user.id
                 addContactTietInstitution.hint = bank
                 addContactTietEmail.hint = user.email
-                addContactBtnBackToSend.text = R.string.add_contact.toString()
-                addContactBtnAddContact.text = R.string.add_contact.toString()
+                addContactBtnBackToSend.text = "Añadir Contacto"
+                addContactBtnAddContact.text = "Añadir Contacto"
             }
         }
     }
@@ -96,16 +98,22 @@ class AddContactFragment : Fragment(), Fields {
         binding.addContactBtnAddContact.setOnClickListener { view: View ->
             val cardId = contact?._id
             val shortName = addContactTietName.text?.trim().toString()
-            if (cardId.isNullOrEmpty()) {
+            val idUser = user?.id
+
+                if (cardId != null && editMode == true) {
+                    addContactViewModel.updateContact(cardId, shortName)
+                    communicator.goTo(ContactEditedFragment())
             } else {
-                addContactViewModel.updateContact(cardId, shortName)
-                communicator.goTo(ContactAddedFragment())
-            }
+                    if (idUser != null) {
+//                        addContactViewModel.createContact(shortName,idUser)
+                        communicator.goTo(ContactAddedFragment())
+                    }
+                    communicator.goTo(AddContactFragment())
         }
     }
 
-    override fun onDestroyView() {
+    fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
-}
+}}
