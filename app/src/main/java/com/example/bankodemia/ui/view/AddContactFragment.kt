@@ -9,17 +9,17 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.bankodemia.R
 import com.example.bankodemia.core.activateButton
+import com.example.bankodemia.core.showSnackBarMessage
 import com.example.bankodemia.core.types.FieldTypeEnum
-import com.example.bankodemia.core.utils.CONTACTDATA
-import com.example.bankodemia.core.utils.FragmentCommunicator
-import com.example.bankodemia.core.utils.RandomString
-import com.example.bankodemia.core.utils.USERDATA
+import com.example.bankodemia.core.utils.*
 import com.example.bankodemia.core.validateField
 import com.example.bankodemia.databinding.FragmentAddContactBinding
 import com.example.bankodemia.domain.domainObjects.Contact.ContactDTO
+import com.example.bankodemia.domain.domainObjects.Contact.ContactGetDTO
 import com.example.bankodemia.domain.domainObjects.User.UserDTO
 import com.example.bankodemia.ui.view.transaction.SendFragment
 import com.example.bankodemia.ui.viewModel.AddContactViewModel
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_add_contact.*
 
 class AddContactFragment : Fragment(), Fields {
@@ -45,9 +45,28 @@ class AddContactFragment : Fragment(), Fields {
 
         validationFields()
         setEvents()
-        setupView(contact)
+        setupObservers()
+//        setupView(contact)
         return binding.root
     }
+
+    private fun setupObservers() {
+        addContactViewModel.uiStateEmitter.observe(viewLifecycleOwner) { updateUI(it) }
+    }
+
+    private fun updateUI(uiState: BaseUiState,DTO: Class<T>) {
+        when (uiState) {
+            is BaseUiState.SuccessResult<*> -> {
+                if (uiState.result is ContactGetDTO) {
+                    val contactInfo = uiState.result as ContactGetDTO
+                    setupView(contact)
+            }
+            is BaseUiState.Error -> {
+                showSnackBarMessage(uiState.message ?: general, Snackbar.LENGTH_LONG)
+            }
+        }
+    }
+
 
     private fun setupView(contact: ContactDTO?) {
         val bank = RandomString(bankArray).rollBank()
@@ -66,6 +85,8 @@ class AddContactFragment : Fragment(), Fields {
                 addContactTietCardNumber.hint = user.id
                 addContactTietInstitution.hint = bank
                 addContactTietEmail.hint = user.email
+                addContactTietName.hint = ""
+                addContactTietName.hint = user.fullName
                 addContactBtnBackToSend.text = "Añadir Contacto"
                 addContactBtnAddContact.text = "Añadir Contacto"
             }
@@ -94,6 +115,9 @@ class AddContactFragment : Fragment(), Fields {
         binding.addContactBtnBackToSend.setOnClickListener { view: View ->
             communicator.goTo(SendFragment())
         }
+    }
+
+    private fun setFlow(){
 
         binding.addContactBtnAddContact.setOnClickListener { view: View ->
             val cardId = contact?._id
@@ -108,7 +132,7 @@ class AddContactFragment : Fragment(), Fields {
 //                        addContactViewModel.createContact(shortName,idUser)
                         communicator.goTo(ContactAddedFragment())
                     }
-                    communicator.goTo(AddContactFragment())
+
         }
     }
 

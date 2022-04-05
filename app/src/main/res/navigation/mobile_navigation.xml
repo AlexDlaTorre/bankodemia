@@ -57,6 +57,9 @@
         <action
             android:id="@+id/action_addContactFragment_to_contactAddedFragment"
             app:destination="@id/contactAddedFragment" />
+        <action
+            android:id="@+id/action_addContactFragment_to_contactEditedFragment"
+            app:destination="@id/contactEditedFragment" />
     </fragment>
     <fragment
         android:id="@+id/contactAddedFragment"
@@ -64,8 +67,8 @@
         android:label="fragment_contact_added"
         tools:layout="@layout/fragment_contact_added" >
         <action
-            android:id="@+id/action_contactAddedFragment_to_navigation_home"
-            app:destination="@id/navigation_home" />
+            android:id="@+id/action_contactAddedFragment_to_sendFragment"
+            app:destination="@id/sendFragment" />
     </fragment>
     <fragment
         android:id="@+id/transferDetailFragment"
@@ -109,6 +112,15 @@
         tools:layout="@layout/fragment_search_user" >
         <action
             android:id="@+id/action_searchUserFragment_to_sendFragment"
+            app:destination="@id/sendFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/contactEditedFragment"
+        android:name="com.example.bankodemia.ui.view.ContactEditedFragment"
+        android:label="fragment_contact_edited"
+        tools:layout="@layout/fragment_contact_edited" >
+        <action
+            android:id="@+id/action_contactEditedFragment_to_sendFragment"
             app:destination="@id/sendFragment" />
     </fragment>
 </navigation>
