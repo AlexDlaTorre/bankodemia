@@ -7,19 +7,17 @@ import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.bankodemia.R
 import com.example.bankodemia.core.activateButton
-import com.example.bankodemia.core.showSnackBarMessage
 import com.example.bankodemia.core.types.FieldTypeEnum
-import com.example.bankodemia.core.utils.*
+import com.example.bankodemia.core.utils.CONTACTDATA
+import com.example.bankodemia.core.utils.FragmentCommunicator
+import com.example.bankodemia.core.utils.RandomString
 import com.example.bankodemia.core.validateField
 import com.example.bankodemia.databinding.FragmentAddContactBinding
 import com.example.bankodemia.domain.domainObjects.Contact.ContactDTO
-import com.example.bankodemia.domain.domainObjects.Contact.ContactGetDTO
 import com.example.bankodemia.domain.domainObjects.User.UserDTO
 import com.example.bankodemia.ui.view.transaction.SendFragment
 import com.example.bankodemia.ui.viewModel.AddContactViewModel
-import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_add_contact.*
 
 class AddContactFragment : Fragment(), Fields {
@@ -42,43 +40,31 @@ class AddContactFragment : Fragment(), Fields {
         contact = arguments?.getSerializable(CONTACTDATA) as ContactDTO
 
         validationFields()
+        setupViewEditMode()
         setEvents()
-        setUpViewMode()
         return binding.root
     }
 
-    private fun setUpViewMode(){
-        if(contact != null) {
-            setupViewEditMode(contact)
-        }else{
-            setupViewAddMode(user)
-        }
-    }
 
-
-    private fun setupViewEditMode(contact: ContactDTO?) {
+    private fun setupViewEditMode() {
         val bank = RandomString(bankArray).rollBank()
         if (contact != null) {
+            val contact = contact?.let { it } ?: return
             binding.apply {
                 addContactTietCardNumber.hint = contact.user.id
                 addContactTietInstitution.hint = bank
                 addContactTietEmail.hint = contact.user.email
             }
-        }
-    }
-
-    private fun setupViewAddMode(user: UserDTO?) {
-        val bank = RandomString(bankArray).rollBank()
-        if (user != null) {
+        } else if (user != null) {
+            val user = user?.let { it } ?: return
             binding.apply {
-                addContactTietCardNumber.hint = user?.id
+                addContactTietCardNumber.hint = user.id
                 addContactTietInstitution.hint = bank
-                addContactTietName.hint = user?.fullName
-                addContactTietEmail.hint = user?.email
+                addContactTietName.hint = user.fullName
+                addContactTietEmail.hint = user.email
             }
         }
     }
-
 
     override fun validationFields() {
         var checkFullName = false
@@ -109,11 +95,11 @@ class AddContactFragment : Fragment(), Fields {
             val fullName = user?.fullName.toString()
             val idUser = user?.id.toString()
             if (cardId.isNullOrEmpty()) {
-            } else{
+            } else {
                 addContactViewModel.updateContact(cardId, shortName)
-                communicator.goTo(ContactAddedFragment())
+                communicator.goTo(ContactEditedFragment())
             }
-            if(user != null){
+            if (user != null) {
                 addContactViewModel.createContact(fullName, idUser)
                 communicator.goTo(ContactAddedFragment())
             }
