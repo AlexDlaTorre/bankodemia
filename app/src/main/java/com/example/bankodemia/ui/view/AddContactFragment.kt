@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.example.bankodemia.R
 import com.example.bankodemia.core.activateButton
 import com.example.bankodemia.core.showSnackBarMessage
 import com.example.bankodemia.core.types.FieldTypeEnum
@@ -51,9 +52,11 @@ class AddContactFragment : Fragment(), Fields {
         val bank = RandomString(bankArray).rollBank()
         if (contact != null) {
             binding.apply {
-                addContactTietCardNumber.hint = contact.user.id
+                addContactTietCardNumber.hint = contact.owner.id
                 addContactTietInstitution.hint = bank
-                addContactTietEmail.hint = contact.user.email
+                addContactTietEmail.hint = contact.owner.email
+                addContactBtnBackToSend.text = R.string.edit_contact.toString()
+                addContactBtnAddContact.text = R.string.edit_contact.toString()
             }
         } else if(user != null) {
             val user = user?.let { it } ?: return
@@ -61,6 +64,8 @@ class AddContactFragment : Fragment(), Fields {
                 addContactTietCardNumber.hint = user.id
                 addContactTietInstitution.hint = bank
                 addContactTietEmail.hint = user.email
+                addContactBtnBackToSend.text = R.string.add_contact.toString()
+                addContactBtnAddContact.text = R.string.add_contact.toString()
             }
         }
     }
