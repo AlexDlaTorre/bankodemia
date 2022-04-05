@@ -50,11 +50,22 @@ class AddContactFragment : Fragment(), Fields {
         return binding.root
     }
 
+    fun setMode(){
+        if (contact != null){
+            setEvents(contact)
+        }else{
+            setEvents(user)
+        }
+
+    }    }
+
     private fun setupObservers() {
         addContactViewModel.uiStateEmitter.observe(viewLifecycleOwner) { updateUI(it) }
     }
 
-    private fun updateUI(uiState: BaseUiState,DTO: Class<T>) {
+
+
+    private fun updateUI(uiState: BaseUiState) {
         when (uiState) {
             is BaseUiState.SuccessResult<*> -> {
                 if (uiState.result is ContactGetDTO) {
@@ -114,8 +125,6 @@ class AddContactFragment : Fragment(), Fields {
     private fun setEvents() {
         binding.addContactBtnBackToSend.setOnClickListener { view: View ->
             communicator.goTo(SendFragment())
-        }
-    }
 
     private fun setFlow(){
 
