@@ -45,7 +45,7 @@ class HomeFragment : Fragment(), AdapterItemSelected {
 
     fun setupEvents() {
         binding.homeBtnSend.setOnClickListener { view : View ->
-            communicator.goTo(SendFragment())
+            view.findNavController().navigate(R.id.action_navigation_home_to_sendFragment)
         }
         binding.homeBtnReceive.setOnClickListener { view: View ->
             view.findNavController().navigate(R.id.homeFragment_to_depositFragment)

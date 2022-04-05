@@ -15,6 +15,7 @@ import com.example.bankodemia.core.validateField
 import com.example.bankodemia.databinding.FragmentAddContactBinding
 import com.example.bankodemia.domain.domainObjects.Contact.ContactDTO
 import com.example.bankodemia.domain.domainObjects.Contact.ContactPostDTO
+import com.example.bankodemia.domain.domainObjects.User.UserDTO
 import com.example.bankodemia.ui.view.transaction.SendFragment
 import com.example.bankodemia.ui.viewModel.AddContactViewModel
 import com.google.android.material.snackbar.Snackbar
@@ -23,6 +24,7 @@ import kotlinx.android.synthetic.main.fragment_add_contact.*
 class AddContactFragment : Fragment(), Fields {
     private var _binding: FragmentAddContactBinding? = null
     private var contact: ContactDTO? = null
+    private var user: UserDTO? = null
     private lateinit var communicator: FragmentCommunicator
     private lateinit var addContactViewModel: AddContactViewModel
     private val binding get() = _binding!!
@@ -36,7 +38,8 @@ class AddContactFragment : Fragment(), Fields {
             ViewModelProvider(this).get(AddContactViewModel::class.java)
         communicator = requireActivity() as FragmentCommunicator
         _binding = FragmentAddContactBinding.inflate(inflater, container, false)
-        contact = arguments?.getSerializable(CONTACTDATA) as ContactDTO
+        contact = arguments?.getSerializable(CONTACTDATA) as? ContactDTO
+        user = arguments?.getSerializable(USERDATA) as? UserDTO
 
         validationFields()
         setEvents()
@@ -51,6 +54,13 @@ class AddContactFragment : Fragment(), Fields {
                 addContactTietCardNumber.hint = contact.user.id
                 addContactTietInstitution.hint = bank
                 addContactTietEmail.hint = contact.user.email
+            }
+        } else if(user != null) {
+            val user = user?.let { it } ?: return
+            binding.apply {
+                addContactTietCardNumber.hint = user.id
+                addContactTietInstitution.hint = bank
+                addContactTietEmail.hint = user.email
             }
         }
     }

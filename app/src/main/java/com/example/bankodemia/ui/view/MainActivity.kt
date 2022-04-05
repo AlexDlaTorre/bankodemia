@@ -11,8 +11,10 @@ import com.example.bankodemia.core.showSnackBarMessagee
 import com.example.bankodemia.core.utils.FragmentCommunicator
 import com.example.bankodemia.core.utils.TRANSACTIONDETAIL
 import com.example.bankodemia.core.instances.SharedPreferencesInstance
+import com.example.bankodemia.core.utils.CONTACTDATA
 import com.example.bankodemia.databinding.ActivityMainBinding
 import com.example.bankodemia.domain.domainObjects.Auth.AuthDTO
+import com.example.bankodemia.domain.domainObjects.Contact.ContactDTO
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_home2.*
 import kotlinx.android.synthetic.main.loader.*

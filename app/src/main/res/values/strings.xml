@@ -131,7 +131,7 @@
     <string name="lada_internacional">Lada Internacional</string>
     <string name="Country">País</string>
     <string name="lada_default">+52</string>
-    <string name="successDeposit">Tu deposito de %s se realizo satisfactoriamente a tu cuenta</string>
+    <string name="successDeposit">Tu deposito de $%s se realizo satisfactoriamente a tu cuenta</string>
     <string name="token">token</string>
     <string name="add_user">Añadir usuario</string>
     <string name="user_not_found">Usuario no encontrado</string>
