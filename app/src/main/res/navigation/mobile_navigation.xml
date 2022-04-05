@@ -45,6 +45,9 @@
         <action
             android:id="@+id/action_sendFragment_to_searchUserFragment"
             app:destination="@id/searchUserFragment" />
+        <action
+            android:id="@+id/action_sendFragment_self"
+            app:destination="@id/sendFragment" />
     </fragment>
     <fragment
         android:id="@+id/addContactFragment"
@@ -57,6 +60,15 @@
         <action
             android:id="@+id/action_addContactFragment_to_contactAddedFragment"
             app:destination="@id/contactAddedFragment" />
+        <argument
+            android:name="UserData"
+            app:argType="com.example.bankodemia.domain.domainObjects.User.UserDTO" />
+        <action
+            android:id="@+id/action_addContactFragment_to_searchUserFragment"
+            app:destination="@id/searchUserFragment" />
+        <argument
+            android:name="ContactData"
+            app:argType="com.example.bankodemia.domain.domainObjects.Contact.ContactDTO" />
     </fragment>
     <fragment
         android:id="@+id/contactAddedFragment"
@@ -64,8 +76,8 @@
         android:label="fragment_contact_added"
         tools:layout="@layout/fragment_contact_added" >
         <action
-            android:id="@+id/action_contactAddedFragment_to_navigation_home"
-            app:destination="@id/navigation_home" />
+            android:id="@+id/action_contactAddedFragment_to_sendFragment"
+            app:destination="@id/sendFragment" />
     </fragment>
     <fragment
         android:id="@+id/transferDetailFragment"
@@ -78,6 +90,9 @@
         <action
             android:id="@+id/action_transferDetailFragment_to_processingTransactionFragment"
             app:destination="@id/processingTransactionFragment" />
+        <argument
+            android:name="ContactData"
+            app:argType="com.example.bankodemia.domain.domainObjects.Contact.ContactDTO" />
     </fragment>
     <fragment
         android:id="@+id/processingTransactionFragment"
@@ -94,8 +109,12 @@
         android:label="fragment_home_detail"
         tools:layout="@layout/fragment_home_detail" >
         <argument
-            android:name="TransactionDetail"
-            app:argType="com.example.bankodemia.domain.domainObjects.Transaction.TransactionDTO" />
+            android:name="transactionDetail"
+            app:argType="com.example.bankodemia.domain.domainObjects.Transaction.TransactionDTO"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_homeDetailFragment_to_navigation_home"
+            app:destination="@id/navigation_home" />
     </fragment>
     <fragment
         android:id="@+id/depositFragment"
@@ -114,5 +133,8 @@
         <action
             android:id="@+id/action_searchUserFragment_to_sendFragment"
             app:destination="@id/sendFragment" />
+        <action
+            android:id="@+id/action_searchUserFragment_to_addContactFragment"
+            app:destination="@id/addContactFragment" />
     </fragment>
 </navigation>

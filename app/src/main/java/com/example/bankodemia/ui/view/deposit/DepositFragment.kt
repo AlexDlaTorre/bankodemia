@@ -86,7 +86,7 @@ class DepositFragment : Fragment() {
                 startGame()
             }
             setNegativeButton(R.string.cancel) { _, _ ->
-                communicator.goTo(HomeFragment())
+                view?.findNavController()?.navigate(R.id.action_depositFragment_to_navigation_home)
             }
         }
         builder.create().show()
@@ -118,7 +118,7 @@ class DepositFragment : Fragment() {
             viewModel.makeDeposit(money, MovementType.DEPOSIT, selfDeposit)
         }
         binding.backButton.setOnClickListener { view: View ->
-            backToHome()
+            view.findNavController().navigate(R.id.action_depositFragment_to_navigation_home)
         }
     }
 

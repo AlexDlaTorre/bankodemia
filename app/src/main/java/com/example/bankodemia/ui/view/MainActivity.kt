@@ -33,29 +33,6 @@ class MainActivity : AppCompatActivity(), FragmentCommunicator {
         setContentView(mBinding.root)
     }
 
-    override fun <T> sendData(data: T, destination: Fragment) {
-        val bundle = Bundle()
-        when (data) {
-            is AuthDTO -> {
-                bundle.putSerializable(TRANSACTIONDETAIL, data as AuthDTO)
-            }
-        }
-        val transaction = supportFragmentManager.beginTransaction()
-        destination.arguments = bundle
-
-        transaction.replace(R.id.nav_host_fragment_activity_main, destination)
-        transaction.addToBackStack(null)
-        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-        transaction.commit()
-    }
-
-    override fun goTo(destination: Fragment) {
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.nav_host_fragment_activity_main, destination)
-        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE)
-        transaction.commit()
-    }
-
     override fun showLoader(isVisible: Boolean) {
         if (isVisible) {
             mBinding.apply {

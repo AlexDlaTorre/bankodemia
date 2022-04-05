@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
+import com.example.bankodemia.R
 import com.example.bankodemia.core.utils.FragmentCommunicator
 import com.example.bankodemia.databinding.FragmentProcessingTransactionBinding
 import com.example.bankodemia.ui.home.HomeFragment
@@ -28,7 +30,7 @@ class ProcessingTransactionFragment : Fragment() {
 
     private fun setupEvents() {
         binding.buttonTransferDone.setOnClickListener { view : View ->
-            communicator.goTo(HomeFragment())
+            view.findNavController().navigate(R.id.action_processingTransactionFragment_to_navigation_home)
         }
     }
 

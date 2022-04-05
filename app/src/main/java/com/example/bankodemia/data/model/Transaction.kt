@@ -22,7 +22,7 @@ class Transaction {
         @SerializedName("created_at")
         val createdAt: String,
         val issuer: User.User,
-        val destinationUser: User.User,
+        val destinationUser: User.User?,
         val isIncome: Boolean?
     )
 

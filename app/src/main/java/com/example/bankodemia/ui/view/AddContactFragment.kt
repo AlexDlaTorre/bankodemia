@@ -7,7 +7,10 @@ import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
+import com.example.bankodemia.R
 import com.example.bankodemia.core.activateButton
+import com.example.bankodemia.core.hideKeyboard
 import com.example.bankodemia.core.showSnackBarMessage
 import com.example.bankodemia.core.types.FieldTypeEnum
 import com.example.bankodemia.core.utils.*
@@ -85,7 +88,11 @@ class AddContactFragment : Fragment(), Fields {
 
     private fun setEvents() {
         binding.addContactBtnBackToSend.setOnClickListener { view: View ->
-            communicator.goTo(SendFragment())
+            if (user != null ) {
+                view.findNavController().navigate(R.id.action_addContactFragment_to_searchUserFragment)
+            } else if (contact != null) {
+                view.findNavController().navigate(R.id.action_addContactFragment_to_sendFragment)
+            }
         }
 
         binding.addContactBtnAddContact.setOnClickListener { view: View ->
@@ -94,8 +101,11 @@ class AddContactFragment : Fragment(), Fields {
             if (cardId.isNullOrEmpty()) {
             } else {
                 addContactViewModel.updateContact(cardId, shortName)
-                communicator.goTo(ContactAddedFragment())
+                view.findNavController().navigate(R.id.action_addContactFragment_to_contactAddedFragment)
             }
+        }
+        binding.containerView.setOnClickListener {
+            hideKeyboard()
         }
     }
 

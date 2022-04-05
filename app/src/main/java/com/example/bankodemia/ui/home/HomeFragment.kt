@@ -20,8 +20,10 @@ import com.example.bankodemia.databinding.FragmentHomeBinding
 import com.example.bankodemia.domain.domainObjects.User.geUserProfile.UserProfileDTO
 import com.example.bankodemia.domain.domainObjects.Transaction.TransactionDTO
 import com.example.bankodemia.ui.view.HomeDetailFragment
+import com.example.bankodemia.ui.view.deposit.DepositFragment
 import com.example.bankodemia.ui.view.transaction.SendFragment
 import com.google.android.material.snackbar.Snackbar
+import java.io.Serializable
 
 class HomeFragment : Fragment(), AdapterItemSelected {
 
@@ -97,8 +99,9 @@ class HomeFragment : Fragment(), AdapterItemSelected {
     }
 
     override fun <T> itemSelected(item: T) {
-        val view = view?.let { it } ?: return
-        val bundle = bundleOf("TransactionDetail" to item as TransactionDTO)
-        view.findNavController().navigate(R.id.action_navigation_home_to_homeDetailFragment, bundle)
+        val bundle = Bundle().apply {
+            putSerializable(TRANSACTIONDETAIL, item as Serializable)
+        }
+        view?.findNavController()?.navigate(R.id.action_navigation_home_to_homeDetailFragment, bundle)
     }
 }

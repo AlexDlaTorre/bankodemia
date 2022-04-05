@@ -8,6 +8,7 @@ import com.example.bankodemia.core.types.getMovementType
 import com.example.bankodemia.core.zero
 import com.example.bankodemia.data.model.Transaction
 import com.example.bankodemia.data.model.User
+import com.example.bankodemia.domain.domainObjects.User.UserDTO
 import java.text.NumberFormat
 import java.time.LocalDate
 import java.time.ZonedDateTime
@@ -20,8 +21,8 @@ data class TransactionDTO(val response: Transaction.Transaction): java.io.Serial
     val type: MovementType
     val concept: String
     val createdAt: String
-    val issuer: User.User
-    val destinationUser: User.User
+    val issuer: UserDTO
+    val destinationUser: UserDTO?
     val isIncome: Boolean?
 
     val formattedAmount: String
@@ -63,8 +64,8 @@ data class TransactionDTO(val response: Transaction.Transaction): java.io.Serial
         type = response.type
         concept = response.concept
         createdAt = response.createdAt
-        issuer = response.issuer
-        destinationUser = response.issuer
+        issuer = UserDTO(response.issuer)
+        destinationUser = UserDTO(response.destinationUser)
         isIncome = response.isIncome
     }
 }

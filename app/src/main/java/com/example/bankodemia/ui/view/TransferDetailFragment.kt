@@ -76,7 +76,7 @@ class TransferDetailFragment : Fragment(), Fields {
     }
 
     private fun showSuccessView() {
-        communicator.goTo(ProcessingTransactionFragment())
+        view?.findNavController()?.navigate(R.id.action_transferDetailFragment_to_processingTransactionFragment)
     }
 
     private fun setupView() {
@@ -89,7 +89,7 @@ class TransferDetailFragment : Fragment(), Fields {
 
     private fun setupEvents() {
         binding.transferBtnBackToSend.setOnClickListener { view : View ->
-            communicator.goTo(SendFragment())
+            view.findNavController().navigate(R.id.action_transferDetailFragment_to_sendFragment)
         }
         binding.transferBtnMakeTransfer.setOnClickListener { view : View ->
             val activity = activity ?: return@setOnClickListener

@@ -1,6 +1,11 @@
 package com.example.bankodemia.data.model
 
+import android.annotation.SuppressLint
+import android.os.Parcel
+import android.os.Parcelable
+import com.example.bankodemia.core.empty
 import com.example.bankodemia.core.types.IdentityType
+import com.example.bankodemia.core.zero
 import com.google.gson.annotations.SerializedName
 
 class User {
@@ -36,7 +41,6 @@ class User {
     data class User(
         @SerializedName("_id")
         val id: String,
-        val phone: String,
         val lastName: String,
         val name: String,
         val email: String,

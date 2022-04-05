@@ -14,15 +14,18 @@ import com.example.bankodemia.core.showSnackBarMessage
 import com.example.bankodemia.core.twice
 import com.example.bankodemia.core.utils.BaseUiState
 import com.example.bankodemia.core.utils.FragmentCommunicator
+import com.example.bankodemia.core.utils.USERDATA
 import com.example.bankodemia.core.utils.general
 import com.example.bankodemia.databinding.FragmentSearchUserBinding
 import com.example.bankodemia.domain.domainObjects.User.UserDTO
 import com.example.bankodemia.domain.domainObjects.User.getUsers.UserGetResponseDTO
 import com.example.bankodemia.ui.home.AdapterItemSelected
+import com.example.bankodemia.ui.home.HomeFragment
 import com.example.bankodemia.ui.view.AddContactFragment
 import com.example.bankodemia.ui.view.transaction.SendFragment
 import com.example.bankodemia.ui.viewModel.SearchUserViewModel
 import com.google.android.material.snackbar.Snackbar
+import java.io.Serializable
 
 class SearchUserFragment : Fragment(), AdapterItemSelected {
 
@@ -83,7 +86,10 @@ class SearchUserFragment : Fragment(), AdapterItemSelected {
     }
 
     override fun <T> itemSelected(item: T) {
-        communicator.sendData(item, AddContactFragment())
+        val bundle = Bundle().apply {
+            putSerializable(USERDATA, item as Serializable)
+        }
+        view?.findNavController()?.navigate(R.id.action_searchUserFragment_to_addContactFragment, bundle)
     }
 
     private fun setupEvents() {
